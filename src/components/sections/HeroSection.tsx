@@ -30,9 +30,14 @@ export function HeroSection() {
           </p>
         </div>
         <div className="flex flex-col gap-3.5">
-          <button className="flex items-center gap-1 py-1.5 text-sm px-4 font-semibold bg-primary text-black rounded-xl mx-auto duration-300 hover:bg-primary/70">
+          <a
+            href="https://github.com/guhrodriguess/luxe"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 py-1.5 text-sm px-4 font-semibold bg-primary text-black rounded-xl mx-auto duration-300 hover:bg-primary/70"
+          >
             GitHub <MoveRightIcon size={10} />
-          </button>
+          </a>
           <span className="text-xs text-muted">
             Crafted with{" "}
             <a
