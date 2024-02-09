@@ -7,6 +7,12 @@ import {
   ButtonLoading,
 } from "@/components/ui/buttons";
 
+import {
+  BadgeAnimatedBorder,
+  BadgeRotateBorder,
+  BadgeBackgroundShine,
+} from "@/components/ui/badge";
+
 type UiProps = Array<{
   name: string;
   component: JSX.Element;
@@ -36,5 +42,17 @@ export const ui: UiProps = [
   {
     name: "Button Loading",
     component: <ButtonLoading />,
+  },
+  {
+    name: "Badge Animated Border",
+    component: <BadgeAnimatedBorder />,
+  },
+  {
+    name: "Badge Rotate Border",
+    component: <BadgeRotateBorder />,
+  },
+  {
+    name: "Badge Background Shine",
+    component: <BadgeBackgroundShine />,
   },
 ];
