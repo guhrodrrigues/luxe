@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .text-gradient {
+    @apply bg-gradient-to-b from-primary to-[#adadad] text-transparent bg-clip-text;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-2xl bg-neutral-600;
+  }
+
+  ::selection {
+    @apply bg-neutral-400/10;
+  }
+
+  button {
+    @apply select-none;
+  }
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
+}
