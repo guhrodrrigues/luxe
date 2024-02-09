@@ -11,7 +11,7 @@ import {
   BadgeAnimatedBorder,
   BadgeRotateBorder,
   BadgeBackgroundShine,
-} from "@/components/ui/badge";
+} from "@/components/ui/badges";
 
 type UiProps = Array<{
   name: string;
