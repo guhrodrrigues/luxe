@@ -13,6 +13,8 @@ import {
   BadgeBackgroundShine,
 } from "@/components/ui/badges";
 
+import { TextGradient, TextShine } from "@/components/ui/texts-gradients";
+
 type UiProps = Array<{
   name: string;
   component: JSX.Element;
@@ -32,16 +34,16 @@ export const ui: UiProps = [
     component: <ButtonBackgroundShine />,
   },
   {
+    name: "Button Loading",
+    component: <ButtonLoading />,
+  },
+  {
     name: "Button Success",
     component: <ButtonSuccess />,
   },
   {
     name: "Button Error",
     component: <ButtonError />,
-  },
-  {
-    name: "Button Loading",
-    component: <ButtonLoading />,
   },
   {
     name: "Badge Animated Border",
@@ -54,5 +56,13 @@ export const ui: UiProps = [
   {
     name: "Badge Background Shine",
     component: <BadgeBackgroundShine />,
+  },
+  {
+    name: "Text Gradient",
+    component: <TextGradient />,
+  },
+  {
+    name: "Text Shine",
+    component: <TextShine />,
   },
 ];
