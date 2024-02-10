@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     description:
       "Library of dark mode components to illuminate your applications with elegance and sophistication.",
     type: "website",
-    url: "https://guhrodrigues.com",
+    url: "https://luxe.guhrodrigues.com",
   },
   publisher: "Gustavo Rodrigues",
   twitter: {
@@ -79,6 +79,7 @@ export const metadata: Metadata = {
     description:
       "Library of dark mode components to illuminate your applications with elegance and sophistication.",
     site: "@guhrodrrigues",
+    creator: "Gustavo Rodrigues",
   },
 };
 
