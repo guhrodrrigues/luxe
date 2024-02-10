@@ -21,3 +21,7 @@ I would like to thank [UI Snippets](https://ui-snippets.dev) and [ui.ibelick](ht
 ### Future plans
 
 I was very excited to develop this project, it's a great satisfaction to be creating it, I intend to continue and add more and more components and make web development easier.
+
+### License
+
+© Gustavo Rodrigues – All rights reserved. Licensed under the [MIT LICENSE](https://github.com/guhrodriguess/luxe/blob/main/LICENSE).
