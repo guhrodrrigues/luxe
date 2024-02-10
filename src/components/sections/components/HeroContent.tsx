@@ -15,7 +15,7 @@ export function HeroContent() {
           href="https://github.com/guhrodriguess/luxe"
           target="_blank"
           rel="noopener noreferrer"
-          className="flex items-center gap-1 py-1.5 text-sm px-4 font-semibold bg-primary text-black rounded-xl mx-auto duration-300 hover:bg-primary/70"
+          className="flex items-center gap-1 text-sm py-2 px-4 font-semibold bg-primary text-black rounded-xl mx-auto duration-300 hover:bg-primary/70"
         >
           GitHub <MoveRightIcon size={10} />
         </a>
@@ -28,8 +28,8 @@ export function HeroContent() {
             className="text-foreground underline decoration-neutral-600 underline-offset-2 hover:decoration-neutral-500"
           >
             React
-          </a>{" "}
-          and{" "}
+          </a>
+          ,{" "}
           <a
             href="https://tailwindcss.com"
             target="_blank"
@@ -37,6 +37,15 @@ export function HeroContent() {
             className="text-foreground underline decoration-neutral-600 underline-offset-2 hover:decoration-neutral-500"
           >
             Tailwind CSS
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://framer.com/motion"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-foreground underline decoration-neutral-600 underline-offset-2 hover:decoration-neutral-500"
+          >
+            Framer Motion
           </a>
         </span>
       </div>

@@ -1,7 +1,10 @@
+// @NOTE: in case you are using Next.js
 "use client";
 
 import { useState } from "react";
+
 import { motion } from "framer-motion";
+
 import { cn } from "@/utils/cn";
 
 type Tab = {
@@ -10,7 +13,7 @@ type Tab = {
   content?: string | React.ReactNode | any;
 };
 
-export function Tabs({
+function Tabs({
   tabs: propTabs,
   containerClassName,
   activeTabClassName,
@@ -24,9 +27,9 @@ export function Tabs({
   const [active, setActive] = useState<Tab>(propTabs[0]);
   const [tabs, setTabs] = useState<Tab[]>(propTabs);
 
-  const moveSelectedTabToTop = (idx: number) => {
+  const moveSelectedTabToTop = (index: number) => {
     const newTabs = [...propTabs];
-    const selectedTab = newTabs.splice(idx, 1);
+    const selectedTab = newTabs.splice(index, 1);
     newTabs.unshift(selectedTab[0]);
     setTabs(newTabs);
     setActive(newTabs[0]);
@@ -41,11 +44,11 @@ export function Tabs({
         containerClassName
       )}
     >
-      {propTabs.map((tab, idx) => (
+      {propTabs.map((tab, index) => (
         <button
           key={tab.title}
           onClick={() => {
-            moveSelectedTabToTop(idx);
+            moveSelectedTabToTop(index);
           }}
           onMouseEnter={() => setHovering(true)}
           onMouseLeave={() => setHovering(false)}
@@ -68,6 +71,29 @@ export function Tabs({
           <span className="relative block text-neutral-300">{tab.title}</span>
         </button>
       ))}
+    </div>
+  );
+}
+
+export function AnimatedTabs() {
+  const tabs = [
+    {
+      title: "Product",
+      value: "product",
+    },
+    {
+      title: "Services",
+      value: "services",
+    },
+    {
+      title: "About",
+      value: "about",
+    },
+  ];
+
+  return (
+    <div className="relative flex flex-col max-w-5xl mx-auto w-full items-center justify-center">
+      <Tabs tabs={tabs} />
     </div>
   );
 }

@@ -1,16 +1,16 @@
 import Link from "next/link";
 
-import { ArrowRightIcon } from "lucide-react";
+import { MoveRightIcon } from "lucide-react";
 
-import { UI } from "@/data/ui";
+import { COMPONENTS } from "@/data/components";
 
 import { cn } from "@/utils/cn";
 
-export function UISection() {
+export function ComponentsSection() {
   return (
     <section className="mt-12">
       <div className="grid md:grid-cols-3 gap-6">
-        {UI.map(({ name, component, colSpan }) => (
+        {COMPONENTS.map(({ name, slug, component, colSpan }) => (
           <div
             key={name}
             className={cn(
@@ -18,18 +18,12 @@ export function UISection() {
               colSpan && `md:col-[span_3_/_span_3]`
             )}
           >
-            <div>
+            <div className="absolute top-4 left-5">
               <Link
-                href="/"
-                className="absolute top-4 left-5 duration-300 hover:text-secondary"
+                href={`/${slug}`}
+                className="flex items-center gap-1 duration-300 hover:gap-2 hover:text-primary"
               >
-                <span>{name}</span>
-              </Link>
-              <Link
-                href="/"
-                className="absolute top-4 right-5 duration-300 hover:text-secondary"
-              >
-                <ArrowRightIcon size={18} />
+                {name} <MoveRightIcon size={12} />
               </Link>
             </div>
 

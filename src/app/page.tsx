@@ -1,11 +1,11 @@
 import { HeroSection } from "@/components/sections/HeroSection";
-import { UISection } from "@/components/sections/UISection";
+import { ComponentsSection } from "@/components/sections/ComponentsSection";
 
 export default function Home() {
   return (
     <main className="my-20">
       <HeroSection />
-      <UISection />
+      <ComponentsSection />
     </main>
   );
 }
