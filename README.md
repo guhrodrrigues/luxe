@@ -16,7 +16,7 @@ Simply click on a component, copy the code and paste it into your project. This 
 
 My biggest inspiration for creating components comes from looking at [Vercel](https://vercel.com/home) websites, such as [Next.js](https://nextjs.org), which is fascinating when it comes to user experience.
 
-I would like to thank [UI Snippets](https://ui-snippets.dev) and [ui.ibelick](https://ui.ibelick.com) who were fundamental inspirations for the creation of this project.
+I would like to thank [ui.ibelick](https://ui.ibelick.com), who was a fundamental inspiration for the creation of this project.
 
 ### Future plans
 
