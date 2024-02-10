@@ -13,6 +13,16 @@ import { COMPONENTS } from "@/data/components";
 import { CodeBlock } from "@/components/component-page/CodeBlock";
 import { ComponentView } from "@/components/component-page/ComponentView";
 
+export async function generateStaticParams() {
+  const component = COMPONENTS.map((component) => ({
+    slug: component.slug,
+  }));
+
+  return component;
+}
+
+export const dynamicParams = false;
+
 export async function generateMetadata({
   params,
 }: {
