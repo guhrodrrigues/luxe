@@ -21,6 +21,8 @@ const config: Config = {
         flip: "flip 6s infinite steps(2, end)",
         rotate: "rotate 3s linear infinite both",
         shine: "shine 2s linear infinite",
+        "border-width": "border-width 3s infinite alternate",
+        "text-gradient": "text-gradient 1.5s linear infinite",
       },
       keyframes: {
         flip: {
@@ -39,6 +41,21 @@ const config: Config = {
           },
           to: {
             backgroundPosition: "-200% 0",
+          },
+        },
+        "border-width": {
+          from: {
+            width: "10px",
+            opacity: "0",
+          },
+          to: {
+            width: "100px",
+            opacity: "1",
+          },
+        },
+        "text-gradient": {
+          to: {
+            backgroundPosition: "200% center",
           },
         },
       },

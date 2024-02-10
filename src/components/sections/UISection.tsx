@@ -3,15 +3,19 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { ui } from "@/data/ui";
+import { cn } from "@/utils/cn";
 
 export function UISection() {
   return (
     <section className="mt-12">
       <div className="grid md:grid-cols-3 gap-6">
-        {ui.map(({ name, component }) => (
+        {ui.map(({ name, component, colSpan }) => (
           <div
             key={name}
-            className="relative flex justify-center items-center border border-border rounded-xl shadow-sm px-8 py-32"
+            className={cn(
+              "relative flex justify-center items-center border border-border rounded-xl shadow-sm px-8 py-32",
+              colSpan && `md:col-[span_3_/_span_3]`
+            )}
           >
             <div>
               <Link
