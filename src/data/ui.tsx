@@ -21,14 +21,16 @@ import {
 
 import { AnimatedTabs } from "@/components/ui/animated-tabs";
 
-type UiProps = Array<{
+import { DropdownMenu } from "@/components/ui/dropdown-menu";
+
+type UIProps = Array<{
   slug: string;
   name: string;
   component: JSX.Element;
   colSpan?: boolean;
 }>;
 
-export const ui: UiProps = [
+export const UI: UIProps = [
   {
     slug: "button-animated-border",
     name: "Button Animated Border",
@@ -93,6 +95,12 @@ export const ui: UiProps = [
     slug: "animated-tabs",
     name: "Animated Tabs",
     component: <AnimatedTabs />,
+    colSpan: true,
+  },
+  {
+    slug: "dropdown-menu",
+    name: "Dropdown Menu",
+    component: <DropdownMenu />,
     colSpan: true,
   },
 ];

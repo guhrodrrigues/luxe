@@ -1,15 +1,16 @@
 import Link from "next/link";
 
-import { ArrowRight } from "lucide-react";
+import { ArrowRightIcon } from "lucide-react";
 
-import { ui } from "@/data/ui";
+import { UI } from "@/data/ui";
+
 import { cn } from "@/utils/cn";
 
 export function UISection() {
   return (
     <section className="mt-12">
       <div className="grid md:grid-cols-3 gap-6">
-        {ui.map(({ name, component, colSpan }) => (
+        {UI.map(({ name, component, colSpan }) => (
           <div
             key={name}
             className={cn(
@@ -28,7 +29,7 @@ export function UISection() {
                 href="/"
                 className="absolute top-4 right-5 duration-300 hover:text-secondary"
               >
-                <ArrowRight size={16} />
+                <ArrowRightIcon size={18} />
               </Link>
             </div>
 
