@@ -1,14 +1,12 @@
-## Luxe
-
-Library of dark mode components to illuminate your applications with elegance and sophistication.
-
 <a href="https://luxe.guhrodrigues.com">
     <img src="./public/cover.png" />
 </a>
 
-### About
+### Luxe
 
-Explore Luxe, the new website that simplifies the creation of sophisticated dark mode components. With React, Tailwind CSS and Framer Motion, easily achieve an elegant and modern aesthetic in your digital projects.
+Explore the new website that simplifies the creation of sophisticated dark mode components. With React, Tailwind CSS and Framer Motion, easily achieve an elegant and modern aesthetic in your digital projects.
+
+[Website]("https://luxe.guhrodrigues.com")
 
 ### How to use?
 
