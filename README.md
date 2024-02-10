@@ -1,12 +1,12 @@
-<a href="https://luxe.guhrodrigues.com">
-    <img src="./public/cover.png" />
-</a>
+<img src="./public/cover.png" />
 
 ### Luxe
 
 Explore the new website that simplifies the creation of sophisticated dark mode components. With React, Tailwind CSS and Framer Motion, easily achieve an elegant and modern aesthetic in your digital projects.
 
-[Website]("https://luxe.guhrodrigues.com")
+<a href="https://luxe.guhrodrigues.com">
+  See the website
+</a>
 
 ### How to use?
 
