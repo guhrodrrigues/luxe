@@ -11,7 +11,7 @@ export function CodeBlock({ code, fileName }: CodeBlockProps) {
     <div className="p-4 relative rounded-lg bg-background border border-border">
       {fileName ? (
         <div className="absolute left-4 top-4">
-          <span className="text-sm text-gray-400">{fileName}</span>
+          <span className="text-sm text-foreground">{fileName}</span>
         </div>
       ) : null}
       <div className="absolute right-4 top-4 z-10">
