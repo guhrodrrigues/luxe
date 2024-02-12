@@ -17,6 +17,9 @@ import {
   TextGradient,
   TextShine,
   TextAnimatedGradient,
+  TextGlitch,
+  TextShake,
+  TextAnimatedDecoration,
 } from "@/components/ui/texts";
 
 import { AnimatedTabs } from "@/components/ui/tabs";
@@ -73,6 +76,20 @@ const TWCONFIG = {
         to: {
           backgroundPosition: "200% center",
         },
+      },
+    },
+  },
+  ["text-shake"]: {
+    animation: {
+      "text-shake": "text-shake 1s ease 1",
+    },
+    keyframes: {
+      "text-shake": {
+        "15%": { transform: "translateX(5px)" },
+        "30%": { transform: "translateX(-5px)" },
+        "50%": { transform: "translateX(3px)" },
+        "80%": { transform: "translateX(2px)" },
+        "100%": { transform: "translateX(0)" },
       },
     },
   },
@@ -138,6 +155,24 @@ export const COMPONENTS = [
     twConfig: TWCONFIG["shine"],
   },
   {
+    name: "Animated Tabs",
+    slug: "animated-tabs",
+    component: <AnimatedTabs />,
+    colSpan: true,
+    type: "tabs",
+    download: "npm i framer-motion clsx tailwind-merge",
+    cnFunction: true,
+  },
+  {
+    name: "Dropdown Menu",
+    slug: "dropdown-menu",
+    component: <DropdownMenu />,
+    colSpan: true,
+    type: "dropdown",
+    download: "npm i framer-motion clsx tailwind-merge",
+    cnFunction: true,
+  },
+  {
     name: "Text Gradient",
     slug: "text-gradient",
     component: <TextGradient />,
@@ -158,21 +193,22 @@ export const COMPONENTS = [
     twConfig: TWCONFIG["shine"],
   },
   {
-    name: "Animated Tabs",
-    slug: "animated-tabs",
-    component: <AnimatedTabs />,
-    colSpan: true,
-    type: "tabs",
-    download: "npm i framer-motion clsx tailwind-merge",
-    cnFunction: true,
+    name: "Text Glitch",
+    slug: "text-glitch",
+    component: <TextGlitch />,
+    type: "texts",
   },
   {
-    name: "Dropdown Menu",
-    slug: "dropdown-menu",
-    component: <DropdownMenu />,
-    colSpan: true,
-    type: "dropdown",
-    download: "npm i framer-motion clsx tailwind-merge",
-    cnFunction: true,
+    name: "Text Shake",
+    slug: "text-shake",
+    component: <TextShake />,
+    type: "texts",
+    twConfig: TWCONFIG["text-shake"],
+  },
+  {
+    name: "Text Animated Decoration",
+    slug: "text-animated-decoration",
+    component: <TextAnimatedDecoration />,
+    type: "texts",
   },
 ];

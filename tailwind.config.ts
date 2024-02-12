@@ -23,6 +23,7 @@ const config: Config = {
         shine: "shine 2s linear infinite",
         "border-width": "border-width 3s infinite alternate",
         "text-gradient": "text-gradient 1.5s linear infinite",
+        "text-shake": "text-shake 1s ease 1",
       },
       keyframes: {
         flip: {
@@ -57,6 +58,13 @@ const config: Config = {
           to: {
             backgroundPosition: "200% center",
           },
+        },
+        "text-shake": {
+          "15%": { transform: "translateX(5px)" },
+          "30%": { transform: "translateX(-5px)" },
+          "50%": { transform: "translateX(3px)" },
+          "80%": { transform: "translateX(2px)" },
+          "100%": { transform: "translateX(0)" },
         },
       },
     },
