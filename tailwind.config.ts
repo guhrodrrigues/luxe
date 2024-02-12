@@ -24,6 +24,9 @@ const config: Config = {
         "border-width": "border-width 3s infinite alternate",
         "text-gradient": "text-gradient 1.5s linear infinite",
         "text-shake": "text-shake 1s ease 1",
+        "text-glitch-to": "text-glitch-to 0.6s ease-in-out infinite",
+        "text-glitch-from": "text-glitch-from 0.6s ease-in-out infinite",
+        "text-scale": "text-scale 1s linear infinite forwards",
       },
       keyframes: {
         flip: {
@@ -65,6 +68,40 @@ const config: Config = {
           "50%": { transform: "translateX(3px)" },
           "80%": { transform: "translateX(2px)" },
           "100%": { transform: "translateX(0)" },
+        },
+        "text-glitch-to": {
+          from: {
+            transform: "translateY(0)",
+          },
+          to: {
+            transform: "translateY(-100%)",
+          },
+        },
+        "text-glitch-from": {
+          from: {
+            transform: "translateY(100%)",
+          },
+          to: {
+            transform: "translateY(0)",
+          },
+        },
+        "text-scale": {
+          "0%": {
+            transform: "scaleX(0)",
+            transformOrigin: "bottom left",
+          },
+          "25%": {
+            transform: "scaleX(1)",
+            transformOrigin: "bottom left",
+          },
+          "75%": {
+            transform: "scaleX(1)",
+            transformOrigin: "bottom right",
+          },
+          "100%": {
+            transform: "scaleX(0)",
+            transformOrigin: "bottom right",
+          },
         },
       },
     },

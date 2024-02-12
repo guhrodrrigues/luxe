@@ -13,18 +13,20 @@ import {
   BadgeBackgroundShine,
 } from "@/components/ui/badges";
 
+import { AnimatedTabs } from "@/components/ui/tabs";
+import { DropdownMenu } from "@/components/ui/dropdown";
+
 import {
   TextGradient,
   TextShine,
   TextAnimatedGradient,
-  TextGlitch,
-  TextShake,
-  TextAnimatedDecoration,
 } from "@/components/ui/texts";
 
-import { AnimatedTabs } from "@/components/ui/tabs";
-
-import { DropdownMenu } from "@/components/ui/dropdown";
+import {
+  TextAnimatedDecorationExample,
+  TextGlitchExample,
+  TextShakeExample,
+} from "@/components/ui/texts/examples";
 
 const TWCONFIG = {
   ["animated-border"]: {
@@ -195,20 +197,20 @@ export const COMPONENTS = [
   {
     name: "Text Glitch",
     slug: "text-glitch",
-    component: <TextGlitch />,
+    component: <TextGlitchExample />,
     type: "texts",
   },
   {
     name: "Text Shake",
     slug: "text-shake",
-    component: <TextShake />,
+    component: <TextShakeExample />,
     type: "texts",
     twConfig: TWCONFIG["text-shake"],
   },
   {
     name: "Text Animated Decoration",
     slug: "text-animated-decoration",
-    component: <TextAnimatedDecoration />,
+    component: <TextAnimatedDecorationExample />,
     type: "texts",
   },
 ];
