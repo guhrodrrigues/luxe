@@ -22,7 +22,7 @@ const config: Config = {
         rotate: "rotate 3s linear infinite both",
         shine: "shine 2s linear infinite",
         "border-width": "border-width 3s infinite alternate",
-        "text-gradient": "text-gradient 1.5s linear infinite",
+        "text-gradient": "text-gradient 2s linear infinite",
         "text-shake": "text-shake 1s ease 1",
         "text-glitch-to": "text-glitch-to 0.6s ease-in-out infinite",
         "text-glitch-from": "text-glitch-from 0.6s ease-in-out infinite",

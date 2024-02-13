@@ -1,6 +1,6 @@
 export function TextAnimatedGradient() {
   return (
-    <span className="inline-flex animate-text-gradient bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ffffff] bg-[200%_auto] bg-clip-text text-3xl text-transparent font-medium">
+    <span className="inline-flex animate-text-gradient bg-gradient-to-r from-[#ACACAC] via-[#363636] to-[#ACACAC] bg-[200%_auto] text-3xl text-transparent font-medium bg-clip-text">
       Text gradient
     </span>
   );
