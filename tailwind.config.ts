@@ -10,13 +10,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: colors.neutral[950],
+        background: {
+          DEFAULT: colors.neutral[950],
+          muted: "#0d0d0d",
+        },
         primary: colors.white,
         secondary: "#c2c2c2",
         foreground: "#b5b3ad",
         muted: colors.neutral[500],
         border: "#262626",
-        "components-list": "#080808",
       },
       animation: {
         flip: "flip 6s infinite steps(2, end)",

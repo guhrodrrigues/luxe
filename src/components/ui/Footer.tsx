@@ -4,7 +4,7 @@ import author from "@/assets/author.jpg";
 
 export function Footer() {
   return (
-    <footer className="flex justify-center items-center gap-3 py-8">
+    <footer className="xl:pl-[150px] flex justify-center items-center gap-3 py-8">
       <div>
         <Image src={author} alt="Gustavo" width={30} className="rounded-full" />
       </div>

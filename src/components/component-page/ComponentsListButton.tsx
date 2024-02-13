@@ -10,10 +10,7 @@ type ComponentsListButton = {
   name: string;
 };
 
-export default function ComponentsListButton({
-  name,
-  slug,
-}: ComponentsListButton) {
+export function ComponentsListButton({ name, slug }: ComponentsListButton) {
   const pathname = usePathname();
 
   const isActive = pathname === `/${slug}`;
@@ -23,8 +20,8 @@ export default function ComponentsListButton({
       <Link
         href={`/${slug}`}
         className={cn(
-          "text-sm hover:underline",
-          isActive && "text-white underline"
+          "text-sm hover:translate-x-1",
+          isActive ? " text-primary" : "duration-300 hover:text-neutral-300"
         )}
       >
         {name}
