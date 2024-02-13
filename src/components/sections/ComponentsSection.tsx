@@ -21,7 +21,7 @@ export function ComponentsSection() {
             <div className="absolute top-4 left-5">
               <Link
                 href={`/${slug}`}
-                className="flex items-center gap-1 duration-300 hover:gap-2 hover:text-primary"
+                className="flex select-none items-center gap-1 duration-300 hover:gap-2 hover:text-primary"
               >
                 {name} <MoveRightIcon size={12} />
               </Link>

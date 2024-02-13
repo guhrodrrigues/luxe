@@ -20,7 +20,7 @@ export function ComponentsListButton({ name, slug }: ComponentsListButton) {
       <Link
         href={`/${slug}`}
         className={cn(
-          "text-sm",
+          "text-sm select-none",
           isActive ? " text-primary" : "duration-300 hover:text-neutral-300"
         )}
       >
