@@ -16,6 +16,7 @@ const config: Config = {
         foreground: "#b5b3ad",
         muted: colors.neutral[500],
         border: "#262626",
+        "components-list": "#080808",
       },
       animation: {
         flip: "flip 6s infinite steps(2, end)",
