@@ -10,7 +10,7 @@ import author from "@/assets/author.jpg";
 export function Footer() {
   const pathname = usePathname();
 
-  const isOnHomeOrNotFoundPage = pathname === "/" || "/not-found";
+  const isOnHomeOrNotFoundPage = pathname === "/" || pathname === "/not-found";
 
   return (
     <footer
