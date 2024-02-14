@@ -15,8 +15,7 @@ export function Footer() {
   return (
     <footer
       className={cn(
-        "flex justify-center items-center gap-3 py-8 xl:ml-[250px]",
-        isOnHomeOrNotFoundPage && "xl:ml-0"
+        "flex justify-center items-center gap-3 py-8"
       )}
     >
       <div>
