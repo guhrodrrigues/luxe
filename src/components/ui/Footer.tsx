@@ -1,21 +1,22 @@
 "use client";
 
 import Image from "next/image";
+import { usePathname } from "next/navigation";
+
+import { cn } from "@/utils/cn";
 
 import author from "@/assets/author.jpg";
-import { usePathname } from "next/navigation";
-import { cn } from "@/utils/cn";
 
 export function Footer() {
   const pathname = usePathname();
 
-  const isOnHomePage = pathname === "/";
+  const isOnHomeOrNotFoundPage = pathname === "/" || "/not-found";
 
   return (
     <footer
       className={cn(
         "flex justify-center items-center gap-3 py-8 xl:ml-[250px]",
-        isOnHomePage && "xl:ml-0"
+        isOnHomeOrNotFoundPage && "xl:ml-0"
       )}
     >
       <div>
