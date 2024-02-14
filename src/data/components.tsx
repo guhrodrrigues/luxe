@@ -13,7 +13,7 @@ import {
   BadgeBackgroundShine,
 } from "@/components/ui/badges";
 
-import { CardSimple, CardComment } from "@/components/ui/cards";
+import { CardSimple, CardComment, CardIcon } from "@/components/ui/cards";
 
 import { AnimatedTabs } from "@/components/ui/tabs";
 import { DropdownMenu } from "@/components/ui/dropdown";
@@ -162,6 +162,12 @@ export const COMPONENTS = [
     name: "Card Simple",
     slug: "card-simple",
     component: <CardSimple />,
+    type: "cards",
+  },
+  {
+    name: "Card Icon",
+    slug: "card-icon",
+    component: <CardIcon />,
     type: "cards",
   },
   {
