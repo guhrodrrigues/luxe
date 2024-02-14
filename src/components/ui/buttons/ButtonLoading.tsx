@@ -2,7 +2,7 @@ export function ButtonLoading() {
   return (
     <button
       disabled
-      className="flex items-center gap-1.5 text-sm py-2 px-4 font-semibold bg-white text-black rounded-xl mx-auto duration-300 disabled:bg-white/70 disabled:cursor-not-allowed"
+      className="flex items-center gap-1.5 text-sm py-2 px-4 font-semibold bg-white text-black rounded-xl mx-auto duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
