@@ -13,6 +13,8 @@ import {
   BadgeBackgroundShine,
 } from "@/components/ui/badges";
 
+import { CardSimple, CardComment } from "@/components/ui/cards";
+
 import { AnimatedTabs } from "@/components/ui/tabs";
 import { DropdownMenu } from "@/components/ui/dropdown";
 
@@ -155,6 +157,18 @@ export const COMPONENTS = [
     component: <BadgeBackgroundShine />,
     type: "badges",
     twConfig: TWCONFIG["shine"],
+  },
+  {
+    name: "Card Simple",
+    slug: "card-simple",
+    component: <CardSimple />,
+    type: "cards",
+  },
+  {
+    name: "Card Comment",
+    slug: "card-comment",
+    component: <CardComment />,
+    type: "cards",
   },
   {
     name: "Animated Tabs",
