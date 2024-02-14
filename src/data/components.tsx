@@ -13,7 +13,12 @@ import {
   BadgeBackgroundShine,
 } from "@/components/ui/badges";
 
-import { CardSimple, CardComment, CardIcon } from "@/components/ui/cards";
+import {
+  CardAnimatedBorder,
+  CardBackgroundShine,
+  CardComment,
+  CardRevealedPointer,
+} from "@/components/ui/cards";
 
 import { AnimatedTabs } from "@/components/ui/tabs";
 import { DropdownMenu } from "@/components/ui/dropdown";
@@ -140,14 +145,14 @@ export const COMPONENTS = [
   },
   {
     name: "Badge Animated Border",
-    slug: "Badge-animated-border",
+    slug: "badge-animated-border",
     component: <BadgeAnimatedBorder />,
     type: "badges",
     twConfig: TWCONFIG["animated-border"],
   },
   {
     name: "Badge Rotate Border",
-    slug: "Badge-rotate-border",
+    slug: "badge-rotate-border",
     component: <BadgeRotateBorder />,
     type: "badges",
   },
@@ -159,22 +164,31 @@ export const COMPONENTS = [
     twConfig: TWCONFIG["shine"],
   },
   {
-    name: "Card Simple",
-    slug: "card-simple",
-    component: <CardSimple />,
+    name: "Card Animated Border",
+    slug: "card-animated-border",
+    component: <CardAnimatedBorder />,
+    type: "cards",
+    twConfig: TWCONFIG["animated-border"],
+  },
+  {
+    name: "Card Revealed Pointer",
+    slug: "card-revealed-pointer",
+    component: <CardRevealedPointer />,
     type: "cards",
   },
   {
-    name: "Card Icon",
-    slug: "card-icon",
-    component: <CardIcon />,
+    name: "Card Background Shine",
+    slug: "card-background-shine",
+    component: <CardBackgroundShine />,
     type: "cards",
+    twConfig: TWCONFIG["shine"],
   },
   {
     name: "Card Comment",
     slug: "card-comment",
     component: <CardComment />,
     type: "cards",
+    colSpan: true,
   },
   {
     name: "Animated Tabs",

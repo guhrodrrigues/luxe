@@ -13,19 +13,17 @@ type ComponentsListButton = {
 export function ComponentsListButton({ name, slug }: ComponentsListButton) {
   const pathname = usePathname();
 
-  const isActive = pathname === `/${slug}`;
+  const isActive = pathname === `/ui/${slug}`;
 
   return (
-    <li>
-      <Link
-        href={`/${slug}`}
-        className={cn(
-          "text-sm select-none",
-          isActive ? " text-primary" : "duration-300 hover:text-neutral-300"
-        )}
-      >
-        {name}
-      </Link>
-    </li>
+    <Link
+      href={`/ui/${slug}`}
+      className={cn(
+        "text-sm select-none py-0.5",
+        isActive ? " text-primary" : "duration-300 hover:text-neutral-300"
+      )}
+    >
+      {name}
+    </Link>
   );
 }

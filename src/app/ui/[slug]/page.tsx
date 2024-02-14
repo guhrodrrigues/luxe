@@ -43,7 +43,7 @@ export async function generateMetadata({
     openGraph: {
       title: name,
       type: "website",
-      url: `https://luxe.guhrodrigues.com/${slug}`,
+      url: `https://luxe.guhrodrigues.com/ui/${slug}`,
     },
     twitter: {
       title: name,
@@ -91,11 +91,11 @@ export default async function ComponentPage({
     <main className="my-20">
       <section className="space-y-6">
         <Link
-          href="/"
+          href="/ui"
           className="flex select-none items-center text-sm gap-1 text-secondary w-fit"
         >
           <MoveLeft size={14} />
-          Back to home
+          Back to all components
         </Link>
         <div className="space-y-7">
           <h1 className="text-3xl font-bold text-gradient">{component.name}</h1>

@@ -10,12 +10,13 @@ import author from "@/assets/author.jpg";
 export function Footer() {
   const pathname = usePathname();
 
-  const isOnHomeOrNotFoundPage = pathname === "/" || pathname === "/not-found";
+  const isUiPage = pathname.startsWith("/ui");
 
   return (
     <footer
       className={cn(
-        "flex justify-center items-center gap-3 py-8"
+        "flex justify-center items-center gap-3 py-8",
+        isUiPage && "xl:pl-[250px]"
       )}
     >
       <div>

@@ -19,6 +19,7 @@
     @apply bg-neutral-400/10;
   }
 
+  img,
   button {
     @apply select-none;
   }

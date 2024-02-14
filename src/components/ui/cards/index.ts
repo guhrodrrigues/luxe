@@ -1,3 +1,4 @@
-export * from "./CardSimple";
+export * from "./CardAnimatedBorder";
 export * from "./CardComment";
-export * from "./CardIcon";
+export * from "./CardRevealedPointer";
+export * from "./CardBackgroundShine";
