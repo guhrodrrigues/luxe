@@ -40,16 +40,18 @@ export function ComponentsList() {
         </Link>
       </div>
       <div className="h-px w-full bg-border my-5" />
-      <ul className="flex flex-col gap-2 max-h-[800px] overflow-y-auto">
-        <span className="text-primary font-medium text-sm">Components</span>
-        {componentsOrdered.map((component) => (
-          <ComponentsListButton
-            name={component.name}
-            slug={component.slug}
-            key={component.slug}
-          />
-        ))}
-      </ul>
+      <div className="h-full overflow-y-auto">
+        <ul className="flex flex-col gap-2 h-[800px]">
+          <span className="text-primary font-medium text-sm">Components</span>
+          {componentsOrdered.map((component) => (
+            <ComponentsListButton
+              name={component.name}
+              slug={component.slug}
+              key={component.slug}
+            />
+          ))}
+        </ul>
+      </div>
     </aside>
   );
 }
