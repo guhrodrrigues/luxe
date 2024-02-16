@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { MoveRightIcon } from "lucide-react";
+import { StarIcon } from "lucide-react";
 
 export function HeroContent() {
   return (
@@ -32,7 +32,8 @@ export function HeroContent() {
             rel="noopener noreferrer"
             className="flex items-center gap-1 text-sm py-2 px-4 font-semibold bg-primary text-black rounded-xl duration-300 hover:bg-primary/70"
           >
-            GitHub <MoveRightIcon size={10} />
+            <StarIcon size={14} />
+            <span>Star</span>
           </a>
         </div>
         <span className="text-xs text-muted">

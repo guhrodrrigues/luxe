@@ -24,7 +24,8 @@ export default function NotFoundPage() {
             href="/"
             className="flex items-center mt-1 gap-1 text-sm py-2 px-4 font-semibold bg-primary text-black rounded-xl mx-auto duration-300 hover:bg-primary/70"
           >
-            <MoveLeftIcon size={10} /> Back
+            <MoveLeftIcon size={10} />
+            <span>Back</span>
           </Link>
         </div>
       </section>
