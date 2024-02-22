@@ -3,7 +3,7 @@ import {
   ButtonRotateBorder,
   ButtonBackgroundShine,
   ButtonSuccess,
-  ButtonError,
+  ButtonDestructive,
   ButtonLoading,
 } from "@/components/ui/buttons";
 
@@ -138,9 +138,9 @@ export const COMPONENTS = [
     type: "buttons",
   },
   {
-    name: "Button Error",
-    slug: "button-error",
-    component: <ButtonError />,
+    name: "Button Destructive",
+    slug: "button-destructive",
+    component: <ButtonDestructive />,
     type: "buttons",
   },
   {
@@ -175,6 +175,7 @@ export const COMPONENTS = [
     slug: "card-revealed-pointer",
     component: <CardRevealedPointer />,
     type: "cards",
+    download: "npm i framer-motion",
   },
   {
     name: "Card Background Shine",
