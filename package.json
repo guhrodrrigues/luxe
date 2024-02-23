@@ -19,7 +19,8 @@
     "react": "^18",
     "react-dom": "^18",
     "shiki": "^0.14.2",
-    "tailwind-merge": "^2.2.1"
+    "tailwind-merge": "^2.2.1",
+    "tailwind-variants": "0.2.0"
   },
   "devDependencies": {
     "@commitlint/cli": "18.6.1",
