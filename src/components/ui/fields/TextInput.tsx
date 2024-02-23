@@ -15,24 +15,30 @@ const STANDARD_DURATION = 0.3
 
 const textInputStyles = tv({
   slots: {
-    baseStyle: `min-w-[200px] px-3 py-2 rounded-2xl border border-neutral-800 focus-within:border-[1.5px] 
-    focus-within:border-neutral-200 bg-neutral-900 transition-all duration-200 relative data-[filled=true]:border-neutral-200`,
-    inputStyle: `outline-none text-base text-neutral-300 bg-transparent relative z-[9999] placeholder:sr-only`,
-    placeholderStyle: `text-neutral-500 absolute left-3`,
-    feedbackErrorStyle: `flex items-center gap-1 text-sm text-red-300 mt-1`
+    baseStyle: `w-full h-[42px] px-3 flex items-center rounded-xl border border-neutral-800 focus-within:border-neutral-200 
+    bg-neutral-900 transition-all duration-200 relative data-[filled=true]:border-neutral-200`,
+    inputStyle: `flex-1 h-full py-2 outline-none text-sm text-neutral-300 bg-transparent relative z-[9999] placeholder:sr-only 
+    disabled:cursor-not-allowed`,
+    placeholderStyle: `text-sm text-neutral-500 absolute left-3`,
+    feedbackErrorStyle: `flex items-center gap-1 text-xs text-red-300 mt-1`
   },
   variants: {
     error: {
       true: {
-        baseStyle: 'border-red-300'
+        baseStyle: `border-red-300`
       }
     },
+    disabled: {
+      true: {
+        baseStyle: `bg-neutral-800 cursor-not-allowed`,
+      }
+    }
   }
 })
 
 const {
   baseStyle, 
-  inputStyle, 
+  inputStyle,
   placeholderStyle, 
   feedbackErrorStyle 
 } = textInputStyles()
@@ -41,6 +47,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(({
   placeholder,
   feedbackError = '',
   disabled,
+  value,
   ...props
 }, ref) => {
   const [isFocus, setIsFocus] = useState(false)
@@ -54,10 +61,10 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(({
     setInternalValue(event.target.value)
   }
 
-  const isFilled = internalValue.length > 0
+  const isFilled = internalValue.length > 0 || !!value
   const isFocusOrFilled = isFocus || isFilled
 
-  const isError = feedbackError.length > 0
+  const isError = feedbackError.length > 0 && !disabled
 
   const placeholderAnimation: AnimationProps['animate'] = isFocusOrFilled ? {
     x: EIXO_X_PLACEHOLDER,
@@ -68,9 +75,9 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(({
   }
 
   return (
-    <div>
+    <div className="min-w-[300px]">
       <div
-        className={baseStyle({ error: isError })}
+        className={baseStyle({ error: isError, disabled })}
         data-filled={isFilled}
       >
         <input
@@ -82,6 +89,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(({
           onBlur={() => handle('blur')}
           onChange={observeFieldChange}
           disabled={disabled}
+          value={value}
           {...props}
         />
 
@@ -100,24 +108,22 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(({
         </motion.span>
       </div>
 
-      <motion.span
+      {isError && <motion.span
         className={feedbackErrorStyle()}
         initial={{
           opacity: 0,
         }}
-        animate={
-          isError ? {
-          opacity: 1,
-        } : {
-          opacity: 0
-        }}
+        animate={{ 
+          opacity: 1
+        }} 
         transition={{
           duration: STANDARD_DURATION
         }}
       >
-        <AlertCircle size={14} />
+        <AlertCircle size={12} />
         {feedbackError}
-      </motion.span>
+      </motion.span>}
+      
     </div>
   )
 })
