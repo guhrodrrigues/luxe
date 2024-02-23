@@ -29,6 +29,8 @@ import {
   TextAnimatedGradient,
 } from "@/components/ui/texts";
 
+import { TextInput } from '@/components/ui/fields/TextInput'
+
 import {
   TextAnimatedDecorationExample,
   TextGlitchExample,
@@ -208,6 +210,14 @@ export const COMPONENTS = [
     type: "dropdown",
     download: "npm i framer-motion clsx tailwind-merge",
     cnFunction: true,
+  },
+  {
+    name: 'Text Input',
+    slug: "text-input",
+    component: <TextInput placeholder="Placeholder" />,
+    colSpan: true,
+    type: "fields",
+    download: "npm i framer-motion tailwind-variants",
   },
   {
     name: "Text Gradient",
