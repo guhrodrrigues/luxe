@@ -29,7 +29,7 @@ import {
   TextAnimatedGradient,
 } from "@/components/ui/texts";
 
-import { TextInput } from '@/components/ui/fields/TextInput'
+import { InputFocusBlur } from "@/components/ui/inputs/InputFocusBlur";
 
 import {
   TextAnimatedDecorationExample,
@@ -212,11 +212,11 @@ export const COMPONENTS = [
     cnFunction: true,
   },
   {
-    name: 'Text Input',
-    slug: "text-input",
-    component: <TextInput placeholder="Placeholder" />,
+    name: "Input Focus Blur",
+    slug: "input-focus-blur",
+    component: <InputFocusBlur placeholder="Placeholder" />,
     colSpan: true,
-    type: "fields",
+    type: "inputs",
     download: "npm i framer-motion tailwind-variants",
   },
   {
