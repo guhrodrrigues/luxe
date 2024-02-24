@@ -28,3 +28,7 @@
 body {
   -webkit-tap-highlight-color: transparent;
 }
+
+.shiki {
+  background-color: transparent !important;
+}

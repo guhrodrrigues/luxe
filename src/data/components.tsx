@@ -217,7 +217,7 @@ export const COMPONENTS = [
     component: <InputFocusBlur placeholder="Placeholder" />,
     colSpan: true,
     type: "inputs",
-    download: "npm i framer-motion tailwind-variants",
+    download: "npm i framer-motion tailwind-variants lucide-react",
   },
   {
     name: "Text Gradient",
