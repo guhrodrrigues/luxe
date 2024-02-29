@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function UiPage() {
   return (
-    <main className="my-24 space-y-12">
+    <main className="my-2 xl:my-24 space-y-12">
       <section className="flex flex-col gap-6">
         <Link
           href="/"

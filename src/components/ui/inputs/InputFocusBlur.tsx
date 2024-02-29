@@ -71,7 +71,7 @@ export const InputFocusBlur = forwardRef<HTMLInputElement, InputFocusBlurProps>(
         };
 
     return (
-      <div className="min-w-[300px]">
+      <div className="w-full max-w-[300px]">
         <div
           className={baseStyle({ error: isError, disabled })}
           data-filled={isFilled}

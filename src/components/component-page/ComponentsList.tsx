@@ -25,14 +25,14 @@ export function ComponentsList() {
   );
 
   return (
-    <aside className="fixed bottom-0 top-0 w-[250px] hidden xl:block h-full">
-      <div className="flex flex-col gap-6 px-6">
-        <Link href="/" className="flex w-fit mt-10 select-none">
+    <aside className="max-xl:relative fixed bottom-0 top-0 xl:w-[250px] h-full max-xl:py-12">
+      <div className="max-xl:items-center max-xl:justify-between flex xl:flex-col gap-6 xl:px-6">
+        <Link href="/" className="flex w-fit xl:mt-10 select-none">
           <h1 className="text-2xl font-bold text-gradient">Luxe</h1>
         </Link>
         <button
           onClick={() => setShowCommandMenu(true)}
-          className="bg-background-muted flex items-center justify-between gap-2 px-3 py-2 w-full rounded-lg border text-sm border-border duration-300 hover:bg-neutral-900"
+          className="bg-background-muted flex items-center justify-between gap-2 px-3 py-2 rounded-lg border text-sm border-border duration-300 hover:bg-neutral-900"
         >
           <span className="flex items-center gap-2 text-neutral-500">
             <SearchIcon size={12} />
@@ -44,7 +44,7 @@ export function ComponentsList() {
         </button>
       </div>
       <nav
-        className="overflow-y-auto h-full pt-8"
+        className="overflow-y-auto h-full pt-8 max-xl:hidden"
         style={{
           maskImage:
             "linear-gradient(#0d0d0d,#0d0d0d,transparent 0,#0d0d0d 40px,#0d0d0d calc(100% - 200px),transparent)",
