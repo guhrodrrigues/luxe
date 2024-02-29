@@ -14,7 +14,7 @@ export function Footer() {
       <p className="text-sm leading-loose text-center md:text-left">
         Made by{" "}
         <a
-          href="https://guhrodrigues.com"
+          href="https://github.com/guhrodriguess"
           target="_blank"
           rel="noopener noreferrer"
           className="font-medium underline decoration-decoration underline-offset-4"
