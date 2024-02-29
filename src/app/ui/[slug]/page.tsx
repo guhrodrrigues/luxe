@@ -88,7 +88,7 @@ export default async function ComponentPage({
   const twConfig = JSON.stringify(component.twConfig, null, 2);
 
   return (
-    <main className="my-20">
+    <main className="my-24">
       <section className="space-y-6">
         <Link
           href="/ui"

@@ -10,7 +10,7 @@ export function Footer() {
   const isUiPage = pathname.startsWith("/ui");
 
   return (
-    <footer className={cn("py-10", isUiPage && "xl:pl-[250px]")}>
+    <footer className={cn("py-10", isUiPage && "xl:pl-[300px]")}>
       <div className="flex justify-center">
         <span className="text-sm">
           Made by{" "}

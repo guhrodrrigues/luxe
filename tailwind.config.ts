@@ -112,6 +112,6 @@ const config: Config = {
       sans: "var(--font-geist-sans)",
     },
   },
-  plugins: [],
+  plugins: [require("tailwindcss-animate")],
 };
 export default config;
