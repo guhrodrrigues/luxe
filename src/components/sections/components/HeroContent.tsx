@@ -2,7 +2,21 @@ import Link from "next/link";
 
 import { StarIcon } from "lucide-react";
 
-export function HeroContent() {
+async function getRepoStarCount() {
+  const res = await fetch("https://api.github.com/repos/guhrodriguess/luxe");
+  const data = await res.json();
+  const starCount = data.stargazers_count;
+
+  if (starCount > 999) {
+    return (starCount / 1000).toFixed(1) + "K";
+  }
+
+  return starCount;
+}
+
+export async function HeroContent() {
+  const starCount = await getRepoStarCount();
+
   return (
     <div className="space-y-4 text-center">
       <div className="space-y-3">
@@ -33,7 +47,7 @@ export function HeroContent() {
             className="flex items-center gap-1 text-sm py-2 px-4 font-semibold bg-primary text-black rounded-xl duration-300 hover:bg-primary/70"
           >
             <StarIcon size={14} />
-            <span>Star</span>
+            <span>{starCount}</span>
           </a>
         </div>
         <span className="text-xs text-muted">
