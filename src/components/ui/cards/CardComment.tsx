@@ -20,9 +20,14 @@ export function CardComment() {
           className="rounded-full object-cover"
         />
         <div className="flex flex-col">
-          <h1 className="text-base font-medium text-neutral-300 leading-none duration-300">
+          <a
+            href="https://github.com/guhrodriguess"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-base font-medium text-neutral-300 leading-none duration-300"
+          >
             Gustavo Rodrigues
-          </h1>
+          </a>
           <span className="text-neutral-400">Creator of Luxe</span>
         </div>
       </div>
