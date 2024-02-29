@@ -11,26 +11,16 @@ export function Footer() {
 
   return (
     <footer className={cn("py-10", isUiPage && "xl:pl-[300px]")}>
-      <p className="text-sm leading-loose text-center md:text-left">
+      <p className="text-sm leading-loose text-center">
         Made by{" "}
         <a
           href="https://github.com/guhrodriguess"
           target="_blank"
           rel="noopener noreferrer"
-          className="font-medium underline decoration-decoration underline-offset-4"
+          className="text-secondary hover:underline hover:underline-offset-2"
         >
-          Gustavo Rodrigues
+          Gustavo Rodrigues.
         </a>
-        . The source code is available on{" "}
-        <a
-          href="https://github.com/guhrodriguess/luxe"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="font-medium underline decoration-decoration underline-offset-4"
-        >
-          GitHub
-        </a>
-        .
       </p>
     </footer>
   );
