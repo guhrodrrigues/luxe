@@ -2,8 +2,6 @@ import type { Metadata } from "next";
 
 import { GeistSans } from "geist/font/sans";
 
-import { Analytics } from "@vercel/analytics/react";
-
 import "@/styles/globals.css";
 
 import { cn } from "@/utils/cn";
@@ -102,7 +100,6 @@ export default function RootLayout({
           {children}
           <Footer />
         </div>
-        <Analytics />
       </body>
     </html>
   );
