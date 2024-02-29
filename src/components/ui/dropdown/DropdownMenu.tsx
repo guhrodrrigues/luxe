@@ -48,6 +48,14 @@ export function DropdownMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const scope = useMenuAnimation(isOpen);
 
+  const items = [
+    { name: "Product" },
+    { name: "Services" },
+    { name: "About" },
+    { name: "FAQ" },
+    { name: "Contact" },
+  ];
+
   return (
     <nav className="max-w-[300px] w-full mx-auto space-y-2" ref={scope}>
       <motion.button
@@ -76,11 +84,11 @@ export function DropdownMenu() {
           clipPath: "inset(10% 50% 90% 50% round 10px)",
         }}
       >
-        <li className="text-neutral-300">Product</li>
-        <li className="text-neutral-300">Services</li>
-        <li className="text-neutral-300">About</li>
-        <li className="text-neutral-300">FAQ</li>
-        <li className="text-neutral-300">Contact</li>
+        {items.map(({ name }) => (
+          <li key={name} className="text-neutral-300">
+            {name}
+          </li>
+        ))}
       </ul>
     </nav>
   );
