@@ -33,7 +33,7 @@ export function CopyCode({ code }: CopyCode) {
           initial={{ opacity: 0, scale: 0, filter: "blur(5px)" }}
           animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           exit={{ opacity: 0, scale: 0, filter: "blur(5px)" }}
-          transition={{ duration: 0.3 }}
+          transition={{ duration: 0.4 }}
         >
           {copied ? (
             <CheckIcon size={14} className="text-emerald-500" />
