@@ -45,7 +45,7 @@ export function CommandMenu() {
 
   const forwardToRoute = useCallback(
     (route: string) => {
-      router.replace(route);
+      router.replace(`/ui/${route}`);
       setShowCommandMenu(false);
     },
     [router, setShowCommandMenu]
@@ -78,7 +78,7 @@ export function CommandMenu() {
         {
           name: "Button Animated Border",
           icon: <PaletteIcon />,
-          onSelect: () => forwardToRoute("/ui/button-animated-border"),
+          onSelect: () => forwardToRoute("button-animated-border"),
         },
         {
           name: "Button Background Shine",
