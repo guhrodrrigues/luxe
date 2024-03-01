@@ -10,11 +10,10 @@ import { cn } from "@/utils/cn";
 type Tab = {
   title: string;
   value: string;
-  content?: string | React.ReactNode | any;
 };
 
 function Tabs({
-  tabs: propTabs,
+  tabs,
   containerClassName,
   activeTabClassName,
   tabClassName,
@@ -24,18 +23,7 @@ function Tabs({
   activeTabClassName?: string;
   tabClassName?: string;
 }) {
-  const [active, setActive] = useState<Tab>(propTabs[0]);
-  const [tabs, setTabs] = useState<Tab[]>(propTabs);
-
-  const moveSelectedTabToTop = (index: number) => {
-    const newTabs = [...propTabs];
-    const selectedTab = newTabs.splice(index, 1);
-    newTabs.unshift(selectedTab[0]);
-    setTabs(newTabs);
-    setActive(newTabs[0]);
-  };
-
-  const [hovering, setHovering] = useState(false);
+  const [activeIdx, setActiveIdx] = useState<number>(0);
 
   return (
     <div
@@ -44,20 +32,20 @@ function Tabs({
         containerClassName
       )}
     >
-      {propTabs.map((tab, index) => (
+      {tabs.map((tab, index) => (
         <button
           key={tab.title}
-          onClick={() => {
-            moveSelectedTabToTop(index);
-          }}
-          onMouseEnter={() => setHovering(true)}
-          onMouseLeave={() => setHovering(false)}
-          className={cn("relative px-4 py-2 rounded-full", tabClassName)}
+          onClick={() => setActiveIdx(index)}
+          className={cn(
+            "relative px-4 py-2 rounded-full z-[1]",
+            { "z-0": activeIdx === index},
+            tabClassName
+          )}
           style={{
             transformStyle: "preserve-3d",
           }}
         >
-          {active.value === tab.value && (
+          {activeIdx === index && (
             <motion.div
               layoutId="clickedbutton"
               transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
