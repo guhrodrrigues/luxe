@@ -35,11 +35,7 @@ export function CopyCode({ code }: CopyCode) {
           exit={{ opacity: 0, scale: 0, filter: "blur(5px)" }}
           transition={{ duration: 0.4 }}
         >
-          {copied ? (
-            <CheckIcon size={14} className="text-emerald-500" />
-          ) : (
-            <CopyIcon size={14} />
-          )}
+          {copied ? <CheckIcon size={14} /> : <CopyIcon size={14} />}
         </motion.span>
       </AnimatePresence>
     </button>
