@@ -17,7 +17,7 @@ export function Footer() {
           href="https://github.com/guhrodriguess"
           target="_blank"
           rel="noopener noreferrer"
-          className="font-medium hover:underline hover:underline-offset-2"
+          className="text-secondary hover:underline"
           style={{ textUnderlinePosition: "from-font" }}
         >
           Gustavo Rodrigues.
