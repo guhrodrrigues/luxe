@@ -1,4 +1,5 @@
-https://github.com/guhrodriguess/luxe/assets/79873612/31fff5f8-5840-44c8-8e19-094a419c18fc
+https://github.com/guhrodriguess/luxe/assets/79873612/044ff83a-3782-411a-9010-4b59488e7a52
+
 
 ### Luxe
 
