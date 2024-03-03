@@ -17,16 +17,16 @@ export function Slider({ children, pauseOnHover, className }: SliderProps) {
         "group relative flex gap-10 overflow-hidden max-w-xl",
         className
       )}
-      data-testid="slider"
+      data-id="slider"
     >
-      {createArray(0, 2).map((i) => (
+      {createArray(0, 12).map((i) => (
         <div
           key={i}
           className={cn(
             "flex shrink-0 animate-slide justify-around gap-10 [--gap:1rem]",
             pauseOnHover && "group-hover:paused"
           )}
-          data-testid={`slider-child-${i + 1}`}
+          data-id={`slider-child-${i + 1}`}
         >
           {children}
         </div>
