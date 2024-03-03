@@ -52,7 +52,7 @@ export const metadata: Metadata = {
       {
         width: 1920,
         height: 1080,
-        url: "https://i.imgur.com/5RUiyVn.png",
+        url: "https://i.imgur.com/1PB7OL8.png",
         alt: "Luxe website cover",
       },
     ],
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
       {
         width: 1920,
         height: 1080,
-        url: "https://i.imgur.com/5RUiyVn.png",
+        url: "https://i.imgur.com/1PB7OL8.png",
         alt: "Luxe website cover",
       },
     ],
