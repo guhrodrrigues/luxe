@@ -48,35 +48,6 @@ export async function HeroContent() {
             <span>{starCount}</span>
           </a>
         </div>
-        <span className="text-xs text-muted">
-          Crafted with{" "}
-          <a
-            href="https://react.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-foreground underline decoration-neutral-600 underline-offset-2 hover:decoration-neutral-500"
-          >
-            React
-          </a>
-          ,{" "}
-          <a
-            href="https://tailwindcss.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-foreground underline decoration-neutral-600 underline-offset-2 hover:decoration-neutral-500"
-          >
-            Tailwind CSS
-          </a>{" "}
-          and{" "}
-          <a
-            href="https://framer.com/motion"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-foreground underline decoration-neutral-600 underline-offset-2 hover:decoration-neutral-500"
-          >
-            Framer Motion
-          </a>
-        </span>
       </div>
     </div>
   );

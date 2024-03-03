@@ -7,7 +7,7 @@ import { CommandIcon, SearchIcon } from "lucide-react";
 
 import { COMPONENTS } from "@/data/components";
 
-import { useProvider } from "@/app/ui/_context/CommandMenuProvider";
+import { useProvider } from "../../_context/CommandMenuProvider";
 
 import { cn } from "@/utils/cn";
 

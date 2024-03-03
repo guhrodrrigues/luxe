@@ -10,8 +10,8 @@ import { MoveLeft } from "lucide-react";
 
 import { COMPONENTS } from "@/data/components";
 
-import { CodeBlock } from "@/components/component-page/CodeBlock";
-import { ComponentView } from "@/components/component-page/ComponentView";
+import { CodeBlock } from "../_components/component-page/CodeBlock";
+import { ComponentView } from "../_components/component-page/ComponentView";
 
 export async function generateStaticParams() {
   const component = COMPONENTS.map((component) => ({
@@ -76,7 +76,7 @@ export default async function ComponentPage({
     notFound();
   }
 
-  const filePath = `./src/components/ui/${
+  const filePath = `./src/app/_components/ui/${
     component.type
   }/${component.name.replace(/\s+/g, "")}.tsx`;
 

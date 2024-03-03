@@ -30,6 +30,11 @@ const config: Config = {
         "text-glitch-to": "text-glitch-to 0.6s ease-in-out infinite",
         "text-glitch-from": "text-glitch-from 0.6s ease-in-out infinite",
         "text-scale": "text-scale 1s linear infinite forwards",
+        slide: "slide 40s linear infinite",
+      },
+      backgroundImage: {
+        "fade-gradient":
+          "linear-gradient(90deg, #0a0a0a, transparent 20%, transparent 80%, #0a0a0a)",
       },
       keyframes: {
         flip: {
@@ -106,6 +111,10 @@ const config: Config = {
             transformOrigin: "bottom right",
           },
         },
+        slide: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(calc(-100% - var(--gap)))" },
+        },
       },
     },
     fontFamily: {
@@ -114,4 +123,5 @@ const config: Config = {
   },
   plugins: [require("tailwindcss-animate")],
 };
+
 export default config;

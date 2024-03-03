@@ -6,7 +6,7 @@ import { PaletteIcon } from "lucide-react";
 
 import { useRouter } from "next/navigation";
 
-import { useProvider } from "@/app/ui/_context/CommandMenuProvider";
+import { useProvider } from "../../_context/CommandMenuProvider";
 
 import {
   CommandDialog,
@@ -15,7 +15,7 @@ import {
   CommandInput,
   CommandItem,
   CommandList,
-} from "./components/CommandMenuComponents";
+} from "./CommandMenuComponents";
 
 type Groups = Array<{
   heading: string;

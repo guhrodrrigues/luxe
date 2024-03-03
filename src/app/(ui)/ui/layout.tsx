@@ -1,5 +1,5 @@
-import { ComponentsList } from "@/components/component-page/ComponentsList";
-import { CommandMenu } from "@/components/command-menu";
+import { ComponentsList } from "./_components/component-page/ComponentsList";
+import { CommandMenu } from "./_components/command-menu";
 import { CommandMenuProvider } from "./_context/CommandMenuProvider";
 
 type ComponentPageLayout = {

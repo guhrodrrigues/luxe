@@ -7,7 +7,7 @@ import { cn } from "@/utils/cn";
 
 import { COMPONENTS } from "@/data/components";
 
-import { ComponentView } from "@/components/component-page/ComponentView";
+import { ComponentView } from "./_components/component-page/ComponentView";
 
 export const metadata: Metadata = {
   title: "Browse Components",

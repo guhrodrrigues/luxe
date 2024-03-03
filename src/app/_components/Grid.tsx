@@ -1,4 +1,4 @@
-export function HeroGrid() {
+export function Grid() {
   const totalBoxes = Array.from(
     {
       length: 15,

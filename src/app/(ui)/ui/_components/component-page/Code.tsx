@@ -5,7 +5,7 @@ type CodeProps = {
 };
 
 async function Code({ code }: CodeProps) {
-  const component = await highlight(code, "min-dark", "tsx");
+  const component = await highlight(code, "vesper", "tsx");
 
   return <div dangerouslySetInnerHTML={{ __html: component }}></div>;
 }
