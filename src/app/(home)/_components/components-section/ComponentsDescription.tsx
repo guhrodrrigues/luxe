@@ -1,6 +1,6 @@
 export function ComponentsDescription() {
   return (
-    <div className="text-center space-y-4 max-w-md mx-auto">
+    <div className="text-center space-y-4 max-w-md mx-auto px-3">
       <h1 className="text-primary/80 font-medium text-4xl">
         Elevate your project with{" "}
         <span className="text-primary">one-click integration</span>
