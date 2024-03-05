@@ -5,22 +5,32 @@ import { useState, useEffect } from "react";
 
 import { useAnimate, stagger, motion } from "framer-motion";
 
-import { cn } from "@/utils/cn";
+import {
+  CogIcon,
+  FileTextIcon,
+  MailIcon,
+  HelpCircleIcon,
+  UserCircleIcon,
+  ChevronDownIcon,
+  ChevronRightIcon,
+} from "lucide-react";
 
-const staggerMenuItems = stagger(0.1, { startDelay: 0.15 });
+import { cn } from "@/utils/cn";
 
 function useMenuAnimation(isOpen: boolean) {
   const [scope, animate] = useAnimate();
 
+  const staggerMenuItems = stagger(0.1, { startDelay: 0.15 });
+
   useEffect(() => {
-    animate("svg", { rotate: isOpen ? 180 : 0 }, { duration: 0.2 });
+    animate("#menu-icon", { rotate: isOpen ? 180 : 0 }, { duration: 0.2 });
 
     animate(
       "ul",
       {
         clipPath: isOpen
-          ? "inset(0% 0% 0% 0% round 10px)"
-          : "inset(10% 50% 90% 50% round 10px)",
+          ? "inset(0% 0% 0% 0% round 12px)"
+          : "inset(10% 50% 90% 50% round 12px)",
       },
       {
         type: "spring",
@@ -39,7 +49,7 @@ function useMenuAnimation(isOpen: boolean) {
         delay: isOpen ? staggerMenuItems : 0,
       }
     );
-  }, [isOpen, animate]);
+  }, [isOpen, animate, staggerMenuItems]);
 
   return scope;
 }
@@ -49,44 +59,53 @@ export function DropdownMenu() {
   const scope = useMenuAnimation(isOpen);
 
   const items = [
-    { name: "Product" },
-    { name: "Services" },
-    { name: "About" },
-    { name: "FAQ" },
-    { name: "Contact" },
+    { icon: <FileTextIcon size={16} />, name: "Documentation" },
+    { icon: <CogIcon size={16} />, name: "Services" },
+    { icon: <UserCircleIcon size={16} />, name: "About" },
+    { icon: <HelpCircleIcon size={16} />, name: "FAQ" },
+    { icon: <MailIcon size={16} />, name: "Contact" },
   ];
 
   return (
-    <nav className="max-w-[300px] w-full mx-auto space-y-2" ref={scope}>
+    <nav className="max-w-[200px] w-full mx-auto space-y-2" ref={scope}>
       <motion.button
         whileTap={{ scale: 0.97 }}
+        className="bg-neutral-900 border border-neutral-800 max-w-[300px] w-full flex items-center justify-between p-2.5 rounded-xl"
         onClick={() => setIsOpen((prevState) => !prevState)}
-        className="bg-neutral-900 text-neutral-300 max-w-[300px] w-full flex items-center justify-between p-2.5 rounded-xl"
       >
-        Menu
+        <span className="text-sm font-medium text-neutral-300">Menu</span>
         <div style={{ transformOrigin: "50% 55%" }}>
-          <svg
-            width="12"
-            height="12"
-            viewBox="0 0 20 20"
-            className="fill-neutral-400"
-          >
-            <path d="M0 7 L 20 7 L 10 16" />
-          </svg>
+          <ChevronDownIcon
+            size={14}
+            className="text-neutral-400"
+            id="menu-icon"
+          />
         </div>
       </motion.button>
       <ul
         className={cn(
-          "space-y-2.5 p-2.5 bg-neutral-900",
+          "space-y-2.5 p-2.5 bg-neutral-900 border border-neutral-800 rounded-xl",
           isOpen ? "pointer-events-auto" : "pointer-events-none"
         )}
         style={{
-          clipPath: "inset(10% 50% 90% 50% round 10px)",
+          clipPath: "inset(10% 50% 90% 50% round 12px)",
         }}
       >
-        {items.map(({ name }) => (
-          <li key={name} className="text-neutral-300">
-            {name}
+        {items.map(({ icon, name }) => (
+          <li key={name}>
+            <a
+              href="" // Where you will be sent
+              className="group flex items-center gap-2 rounded-md border border-transparent text-neutral-400 hover:text-neutral-300 focus-visible:text-neutral-300 focus-visible:border-neutral-800 focus-visible:outline-none"
+            >
+              <span>{icon}</span>
+              <span className="flex items-center gap-1 text-sm font-medium">
+                {name}
+                <ChevronRightIcon
+                  size={12}
+                  className="-translate-x-1 scale-0 opacity-0 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-x-0 transition-all"
+                />
+              </span>
+            </a>
           </li>
         ))}
       </ul>

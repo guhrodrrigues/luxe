@@ -208,7 +208,7 @@ export const COMPONENTS = [
     component: <DropdownMenu />,
     colSpan: true,
     type: "dropdown",
-    download: "npm i framer-motion clsx tailwind-merge",
+    download: "npm i framer-motion clsx tailwind-merge lucide-react",
     cnFunction: true,
   },
   {
