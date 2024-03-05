@@ -15,6 +15,7 @@ import {
   ButtonBackgroundShine,
   ButtonRotateBorder,
 } from "@/app/_components/ui/buttons";
+import { GradientLine } from "@/app/_components/GradientLine";
 
 async function readFilePath(filePath: string) {
   const readFile = promisify(fs.readFile);
@@ -39,23 +40,28 @@ export async function ExampleCode() {
 
   return (
     <div className="grid md:grid-cols-2 gap-6">
-      <div className="flex justify-center h-[300px] items-center border border-border rounded-xl shadow-sm px-8 py-32">
+      <div className="relative flex justify-center h-[300px] items-center border border-border rounded-xl shadow-sm px-8 py-32">
         <AnimatedTabs />
+        <GradientLine />
       </div>
       <CodeBlock
         code={tabsExampleCode}
         fileName="AnimatedTabs.tsx"
-        className="overflow-y-auto h-[300px]"
+        slug="animated-tabs"
+        isVerticalHidden
       />
-      <div className="flex justify-center h-[300px] items-center border border-border rounded-xl shadow-sm px-8 py-32">
+      <div className="relative flex justify-center h-[300px] items-center border border-border rounded-xl shadow-sm px-8 py-32">
         <CardBackgroundShine />
+        <GradientLine />
       </div>
       <CodeBlock
         code={cardBackgroundShineExampleCode}
         fileName="CardBackgroundShine.tsx"
-        className="overflow-y-auto h-[300px]"
+        slug="card-background-shine"
+        isVerticalHidden
       />
-      <div className="md:col-span-2 flex flex-col justify-center gap-5 h-[300px] items-center border border-border rounded-xl shadow-sm px-8 py-32">
+      <div className="relative md:col-span-2 flex flex-col justify-center gap-5 h-[300px] items-center border border-border rounded-xl shadow-sm px-8 py-32">
+        <GradientLine />
         <div className="flex flex-wrap justify-center items-center gap-5">
           <BadgeAnimatedBorder />
           <BadgeBackgroundShine />
