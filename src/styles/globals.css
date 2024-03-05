@@ -16,7 +16,7 @@
   }
 
   ::selection {
-    @apply bg-neutral-400/10;
+    @apply bg-teal-500/10 text-teal-300;
   }
 
   img,
