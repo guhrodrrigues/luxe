@@ -57,7 +57,7 @@ export function ComponentsList() {
           <Link
             href="/ui"
             className={cn(
-              "text-sm select-none px-3 py-2 mx-3 border border-transparent rounded-md",
+              "text-sm select-none px-3 py-2.5 mx-3 border border-transparent rounded-lg",
               isActive
                 ? " text-primary bg-neutral-900 border-border"
                 : "text-foreground/80 duration-300 hover:text-neutral-300 hover:bg-neutral-900/80"
