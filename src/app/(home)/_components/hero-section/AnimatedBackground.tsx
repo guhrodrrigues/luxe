@@ -1,4 +1,4 @@
-export const AnimatedBackground = () => {
+export function AnimatedBackground() {
   return (
     <div className="opacity-40">
       <svg
@@ -330,4 +330,4 @@ export const AnimatedBackground = () => {
       </svg>
     </div>
   );
-};
+}
