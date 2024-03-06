@@ -92,7 +92,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "font-sans antialiased outline-none bg-background text-foreground",
+          "font-sans antialiased outline-none bg-background text-foreground overflow-x-hidden",
           GeistSans.variable
         )}
       >

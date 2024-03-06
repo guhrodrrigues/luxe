@@ -1,14 +1,11 @@
-import { Grid } from "@/app/_components/Grid";
 import { HeroContent } from "./HeroContent";
-import { AnimatedBackground } from "./AnimatedBackground";
+import { Spotlight } from "./Spotlight";
 
 export function HeroSection() {
   return (
-    <section className="flex flex-col items-center justify-center relative min-h-[300px] [@media(min-height:793px)]:min-h-[600px] overflow-hidden">
+    <section className="flex flex-col items-center justify-center relative min-h-[300px] [@media(min-height:793px)]:min-h-[600px]">
+      <Spotlight />
       <TopBlur />
-      <div className="max-md:-mx-4 max-md:w-[150%] absolute -z-[1] w-full md:left-0 pointer-events-none before:content before:absolute before:inset-0 before:shadow-[inset_0_0_1000px_30px_rgb(10,10,10)]">
-        <AnimatedBackground />
-      </div>
       {/* @ts-expect-error Async Server Component */}
       <HeroContent />
     </section>
