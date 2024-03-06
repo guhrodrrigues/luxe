@@ -73,7 +73,7 @@ export async function ExampleCode() {
       </AnimateEnter>
       <AnimateEnter
         className="relative md:col-span-2 flex flex-col justify-center gap-5 h-[300px] items-center border border-border rounded-xl shadow-sm px-8 py-32"
-        delay={0.4}
+        delay={0.8}
       >
         <GradientLine />
         <div className="flex flex-wrap justify-center items-center gap-5">
