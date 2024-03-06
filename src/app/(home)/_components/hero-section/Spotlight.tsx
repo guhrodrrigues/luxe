@@ -1,16 +1,7 @@
-import { cn } from "@/utils/cn";
-
-type SpotlightProps = {
-  className?: string;
-};
-
-export const Spotlight = ({ className }: SpotlightProps) => {
+export function Spotlight() {
   return (
     <svg
-      className={cn(
-        "absolute z-[2] -top-60 left-5 max-[960px]:-left-32 max-[1125px]:-left-20 xl:left-2 xl:-top-60 h-[200%] w-[130%] xl:w-[200%] hidden md:block animate-spotlight pointer-events-none opacity-0",
-        className
-      )}
+      className="absolute z-[2] xl:left-24 xl:-top-60 w-[130%] xl:w-[200%] h-[200%] [@media(max-height:800px)]:left-44 [@media(max-height:800px)]:h-[300%] hidden md:block animate-spotlight pointer-events-none opacity-0"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 3787 2842"
       fill="none"
@@ -51,4 +42,4 @@ export const Spotlight = ({ className }: SpotlightProps) => {
       </defs>
     </svg>
   );
-};
+}
