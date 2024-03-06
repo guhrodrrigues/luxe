@@ -10,7 +10,7 @@ export function TechsSlider() {
         {TECHS.map(({ icon, name }) => (
           <div key={name} className="flex items-center gap-1">
             <span>{icon}</span>
-            <span className="text-secondary text-base font-medium flex-shrink-0">
+            <span className="text-secondary text-base flex-shrink-0">
               {name}
             </span>
           </div>

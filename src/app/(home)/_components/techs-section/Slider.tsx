@@ -19,7 +19,7 @@ export function Slider({ children, pauseOnHover, className }: SliderProps) {
       )}
       data-id="slider"
     >
-      {createArray(0, 12).map((i) => (
+      {createArray(0, 16).map((_, i) => (
         <div
           key={i}
           className={cn(

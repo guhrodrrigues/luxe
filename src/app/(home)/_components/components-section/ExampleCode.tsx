@@ -16,6 +16,7 @@ import {
   ButtonRotateBorder,
 } from "@/app/_components/ui/buttons";
 import { GradientLine } from "@/app/_components/GradientLine";
+import { AnimateEnter } from "../AnimateEnter";
 
 async function readFilePath(filePath: string) {
   const readFile = promisify(fs.readFile);
@@ -40,27 +41,40 @@ export async function ExampleCode() {
 
   return (
     <div className="grid md:grid-cols-2 gap-6">
-      <div className="relative flex justify-center h-[300px] items-center border border-border rounded-xl shadow-sm px-8 py-32">
+      <AnimateEnter
+        className="relative flex justify-center items-center h-[300px] border border-border rounded-xl shadow-sm px-8 py-32"
+        delay={0.2}
+      >
         <AnimatedTabs />
         <GradientLine />
-      </div>
-      <CodeBlock
-        code={tabsExampleCode}
-        fileName="AnimatedTabs.tsx"
-        slug="animated-tabs"
-        isVerticalHidden
-      />
-      <div className="relative flex justify-center h-[300px] items-center border border-border rounded-xl shadow-sm px-8 py-32">
+      </AnimateEnter>
+      <AnimateEnter className="overflow-y-hidden" delay={0.4}>
+        <CodeBlock
+          code={tabsExampleCode}
+          fileName="AnimatedTabs.tsx"
+          slug="animated-tabs"
+          isVerticalHidden
+        />
+      </AnimateEnter>
+      <AnimateEnter
+        className="relative flex justify-center items-center h-[300px] border border-border rounded-xl shadow-sm px-8 py-32"
+        delay={0.6}
+      >
         <CardBackgroundShine />
         <GradientLine />
-      </div>
-      <CodeBlock
-        code={cardBackgroundShineExampleCode}
-        fileName="CardBackgroundShine.tsx"
-        slug="card-background-shine"
-        isVerticalHidden
-      />
-      <div className="relative md:col-span-2 flex flex-col justify-center gap-5 h-[300px] items-center border border-border rounded-xl shadow-sm px-8 py-32">
+      </AnimateEnter>
+      <AnimateEnter className="overflow-y-hidden" delay={0.8}>
+        <CodeBlock
+          code={cardBackgroundShineExampleCode}
+          fileName="CardBackgroundShine.tsx"
+          slug="card-background-shine"
+          isVerticalHidden
+        />
+      </AnimateEnter>
+      <AnimateEnter
+        className="relative md:col-span-2 flex flex-col justify-center gap-5 h-[300px] items-center border border-border rounded-xl shadow-sm px-8 py-32"
+        delay={0.4}
+      >
         <GradientLine />
         <div className="flex flex-wrap justify-center items-center gap-5">
           <BadgeAnimatedBorder />
@@ -72,7 +86,7 @@ export async function ExampleCode() {
           <ButtonBackgroundShine />
           <ButtonRotateBorder />
         </div>
-      </div>
+      </AnimateEnter>
     </div>
   );
 }

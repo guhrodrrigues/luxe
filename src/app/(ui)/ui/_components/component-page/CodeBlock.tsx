@@ -27,7 +27,7 @@ export function CodeBlock({
     <div
       className={cn(
         "p-4 relative rounded-xl bg-background border border-border",
-        isVerticalHidden ? "overflow-y-hidden h-[300px]" : undefined,
+        isVerticalHidden ? "h-[300px]" : undefined,
         className
       )}
     >
@@ -47,7 +47,7 @@ export function CodeBlock({
       </div>
       {isVerticalHidden && (
         <>
-          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-background to-transparent w-full h-[80%]" />
+          <div className="absolute bottom-0 left-0 right-0 rounded-b-xl bg-gradient-to-t from-background to-transparent w-full h-[80%]" />
           <div className="absolute left-0 bottom-4 mx-4">
             <Link
               href={`/ui/${slug}`}

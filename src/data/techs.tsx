@@ -4,8 +4,8 @@ const Icons = {
   nextjs: (props: IconProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="36"
-      height="36"
+      width="30"
+      height="30"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -21,8 +21,8 @@ const Icons = {
   react: (props: IconProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="36"
-      height="36"
+      width="30"
+      height="30"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -46,9 +46,9 @@ const Icons = {
       fill="currentColor"
       stroke-width="0"
       viewBox="0 0 24 24"
-      className="h-20 w-20 text-neutral-300 flex-shrink-0"
-      width="36"
-      height="36"
+      className="text-neutral-300 flex-shrink-0"
+      width="30"
+      height="30"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
@@ -58,8 +58,8 @@ const Icons = {
   framer: (props: IconProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="32"
-      height="32"
+      width="28"
+      height="28"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -85,7 +85,7 @@ export const TECHS = [
   },
   {
     icon: <Icons.tailwind />,
-    name: "Tailwind CSS",
+    name: "tailwindcss",
   },
   {
     icon: <Icons.framer />,
