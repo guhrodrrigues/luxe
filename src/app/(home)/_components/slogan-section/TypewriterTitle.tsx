@@ -12,7 +12,7 @@ const words = [
     text: "your",
   },
   {
-    text: "applications",
+    text: "applications.",
   },
 ];
 
