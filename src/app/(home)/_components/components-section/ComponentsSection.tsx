@@ -1,6 +1,5 @@
 import { ExampleCode } from "./ExampleCode";
 import { ComponentsDescription } from "./ComponentsDescription";
-import { Button } from "./Button";
 
 export function ComponentsSection() {
   return (
@@ -8,7 +7,6 @@ export function ComponentsSection() {
       <ComponentsDescription />
       {/* @ts-expect-error Async Server Component */}
       <ExampleCode />
-      <Button />
     </section>
   );
 }
