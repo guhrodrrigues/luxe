@@ -5,7 +5,7 @@ import { AnimateEnter } from "../AnimateEnter";
 export function TechsSection() {
   return (
     <section className="relative z-[4]">
-      <div className="relative rounded-3xl border-t border-border pt-20 overflow-hidden">
+      <div className="relative rounded-t-3xl border-t border-border pt-20 overflow-hidden">
         <div
           aria-hidden
           className="absolute left-1/2 top-0 h-px max-w-[1000px] pointer-events-none -translate-y-1/2 -translate-x-1/2 w-1/2 bg-gradient-to-l from-transparent via-white/50 via-50% to-transparent"
