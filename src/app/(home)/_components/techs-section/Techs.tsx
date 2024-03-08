@@ -6,7 +6,7 @@ import { TECHS } from "@/data/techs";
 export function TechsSlider() {
   return (
     <div className="flex flex-col rounded-lg">
-      <Slider pauseOnHover>
+      <Slider>
         {TECHS.map(({ icon, name }) => (
           <div key={name} className="flex items-center gap-1">
             <span>{icon}</span>
