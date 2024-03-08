@@ -69,7 +69,7 @@ export function DropdownMenu() {
       icon: <TrashIcon size={16} />,
       name: "Remove account",
       className:
-        "text-red-500 hover:text-red-500 hover:bg-red-500/10 focus-visible:text-red-500 focus-visible:bg-red-500/10 focus-visible:border-red-500/10",
+        "!text-red-500 hover:bg-red-500/10 focus-visible:text-red-500 focus-visible:bg-red-500/10 focus-visible:border-red-500/10",
     },
   ];
 
