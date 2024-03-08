@@ -80,7 +80,7 @@ export function TypewriterTitle() {
         }}
         viewport={{ once: true }}
       >
-        <div className="text-3xl md:text-5xl font-bold whitespace-nowrap">
+        <div className="text-2xl lg:text-5xl font-bold whitespace-nowrap">
           {renderWords()}
         </div>
       </motion.div>
@@ -103,7 +103,7 @@ function Cursor() {
         repeat: Infinity,
         repeatType: "reverse",
       }}
-      className="block rounded-sm w-[4px] h-9 md:h-12 bg-neutral-500"
+      className="block rounded-sm w-[4px] h-8 lg:h-12 bg-neutral-500"
     />
   );
 }
