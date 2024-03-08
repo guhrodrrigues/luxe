@@ -17,6 +17,7 @@ import {
 } from "@/app/_components/ui/buttons";
 import { GradientLine } from "@/app/_components/GradientLine";
 import { AnimateEnter } from "../AnimateEnter";
+import { DropdownMenu } from "@/app/_components/ui/dropdown";
 
 async function readFilePath(filePath: string) {
   const readFile = promisify(fs.readFile);
@@ -30,14 +31,18 @@ async function readFilePath(filePath: string) {
 }
 
 export async function ExampleCode() {
-  const tabsFilePath = "./src/app/_components/ui/tabs/AnimatedTabs.tsx";
-  const tabsExampleCode = await readFilePath(tabsFilePath);
+  const animatedtabsFilePath = "./src/app/_components/ui/tabs/AnimatedTabs.tsx";
+  const animatedTabsExampleCode = await readFilePath(animatedtabsFilePath);
 
-  const cardBackgroundShine =
+  const cardBackgroundShineFilePath =
     "./src/app/_components/ui/cards/CardBackgroundShine.tsx";
   const cardBackgroundShineExampleCode = await readFilePath(
-    cardBackgroundShine
+    cardBackgroundShineFilePath
   );
+
+  const dropdownMenuFilePath =
+    "./src/app/_components/ui/dropdown/DropdownMenu.tsx";
+  const dropdownMenuExampleCode = await readFilePath(dropdownMenuFilePath);
 
   return (
     <div className="grid md:grid-cols-2 gap-6">
@@ -50,7 +55,7 @@ export async function ExampleCode() {
       </AnimateEnter>
       <AnimateEnter className="overflow-y-hidden" delay={0.4}>
         <CodeBlock
-          code={tabsExampleCode}
+          code={animatedTabsExampleCode}
           fileName="AnimatedTabs.tsx"
           slug="animated-tabs"
           isVerticalHidden
@@ -72,8 +77,23 @@ export async function ExampleCode() {
         />
       </AnimateEnter>
       <AnimateEnter
+        className="relative flex justify-center items-center h-[300px] border border-border rounded-xl shadow-sm px-8 py-32"
+        delay={1}
+      >
+        <DropdownMenu />
+        <GradientLine />
+      </AnimateEnter>
+      <AnimateEnter className="overflow-y-hidden" delay={1.2}>
+        <CodeBlock
+          code={dropdownMenuExampleCode}
+          fileName="DropdownMenu.tsx"
+          slug="dropdown-menu"
+          isVerticalHidden
+        />
+      </AnimateEnter>
+      <AnimateEnter
         className="relative md:col-span-2 flex flex-col justify-center gap-5 h-[300px] items-center border border-border rounded-xl shadow-sm px-8 py-32"
-        delay={0.8}
+        delay={1.4}
       >
         <GradientLine />
         <div className="flex flex-wrap justify-center items-center gap-5">

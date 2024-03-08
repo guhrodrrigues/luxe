@@ -1,6 +1,8 @@
 // @NOTE: in case you are using Next.js
 "use client";
 
+import Link from "next/link";
+
 import { useState, useEffect } from "react";
 
 import { useAnimate, stagger, motion } from "framer-motion";
@@ -93,7 +95,7 @@ export function DropdownMenu() {
       >
         {items.map(({ icon, name }) => (
           <li key={name}>
-            <a
+            <Link
               href="" // Where you will be sent
               className="group flex items-center gap-2 rounded-md border border-transparent text-neutral-400 hover:text-neutral-300 focus-visible:text-neutral-300 focus-visible:border-neutral-800 focus-visible:outline-none"
             >
@@ -105,7 +107,7 @@ export function DropdownMenu() {
                   className="-translate-x-1 scale-0 opacity-0 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-x-0 transition-all"
                 />
               </span>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
