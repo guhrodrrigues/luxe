@@ -8,13 +8,13 @@ import { useState, useEffect } from "react";
 import { useAnimate, stagger, motion } from "framer-motion";
 
 import {
-  CogIcon,
-  FileTextIcon,
-  MailIcon,
-  HelpCircleIcon,
+  LayoutGridIcon,
+  TrashIcon,
+  Building2,
   UserCircleIcon,
-  ChevronDownIcon,
+  SettingsIcon,
   ChevronRightIcon,
+  BellIcon,
 } from "lucide-react";
 
 import { cn } from "@/utils/cn";
@@ -61,11 +61,16 @@ export function DropdownMenu() {
   const scope = useMenuAnimation(isOpen);
 
   const items = [
-    { icon: <FileTextIcon size={16} />, name: "Documentation" },
-    { icon: <CogIcon size={16} />, name: "Services" },
-    { icon: <UserCircleIcon size={16} />, name: "About" },
-    { icon: <HelpCircleIcon size={16} />, name: "FAQ" },
-    { icon: <MailIcon size={16} />, name: "Contact" },
+    { icon: <UserCircleIcon size={16} />, name: "Profile" },
+    { icon: <LayoutGridIcon size={16} />, name: "Your applications" },
+    { icon: <Building2 size={16} />, name: "Teams" },
+    { icon: <BellIcon size={16} />, name: "Notifications" },
+    {
+      icon: <TrashIcon size={16} />,
+      name: "Remove account",
+      className:
+        "text-red-500 hover:text-red-500 hover:bg-red-500/10 focus-visible:text-red-500 focus-visible:bg-red-500/10 focus-visible:border-red-500/10",
+    },
   ];
 
   return (
@@ -75,29 +80,28 @@ export function DropdownMenu() {
         className="bg-neutral-900 border border-neutral-800 max-w-[300px] w-full flex items-center justify-between p-2.5 rounded-xl"
         onClick={() => setIsOpen((prevState) => !prevState)}
       >
-        <span className="text-sm font-medium text-neutral-300">Menu</span>
+        <span className="text-sm font-medium text-neutral-300">Settings</span>
         <div style={{ transformOrigin: "50% 55%" }}>
-          <ChevronDownIcon
-            size={14}
-            className="text-neutral-400"
-            id="menu-icon"
-          />
+          <SettingsIcon size={14} className="text-neutral-400" id="menu-icon" />
         </div>
       </motion.button>
       <ul
         className={cn(
-          "space-y-2.5 p-2.5 bg-neutral-900 border border-neutral-800 rounded-xl",
+          "space-y-3 p-2.5 bg-neutral-900 border border-neutral-800 rounded-xl",
           isOpen ? "pointer-events-auto" : "pointer-events-none"
         )}
         style={{
           clipPath: "inset(10% 50% 90% 50% round 12px)",
         }}
       >
-        {items.map(({ icon, name }) => (
+        {items.map(({ icon, name, className }) => (
           <li key={name}>
             <Link
               href="" // Where you will be sent
-              className="group flex items-center gap-2 rounded-md border border-transparent text-neutral-400 hover:text-neutral-300 focus-visible:text-neutral-300 focus-visible:border-neutral-800 focus-visible:outline-none"
+              className={cn(
+                "group flex items-center gap-2 rounded-md border border-transparent text-neutral-400 hover:text-neutral-300 focus-visible:text-neutral-300 focus-visible:border-neutral-800 focus-visible:outline-none",
+                className
+              )}
             >
               <span>{icon}</span>
               <span className="flex items-center gap-1 text-sm font-medium">
