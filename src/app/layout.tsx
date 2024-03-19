@@ -47,6 +47,7 @@ export const metadata: Metadata = {
     "TypeScript",
     "TailwindCSS",
     "Framer Motion",
+    "Server Components",
   ],
   openGraph: {
     images: [
