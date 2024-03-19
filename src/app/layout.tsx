@@ -13,7 +13,8 @@ export const metadata: Metadata = {
   category: "developer",
   creator: "Gustavo Rodrigues",
   title: {
-    default: "Luxe",
+    default:
+      "Luxe — Library of dark mode components to illuminate your applications with elegance and sophistication.",
     template: "%s · Luxe",
   },
   description:
