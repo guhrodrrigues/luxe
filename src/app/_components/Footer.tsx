@@ -14,7 +14,7 @@ export function Footer() {
       <p className="text-sm leading-loose text-center">
         Made by{" "}
         <a
-          href="https://github.com/guhrodriguess"
+          href="https://guhrodrigues.com"
           target="_blank"
           rel="noopener noreferrer"
           className="text-secondary duration-300 hover:text-primary"
