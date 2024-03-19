@@ -98,7 +98,9 @@ export default async function ComponentPage({
           Back to all components
         </Link>
         <div className="space-y-7">
-          <h1 className="text-3xl font-bold text-gradient">{component.name}</h1>
+          <h1 className="text-3xl font-semibold text-neutral-300">
+            {component.name}
+          </h1>
           <ComponentView>{component.component}</ComponentView>
           {component.download && (
             <CodeBlock

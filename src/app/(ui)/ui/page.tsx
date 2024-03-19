@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function UiPage() {
   return (
-    <main className="my-2 xl:my-24 space-y-12">
+    <main className="my-2 xl:my-24 space-y-16">
       <section className="flex flex-col gap-6">
         <Link
           href="/"
@@ -26,8 +26,8 @@ export default function UiPage() {
           <MoveLeft size={14} />
           Back to home
         </Link>
-        <div className="space-y-1">
-          <h1 className="text-3xl font-bold text-gradient">
+        <div className="space-y-4">
+          <h1 className="text-3xl font-semibold text-neutral-300">
             Browse Components
           </h1>
           <p className="max-w-lg">
