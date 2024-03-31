@@ -13,8 +13,7 @@ export const metadata: Metadata = {
   category: "developer",
   creator: "Gustavo Rodrigues",
   title: {
-    default:
-      "Luxe — Library of dark mode components to illuminate your applications with elegance and sophistication.",
+    default: "Luxe",
     template: "%s · Luxe",
   },
   description:
@@ -35,6 +34,7 @@ export const metadata: Metadata = {
     "FullStack Developer",
     "Component library",
     "Frontend",
+    "CLI",
     "UX Design",
     "FullStack",
     "Developer",
@@ -59,8 +59,8 @@ export const metadata: Metadata = {
       },
     ],
     locale: "en",
+    siteName: "Gustavo Rodrigues",
     title: "Luxe",
-    siteName: "Luxe",
     description:
       "Library of dark mode components to illuminate your applications with elegance and sophistication.",
     type: "website",
