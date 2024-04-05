@@ -1,6 +1,7 @@
 import { HeroSection } from "./_components/hero-section";
-import { ComponentsSection } from "./_components/components-section";
 import { TechsSection } from "./_components/techs-section";
+import { ComponentsSection } from "./_components/components-section";
+import { FeedbacksSection } from "./_components/feedbacks-section/FeedbacksSection";
 import { SloganSection } from "./_components/slogan-section";
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
       <HeroSection />
       <TechsSection />
       <ComponentsSection />
+      <FeedbacksSection />
       <SloganSection />
     </main>
   );

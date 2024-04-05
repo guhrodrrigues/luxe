@@ -80,7 +80,7 @@ export function TypewriterTitle() {
         }}
         viewport={{ once: true }}
       >
-        <div className="text-2xl lg:text-5xl font-bold whitespace-nowrap">
+        <div className="max-w-[382px]:text-xl text-2xl lg:text-5xl font-bold whitespace-nowrap">
           {renderWords()}
         </div>
       </motion.div>
