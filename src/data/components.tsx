@@ -36,6 +36,7 @@ import {
   TextGlitchExample,
   TextShakeExample,
 } from "@/app/_components/ui/texts/examples";
+import { DockMenu } from "@/app/_components/ui/docks";
 
 const TWCONFIG = {
   ["animated-border"]: {
@@ -257,5 +258,13 @@ export const COMPONENTS = [
     slug: "text-animated-decoration",
     component: <TextAnimatedDecorationExample />,
     type: "texts",
+  },
+  {
+    name: "Dock Menu",
+    slug: "dock",
+    component: <DockMenu />,
+    type: "docks",
+    download: "npm i framer-motion clsx tailwind-merge lucide-react",
+    cnFunction: true,
   },
 ];
