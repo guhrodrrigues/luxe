@@ -19,7 +19,7 @@ export function FeedbacksSection() {
         />
         <AnimateEnter
           className="flex flex-col justify-center items-center gap-14"
-          delay={0.2}
+          delay={0.4}
         >
           <FeedbacksCard />
         </AnimateEnter>
