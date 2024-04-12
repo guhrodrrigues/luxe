@@ -17,7 +17,7 @@ import {
 
 type DockItem = {
   id: string;
-  icon?: any;
+  icon?: JSX.Element;
 };
 
 interface DockContainerProps extends HTMLAttributes<HTMLDivElement> {
@@ -43,7 +43,7 @@ function Dock({
     >
       <motion.div
         ref={containerRef}
-        className="h-16 items-end gap-4 rounded-full bg-neutral-950 border border-neutral-800 px-3 pb-2 flex shadow-inner shadow-secondary/5"
+        className="h-16 items-end gap-4 rounded-full bg-neutral-950 border border-neutral-800 px-3 pb-2 flex shadow-inner shadow-neutral-300/5"
         onMouseLeave={() => mouseX.set(Infinity)}
         onMouseMove={(e) => {
           const rect = containerRef.current?.getBoundingClientRect();
@@ -91,7 +91,7 @@ function DockItem({ children, containerX, mouseX }: DockItemProps) {
     <motion.div
       role="button"
       ref={itemRef}
-      className="group flex aspect-square items-center justify-center overflow-hidden rounded-full transition active:-translate-y-10 bg-background border-border border shadow-inner shadow-secondary/20 active:duration-1000 active:ease-out text-muted hover:text-primary transition duration-500"
+      className="group flex aspect-square items-center justify-center overflow-hidden rounded-full transition active:-translate-y-10 bg-background border-border border shadow-inner shadow-neutral-300/20 active:duration-1000 active:ease-out text-neutral-400 hover:text-white duration-500"
       style={{
         width,
         padding: "0.5rem",
@@ -104,14 +104,11 @@ function DockItem({ children, containerX, mouseX }: DockItemProps) {
 
 export function DockMenu() {
   const items = [
-    { id: "firstId", icon: <HomeIcon size={32} /> },
-    { id: "secondId", icon: <AlbumIcon size={32} /> },
-    { id: "thirdId", icon: <ActivityIcon size={32} /> },
-    { id: "fourthId", icon: <MonitorIcon size={32} /> },
+    { id: "first-id", icon: <HomeIcon size={32} /> },
+    { id: "second-id", icon: <AlbumIcon size={32} /> },
+    { id: "third-id", icon: <ActivityIcon size={32} /> },
+    { id: "fourth-id", icon: <MonitorIcon size={32} /> },
   ];
-  return (
-    <div>
-      <Dock items={items} />
-    </div>
-  );
+
+  return <Dock items={items} />;
 }

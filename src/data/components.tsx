@@ -264,6 +264,7 @@ export const COMPONENTS = [
     slug: "dock",
     component: <DockMenu />,
     type: "docks",
+    colSpan: true,
     download: "npm i framer-motion clsx tailwind-merge lucide-react",
     cnFunction: true,
   },
