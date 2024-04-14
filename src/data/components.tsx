@@ -196,8 +196,8 @@ export const COMPONENTS = [
     colSpan: true,
   },
   {
-    name: "Card Products",
-    slug: "card-products",
+    name: "Card Product",
+    slug: "card-product",
     component: <CardProduct />,
     type: "cards",
     download: "npm i framer-motion",
