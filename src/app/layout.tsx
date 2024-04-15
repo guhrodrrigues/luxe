@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s · Luxe",
   },
   description:
-    "Library of dark mode components to illuminate your applications with elegance and sophistication.",
+    "Library of components to illuminate your applications with elegance and sophistication.",
   icons: {
     apple: "/favicon.svg",
     icon: "/favicon.svg",
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
       {
         width: 1920,
         height: 1080,
-        url: "https://i.imgur.com/hgHlpn4.png",
+        url: "https://i.imgur.com/BIfMfYj.png",
         alt: "Luxe website cover",
       },
     ],
@@ -72,7 +72,7 @@ export const metadata: Metadata = {
       {
         width: 1920,
         height: 1080,
-        url: "https://i.imgur.com/hgHlpn4.png",
+        url: "https://i.imgur.com/BIfMfYj.png",
         alt: "Luxe website cover",
       },
     ],
