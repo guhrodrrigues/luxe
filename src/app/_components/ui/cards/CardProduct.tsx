@@ -26,7 +26,7 @@ export function CardProduct() {
         className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
         style={{
           background: useMotionTemplate`
-						radial-gradient(200px circle at ${mouseX}px ${mouseY}px, rgba(38, 38, 38, 0.4), transparent 80%)
+						radial-gradient(200px circle at ${mouseX}px ${mouseY}px, rgba(51, 51, 51, 0.4), transparent 80%)
 					`,
         }}
       />
@@ -41,13 +41,13 @@ export function CardProduct() {
           />
           <div className="flex flex-row items-center justify-between pt-2">
             <h3 className="text-xl font-semibold text-neutral-200">Luxe</h3>
-            <p className="text-[13px] opacity-75 select-none">$249.00</p>
+            <p className="text-[13px] text-neutral-300 select-none">$249.00</p>
           </div>
-          <p className="text-sm leading-[1.5] text-neutral-400">
+          <p className="text-sm leading-[1.5] text-neutral-400 pb-3">
             Library of dark mode components to illuminate your applications with
             elegance and sophistication.
           </p>
-          <button className="inline-flex items-center justify-center gap-1 text-sm py-3 px-4 font-semibold bg-primary text-black rounded-lg duration-300 hover:bg-primary/70 w-full">
+          <button className="inline-flex items-center justify-center gap-1 text-sm py-3 px-4 font-semibold bg-white text-black rounded-lg duration-300 hover:bg-white/70 w-full">
             Sponsor Now
           </button>
         </div>
