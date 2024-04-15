@@ -5,7 +5,7 @@ import { ElementRef, HTMLAttributes, useRef } from "react";
 
 import { cn } from "@/utils/cn";
 
-import { ActivityIcon, AlbumIcon, HomeIcon, MonitorIcon } from "lucide-react";
+import { AlbumIcon, HomeIcon, MonitorIcon } from "lucide-react";
 
 import {
   MotionValue,
@@ -20,10 +20,10 @@ type DockItem = {
   icon?: JSX.Element;
 };
 
-interface DockContainerProps extends HTMLAttributes<HTMLDivElement> {
+type DockContainerProps = {
   side?: "top" | "bottom";
   items: DockItem[];
-}
+} & HTMLAttributes<HTMLDivElement>;
 
 function Dock({
   side = "bottom",
@@ -91,10 +91,9 @@ function DockItem({ children, containerX, mouseX }: DockItemProps) {
     <motion.div
       role="button"
       ref={itemRef}
-      className="group flex aspect-square items-center justify-center overflow-hidden rounded-full transition active:-translate-y-10 bg-neutral-950 border-neutral-800 border shadow-inner shadow-neutral-300/20 active:duration-1000 active:ease-out text-neutral-400 hover:text-white duration-500"
+      className="group p-2 flex aspect-square items-center justify-center overflow-hidden rounded-full transition active:-translate-y-10 bg-neutral-950 border-neutral-800 border shadow-inner shadow-neutral-300/20 active:duration-1000 active:ease-out text-neutral-400 hover:text-white duration-500"
       style={{
         width,
-        padding: "0.5rem",
       }}
     >
       {children}
@@ -106,7 +105,6 @@ export function DockMenu() {
   const items = [
     { id: "first-id", icon: <HomeIcon size={32} /> },
     { id: "second-id", icon: <AlbumIcon size={32} /> },
-    { id: "third-id", icon: <ActivityIcon size={32} /> },
     { id: "fourth-id", icon: <MonitorIcon size={32} /> },
   ];
 
