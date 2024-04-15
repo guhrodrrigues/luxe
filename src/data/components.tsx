@@ -18,6 +18,7 @@ import {
   CardBackgroundShine,
   CardComment,
   CardRevealedPointer,
+  CardProduct
 } from "@/app/_components/ui/cards";
 
 import { AnimatedTabs } from "@/app/_components/ui/tabs";
@@ -192,6 +193,14 @@ export const COMPONENTS = [
     slug: "card-comment",
     component: <CardComment />,
     type: "cards",
+    colSpan: true,
+  },
+  {
+    name: "Card Product",
+    slug: "card-product",
+    component: <CardProduct />,
+    type: "cards",
+    download: "npm i framer-motion",
     colSpan: true,
   },
   {
