@@ -28,7 +28,7 @@ function Tabs({
   return (
     <div
       className={cn(
-        "flex flex-wrap items-center justify-center relative max-w-full w-full",
+        "relative flex w-full max-w-full flex-wrap items-center justify-center",
         containerClassName
       )}
     >
@@ -37,26 +37,30 @@ function Tabs({
           key={tab.title}
           onClick={() => setActiveIdx(index)}
           className={cn(
-            "relative px-4 py-2 rounded-full z-[1]",
-            { "z-0": activeIdx === index},
+            "relative z-[1] rounded-full px-4 py-2",
+            { "z-0": activeIdx === index },
             tabClassName
           )}
-          style={{
-            transformStyle: "preserve-3d",
-          }}
         >
           {activeIdx === index && (
             <motion.div
               layoutId="clickedbutton"
-              transition={{ type: "spring", bounce: 0.3, duration: 0.6 }}
+              transition={{ duration: 0.2 }}
               className={cn(
-                "absolute inset-0 bg-neutral-900 rounded-full",
+                "absolute inset-0 rounded-full bg-white",
                 activeTabClassName
               )}
             />
           )}
 
-          <span className="relative block text-neutral-300">{tab.title}</span>
+          <span
+            className={cn(
+              "relative block font-medium",
+              activeIdx === index ? "text-black delay-100" : "text-neutral-400"
+            )}
+          >
+            {tab.title}
+          </span>
         </button>
       ))}
     </div>
@@ -80,7 +84,7 @@ export function AnimatedTabs() {
   ];
 
   return (
-    <div className="relative flex flex-col max-w-5xl mx-auto w-full items-center justify-center">
+    <div className="relative mx-auto flex w-full max-w-5xl flex-col items-center justify-center">
       <Tabs tabs={tabs} />
     </div>
   );
