@@ -87,7 +87,7 @@ export function DropdownMenu() {
       </motion.button>
       <ul
         className={cn(
-          "space-y-3 p-2.5 bg-neutral-900 border border-neutral-800 rounded-xl",
+          "absolute z-[1] max-w-[200px] w-full space-y-3 p-2.5 bg-neutral-900 border border-neutral-800 rounded-xl",
           isOpen ? "pointer-events-auto" : "pointer-events-none"
         )}
         style={{
