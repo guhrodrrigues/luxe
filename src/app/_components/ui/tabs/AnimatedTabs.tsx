@@ -7,23 +7,33 @@ import { motion } from "framer-motion";
 
 import { cn } from "@/utils/cn";
 
-type Tab = {
-  title: string;
-  value: string;
-};
-
-function Tabs({
-  tabs,
-  containerClassName,
-  activeTabClassName,
-  tabClassName,
-}: {
-  tabs: Tab[];
+type AnimatedTabsProps = {
   containerClassName?: string;
   activeTabClassName?: string;
   tabClassName?: string;
-}) {
+};
+
+export function AnimatedTabs({
+  containerClassName,
+  activeTabClassName,
+  tabClassName,
+}: AnimatedTabsProps) {
   const [activeIdx, setActiveIdx] = useState<number>(0);
+
+  const tabs = [
+    {
+      title: "Product",
+      value: "product",
+    },
+    {
+      title: "Services",
+      value: "services",
+    },
+    {
+      title: "About",
+      value: "about",
+    },
+  ];
 
   return (
     <div
@@ -37,7 +47,7 @@ function Tabs({
           key={tab.title}
           onClick={() => setActiveIdx(index)}
           className={cn(
-            "relative z-[1] rounded-full px-4 py-2",
+            "group relative z-[1] rounded-full px-4 py-2",
             { "z-0": activeIdx === index },
             tabClassName
           )}
@@ -55,37 +65,16 @@ function Tabs({
 
           <span
             className={cn(
-              "relative block font-medium",
-              activeIdx === index ? "text-black delay-100" : "text-neutral-400"
+              "relative block font-medium duration-200",
+              activeIdx === index
+                ? "text-black delay-100"
+                : "text-neutral-400 group-hover:text-neutral-400/70"
             )}
           >
             {tab.title}
           </span>
         </button>
       ))}
-    </div>
-  );
-}
-
-export function AnimatedTabs() {
-  const tabs = [
-    {
-      title: "Product",
-      value: "product",
-    },
-    {
-      title: "Services",
-      value: "services",
-    },
-    {
-      title: "About",
-      value: "about",
-    },
-  ];
-
-  return (
-    <div className="relative mx-auto flex w-full max-w-5xl flex-col items-center justify-center">
-      <Tabs tabs={tabs} />
     </div>
   );
 }
