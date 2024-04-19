@@ -41,13 +41,31 @@ export async function generateMetadata({
   return {
     title: name,
     openGraph: {
-      title: name,
+      title: `Luxe — ${name}`,
+      description: `Navigate to ${name} component, which will make your application sophisticated and luxurious.`,
       type: "website",
       url: `https://luxe.guhrodrigues.com/ui/${slug}`,
+      images: [
+        {
+          width: 1920,
+          height: 1080,
+          url: "/open-graphs/og-browse-components.png",
+          alt: "Luxe website cover",
+        },
+      ],
     },
     twitter: {
-      title: name,
+      title: `Luxe — ${name}`,
+      description: `Navigate to ${name} component, which will make your application sophisticated and luxurious.`,
       card: "summary_large_image",
+      images: [
+        {
+          width: 1920,
+          height: 1080,
+          url: "/open-graphs/og-browse-components.png",
+          alt: "Luxe website cover",
+        },
+      ],
     },
   };
 }

@@ -1,4 +1,3 @@
-import { Metadata } from "next";
 import Link from "next/link";
 
 import { MoveLeft, MoveRightIcon } from "lucide-react";
@@ -8,12 +7,6 @@ import { cn } from "@/utils/cn";
 import { COMPONENTS } from "@/data/components";
 
 import { ComponentView } from "./_components/component-page/ComponentView";
-
-export const metadata: Metadata = {
-  title: "Browse Components",
-  description:
-    "Navigate to all the components that will make your application sophisticated and luxurious.",
-};
 
 export default function UiPage() {
   return (
@@ -46,7 +39,8 @@ export default function UiPage() {
               href={`/ui/${slug}`}
               className="w-fit select-none flex items-center gap-1 text-secondary duration-300 hover:gap-2 hover:text-primary"
             >
-              {name} <MoveRightIcon size={12} />
+              <span>{name}</span>
+              <MoveRightIcon size={12} />
             </Link>
             <ComponentView>{component}</ComponentView>
           </div>
