@@ -18,7 +18,8 @@ import {
   CardBackgroundShine,
   CardComment,
   CardRevealedPointer,
-  CardProduct
+  CardProduct,
+  CardHoverEffect,
 } from "@/app/_components/ui/cards";
 
 import { AnimatedTabs } from "@/app/_components/ui/tabs";
@@ -202,6 +203,15 @@ export const COMPONENTS = [
     type: "cards",
     download: "npm i framer-motion",
     colSpan: true,
+  },
+  {
+    name: "Card Hover Effect",
+    slug: "card-hover-effect",
+    component: <CardHoverEffect />,
+    type: "cards",
+    download: "npm i framer-motion clsx tailwind-merge",
+    colSpan: true,
+    cnFunction: true,
   },
   {
     name: "Animated Tabs",
