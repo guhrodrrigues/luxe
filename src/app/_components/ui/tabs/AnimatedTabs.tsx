@@ -65,10 +65,10 @@ export function AnimatedTabs({
 
           <span
             className={cn(
-              "relative block font-medium duration-200",
+              "relative text-sm block font-medium duration-200",
               activeIdx === index
                 ? "text-black delay-100"
-                : "text-neutral-400 group-hover:text-neutral-400/70"
+                : "text-white group-hover:text-neutral-400"
             )}
           >
             {tab.title}
