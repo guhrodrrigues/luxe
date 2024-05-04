@@ -18,8 +18,8 @@ export function AnimateEnter({
   return (
     <motion.div
       className={cn(className)}
-      initial={{ opacity: 0, translateY: 15 }}
-      whileInView={{ opacity: 1, translateY: "none" }}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeInOut", delay: delay }}
       viewport={{ once: true }}
     >
