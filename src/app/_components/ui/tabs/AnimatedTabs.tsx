@@ -23,22 +23,19 @@ export function AnimatedTabs({
   const tabs = [
     {
       title: "Product",
-      value: "product",
     },
     {
       title: "Services",
-      value: "services",
     },
     {
       title: "About",
-      value: "about",
     },
   ];
 
   return (
     <div
       className={cn(
-        "relative flex w-full max-w-full flex-wrap items-center justify-center",
+        "relative flex flex-wrap items-center justify-center",
         containerClassName
       )}
     >
@@ -54,7 +51,7 @@ export function AnimatedTabs({
         >
           {activeIdx === index && (
             <motion.div
-              layoutId="clickedbutton"
+              layoutId="clicked-button"
               transition={{ duration: 0.2 }}
               className={cn(
                 "absolute inset-0 rounded-full bg-white",
@@ -66,9 +63,7 @@ export function AnimatedTabs({
           <span
             className={cn(
               "relative text-sm block font-medium duration-200",
-              activeIdx === index
-                ? "text-black delay-100"
-                : "text-white group-hover:text-neutral-400"
+              activeIdx === index ? "text-black delay-100" : "text-white"
             )}
           >
             {tab.title}

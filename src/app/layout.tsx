@@ -98,10 +98,8 @@ export default function RootLayout({
           GeistSans.variable
         )}
       >
-        <div className="mx-auto max-w-[1400px] w-full px-4">
-          {children}
-          <Footer />
-        </div>
+        {children}
+        <Footer />
       </body>
     </html>
   );

@@ -18,8 +18,8 @@ export async function HeroContent() {
   const starCount = await getRepoStarCount();
 
   return (
-    <div className="z-[3] space-y-4 text-center">
-      <AnimateEnter className="space-y-3">
+    <div className="z-[3] space-y-5 text-center">
+      <AnimateEnter className="space-y-4">
         <h1 className="text-5xl font-bold text-gradient">Luxe</h1>
         <p className="font-medium max-w-md mx-auto">
           Library of dark mode components to illuminate your applications with

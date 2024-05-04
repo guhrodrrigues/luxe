@@ -16,7 +16,10 @@ const config: Config = {
         },
         primary: colors.white,
         secondary: "#c2c2c2",
-        foreground: "#b5b3ad",
+        foreground: {
+          DEFAULT: "#b5b3ad",
+          accent: "#f1f7feb5",
+        },
         muted: colors.neutral[500],
         border: "#262626",
       },

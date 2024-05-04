@@ -5,27 +5,27 @@ import { usePathname } from "next/navigation";
 
 import { CommandIcon, SearchIcon } from "lucide-react";
 
-import { COMPONENTS } from "@/data/components";
-
 import { useProvider } from "../../_context/CommandMenuProvider";
 
 import { cn } from "@/utils/cn";
+
+import { COMPONENTS } from "@/data/components";
 
 import { ComponentsListButton } from "./ComponentsListButton";
 
 export function ComponentsList() {
   const { setShowCommandMenu } = useProvider();
 
-  const pathname = usePathname();
-
-  const isActive = pathname === "/ui";
-
   const componentsOrdered = COMPONENTS.sort((a, b) =>
     a.name.localeCompare(b.name)
   );
 
+  const pathname = usePathname();
+
+  const isActive = pathname === "/ui";
+
   return (
-    <aside className="max-xl:relative fixed bottom-0 top-0 xl:w-[250px] h-full max-xl:py-12">
+    <aside className="max-xl:relative sticky top-0 bottom-0 flex-1 xl:h-[calc(100vh_-_3rem)] max-xl:pt-12">
       <div className="max-xl:items-center max-xl:justify-between flex xl:flex-col gap-6 xl:px-6">
         <Link href="/" className="flex w-fit xl:mt-10 select-none">
           <h1 className="text-2xl font-bold text-gradient">Luxe</h1>
@@ -47,7 +47,7 @@ export function ComponentsList() {
         className="overflow-y-auto h-full pt-8 max-xl:hidden"
         style={{
           maskImage:
-            "linear-gradient(#0d0d0d,#0d0d0d,transparent 0,#0d0d0d 40px,#0d0d0d calc(100% - 200px),transparent)",
+            "linear-gradient(#0d0d0d,#0d0d0d,transparent 0,#0d0d0d 40px,#0d0d0d calc(100% - 100px),transparent)",
         }}
       >
         <div className="flex flex-col gap-3 mb-8">

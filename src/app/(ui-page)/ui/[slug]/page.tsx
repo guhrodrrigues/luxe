@@ -110,7 +110,7 @@ export default async function ComponentPage({
       <section className="space-y-6">
         <Link
           href="/ui"
-          className="flex select-none items-center text-sm gap-1 text-secondary w-fit"
+          className="flex select-none items-center text-sm gap-1 text-primary/80 w-fit"
         >
           <MoveLeft size={14} />
           Back to all components

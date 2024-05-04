@@ -50,9 +50,13 @@ type ComponentPageLayout = {
 export default function ComponentPageLayout({ children }: ComponentPageLayout) {
   return (
     <CommandMenuProvider>
-      <ComponentsList />
-      <div className="xl:pl-[300px]">{children}</div>
-      <CommandMenu />
+      <div className="mx-auto flex max-xl:flex-col gap-12 max-w-[1400px] w-full px-4 max-xl:mb-14">
+        <div className="flex-shrink-0 xl:w-[250px]">
+          <ComponentsList />
+        </div>
+        <div className="flex-grow min-w-0">{children}</div>
+        <CommandMenu />
+      </div>
     </CommandMenuProvider>
   );
 }

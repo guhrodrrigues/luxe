@@ -56,7 +56,15 @@ function useMenuAnimation(isOpen: boolean) {
   return scope;
 }
 
-export function DropdownMenu() {
+type DropdownMenuProps = {
+  containerClassName?: string;
+  itemClassName?: string;
+};
+
+export function DropdownMenu({
+  containerClassName,
+  itemClassName,
+}: DropdownMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const scope = useMenuAnimation(isOpen);
 
@@ -68,13 +76,19 @@ export function DropdownMenu() {
     {
       icon: <TrashIcon size={16} />,
       name: "Remove account",
-      className:
+      customStyle:
         "!text-red-500 hover:bg-red-500/10 focus-visible:text-red-500 focus-visible:bg-red-500/10 focus-visible:border-red-500/10",
     },
   ];
 
   return (
-    <nav className="max-w-[200px] w-full mx-auto space-y-2" ref={scope}>
+    <nav
+      className={cn(
+        "max-w-[200px] w-full mx-auto space-y-2",
+        containerClassName
+      )}
+      ref={scope}
+    >
       <motion.button
         whileTap={{ scale: 0.97 }}
         className="bg-neutral-900 border border-neutral-800 max-w-[300px] w-full flex items-center justify-between p-2.5 rounded-xl"
@@ -94,13 +108,14 @@ export function DropdownMenu() {
           clipPath: "inset(10% 50% 90% 50% round 12px)",
         }}
       >
-        {items.map(({ icon, name, className }) => (
+        {items.map(({ icon, name, customStyle }) => (
           <li key={name}>
             <Link
               href="" // Where you will be sent
               className={cn(
                 "group flex items-center gap-2 rounded-md border border-transparent text-neutral-400 hover:text-neutral-300 focus-visible:text-neutral-300 focus-visible:border-neutral-800 focus-visible:outline-none",
-                className
+                itemClassName,
+                customStyle
               )}
             >
               <span>{icon}</span>

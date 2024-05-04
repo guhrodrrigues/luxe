@@ -1,24 +1,19 @@
 import Link from "next/link";
 
-import { MoveLeft, MoveRightIcon } from "lucide-react";
+import { MoveRightIcon } from "lucide-react";
 
 import { cn } from "@/utils/cn";
 
 import { COMPONENTS } from "@/data/components";
 
 import { ComponentView } from "./_components/component-page/ComponentView";
+import { RequestComponentButton } from "@/app/_components/RequestComponentButton";
 
 export default function UiPage() {
   return (
     <main className="my-2 xl:my-24 space-y-16">
       <section className="flex flex-col gap-6">
-        <Link
-          href="/"
-          className="flex select-none items-center text-sm gap-1 text-secondary w-fit"
-        >
-          <MoveLeft size={14} />
-          Back to home
-        </Link>
+        <RequestComponentButton />
         <div className="space-y-4">
           <h1 className="text-3xl font-semibold text-neutral-300">
             Browse Components
