@@ -2,16 +2,18 @@ import { AnimateEnter } from "../AnimateEnter";
 
 export function ComponentsDescription() {
   return (
-    <AnimateEnter className="relative space-y-8 text-center">
-      <h1 className="max-w-2xl mx-auto text-4xl md:text-5xl leading-tight font-semibold bg-gradient-to-br text-transparent bg-gradient-stop bg-clip-text from-white via-white to-white/30 ">
-        Elevate your project with one-click integration
-      </h1>
-      <p className="max-w-lg mx-auto font-medium leading-relaxed">
-        Simply click on a component, copy the code and paste it into your
-        project. This will give your application extra sophistication.
-      </p>
+    <div className="relative">
+      <AnimateEnter className="space-y-8 text-center" delay={0.2}>
+        <h1 className="max-w-2xl mx-auto text-4xl md:text-5xl leading-tight font-semibold bg-gradient-to-br text-transparent bg-gradient-stop bg-clip-text from-white via-white to-white/30 ">
+          Elevate your project with sophisticated components
+        </h1>
+        <p className="max-w-lg mx-auto font-medium leading-relaxed">
+          Simply click on a component, copy the code and paste it into your
+          project. This will give your application an extra shine.
+        </p>
+      </AnimateEnter>
       <BlurBackground />
-    </AnimateEnter>
+    </div>
   );
 }
 
