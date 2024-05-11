@@ -43,7 +43,7 @@ function BlurBackground() {
             ry="293.346"
             transform="rotate(-164.946 574.307 568.208)"
             fill="url(#paint0_linear_2076_3208)"
-            fill-opacity="0.5"
+            fillOpacity="0.5"
           ></ellipse>
         </g>
         <g
@@ -57,7 +57,7 @@ function BlurBackground() {
             ry="293.25"
             transform="rotate(180 468.5 589.25)"
             fill="url(#paint1_linear_2076_3208)"
-            fill-opacity="0.5"
+            fillOpacity="0.5"
           ></ellipse>
         </g>
         <g
@@ -71,7 +71,7 @@ function BlurBackground() {
             ry="381.284"
             transform="rotate(165 365.16 517.917)"
             fill="url(#paint2_linear_2076_3208)"
-            fill-opacity="0.5"
+            fillOpacity="0.5"
           ></ellipse>
         </g>
         <g
@@ -85,7 +85,7 @@ function BlurBackground() {
             ry="180.667"
             transform="rotate(165 417.083 711.695)"
             fill="url(#paint3_linear_2076_3208)"
-            fill-opacity="0.5"
+            fillOpacity="0.5"
           ></ellipse>
         </g>
         <g
@@ -99,7 +99,7 @@ function BlurBackground() {
             ry="381.5"
             transform="rotate(180 471.75 470.5)"
             fill="url(#paint4_linear_2076_3208)"
-            fill-opacity="0.5"
+            fillOpacity="0.5"
           ></ellipse>
         </g>
         <g
@@ -113,7 +113,7 @@ function BlurBackground() {
             ry="187.5"
             transform="rotate(180 472 695)"
             fill="url(#paint5_linear_2076_3208)"
-            fill-opacity="0.5"
+            fillOpacity="0.5"
           ></ellipse>
         </g>
         <g
@@ -127,7 +127,7 @@ function BlurBackground() {
             ry="95.5"
             transform="rotate(180 472 787)"
             fill="url(#paint6_linear_2076_3208)"
-            fill-opacity="0.5"
+            fillOpacity="0.5"
           ></ellipse>
         </g>
         <g
@@ -141,7 +141,7 @@ function BlurBackground() {
             ry="80.25"
             transform="rotate(180 472 779.75)"
             fill="url(#paint7_linear_2076_3208)"
-            fill-opacity="0.5"
+            fillOpacity="0.5"
           ></ellipse>
         </g>
       </g>
@@ -153,9 +153,9 @@ function BlurBackground() {
           width="343.05"
           height="744.818"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+          <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -174,9 +174,9 @@ function BlurBackground() {
           width="231"
           height="764.5"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+          <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -195,9 +195,9 @@ function BlurBackground() {
           width="380.089"
           height="914.677"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+          <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -216,9 +216,9 @@ function BlurBackground() {
           width="281.055"
           height="527.218"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+          <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -237,9 +237,9 @@ function BlurBackground() {
           width="222.5"
           height="941"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+          <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -258,9 +258,9 @@ function BlurBackground() {
           width="943"
           height="675"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+          <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -279,9 +279,9 @@ function BlurBackground() {
           width="621"
           height="491"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+          <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -300,9 +300,9 @@ function BlurBackground() {
           width="570"
           height="460.5"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+          <feFlood floodOpacity="0" result="BackgroundImageFix"></feFlood>
           <feBlend
             mode="normal"
             in="SourceGraphic"
@@ -322,8 +322,8 @@ function BlurBackground() {
           y2="861.554"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white"></stop>
-          <stop offset="1" stop-color="white" stop-opacity="0"></stop>
+          <stop stopColor="white"></stop>
+          <stop offset="1" stopColor="white" stopOpacity="0"></stop>
         </linearGradient>
         <linearGradient
           id="paint1_linear_2076_3208"
@@ -333,8 +333,8 @@ function BlurBackground() {
           y2="882.5"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white"></stop>
-          <stop offset="1" stop-color="white" stop-opacity="0"></stop>
+          <stop stopColor="white"></stop>
+          <stop offset="1" stopColor="white" stopOpacity="0"></stop>
         </linearGradient>
         <linearGradient
           id="paint2_linear_2076_3208"
@@ -344,8 +344,8 @@ function BlurBackground() {
           y2="899.2"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white"></stop>
-          <stop offset="1" stop-color="white" stop-opacity="0"></stop>
+          <stop stopColor="white"></stop>
+          <stop offset="1" stopColor="white" stopOpacity="0"></stop>
         </linearGradient>
         <linearGradient
           id="paint3_linear_2076_3208"
@@ -355,8 +355,8 @@ function BlurBackground() {
           y2="892.362"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white"></stop>
-          <stop offset="1" stop-color="white" stop-opacity="0"></stop>
+          <stop stopColor="white"></stop>
+          <stop offset="1" stopColor="white" stopOpacity="0"></stop>
         </linearGradient>
         <linearGradient
           id="paint4_linear_2076_3208"
@@ -366,8 +366,8 @@ function BlurBackground() {
           y2="852"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white"></stop>
-          <stop offset="1" stop-color="white" stop-opacity="0"></stop>
+          <stop stopColor="white"></stop>
+          <stop offset="1" stopColor="white" stopOpacity="0"></stop>
         </linearGradient>
         <linearGradient
           id="paint5_linear_2076_3208"
@@ -377,8 +377,8 @@ function BlurBackground() {
           y2="882.5"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white"></stop>
-          <stop offset="1" stop-color="white" stop-opacity="0"></stop>
+          <stop stopColor="white"></stop>
+          <stop offset="1" stopColor="white" stopOpacity="0"></stop>
         </linearGradient>
         <linearGradient
           id="paint6_linear_2076_3208"
@@ -388,8 +388,8 @@ function BlurBackground() {
           y2="882.5"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white"></stop>
-          <stop offset="1" stop-color="white" stop-opacity="0"></stop>
+          <stop stopColor="white"></stop>
+          <stop offset="1" stopColor="white" stopOpacity="0"></stop>
         </linearGradient>
         <linearGradient
           id="paint7_linear_2076_3208"
@@ -399,8 +399,8 @@ function BlurBackground() {
           y2="860"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white"></stop>
-          <stop offset="1" stop-color="white" stop-opacity="0"></stop>
+          <stop stopColor="white"></stop>
+          <stop offset="1" stopColor="white" stopOpacity="0"></stop>
         </linearGradient>
       </defs>
     </svg>

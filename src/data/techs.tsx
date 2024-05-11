@@ -9,8 +9,8 @@ const Icons = {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       className="h-20 w-20 text-neutral-300 flex-shrink-0"
       {...props}
     >
@@ -26,8 +26,8 @@ const Icons = {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       className="h-20 w-20 text-neutral-300 flex-shrink-0"
       {...props}
     >
@@ -44,7 +44,7 @@ const Icons = {
     <svg
       stroke="currentColor"
       fill="currentColor"
-      stroke-width="0"
+      strokeWidth="0"
       viewBox="0 0 24 24"
       className="text-neutral-300 flex-shrink-0"
       width="30"
@@ -63,8 +63,8 @@ const Icons = {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       className="h-20 w-20 text-neutral-300 flex-shrink-0"
       {...props}
     >
