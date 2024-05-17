@@ -1,7 +1,5 @@
 import Image from "next/image";
 
-import author from "@/assets/author.jpg";
-
 export function CardComment() {
   return (
     <div className="relative flex flex-col gap-8 bg-neutral-950 border border-white/10 w-full max-w-lg rounded-xl p-10">
@@ -13,7 +11,7 @@ export function CardComment() {
       </p>
       <div className="flex items-center justify-center gap-3">
         <Image
-          src={author}
+          src="https://github.com/guhrodriguess.png"
           alt="Gustavo's profile image"
           width={40}
           height={40}

@@ -1,6 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import { AnimateEnter } from "../AnimateEnter";
+
+import slogan from "@/assets/slogan.png";
 
 async function getRepoStarCount() {
   const res = await fetch("https://api.github.com/repos/guhrodriguess/luxe");
@@ -18,34 +21,30 @@ export async function HeroContent() {
   const starCount = await getRepoStarCount();
 
   return (
-    <div className="z-[3] space-y-5 text-center">
-      <AnimateEnter className="space-y-4">
-        <h1 className="text-5xl font-bold text-gradient">Luxe</h1>
-        <p className="font-medium max-w-md mx-auto">
-          Library of dark mode components to illuminate your applications with
-          elegance and sophistication.
-        </p>
-      </AnimateEnter>
-      <AnimateEnter className="flex flex-col gap-3.5" delay={0.2}>
-        <div className="flex flex-wrap items-center justify-center gap-2">
-          <Link
-            href="/ui"
-            className="text-sm py-2 px-4 font-semibold bg-primary text-black rounded-xl duration-300 hover:bg-primary/70"
-          >
-            Get started
-          </Link>
-          <a
-            href="https://github.com/guhrodriguess/luxe"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-1.5 font-semibold bg-background border border-border text-sm rounded-xl px-4 py-2 duration-300 hover:bg-neutral-900"
-          >
-            <GitHubIcon className="h-3.5 w-3.5" />
-            <span>{starCount}</span>
-          </a>
-        </div>
-      </AnimateEnter>
-    </div>
+    <AnimateEnter className="z-[3] flex flex-col items-center space-y-5 text-center">
+      <Image src={slogan} alt="Luxe's slogan" width={100} height={100} />
+      <p className="font-medium max-w-md mx-auto">
+        Library of dark mode components to illuminate your applications with
+        elegance and sophistication.
+      </p>
+      <div className="flex flex-wrap items-center justify-center gap-2">
+        <Link
+          href="/ui"
+          className="text-sm py-2 px-4 font-semibold bg-primary text-black rounded-xl duration-300 hover:bg-primary/70"
+        >
+          Get started
+        </Link>
+        <a
+          href="https://github.com/guhrodriguess/luxe"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-1.5 font-semibold bg-background border border-border text-secondary text-sm rounded-xl px-4 py-2 duration-300 hover:bg-neutral-900"
+        >
+          <GitHubIcon className="h-3.5 w-3.5" />
+          <span>{starCount}</span>
+        </a>
+      </div>
+    </AnimateEnter>
   );
 }
 

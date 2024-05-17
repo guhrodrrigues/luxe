@@ -28,6 +28,7 @@ export const metadata: Metadata = {
     "guhrodrigues.com",
     "luxe.guhrodrigues.com",
     "UI Design",
+    "Luxe",
     "UI Library",
     "Design Engineer",
     "Front-end Developer",

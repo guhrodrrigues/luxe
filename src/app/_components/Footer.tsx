@@ -1,7 +1,10 @@
 import Link from "next/link";
 
-import { ChevronRightIcon } from "lucide-react";
 import { RequestComponentButton } from "./RequestComponentButton";
+
+import logo from "@/assets/logo.png";
+import Image from "next/image";
+import { ArrowUpRightIcon } from "lucide-react";
 
 export function Footer() {
   return (
@@ -9,19 +12,19 @@ export function Footer() {
       <Blur />
       <div className="px-8 mx-auto max-w-[1400px] w-full py-20">
         <div className="flex max-md:flex-col gap-10 md:justify-between">
-          <div className="flex flex-col gap-4">
-            <h1 className="text-2xl font-bold text-gradient">Luxe</h1>
+          <div className="flex flex-col gap-5">
+            <Image src={logo} alt="Luxe's logo" width={80} height={80} />
             <div className="flex flex-col gap-1">
-              <p className="text-foreground/80 font-medium text-sm">
+              <p className="text-foreground font-medium text-sm">
                 Elevating the design.
               </p>
-              <span className="text-foreground/80 font-medium text-sm">
+              <span className="text-foreground font-medium text-sm">
                 Made by{" "}
                 <a
                   href="https://guhrodrigues.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-secondary/90 duration-200 hover:text-primary/80"
+                  className="text-primary/90 duration-200"
                 >
                   Gustavo Rodrigues.
                 </a>
@@ -31,32 +34,38 @@ export function Footer() {
           </div>
           <div className="space-y-4">
             <div className="text-sm flex flex-col gap-4">
-              <Link href="/ui" className="duration-200 hover:text-primary">
+              <Link
+                href="/ui"
+                className="text-foreground duration-200 hover:text-primary"
+              >
                 Explore all components
               </Link>
               <a
                 href="https://github.com/guhrodriguess/luxe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="duration-200 hover:text-primary"
+                className="flex items-center gap-1 text-foreground duration-200 hover:text-primary"
               >
-                Source Code
+                Source code
+                <ArrowUpRightIcon size={10} />
               </a>
               <a
                 href="https://github.com/guhrodriguess"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="duration-200 hover:text-primary"
+                className="flex items-center gap-1 text-foreground duration-200 hover:text-primary"
               >
                 GitHub
+                <ArrowUpRightIcon size={10} />
               </a>
               <a
                 href="https://twitter.com/guhrodrrigues"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="duration-200 hover:text-primary"
+                className="flex items-center gap-1 text-foreground duration-200 hover:text-primary"
               >
                 Twitter
+                <ArrowUpRightIcon size={10} />
               </a>
             </div>
           </div>

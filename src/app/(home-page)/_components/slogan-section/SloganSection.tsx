@@ -8,7 +8,7 @@ export function SloganSection() {
       <div className="flex items-center justify-center relative pb-40 pt-14 mt-28 md:mt-44">
         <BlurBackground />
         <AnimateEnter
-          className="flex flex-col gap-4 md:gap-8 items-center"
+          className="flex flex-col gap-4 lg:gap-8 items-center"
           delay={0.4}
         >
           <TypewriterTitle />

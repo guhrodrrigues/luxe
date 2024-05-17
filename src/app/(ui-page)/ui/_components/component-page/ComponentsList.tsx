@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 import { CommandIcon, SearchIcon } from "lucide-react";
@@ -12,6 +13,8 @@ import { cn } from "@/utils/cn";
 import { COMPONENTS } from "@/data/components";
 
 import { ComponentsListButton } from "./ComponentsListButton";
+
+import logo from "@/assets/logo.png";
 
 export function ComponentsList() {
   const { setShowCommandMenu } = useProvider();
@@ -28,7 +31,7 @@ export function ComponentsList() {
     <aside className="max-xl:relative sticky top-0 bottom-0 flex-1 xl:h-[calc(100vh_-_3rem)] max-xl:pt-12">
       <div className="max-xl:items-center max-xl:justify-between flex xl:flex-col gap-6 xl:px-6">
         <Link href="/" className="flex w-fit xl:mt-10 select-none">
-          <h1 className="text-2xl font-bold text-gradient">Luxe</h1>
+          <Image src={logo} alt="Luxe's logo" width={80} height={80} />
         </Link>
         <button
           onClick={() => setShowCommandMenu(true)}
