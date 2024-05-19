@@ -49,8 +49,8 @@ export async function generateMetadata({
         {
           width: 1920,
           height: 1080,
-          url: "/open-graphs/og-browse-components.png",
-          alt: "Luxe website cover",
+          url: "/open-graphs/og-luxe-website.png",
+          alt: "Luxe's website cover",
         },
       ],
     },
@@ -62,8 +62,8 @@ export async function generateMetadata({
         {
           width: 1920,
           height: 1080,
-          url: "/open-graphs/og-browse-components.png",
-          alt: "Luxe website cover",
+          url: "/open-graphs/og-luxe-website.png",
+          alt: "Luxe's website cover",
         },
       ],
     },

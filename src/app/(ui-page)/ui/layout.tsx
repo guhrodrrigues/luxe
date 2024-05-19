@@ -5,7 +5,10 @@ import { CommandMenu } from "./_components/command-menu";
 import { CommandMenuProvider } from "./_context/CommandMenuProvider";
 
 export const metadata: Metadata = {
-  title: "Browse Components",
+  title: {
+    default: "Browse Components",
+    template: "%s · Luxe",
+  },
   description:
     "Navigate to all the components that will make your application sophisticated and luxurious.",
   openGraph: {
@@ -13,8 +16,8 @@ export const metadata: Metadata = {
       {
         width: 1920,
         height: 1080,
-        url: "/open-graphs/og-browse-components.png",
-        alt: "Luxe website cover",
+        url: "/open-graphs/og-luxe-website.png",
+        alt: "Luxe's website cover",
       },
     ],
     locale: "en",
@@ -30,8 +33,8 @@ export const metadata: Metadata = {
       {
         width: 1920,
         height: 1080,
-        url: "/open-graphs/og-browse-components.png",
-        alt: "Luxe website cover",
+        url: "/open-graphs/og-luxe-website.png",
+        alt: "Luxe's website cover",
       },
     ],
     card: "summary_large_image",
