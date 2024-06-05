@@ -25,7 +25,7 @@ export function FeedbacksCard() {
           >
             Guilherme Rodz
           </a>
-          <span className="text-neutral-400">Creator of input-otp</span>
+          <span className="text-neutral-400">Design Engineer, Unkey</span>
         </div>
       </div>
     </div>
