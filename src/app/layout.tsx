@@ -13,11 +13,12 @@ export const metadata: Metadata = {
   category: "developer",
   creator: "Gustavo Rodrigues",
   title: {
-    default: "Luxe",
+    default:
+      "Luxe – Library of components copy and paste to illuminate your applications with elegance and sophistication.",
     template: "%s · Luxe",
   },
   description:
-    "Library of components to illuminate your applications with elegance and sophistication.",
+    "Library of components copy and paste to illuminate your applications with elegance and sophistication.",
   icons: {
     apple: "/favicon.svg",
     icon: "/favicon.svg",

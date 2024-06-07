@@ -21,7 +21,7 @@ export function ComponentsListButton({ name, slug }: ComponentsListButton) {
       className={cn(
         "text-sm select-none px-3 py-2.5 border border-transparent rounded-lg",
         isActive
-          ? " text-primary bg-neutral-900 border-border"
+          ? "text-primary bg-neutral-900 border-border"
           : "text-foreground/80 duration-300 hover:text-neutral-300 hover:bg-neutral-900/80"
       )}
     >

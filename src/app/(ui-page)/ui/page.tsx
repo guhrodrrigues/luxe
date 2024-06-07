@@ -15,10 +15,10 @@ export default function UiPage() {
       <section className="flex flex-col gap-6">
         <RequestComponentButton />
         <div className="space-y-4">
-          <h1 className="text-3xl font-semibold text-neutral-300">
+          <h1 className="text-3xl font-semibold text-primary">
             Browse Components
           </h1>
-          <p className="max-w-lg">
+          <p className="max-w-lg font-normal text-primary opacity-70">
             Navigate to all the components that will make your application
             sophisticated and luxurious.
           </p>
@@ -32,10 +32,13 @@ export default function UiPage() {
           >
             <Link
               href={`/ui/${slug}`}
-              className="w-fit select-none flex items-center gap-1 text-secondary duration-300 hover:gap-2 hover:text-primary"
+              className="group w-fit select-none flex items-center gap-1 text-neutral-300 hover:text-primary duration-200 hover:gap-2"
             >
               <span>{name}</span>
-              <MoveRightIcon size={12} />
+              <MoveRightIcon
+                size={12}
+                className="scale-0 duration-200 group-hover:scale-100"
+              />
             </Link>
             <ComponentView>{component}</ComponentView>
           </div>

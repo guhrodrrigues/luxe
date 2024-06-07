@@ -23,9 +23,9 @@ export async function HeroContent() {
   return (
     <AnimateEnter className="z-[3] flex flex-col items-center space-y-5 text-center">
       <Image src={slogan} alt="Luxe's slogan" width={100} height={100} />
-      <p className="font-medium max-w-md mx-auto">
-        Library of dark mode components to illuminate your applications with
-        elegance and sophistication.
+      <p className="font-normal text-primary opacity-70 max-w-md mx-auto">
+        Library of components copy and paste to illuminate your applications
+        with elegance and sophistication.
       </p>
       <div className="flex flex-wrap items-center justify-center gap-2">
         <Link

@@ -3,6 +3,7 @@ import { cn } from "@/utils/cn";
 import { GradientLine } from "@/app/_components/GradientLine";
 
 import Code from "./Code";
+import { CopyCode } from "./CopyCode";
 
 type CodeBlockProps = {
   code: string;
@@ -17,6 +18,9 @@ export function CodeBlock({ code, fileName, className }: CodeBlockProps) {
         className
       )}
     >
+      <div className="absolute top-4 right-4 z-10">
+        <CopyCode code={code} />
+      </div>
       <GradientLine />
       {fileName && (
         <div className="absolute left-4 top-4">

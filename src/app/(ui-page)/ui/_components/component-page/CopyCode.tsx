@@ -4,7 +4,8 @@ import { useState } from "react";
 
 import { AnimatePresence, motion } from "framer-motion";
 
-import { CheckIcon, CopyIcon } from "lucide-react";
+import { CheckIcon, ClipboardIcon, CopyIcon } from "lucide-react";
+import { cn } from "@/utils/cn";
 
 type CopyCode = {
   code: string;
@@ -23,21 +24,44 @@ export function CopyCode({ code }: CopyCode) {
   const key = copied ? "copied" : "default";
 
   return (
-    <button
-      key={key}
+    <motion.button
       onClick={handleCopy}
-      className="rounded-lg bg-neutral-900 p-2 border-border"
+      className="rounded-full py-1.5 w-[70px] border bg-neutral-900 border-border cursor-copy"
     >
-      <AnimatePresence>
-        <motion.span
-          initial={{ opacity: 0, scale: 0, filter: "blur(5px)" }}
-          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-          exit={{ opacity: 0, scale: 0, filter: "blur(5px)" }}
-          transition={{ duration: 0.4 }}
-        >
-          {copied ? <CheckIcon size={14} /> : <CopyIcon size={14} />}
-        </motion.span>
+      <AnimatePresence mode="wait">
+        {copied ? (
+          <motion.span
+            key={key}
+            className="flex items-center justify-center gap-1.5 text-neutral-200 text-xs font-medium"
+            initial={{ opacity: 0, filter: "blur(4px)", y: "-100%" }}
+            animate={{
+              opacity: 1,
+              filter: "blur(0px)",
+              y: 0,
+            }}
+            exit={{ opacity: 0, filter: "blur(4px)", y: "100%" }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
+          >
+            Copied!
+          </motion.span>
+        ) : (
+          <motion.span
+            key={key}
+            className="flex items-center justify-center gap-1.5 text-xs font-medium"
+            initial={{ opacity: 0, filter: "blur(4px)", y: "-100%" }}
+            animate={{
+              opacity: 1,
+              filter: "blur(0px)",
+              y: 0,
+            }}
+            exit={{ opacity: 0, filter: "blur(4px)", y: "100%" }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
+          >
+            <ClipboardIcon size={10} />
+            Copy
+          </motion.span>
+        )}
       </AnimatePresence>
-    </button>
+    </motion.button>
   );
 }

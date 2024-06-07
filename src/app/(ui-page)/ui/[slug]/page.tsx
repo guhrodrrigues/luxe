@@ -6,7 +6,7 @@ import fs from "fs";
 import path from "path";
 import { promisify } from "util";
 
-import { MoveLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 import { COMPONENTS } from "@/data/components";
 
@@ -112,11 +112,11 @@ export default async function ComponentPage({
           href="/ui"
           className="flex select-none items-center text-sm gap-1 text-primary/80 w-fit"
         >
-          <MoveLeft size={14} />
-          Back to all components
+          <ArrowLeft size={14} />
+          Back
         </Link>
         <div className="space-y-7">
-          <h1 className="text-3xl font-semibold text-neutral-300">
+          <h1 className="text-3xl font-semibold text-primary">
             {component.name}
           </h1>
           <ComponentView>{component.component}</ComponentView>
