@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     description:
       "Navigate to all the components that will make your application sophisticated and luxurious.",
     type: "website",
-    url: "https://luxe.guhrodrigues.com/ui",
+    url: "https://luxeui.com/ui",
   },
   twitter: {
     images: [

@@ -25,19 +25,19 @@ export function CardHoverEffect({
       title: "Luxe",
       description:
         "Explore the new website that simplifies the creation of sophisticated dark mode components.",
-      href: "https://luxe.guhrodrigues.com",
+      href: "https://luxeui.com",
     },
     {
       title: "Luxe",
       description:
         "Explore the new website that simplifies the creation of sophisticated dark mode components.",
-      href: "https://luxe.guhrodrigues.com",
+      href: "https://luxeui.com",
     },
     {
       title: "Luxe",
       description:
         "Explore the new website that simplifies the creation of sophisticated dark mode components.",
-      href: "https://luxe.guhrodrigues.com",
+      href: "https://luxeui.com",
     },
   ];
 

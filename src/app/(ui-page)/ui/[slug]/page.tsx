@@ -44,7 +44,7 @@ export async function generateMetadata({
       title: `Luxe — ${name}`,
       description: `Navigate to ${name} component, which will make your application sophisticated and luxurious.`,
       type: "website",
-      url: `https://luxe.guhrodrigues.com/ui/${slug}`,
+      url: `https://luxeui.com/ui/${slug}`,
       images: [
         {
           width: 1920,

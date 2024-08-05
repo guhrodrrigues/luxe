@@ -1,11 +1,10 @@
 https://github.com/guhrodriguess/luxe/assets/79873612/044ff83a-3782-411a-9010-4b59488e7a52
 
-
 ### Luxe
 
 Explore the new website that simplifies the creation of sophisticated dark mode components. With React, Tailwind CSS and Framer Motion, easily achieve an elegant and modern aesthetic in your digital projects.
 
-<a href="https://luxe.guhrodrigues.com">
+<a href="https://luxeui.com">
   See the website
 </a>
 

@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   keywords: [
     "Gustavo Rodrigues",
     "guhrodrigues.com",
-    "luxe.guhrodrigues.com",
+    "luxeui.com",
     "UI Design",
     "Luxe",
     "UI Library",
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     description:
       "Library of dark mode components to illuminate your applications with elegance and sophistication.",
     type: "website",
-    url: "https://luxe.guhrodrigues.com",
+    url: "https://luxeui.com",
   },
   publisher: "Gustavo Rodrigues",
   twitter: {
