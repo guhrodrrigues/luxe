@@ -35,7 +35,7 @@ export async function HeroContent() {
           Get started
         </Link>
         <a
-          href="https://github.com/guhrodriguess/luxe"
+          href="https://github.com/guhrodrrigues/luxe"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-1.5 font-semibold bg-background border border-border text-secondary text-sm rounded-xl px-4 py-2 duration-300 hover:bg-neutral-900"
