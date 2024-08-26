@@ -11,7 +11,7 @@ export function CardComment() {
       </p>
       <div className="flex items-center justify-center gap-3">
         <Image
-          src="https://github.com/guhrodriguess.png"
+          src="https://github.com/guhrodrrigues.png"
           alt="Gustavo's profile image"
           width={40}
           height={40}
@@ -19,7 +19,7 @@ export function CardComment() {
         />
         <div className="flex flex-col">
           <a
-            href="https://github.com/guhrodriguess"
+            href="https://github.com/guhrodrrigues"
             target="_blank"
             rel="noopener noreferrer"
             className="text-base font-medium text-neutral-300 leading-none duration-300"

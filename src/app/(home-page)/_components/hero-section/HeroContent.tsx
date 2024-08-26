@@ -6,7 +6,7 @@ import { AnimateEnter } from "../AnimateEnter";
 import slogan from "@/assets/slogan.png";
 
 async function getRepoStarCount() {
-  const res = await fetch("https://api.github.com/repos/guhrodriguess/luxe");
+  const res = await fetch("https://api.github.com/repos/guhrodrrigues/luxe");
   const data = await res.json();
   const starCount = data.stargazers_count;
 
