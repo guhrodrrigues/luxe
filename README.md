@@ -24,4 +24,4 @@ I was very excited to develop this project, it's a great satisfaction to be crea
 
 ### License
 
-© Gustavo Rodrigues – All rights reserved. Licensed under the [MIT LICENSE](https://github.com/guhrodriguess/luxe/blob/main/LICENSE).
+© Gustavo Rodrigues – All rights reserved. Licensed under the [MIT LICENSE](https://github.com/guhrodrrigues/luxe/blob/main/LICENSE).
