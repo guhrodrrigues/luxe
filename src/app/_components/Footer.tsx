@@ -41,7 +41,7 @@ export function Footer() {
                 Explore all components
               </Link>
               <a
-                href="https://github.com/guhrodriguess/luxe"
+                href="https://github.com/guhrodrrigues/luxe"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 text-foreground duration-200 hover:text-primary"
@@ -50,7 +50,7 @@ export function Footer() {
                 <ArrowUpRightIcon size={10} />
               </a>
               <a
-                href="https://github.com/guhrodriguess"
+                href="https://github.com/guhrodrrigues"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 text-foreground duration-200 hover:text-primary"
