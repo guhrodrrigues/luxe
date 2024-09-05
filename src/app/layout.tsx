@@ -56,7 +56,7 @@ export const metadata: Metadata = {
       {
         width: 1920,
         height: 1080,
-        url: "/open-graphs/og-luxe-website.png",
+        url: "https://luxeui.com/open-graphs/og-luxe-website.png",
         alt: "Luxe website cover",
       },
     ],
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
       {
         width: 1920,
         height: 1080,
-        url: "/open-graphs/og-luxe-website.png",
+        url: "https://luxeui.com/open-graphs/og-luxe-website.png",
         alt: "Luxe website cover",
       },
     ],
