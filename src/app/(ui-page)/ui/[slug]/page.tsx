@@ -129,7 +129,7 @@ export default async function ComponentPage({
             <CodeBlock
               code={component.download}
               fileName="Install dependencies"
-              lang="shell"
+              lang="shellscript"
             />
           )}
           {component.cnFunction && (

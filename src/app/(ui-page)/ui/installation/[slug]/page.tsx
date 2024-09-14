@@ -115,7 +115,10 @@ export default async function InstallationSlugPage({
                   <h1 className="text-primary font-medium">
                     Create a new project:
                   </h1>
-                  <CodeBlock code="npx create-next-app@latest" lang="shell" />
+                  <CodeBlock
+                    code="npx create-next-app@latest"
+                    lang="shellscript"
+                  />
                 </div>
               </div>
             </div>
@@ -131,7 +134,7 @@ export default async function InstallationSlugPage({
                   </h1>
                   <CodeBlock
                     code={await readFilePath("next")}
-                    lang="shell"
+                    lang="shellscript"
                     copyCode={false}
                   />
                 </div>
@@ -145,7 +148,10 @@ export default async function InstallationSlugPage({
               <div className="ml-[1.1rem] border-l border-border">
                 <div className="pl-8 space-y-4 pt-1">
                   <h1 className="text-primary font-medium">Start the app:</h1>
-                  <CodeBlock code={"cd my-app && npm run dev"} lang="shell" />
+                  <CodeBlock
+                    code={"cd my-app && npm run dev"}
+                    lang="shellscript"
+                  />
                 </div>
               </div>
             </div>
@@ -163,7 +169,7 @@ export default async function InstallationSlugPage({
                   </h1>
                   <CodeBlock
                     code="npm create vite@latest my-app"
-                    lang="shell"
+                    lang="shellscript"
                   />
                 </div>
               </div>
@@ -178,7 +184,10 @@ export default async function InstallationSlugPage({
                   <h1 className="text-primary font-medium">
                     After the above command, install and enter the application:
                   </h1>
-                  <CodeBlock code="cd my-app && npm install" lang="shell" />
+                  <CodeBlock
+                    code="cd my-app && npm install"
+                    lang="shellscript"
+                  />
                 </div>
               </div>
             </div>
@@ -198,7 +207,7 @@ export default async function InstallationSlugPage({
                       "\n" +
                       "npx tailwindcss init -p"
                     }
-                    lang="shell"
+                    lang="shellscript"
                     copyCode={false}
                   />
                 </div>
@@ -269,7 +278,7 @@ export default async function InstallationSlugPage({
                         "\n" +
                         "npm i -D @types/node"
                       }
-                      lang="shell"
+                      lang="shellscript"
                     />
                     <CodeBlock
                       fileName="vite.config.ts"

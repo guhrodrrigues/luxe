@@ -34,7 +34,7 @@
     "eslint-config-next": "14.1.0",
     "husky": "9.0.11",
     "postcss": "^8",
-    "shiki": "^1.1.7",
+    "shiki": "^1.17.6",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }

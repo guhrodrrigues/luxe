@@ -1,4 +1,4 @@
-import { highlight } from "@/utils/shiki";
+import { codeToHtml } from "shiki";
 
 type CodeProps = {
   code: string;
@@ -6,9 +6,12 @@ type CodeProps = {
 };
 
 async function Code({ code, lang = "tsx" }: CodeProps) {
-  const component = await highlight(code, "vesper", lang);
+  const component = await codeToHtml(code, {
+    lang: lang,
+    theme: "vesper",
+  });
 
-  return <div dangerouslySetInnerHTML={{ __html: component }}></div>;
+  return <div dangerouslySetInnerHTML={{ __html: component }} />;
 }
 
 export default Code as unknown as (props: CodeProps) => JSX.Element;
