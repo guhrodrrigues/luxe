@@ -11,7 +11,7 @@ export function AnimatedNumber({ value }: { value: number }) {
 
   useEffect(() => {
     setNewValue(value);
-  }, []);
+  }, [value]);
 
   return (
     <Animation
