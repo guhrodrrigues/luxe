@@ -5,7 +5,10 @@ import { AnimateEnter } from "../AnimateEnter";
 export function TechsSection() {
   return (
     <section className="relative z-[4]">
-      <div className="relative rounded-t-3xl border-t border-border pt-20 overflow-hidden">
+      <AnimateEnter
+        delay={0.3}
+        className="relative rounded-t-3xl border-t border-border pt-20 overflow-hidden"
+      >
         <div
           aria-hidden
           className="absolute left-1/2 top-0 h-px max-w-[1000px] pointer-events-none -translate-y-1/2 -translate-x-1/2 w-1/2 bg-gradient-to-l from-transparent via-white/50 via-50% to-transparent"
@@ -18,14 +21,11 @@ export function TechsSection() {
               "conic-gradient(from 90deg at 50% 50%, #00000000 50%, #0a0a0a 50%),radial-gradient(rgba(134, 134, 134, 0.1) 0%, transparent 80%)",
           }}
         />
-        <AnimateEnter
-          className="flex flex-col justify-center items-center gap-14"
-          delay={0.4}
-        >
+        <AnimateEnter className="flex flex-col justify-center items-center gap-14">
           <TechsDescription />
           <TechsSlider />
         </AnimateEnter>
-      </div>
+      </AnimateEnter>
     </section>
   );
 }

@@ -33,14 +33,14 @@ export function CopyCode({ code }: CopyCode) {
           <motion.span
             key={key}
             className="flex items-center justify-center gap-1.5 text-neutral-200 text-xs font-medium"
-            initial={{ opacity: 0, filter: "blur(4px)", y: "-100%" }}
+            initial={{ opacity: 0, filter: "blur(4px)", y: "-6px" }}
             animate={{
               opacity: 1,
               filter: "blur(0px)",
               y: 0,
             }}
-            exit={{ opacity: 0, filter: "blur(4px)", y: "100%" }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
+            exit={{ opacity: 0, filter: "blur(4px)", y: "6px" }}
+            transition={{ duration: 0.16, ease: "easeInOut" }}
           >
             Copied!
           </motion.span>
@@ -48,14 +48,14 @@ export function CopyCode({ code }: CopyCode) {
           <motion.span
             key={key}
             className="flex items-center justify-center gap-1.5 text-xs font-medium"
-            initial={{ opacity: 0, filter: "blur(4px)", y: "-100%" }}
+            initial={{ opacity: 0, filter: "blur(4px)", y: "-6px" }}
             animate={{
               opacity: 1,
               filter: "blur(0px)",
               y: 0,
             }}
-            exit={{ opacity: 0, filter: "blur(4px)", y: "100%" }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
+            exit={{ opacity: 0, filter: "blur(4px)", y: "6px" }}
+            transition={{ duration: 0.16, ease: "easeInOut" }}
           >
             <ClipboardIcon size={10} />
             Copy

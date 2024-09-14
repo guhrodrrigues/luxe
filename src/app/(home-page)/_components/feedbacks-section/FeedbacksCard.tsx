@@ -18,7 +18,7 @@ export function FeedbacksCard() {
         />
         <div className="flex flex-col">
           <a
-            href="https://twitter.com/guilherme_rodz"
+            href="https://x.com/guilherme_rodz"
             target="_blank"
             rel="noopener noreferrer"
             className="text-base font-medium text-neutral-300 leading-none duration-300"

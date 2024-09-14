@@ -8,20 +8,22 @@ type AnimateEnterProps = {
   className?: string;
   delay?: number;
   children: React.ReactNode;
+  duration?: number;
 };
 
 export function AnimateEnter({
   className,
   delay,
   children,
+  duration = 0.5,
 }: AnimateEnterProps) {
   return (
     <motion.div
       className={cn(className)}
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeInOut", delay: delay }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: duration, ease: "easeInOut", delay: delay }}
+      viewport={{ once: true }}
     >
       {children}
     </motion.div>

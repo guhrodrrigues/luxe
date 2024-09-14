@@ -1,8 +1,7 @@
 import { Metadata } from "next";
 
 import { ComponentsList } from "./_components/component-page/ComponentsList";
-import { CommandMenu } from "./_components/command-menu";
-import { CommandMenuProvider } from "./_context/CommandMenuProvider";
+import { AnimateEnter } from "@/app/(home-page)/_components/AnimateEnter";
 
 export const metadata: Metadata = {
   title: {
@@ -16,7 +15,7 @@ export const metadata: Metadata = {
       {
         width: 1920,
         height: 1080,
-        url: "/open-graphs/og-luxe-website.png",
+        url: "https://luxeui.com/open-graphs/og-luxe-website.png",
         alt: "Luxe's website cover",
       },
     ],
@@ -33,7 +32,7 @@ export const metadata: Metadata = {
       {
         width: 1920,
         height: 1080,
-        url: "/open-graphs/og-luxe-website.png",
+        url: "https://luxeui.com/open-graphs/og-luxe-website.png",
         alt: "Luxe's website cover",
       },
     ],
@@ -52,14 +51,14 @@ type ComponentPageLayout = {
 
 export default function ComponentPageLayout({ children }: ComponentPageLayout) {
   return (
-    <CommandMenuProvider>
-      <div className="mx-auto flex max-xl:flex-col gap-12 xl:gap-24 max-w-[1600px] w-full px-4 max-xl:mb-14">
-        <div className="flex-shrink-0 xl:w-[250px]">
-          <ComponentsList />
-        </div>
-        <div className="flex-grow min-w-0">{children}</div>
-        <CommandMenu />
+    <AnimateEnter
+      duration={0.3}
+      className="mx-auto flex max-lg:flex-col gap-12 lg:gap-12 max-w-[1400px] w-full px-4 max-lg:mb-14 mt-16"
+    >
+      <div className="flex-shrink-0 lg:w-[250px]">
+        <ComponentsList />
       </div>
-    </CommandMenuProvider>
+      <div className="flex-grow min-w-0 lg:mt-6">{children}</div>
+    </AnimateEnter>
   );
 }

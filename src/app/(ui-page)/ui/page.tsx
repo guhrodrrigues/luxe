@@ -7,28 +7,28 @@ import { cn } from "@/utils/cn";
 import { COMPONENTS } from "@/data/components";
 
 import { ComponentView } from "./_components/component-page/ComponentView";
-import { RequestComponentButton } from "@/app/_components/RequestComponentButton";
+import { Breadcrumbs } from "./_components/Breadcrumbs";
 
 export default function UiPage() {
   return (
-    <main className="my-2 xl:my-24 space-y-16">
-      <section className="flex flex-col gap-6">
-        <RequestComponentButton />
-        <div className="space-y-4">
+    <main className="my-2 xl:mb-24 space-y-16">
+      <div className="space-y-6">
+        <Breadcrumbs groupName="Get Started" currentPage="Browse Components" />
+        <div className="space-y-3">
           <h1 className="text-3xl font-semibold text-primary">
             Browse Components
           </h1>
-          <p className="max-w-lg font-normal text-primary opacity-70">
+          <p className="max-w-lg font-normal text-primary/80">
             Navigate to all the components that will make your application
             sophisticated and luxurious.
           </p>
         </div>
-      </section>
-      <div className="grid md:grid-cols-3 gap-x-6 gap-y-12">
+      </div>
+      <div className="grid md:grid-cols-2 gap-x-9 gap-y-12">
         {COMPONENTS.map(({ name, component, slug, colSpan }) => (
           <div
             key={name}
-            className={cn("space-y-3", colSpan && `md:col-[span_3_/_span_3]`)}
+            className={cn("space-y-4", colSpan && `md:col-[span_2_/_span_2]`)}
           >
             <Link
               href={`/ui/${slug}`}

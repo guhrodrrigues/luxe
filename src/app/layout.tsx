@@ -7,6 +7,9 @@ import "@/styles/globals.css";
 import { cn } from "@/utils/cn";
 
 import { Footer } from "./_components/Footer";
+import { Header } from "./_components/Header";
+import { CommandMenu } from "./_components/command-menu";
+import { CommandMenuProvider } from "./_components/command-menu/_context/CommandMenuProvider";
 
 export const metadata: Metadata = {
   authors: [{ name: "Gustavo Rodrigues", url: "https://guhrodrigues.com" }],
@@ -100,8 +103,12 @@ export default function RootLayout({
           GeistSans.variable
         )}
       >
-        {children}
-        <Footer />
+        <CommandMenuProvider>
+          <Header />
+          {children}
+          <Footer />
+          <CommandMenu />
+        </CommandMenuProvider>
       </body>
     </html>
   );

@@ -3,13 +3,13 @@ import { FeedbacksCard } from "./FeedbacksCard";
 
 export function FeedbacksSection() {
   return (
-    <section className="relative z-[4] mt-56">
+    <section className="relative z-[4] bg-background mt-48">
       <div className="relative rounded-t-3xl border-t border-border pt-20 overflow-hidden">
         <Line />
         <Blur />
         <AnimateEnter
           className="flex flex-col justify-center items-center gap-14"
-          delay={0.4}
+          delay={0.2}
         >
           <FeedbacksCard />
         </AnimateEnter>

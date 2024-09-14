@@ -169,6 +169,13 @@ export const COMPONENTS = [
     twConfig: TWCONFIG["shine"],
   },
   {
+    name: "Card Background Shine",
+    slug: "card-background-shine",
+    component: <CardBackgroundShine />,
+    type: "cards",
+    twConfig: TWCONFIG["shine"],
+  },
+  {
     name: "Card Animated Border",
     slug: "card-animated-border",
     component: <CardAnimatedBorder />,
@@ -181,13 +188,6 @@ export const COMPONENTS = [
     component: <CardRevealedPointer />,
     type: "cards",
     download: "npm i framer-motion",
-  },
-  {
-    name: "Card Background Shine",
-    slug: "card-background-shine",
-    component: <CardBackgroundShine />,
-    type: "cards",
-    twConfig: TWCONFIG["shine"],
   },
   {
     name: "Card Comment",

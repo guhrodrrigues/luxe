@@ -34,7 +34,8 @@ const config: Config = {
         "text-glitch-from": "text-glitch-from 0.6s ease-in-out infinite",
         "text-scale": "text-scale 1s linear infinite forwards",
         slide: "slide 40s linear infinite",
-        spotlight: "spotlight 2s ease .75s 1 forwards",
+        spotlight: "spotlight 2s ease 1 forwards",
+        brightness: "brightness 2.2s linear infinite",
       },
       backgroundImage: {
         "fade-gradient":
@@ -95,6 +96,14 @@ const config: Config = {
           },
           to: {
             transform: "translateY(0)",
+          },
+        },
+        brightness: {
+          "0%": {
+            transform: "skew(-13deg) translateX(-100%)",
+          },
+          "100%": {
+            transform: "skew(-13deg) translateX(100%)",
           },
         },
         "text-scale": {

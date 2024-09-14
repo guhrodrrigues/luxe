@@ -6,12 +6,13 @@ import fs from "fs";
 import path from "path";
 import { promisify } from "util";
 
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 
 import { COMPONENTS } from "@/data/components";
 
 import { CodeBlock } from "../_components/component-page/CodeBlock";
 import { ComponentView } from "../_components/component-page/ComponentView";
+import { Breadcrumbs } from "../_components/Breadcrumbs";
 
 export async function generateStaticParams() {
   const component = COMPONENTS.map((component) => ({
@@ -49,7 +50,7 @@ export async function generateMetadata({
         {
           width: 1920,
           height: 1080,
-          url: "/open-graphs/og-luxe-website.png",
+          url: "https://luxeui.com/open-graphs/og-luxe-website.png",
           alt: "Luxe's website cover",
         },
       ],
@@ -62,7 +63,7 @@ export async function generateMetadata({
         {
           width: 1920,
           height: 1080,
-          url: "/open-graphs/og-luxe-website.png",
+          url: "https://luxeui.com/open-graphs/og-luxe-website.png",
           alt: "Luxe's website cover",
         },
       ],
@@ -105,25 +106,30 @@ export default async function ComponentPage({
 
   const twConfig = JSON.stringify(component.twConfig, null, 2);
 
+  const currentComponent = COMPONENTS.indexOf(component);
+  const previousComponent = COMPONENTS[currentComponent - 1];
+  const nextComponent = COMPONENTS[currentComponent + 1];
+
   return (
-    <main className="my-2 xl:my-24">
-      <section className="space-y-6">
-        <Link
-          href="/ui"
-          className="flex select-none items-center text-sm gap-1 text-primary/80 w-fit"
-        >
-          <ArrowLeft size={14} />
-          Back
-        </Link>
-        <div className="space-y-7">
+    <main className="my-2 xl:mb-24">
+      <div className="space-y-12">
+        <div className="space-y-6">
+          <Breadcrumbs
+            backLink="/ui"
+            groupName="Components"
+            currentPage={component.name}
+          />
           <h1 className="text-3xl font-semibold text-primary">
             {component.name}
           </h1>
+        </div>
+        <div className="space-y-10">
           <ComponentView>{component.component}</ComponentView>
           {component.download && (
             <CodeBlock
               code={component.download}
               fileName="Install dependencies"
+              lang="shell"
             />
           )}
           {component.cnFunction && (
@@ -137,7 +143,37 @@ export default async function ComponentPage({
             <CodeBlock code={twConfig} fileName="tailwind.config.ts" />
           )}
         </div>
-      </section>
+        <div className="flex items-center justify-between border-t border-border pt-9">
+          <div>
+            {previousComponent && (
+              <Link
+                href={`/ui/${previousComponent.slug}`}
+                className="flex flex-col text-sm"
+              >
+                <span>Back</span>
+                <div className="flex items-center gap-1">
+                  <ArrowLeftIcon size={12} className="text-primary" />
+                  <span className="text-primary">{previousComponent.name}</span>
+                </div>
+              </Link>
+            )}
+          </div>
+          <div>
+            {nextComponent && (
+              <Link
+                href={`/ui/${nextComponent.slug}`}
+                className="flex flex-col items-end text-sm"
+              >
+                <span>Next</span>
+                <div className="flex items-center gap-1">
+                  <span className="text-primary">{nextComponent.name}</span>
+                  <ArrowRightIcon size={12} className="text-primary" />
+                </div>
+              </Link>
+            )}
+          </div>
+        </div>
+      </div>
     </main>
   );
 }

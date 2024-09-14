@@ -6,7 +6,7 @@ import { PaletteIcon } from "lucide-react";
 
 import { useRouter } from "next/navigation";
 
-import { useProvider } from "../../_context/CommandMenuProvider";
+import { useProvider } from "./_context/CommandMenuProvider";
 
 import {
   CommandDialog,
@@ -16,7 +16,9 @@ import {
   CommandItem,
   CommandList,
 } from "./CommandMenuComponents";
+
 import { COMPONENTS } from "@/data/components";
+import { GET_STARTED } from "@/data/get-started";
 
 type Groups = Array<{
   heading: string;
@@ -54,7 +56,15 @@ export function CommandMenu() {
 
   const groups: Groups = [
     {
-      heading: "All components",
+      heading: "Get Started",
+      actions: GET_STARTED.map(({ name, slug }) => ({
+        name: name,
+        icon: <PaletteIcon />,
+        onSelect: () => forwardToRoute(slug.replace("ui/", "")),
+      })),
+    },
+    {
+      heading: "Components",
       actions: COMPONENTS.map(({ name, slug }) => ({
         name: name,
         icon: <PaletteIcon />,

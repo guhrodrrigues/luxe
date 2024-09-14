@@ -1,18 +1,23 @@
 import { AnimateEnter } from "../AnimateEnter";
-import { TypewriterTitle } from "./TypewriterTitle";
-import { Button } from "./Button";
+import { GalleryButton } from "./GalleryButton";
+import { GetStartedButton } from "./GetStartedButton";
 
 export function SloganSection() {
   return (
     <section className="w-full h-full overflow-hidden">
-      <div className="flex items-center justify-center relative pb-40 pt-14 mt-28 md:mt-44">
+      <div className="flex flex-col gap-4 lg:gap-10 items-center justify-center relative pb-20 md:pb-40 pt-14 mt-28 md:mt-44">
         <BlurBackground />
+        <AnimateEnter className="flex flex-col items-center" delay={0.2}>
+          <h1 className="max-w-lg mx-auto text-center text-4xl md:text-5xl font-display leading-tight font-semibold text-gradient">
+            Illuminate your apps. Fast and easy.
+          </h1>
+        </AnimateEnter>
         <AnimateEnter
-          className="flex flex-col gap-4 lg:gap-8 items-center"
-          delay={0.4}
+          className="flex flex-wrap items-center justify-center gap-4"
+          delay={0.2}
         >
-          <TypewriterTitle />
-          <Button />
+          <GetStartedButton />
+          <GalleryButton />
         </AnimateEnter>
       </div>
     </section>
@@ -22,7 +27,7 @@ export function SloganSection() {
 function BlurBackground() {
   return (
     <svg
-      className="absolute -z-[1] inset-x-0 w-full mx-auto pointer-events-none -bottom-[400px] md:-bottom-80"
+      className="absolute -z-[1] inset-x-0 w-full mx-auto pointer-events-none -bottom-[420px] md:-bottom-96"
       width="944"
       height="1033"
       viewBox="0 0 944 1033"

@@ -3,10 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  .text-gradient {
-    @apply bg-gradient-to-b from-primary to-[#adadad] text-transparent bg-clip-text;
-  }
-
   ::-webkit-scrollbar {
     @apply w-1;
   }
@@ -16,7 +12,7 @@
   }
 
   ::selection {
-    @apply bg-teal-500/10 text-teal-300;
+    @apply bg-neutral-800/80;
   }
 
   img,
@@ -25,10 +21,28 @@
   }
 }
 
-body {
+* {
+  font-variant-ligatures: none;
   -webkit-tap-highlight-color: transparent;
 }
 
 .shiki {
   background-color: transparent !important;
+  font-size: 15px;
+}
+
+.text-gradient {
+  background: linear-gradient(
+    to right bottom,
+    #fff 30%,
+    hsla(0, 0%, 100%, 0.5)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: unset;
+}
+
+.font-display {
+  letter-spacing: -0.025em;
 }

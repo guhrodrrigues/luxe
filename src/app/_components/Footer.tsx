@@ -5,18 +5,21 @@ import { RequestComponentButton } from "./RequestComponentButton";
 import logo from "@/assets/logo.png";
 import Image from "next/image";
 import { ArrowUpRightIcon } from "lucide-react";
+import { AnimateEnter } from "../(home-page)/_components/AnimateEnter";
 
 export function Footer() {
   return (
     <footer className="border-t relative z-10 border-border bg-background overflow-hidden">
       <Blur />
-      <div className="px-8 mx-auto max-w-[1400px] w-full py-20">
+      <div className="px-8 mx-auto max-w-[1400px] w-full py-16">
         <div className="flex max-md:flex-col gap-10 md:justify-between">
           <div className="flex flex-col gap-5">
-            <Image src={logo} alt="Luxe's logo" width={80} height={80} />
-            <div className="flex flex-col gap-1">
+            <AnimateEnter>
+              <Image src={logo} alt="Luxe's logo" width={80} height={80} />
+            </AnimateEnter>
+            <AnimateEnter delay={0.1} className="flex flex-col gap-1">
               <p className="text-foreground font-medium text-sm">
-                Elevating the design.
+                Elevating the web design.
               </p>
               <span className="text-foreground font-medium text-sm">
                 Made by{" "}
@@ -29,10 +32,12 @@ export function Footer() {
                   Gustavo Rodrigues.
                 </a>
               </span>
-            </div>
-            <RequestComponentButton />
+            </AnimateEnter>
+            <AnimateEnter delay={0.2}>
+              <RequestComponentButton />
+            </AnimateEnter>
           </div>
-          <div className="space-y-4">
+          <AnimateEnter delay={0.3} className="space-y-4">
             <div className="text-sm flex flex-col gap-4">
               <Link
                 href="/ui"
@@ -68,7 +73,7 @@ export function Footer() {
                 <ArrowUpRightIcon size={10} />
               </a>
             </div>
-          </div>
+          </AnimateEnter>
         </div>
       </div>
     </footer>

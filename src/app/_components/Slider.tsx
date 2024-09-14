@@ -12,10 +12,7 @@ function createArray(start: number, end: number): number[] {
 export function Slider({ children, className }: SliderProps) {
   return (
     <div
-      className={cn(
-        "group relative flex gap-10 overflow-hidden max-w-xl",
-        className
-      )}
+      className={cn("group relative flex gap-10 overflow-hidden", className)}
       data-id="slider"
     >
       <div className="absolute left-0 w-1/12 h-full bg-gradient-to-r from-background to-transparent z-10" />
