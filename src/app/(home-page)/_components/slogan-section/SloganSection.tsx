@@ -5,7 +5,7 @@ import { GetStartedButton } from "./GetStartedButton";
 export function SloganSection() {
   return (
     <section className="w-full h-full overflow-hidden">
-      <div className="flex flex-col gap-4 lg:gap-10 items-center justify-center relative pb-20 md:pb-40 pt-14 mt-28 md:mt-44">
+      <div className="flex flex-col gap-8 lg:gap-10 items-center justify-center relative pb-20 md:pb-40 pt-14 mt-28 md:mt-44">
         <BlurBackground />
         <AnimateEnter className="flex flex-col items-center" delay={0.2}>
           <h1 className="max-w-lg mx-auto text-center text-4xl md:text-5xl font-display leading-tight font-semibold text-gradient">
