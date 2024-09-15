@@ -26,9 +26,9 @@ export async function generateMetadata({
   const { name, slug } = installation;
 
   return {
-    title: name,
+    title: `${name} Installation`,
     openGraph: {
-      title: `Luxe — ${name}`,
+      title: `Luxe — ${name} Installation`,
       description: `How to install dependencies and structure your application with ${name} to use Luxe.`,
       type: "website",
       url: `https://luxeui.com/ui/installation/${slug}`,
@@ -42,7 +42,7 @@ export async function generateMetadata({
       ],
     },
     twitter: {
-      title: `Luxe — ${name}`,
+      title: `Luxe — ${name} Installation`,
       description: `How to install dependencies and structure your application with ${name} to use Luxe.`,
       card: "summary_large_image",
       images: [
