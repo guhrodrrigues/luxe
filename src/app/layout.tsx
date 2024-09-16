@@ -39,7 +39,9 @@ export const metadata: Metadata = {
     "FullStack Developer",
     "Component library",
     "Frontend",
+    "Copy and Paste",
     "CLI",
+    "Command Line Interface",
     "UX Design",
     "FullStack",
     "Developer",
@@ -67,7 +69,7 @@ export const metadata: Metadata = {
     siteName: "Gustavo Rodrigues",
     title: "Luxe",
     description:
-      "Library of dark mode components to illuminate your applications with elegance and sophistication.",
+      "Library of components copy and paste to illuminate your applications with elegance and sophistication.",
     type: "website",
     url: "https://luxeui.com",
   },
@@ -84,7 +86,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Luxe",
     description:
-      "Library of dark mode components to illuminate your applications with elegance and sophistication.",
+      "Library of components copy and paste to illuminate your applications with elegance and sophistication.",
     site: "@guhrodrrigues",
     creator: "Gustavo Rodrigues",
   },
