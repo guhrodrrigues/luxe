@@ -89,7 +89,7 @@ export function Header() {
               <SearchIcon size={12} />
               Search...
             </span>
-            <span className="border border-border px-1.5 rounded-sm text-[10px] flex items-center gap-0.5 max-sm:hidden">
+            <span className="border border-border px-1.5 rounded-md text-[10px] flex items-center gap-0.5 max-sm:hidden">
               <CommandIcon size={10} />K
             </span>
           </button>
