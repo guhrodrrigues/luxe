@@ -21,22 +21,16 @@ export function AnimatedTabs({
   const [activeIdx, setActiveIdx] = useState<number>(0);
 
   const tabs = [
-    {
-      title: "Product",
-    },
-    {
-      title: "Services",
-    },
-    {
-      title: "About",
-    },
+    { title: "Product" },
+    { title: "Services" },
+    { title: "About" },
   ];
 
   return (
     <div
       className={cn(
         "relative flex flex-wrap items-center justify-center",
-        containerClassName
+        containerClassName,
       )}
     >
       {tabs.map((tab, index) => (
@@ -46,7 +40,7 @@ export function AnimatedTabs({
           className={cn(
             "group relative z-[1] rounded-full px-4 py-2",
             { "z-0": activeIdx === index },
-            tabClassName
+            tabClassName,
           )}
         >
           {activeIdx === index && (
@@ -55,15 +49,15 @@ export function AnimatedTabs({
               transition={{ duration: 0.2 }}
               className={cn(
                 "absolute inset-0 rounded-full bg-white",
-                activeTabClassName
+                activeTabClassName,
               )}
             />
           )}
 
           <span
             className={cn(
-              "relative text-sm block font-medium duration-200",
-              activeIdx === index ? "text-black delay-100" : "text-white"
+              "relative block text-sm font-medium duration-200",
+              activeIdx === index ? "text-black delay-100" : "text-white",
             )}
           >
             {tab.title}

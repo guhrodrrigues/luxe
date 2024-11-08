@@ -1,16 +1,19 @@
+import { Settings, Sparkles, LayoutDashboard } from "lucide-react";
+
 export const GET_STARTED = [
   {
     name: "Installation",
     slug: "/ui/installation",
-    isNew: true,
+    icon: <Settings />,
   },
   {
     name: "Add Utilities",
     slug: "/ui/add-utilities",
-    isNew: true,
+    icon: <Sparkles />,
   },
   {
     name: "Browse Components",
     slug: "/ui",
+    icon: <LayoutDashboard />,
   },
 ];

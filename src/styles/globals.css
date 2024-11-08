@@ -3,32 +3,26 @@
 @tailwind utilities;
 
 @layer base {
-  ::-webkit-scrollbar {
-    @apply w-1;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply rounded-2xl bg-neutral-800;
-  }
-
-  ::selection {
-    @apply bg-neutral-800/80;
-  }
-
   img,
   button {
     @apply select-none;
+  }
+
+  ::selection {
+    @apply bg-neutral-400/20;
   }
 }
 
 * {
   font-variant-ligatures: none;
   -webkit-tap-highlight-color: transparent;
+  scrollbar-width: thin;
+  scrollbar-color: rgb(38, 38, 38) transparent;
 }
 
 .shiki {
   background-color: transparent !important;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .text-gradient {

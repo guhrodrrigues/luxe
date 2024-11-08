@@ -10,15 +10,19 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@radix-ui/react-checkbox": "^1.1.2",
     "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-hover-card": "^1.1.2",
     "clsx": "^2.1.0",
     "cmdk": "^0.2.1",
     "framer-motion": "^11.0.3",
-    "geist": "^1.2.2",
     "lucide-react": "^0.330.0",
     "next": "14.2.10",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.8",
     "react": "^18",
     "react-dom": "^18",
+    "react-use-measure": "^2.1.1",
     "tailwind-merge": "^2.2.1",
     "tailwind-variants": "0.2.0",
     "tailwindcss-animate": "^1.0.7"

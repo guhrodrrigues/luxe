@@ -20,7 +20,7 @@ I would like to thank [ui.ibelick](https://ui.ibelick.com), who was a fundamenta
 
 ### Future plans
 
-I was very excited to develop this project, it's a great satisfaction to be creating it, I intend to continue and add more and more components and make web development easier.
+I've been very enthusiastic about developing this project, it's a great pleasure to be creating it. My desire is to build polished and sophisticated components, thus facilitating web development.
 
 ### License
 

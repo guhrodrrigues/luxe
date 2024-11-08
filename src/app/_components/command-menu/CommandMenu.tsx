@@ -17,14 +17,16 @@ import {
   CommandList,
 } from "./CommandMenuComponents";
 
-import { COMPONENTS } from "@/data/components";
 import { GET_STARTED } from "@/data/get-started";
+import { COMPONENTS } from "@/data/components";
 
 type Groups = Array<{
   heading: string;
   actions: Array<{
     name: string;
     icon: JSX.Element;
+    isNew?: boolean;
+    isUpdated?: boolean;
     onSelect: () => void | Promise<void | boolean>;
   }>;
 }>;
@@ -54,21 +56,27 @@ export function CommandMenu() {
     [router, setShowCommandMenu]
   );
 
+  const orderedComponents = COMPONENTS.sort((a, b) =>
+    a.name.localeCompare(b.name)
+  );
+
   const groups: Groups = [
     {
       heading: "Get Started",
-      actions: GET_STARTED.map(({ name, slug }) => ({
+      actions: GET_STARTED.map(({ name, slug, icon }) => ({
         name: name,
-        icon: <PaletteIcon />,
-        onSelect: () => forwardToRoute(slug.replace("ui/", "")),
+        icon: icon,
+        onSelect: () => forwardToRoute(slug.replace("/ui", "")),
       })),
     },
     {
       heading: "Components",
-      actions: COMPONENTS.map(({ name, slug }) => ({
+      actions: orderedComponents.map(({ name, slug, isNew, isUpdated }) => ({
         name: name,
         icon: <PaletteIcon />,
         onSelect: () => forwardToRoute(slug),
+        isNew: isNew,
+        isUpdated: isUpdated,
       })),
     },
   ];
@@ -82,8 +90,20 @@ export function CommandMenu() {
           <CommandGroup key={group.heading} heading={group.heading}>
             {group.actions.map((action) => (
               <CommandItem key={action.name} onSelect={action.onSelect}>
-                {action.icon}
-                {action.name}
+                <div className="flex items-center gap-2.5">
+                  {action.icon}
+                  {action.name}
+                </div>
+                {action.isNew && (
+                  <span className="bg-emerald-400 text-black px-1.5 py-px text-[10px] leading-4 rounded-md font-semibold">
+                    New
+                  </span>
+                )}
+                {action.isUpdated && (
+                  <span className="bg-amber-400 text-black px-1.5 py-px text-[10px] leading-4 rounded-md font-semibold">
+                    Updated
+                  </span>
+                )}
               </CommandItem>
             ))}
           </CommandGroup>

@@ -23,20 +23,17 @@ export function CardHoverEffect({
   const items = [
     {
       title: "Luxe",
-      description:
-        "Explore the new website that simplifies the creation of sophisticated dark mode components.",
+      description: "Explore the new library of components copy and paste.",
       href: "https://luxeui.com",
     },
     {
       title: "Luxe",
-      description:
-        "Explore the new website that simplifies the creation of sophisticated dark mode components.",
+      description: "Explore the new library of components copy and paste.",
       href: "https://luxeui.com",
     },
     {
       title: "Luxe",
-      description:
-        "Explore the new website that simplifies the creation of sophisticated dark mode components.",
+      description: "Explore the new library of components copy and paste.",
       href: "https://luxeui.com",
     },
   ];
@@ -61,7 +58,7 @@ export function CardHoverEffect({
                 <motion.span
                   className={cn(
                     "absolute inset-0 z-0 block h-full w-full rounded-xl bg-neutral-900",
-                    hoveredItemClassName
+                    hoveredItemClassName,
                   )}
                   layoutId="cardHoverEffect"
                   initial={{ opacity: 0 }}

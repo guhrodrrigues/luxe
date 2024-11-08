@@ -33,9 +33,10 @@ const config: Config = {
         "text-glitch-to": "text-glitch-to 0.6s ease-in-out infinite",
         "text-glitch-from": "text-glitch-from 0.6s ease-in-out infinite",
         "text-scale": "text-scale 1s linear infinite forwards",
-        slide: "slide 40s linear infinite",
+        "infinite-slider": "infinite-slider 40s linear infinite",
         spotlight: "spotlight 2s ease 1 forwards",
         brightness: "brightness 2.2s linear infinite",
+        spinner: "spinner 1.2s linear infinite",
       },
       backgroundImage: {
         "fade-gradient":
@@ -106,6 +107,10 @@ const config: Config = {
             transform: "skew(-13deg) translateX(100%)",
           },
         },
+        spinner: {
+          "0%": { opacity: "1" },
+          "100%": { opacity: "0.15" },
+        },
         "text-scale": {
           "0%": {
             transform: "scaleX(0)",
@@ -124,7 +129,7 @@ const config: Config = {
             transformOrigin: "bottom right",
           },
         },
-        slide: {
+        "infinite-slider": {
           from: { transform: "translateX(0)" },
           to: { transform: "translateX(calc(-100% - var(--gap)))" },
         },
@@ -141,7 +146,7 @@ const config: Config = {
       },
     },
     fontFamily: {
-      sans: "var(--font-geist-sans)",
+      sans: "var(--font-sans)",
     },
   },
   plugins: [require("tailwindcss-animate")],

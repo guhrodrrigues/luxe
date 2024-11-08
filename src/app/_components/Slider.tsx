@@ -19,7 +19,7 @@ export function Slider({ children, className }: SliderProps) {
       {createArray(0, 16).map((_, i) => (
         <div
           key={i}
-          className="flex shrink-0 animate-slide justify-around gap-10 [--gap:1rem]"
+          className="flex shrink-0 animate-infinite-slider justify-around gap-10 [--gap:1rem]"
           data-id={`slider-child-${i + 1}`}
         >
           {children}

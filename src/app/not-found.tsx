@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function NotFoundPage() {
   return (
-    <main className="mt-40">
+    <main className="mt-40 px-4">
       <section className="flex flex-col items-center justify-center relative min-h-[300px] [@media(min-height:793px)]:min-h-[500px]">
         <div
           aria-hidden="true"
@@ -23,20 +23,20 @@ export default function NotFoundPage() {
             aria-hidden="true"
             className="absolute inset-0 pointer-events-none container"
           >
-            <div className="w-full h-full"></div>
+            <div className="w-full h-full" />
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center gap-3 text-center">
+        <div className="flex flex-col justify-center items-center gap-4 text-center">
           <h1 className="text-5xl font-bold text-gradient">Not Found</h1>
           <p className="max-w-md mx-auto text-secondary">
             The route you're trying to access doesn't exist.
           </p>
           <Link
             href="/"
-            className="flex items-center mt-1 gap-1 text-sm py-2 px-4 font-semibold bg-primary text-black rounded-xl mx-auto duration-300 hover:bg-primary/70"
+            className="flex items-center mt-1 gap-2 text-sm py-2 px-4 font-semibold bg-primary text-black rounded-xl mx-auto duration-300 hover:bg-primary/70"
           >
             <MoveLeftIcon size={10} />
-            <span>Back</span>
+            <span>Back to home</span>
           </Link>
         </div>
       </section>

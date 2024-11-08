@@ -1,23 +1,21 @@
 import type { Metadata } from "next";
-
-import { GeistSans } from "geist/font/sans";
+import { Inter } from "next/font/google";
 
 import "@/styles/globals.css";
 
 import { cn } from "@/utils/cn";
 
-import { Footer } from "./_components/Footer";
-import { Header } from "./_components/Header";
-import { CommandMenu } from "./_components/command-menu";
-import { CommandMenuProvider } from "./_components/command-menu/_context/CommandMenuProvider";
+const inter = Inter({
+  variable: "--font-sans",
+  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
   authors: [{ name: "Gustavo Rodrigues", url: "https://guhrodrigues.com" }],
   category: "developer",
   creator: "Gustavo Rodrigues",
   title: {
-    default:
-      "Luxe – Library of components copy and paste to illuminate your applications with elegance and sophistication.",
+    default: "Luxe",
     template: "%s · Luxe",
   },
   description:
@@ -69,7 +67,7 @@ export const metadata: Metadata = {
     siteName: "Gustavo Rodrigues",
     title: "Luxe",
     description:
-      "Library of components copy and paste to illuminate your applications with elegance and sophistication.",
+      "Copy & Paste components. Illuminate your apps. Fast and Easy.",
     type: "website",
     url: "https://luxeui.com",
   },
@@ -86,7 +84,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Luxe",
     description:
-      "Library of components copy and paste to illuminate your applications with elegance and sophistication.",
+      "Copy & Paste components. Illuminate your apps. Fast and Easy.",
     site: "@guhrodrrigues",
     creator: "Gustavo Rodrigues",
   },
@@ -101,16 +99,11 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "font-sans antialiased outline-none bg-background text-foreground overflow-x-hidden",
-          GeistSans.variable
+          "overflow-x-hidden bg-background font-sans text-foreground antialiased outline-none",
+          inter.variable,
         )}
       >
-        <CommandMenuProvider>
-          <Header />
-          {children}
-          <Footer />
-          <CommandMenu />
-        </CommandMenuProvider>
+        {children}
       </body>
     </html>
   );

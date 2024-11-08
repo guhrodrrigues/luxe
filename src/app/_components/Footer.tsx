@@ -1,17 +1,18 @@
+import Image from "next/image";
 import Link from "next/link";
 
-import { RequestComponentButton } from "./RequestComponentButton";
+import { ArrowUpRightIcon } from "lucide-react";
 
 import logo from "@/assets/logo.png";
-import Image from "next/image";
-import { ArrowUpRightIcon } from "lucide-react";
-import { AnimateEnter } from "../(home-page)/_components/AnimateEnter";
+
+import { RequestComponentButton } from "./RequestComponentButton";
+import { AnimateEnter } from "@/app/(home)/_components/AnimateEnter";
 
 export function Footer() {
   return (
     <footer className="border-t relative z-10 border-border bg-background overflow-hidden">
       <Blur />
-      <div className="px-8 mx-auto max-w-[1400px] w-full py-16">
+      <div className="relative px-8 md:px-3 mx-auto max-w-7xl w-full py-16">
         <div className="flex max-md:flex-col gap-10 md:justify-between">
           <div className="flex flex-col gap-5">
             <AnimateEnter>
@@ -49,28 +50,37 @@ export function Footer() {
                 href="https://github.com/guhrodrrigues/luxe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-foreground duration-200 hover:text-primary"
+                className="group flex items-center gap-1 text-foreground duration-200 hover:text-primary"
               >
                 Source code
-                <ArrowUpRightIcon size={10} />
+                <ArrowUpRightIcon
+                  size={10}
+                  className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                />
               </a>
               <a
                 href="https://github.com/guhrodrrigues"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-foreground duration-200 hover:text-primary"
+                className="group flex items-center gap-1 text-foreground duration-200 hover:text-primary"
               >
                 GitHub
-                <ArrowUpRightIcon size={10} />
+                <ArrowUpRightIcon
+                  size={10}
+                  className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                />
               </a>
               <a
-                href="https://twitter.com/guhrodrrigues"
+                href="https://x.com/guhrodrrigues"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-foreground duration-200 hover:text-primary"
+                className="group flex items-center gap-1 text-foreground duration-200 hover:text-primary"
               >
-                Twitter
-                <ArrowUpRightIcon size={10} />
+                X (Twitter)
+                <ArrowUpRightIcon
+                  size={10}
+                  className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                />
               </a>
             </div>
           </AnimateEnter>

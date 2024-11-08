@@ -123,7 +123,7 @@ export const InputFocusBlur = forwardRef<HTMLInputElement, InputFocusBlurProps>(
         )}
       </div>
     );
-  }
+  },
 );
 
 InputFocusBlur.displayName = "InputFocusBlur";

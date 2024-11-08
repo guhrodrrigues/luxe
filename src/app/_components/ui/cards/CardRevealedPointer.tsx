@@ -15,7 +15,7 @@ export function CardRevealedPointer() {
         mouseX.set(e.clientX - left);
         mouseY.set(e.clientY - top);
       }}
-      className="group relative max-w-[350px] w-full overflow-hidden rounded-xl bg-neutral-950"
+      className="group relative w-full max-w-[350px] overflow-hidden rounded-xl bg-neutral-950"
     >
       <div className="absolute right-5 top-0 h-px w-80 bg-gradient-to-l from-transparent via-white/30 via-10% to-transparent" />
       <motion.div

@@ -1,19 +1,34 @@
+function Spinner() {
+  const bars = Array(12).fill(0);
+
+  return (
+    <div className="h-[18px] w-[18px]">
+      <div className="relative left-1/2 top-1/2 h-[inherit] w-[inherit]">
+        {bars.map((_, i) => (
+          <div
+            key={`spinner-bar-${i}`}
+            aria-label={`spinner-bar-${i + 1}`}
+            className={`animate-spinner absolute -left-[10%] -top-[3.9%] h-[8%] w-[24%] rounded-md bg-black bar:nth-child(${
+              i + 1
+            })`}
+            style={{
+              animationDelay: `-${1.3 - i * 0.1}s`,
+              transform: `rotate(${30 * i}deg) translate(146%)`,
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export function ButtonLoading() {
   return (
     <button
       disabled
-      className="flex items-center gap-1.5 text-sm py-2 px-4 font-semibold bg-white text-black rounded-xl mx-auto duration-300 disabled:opacity-70 disabled:cursor-not-allowed"
+      className="mx-auto flex items-center gap-2 rounded-xl bg-white px-4 py-2 text-sm font-semibold text-black duration-300 disabled:cursor-not-allowed disabled:opacity-70"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        fill="#000"
-        viewBox="0 0 256 256"
-        className="animate-spin"
-      >
-        <path d="M232,128a104,104,0,0,1-208,0c0-41,23.81-78.36,60.66-95.27a8,8,0,0,1,6.68,14.54C60.15,61.59,40,93.27,40,128a88,88,0,0,0,176,0c0-34.73-20.15-66.41-51.34-80.73a8,8,0,0,1,6.68-14.54C208.19,49.64,232,87,232,128Z"></path>
-      </svg>
+      <Spinner />
       Loading...
     </button>
   );
