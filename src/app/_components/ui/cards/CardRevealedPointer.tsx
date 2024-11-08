@@ -7,6 +7,8 @@ export function CardRevealedPointer() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
+  const background = useMotionTemplate`radial-gradient(200px circle at ${mouseX}px ${mouseY}px, rgba(38, 38, 38, 0.4), transparent 80%)`;
+
   return (
     <div
       onMouseMove={(e) => {
@@ -21,9 +23,7 @@ export function CardRevealedPointer() {
       <motion.div
         className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
         style={{
-          background: useMotionTemplate`
-						radial-gradient(200px circle at ${mouseX}px ${mouseY}px, rgba(38, 38, 38, 0.4), transparent 80%)
-					`,
+          background: background,
         }}
       />
       <div className="relative flex flex-col gap-3 rounded-xl border border-white/10 px-4 py-5">
