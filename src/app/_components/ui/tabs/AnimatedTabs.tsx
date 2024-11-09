@@ -1,69 +1,77 @@
 // @NOTE: in case you are using Next.js
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-import { motion } from "framer-motion";
+const TABS = [
+  { name: "All Posts" },
+  { name: "Interactions" },
+  { name: "Resources" },
+  { name: "Docs" },
+];
 
-import { cn } from "@/utils/cn";
+export function AnimatedTabs() {
+  const [activeTab, setActiveTab] = useState(TABS[0].name);
+  const containerRef = useRef<any>(null);
+  const activeTabElementRef = useRef<any>(null);
 
-type AnimatedTabsProps = {
-  containerClassName?: string;
-  activeTabClassName?: string;
-  tabClassName?: string;
-};
+  useEffect(() => {
+    const container = containerRef.current;
 
-export function AnimatedTabs({
-  containerClassName,
-  activeTabClassName,
-  tabClassName,
-}: AnimatedTabsProps) {
-  const [activeIdx, setActiveIdx] = useState<number>(0);
+    if (activeTab && container) {
+      const activeTabElement = activeTabElementRef.current;
 
-  const tabs = [
-    { title: "Product" },
-    { title: "Services" },
-    { title: "About" },
-  ];
+      if (activeTabElement) {
+        const { offsetLeft, offsetWidth } = activeTabElement;
+
+        const clipLeft = offsetLeft;
+        const clipRight = offsetLeft + offsetWidth;
+
+        container.style.clipPath = `inset(0 ${Number(100 - (clipRight / container.offsetWidth) * 100).toFixed()}% 0 ${Number((clipLeft / container.offsetWidth) * 100).toFixed()}% round 17px)`;
+      }
+    }
+  }, [activeTab, activeTabElementRef, containerRef]);
 
   return (
-    <div
-      className={cn(
-        "relative flex flex-wrap items-center justify-center",
-        containerClassName,
-      )}
-    >
-      {tabs.map((tab, index) => (
-        <button
-          key={tab.title}
-          onClick={() => setActiveIdx(index)}
-          className={cn(
-            "group relative z-[1] rounded-full px-4 py-2",
-            { "z-0": activeIdx === index },
-            tabClassName,
-          )}
-        >
-          {activeIdx === index && (
-            <motion.div
-              layoutId="clicked-button"
-              transition={{ duration: 0.2 }}
-              className={cn(
-                "absolute inset-0 rounded-full bg-white",
-                activeTabClassName,
-              )}
-            />
-          )}
-
-          <span
-            className={cn(
-              "relative block text-sm font-medium duration-200",
-              activeIdx === index ? "text-black delay-100" : "text-white",
-            )}
-          >
-            {tab.title}
-          </span>
-        </button>
-      ))}
+    <div className="relative mx-auto flex w-fit flex-col items-center rounded-full">
+      <ul className="relative flex w-full justify-center">
+        {TABS.map((tab) => (
+          <li key={tab.name}>
+            <button
+              ref={activeTab === tab.name ? activeTabElementRef : null}
+              data-tab={tab.name}
+              onClick={() => {
+                setActiveTab(tab.name);
+              }}
+              className="flex h-8 items-center rounded-full p-3 text-sm font-medium text-neutral-200"
+            >
+              {tab.name}
+            </button>
+          </li>
+        ))}
+      </ul>
+      <div
+        aria-hidden
+        className="absolute z-10 w-full overflow-hidden [clip-path:inset(0px_75%_0px_0%_round_17px)] [transition:clip-path_0.25s_ease]"
+        ref={containerRef}
+      >
+        <ul className="relative flex w-full justify-center bg-white">
+          {TABS.map((tab) => (
+            <li key={tab.name}>
+              <button
+                data-tab={tab.name}
+                onClick={() => {
+                  setActiveTab(tab.name);
+                }}
+                className="flex h-8 items-center rounded-full p-3 text-sm font-medium text-black"
+                tabIndex={-1}
+              >
+                {tab.name}
+              </button>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
