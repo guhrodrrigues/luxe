@@ -72,6 +72,7 @@ function CheckIcon() {
           pathLength: 0,
         }}
         transition={{
+          delay: 0.025,
           duration: 0.35,
         }}
       />
