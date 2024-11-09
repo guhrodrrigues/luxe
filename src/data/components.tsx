@@ -355,8 +355,6 @@ export const COMPONENTS = [
     component: <AnimatedTabs />,
     colSpan: true,
     type: "tabs",
-    download: "npm install framer-motion clsx tailwind-merge",
-    cnFunction: true,
   },
   {
     name: "Dropdown Menu",
