@@ -150,6 +150,22 @@ const TWCONFIG = {
       },
     },
   },
+  ["button-loading"]: {
+    animation: {
+      spinner: "spinner 1.2s linear infinite",
+      shine: "shine 2s linear infinite",
+    },
+    keyframes: {
+      spinner: {
+        "0%": { opacity: "1" },
+        "100%": { opacity: "0.15" },
+      },
+      shine: {
+        from: { backgroundPosition: "0 0" },
+        to: { backgroundPosition: "-200% 0" },
+      },
+    },
+  },
 };
 
 export const COMPONENTS = [
@@ -277,7 +293,7 @@ export const COMPONENTS = [
     slug: "button-loading",
     component: <ButtonLoading />,
     type: "buttons",
-    twConfig: TWCONFIG["spinner"],
+    twConfig: TWCONFIG["button-loading"],
     isUpdated: true,
   },
   {

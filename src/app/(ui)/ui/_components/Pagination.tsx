@@ -34,11 +34,11 @@ export function Pagination({ back, next }: PaginationProps) {
         {next?.href && next?.name && (
           <Link
             href={next.href}
-            className="flex flex-col items-end gap-0.5 text-sm duration-200 hover:opacity-60"
+            className="flex flex-col gap-0.5 text-sm duration-200 hover:opacity-60"
           >
-            <span>Next</span>
+            <span className="text-end">Next</span>
             <div className="flex items-center gap-1">
-              <span className="text-primary">{next.name}</span>
+              <span className="text-end text-primary">{next.name}</span>
               <ArrowRightIcon size={12} className="text-primary" />
             </div>
           </Link>

@@ -1,3 +1,15 @@
+export function ButtonLoading() {
+  return (
+    <button
+      disabled
+      className="mx-auto flex items-center gap-2 rounded-xl bg-white px-4 py-2 text-sm font-semibold text-black duration-300 disabled:cursor-not-allowed disabled:opacity-70"
+    >
+      <Spinner />
+      <TextShine />
+    </button>
+  );
+}
+
 function Spinner() {
   const bars = Array(12).fill(0);
 
@@ -8,7 +20,7 @@ function Spinner() {
           <div
             key={`spinner-bar-${i}`}
             aria-label={`spinner-bar-${i + 1}`}
-            className={`animate-spinner absolute -left-[10%] -top-[3.9%] h-[8%] w-[24%] rounded-md bg-black bar:nth-child(${
+            className={`absolute -left-[10%] -top-[3.9%] h-[8%] w-[24%] animate-spinner rounded-md bg-black bar:nth-child(${
               i + 1
             })`}
             style={{
@@ -22,14 +34,10 @@ function Spinner() {
   );
 }
 
-export function ButtonLoading() {
+function TextShine() {
   return (
-    <button
-      disabled
-      className="mx-auto flex items-center gap-2 rounded-xl bg-white px-4 py-2 text-sm font-semibold text-black duration-300 disabled:cursor-not-allowed disabled:opacity-70"
-    >
-      <Spinner />
+    <span className="inline-flex animate-shine bg-[linear-gradient(110deg,#000,45%,#a3a3a3,55%,#000)] bg-[length:200%_100%] bg-clip-text text-transparent">
       Loading...
-    </button>
+    </span>
   );
 }

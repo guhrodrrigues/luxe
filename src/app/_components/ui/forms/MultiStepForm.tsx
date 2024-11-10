@@ -63,6 +63,8 @@ export function MultiStepForm() {
     if (activeIndex >= STEPS.length) setActiveIndex(STEPS.length - 1);
   }, [activeIndex]);
 
+  const progressWidth = ((activeIndex + 1) / STEPS.length) * 100;
+
   const variants: Variants = {
     initial: {
       y: 50,
@@ -92,6 +94,15 @@ export function MultiStepForm() {
   return (
     <div className="w-[364px] overflow-hidden rounded-xl border border-neutral-800 bg-neutral-900">
       <div className="relative">
+        <div className="relative h-1 w-full bg-neutral-800">
+          <motion.div
+            className="h-full bg-neutral-700"
+            style={{ width: `${progressWidth}%` }}
+            initial={{ width: 0 }}
+            animate={{ width: `${progressWidth}%` }}
+            transition={{ duration: 0.3 }}
+          />
+        </div>
         <AnimatePresence initial={false} mode="popLayout">
           <motion.div
             key={activeIndex}
@@ -106,7 +117,7 @@ export function MultiStepForm() {
               damping: 30,
             }}
           >
-            <div className="px-4 pt-4">
+            <div className="px-4 pt-5">
               <h3 className="mb-2 font-medium text-zinc-800 dark:text-zinc-100">
                 {STEPS[activeIndex].title}
               </h3>
@@ -118,7 +129,7 @@ export function MultiStepForm() {
         </AnimatePresence>
       </div>
       <div className="relative z-10 bg-neutral-900">
-        <div className="mx-auto mt-4 h-px w-full max-w-xs border-t border-dashed border-neutral-800" />
+        <div className="mx-auto mt-5 h-px w-full max-w-xs border-t border-dashed border-neutral-800" />
         <div className="flex items-center justify-between p-4">
           {activeIndex > 0 ? (
             <Button
