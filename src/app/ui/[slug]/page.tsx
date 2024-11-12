@@ -41,6 +41,7 @@ export async function generateMetadata({
 
   return {
     title: name,
+    description: `Navigate to ${name} component, which will make your application sophisticated and luxurious.`,
     openGraph: {
       title: `Luxe — ${name}`,
       description: `Navigate to ${name} component, which will make your application sophisticated and luxurious.`,

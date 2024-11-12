@@ -1,15 +1,13 @@
 import { Metadata } from "next";
+
 import { Card } from "./_components/Card";
 import { Breadcrumbs } from "../_components/Breadcrumbs";
 import { INSTALLATION } from "./_data/installation";
-import Link from "next/link";
-import { ArrowRightIcon } from "lucide-react";
 import { Pagination } from "../_components/Pagination";
 
 export const metadata: Metadata = {
   title: "Installation",
-  description:
-    "How to install dependencies and structure your application to use Luxe.",
+  description: "How to install dependencies and structure your application",
   openGraph: {
     images: [
       {
@@ -22,8 +20,7 @@ export const metadata: Metadata = {
     locale: "en",
     siteName: "Gustavo Rodrigues",
     title: "Luxe — Installation",
-    description:
-      "How to install dependencies and structure your application to use Luxe.",
+    description: "How to install dependencies and structure your application",
     type: "website",
     url: "https://luxeui.com/ui/installation",
   },
@@ -38,8 +35,7 @@ export const metadata: Metadata = {
     ],
     card: "summary_large_image",
     title: "Luxe — Installation",
-    description:
-      "How to install dependencies and structure your application to use Luxe.",
+    description: "How to install dependencies and structure your application",
     site: "@guhrodrrigues",
     creator: "Gustavo Rodrigues",
   },
@@ -47,7 +43,7 @@ export const metadata: Metadata = {
 
 export default function InstallationPage() {
   return (
-    <main className="my-2 xl:mb-24 space-y-16">
+    <main className="my-2 space-y-16 xl:mb-24">
       <div className="space-y-6">
         <Breadcrumbs groupName="Get Started" currentPage="Installation" />
         <div className="space-y-3">
@@ -57,7 +53,7 @@ export default function InstallationPage() {
           </p>
         </div>
       </div>
-      <div className="grid lg:grid-cols-2 gap-10 lg:gap-10 place-items-center">
+      <div className="grid place-items-center gap-10 lg:grid-cols-2 lg:gap-10">
         {INSTALLATION.map(({ slug, icon, name, description }) => (
           <Card
             key={name}
