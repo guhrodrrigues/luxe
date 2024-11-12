@@ -6,17 +6,17 @@ import Link from "next/link";
 import minLogo from "@/assets/min-logo.png";
 import logo from "@/assets/logo.png";
 
-import { useProvider } from "../../../_components/command-menu/_context/CommandMenuProvider";
+import { useProvider } from "../../_components/command-menu/_context/CommandMenuProvider";
 import { CommandIcon, SearchIcon } from "lucide-react";
-import { Icons } from "../../../_components/Icons";
-import { AnimateEnter } from "../../../(home)/_components/AnimateEnter";
+import { Icons } from "../../_components/Icons";
+import { AnimateEnter } from "../../(home)/_components/AnimateEnter";
 
 export function Header() {
   const { setShowCommandMenu } = useProvider();
 
   return (
-    <header className="fixed left-0 right-0 top-0 z-50 h-[4rem] w-full bg-background">
-      <nav className="mx-auto flex h-full max-w-[1400px] items-center justify-between gap-6 border-b border-dashed border-neutral-800/60 px-6 lg:border-x">
+    <header className="sticky top-0 z-50 h-[4rem] w-full bg-background">
+      <nav className="mx-auto flex h-full max-w-[1400px] items-center justify-between gap-6 border-b border-dashed border-neutral-800/60 px-6 xl:border-x">
         <AnimateEnter className="flex items-end gap-1.5">
           <Link href="/">
             <Image src={minLogo} alt="Luxe's logo" className="w-4 sm:hidden" />

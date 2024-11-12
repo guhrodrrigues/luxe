@@ -64,7 +64,7 @@ async function readFilePath(filePath: string) {
   const fileContent = await readFile(
     path.join(
       process.cwd(),
-      `./src/app/(ui)/ui/installation/_data/_prompts/${filePath}.txt`,
+      `./src/app/ui/installation/_data/_prompts/${filePath}.txt`,
     ),
     "utf8",
   );

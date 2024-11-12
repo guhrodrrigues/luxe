@@ -2,7 +2,7 @@
 
 import { COMPONENTS } from "@/data/components";
 
-import { ComponentView } from "@/app/(ui)/ui/_components/component-page/ComponentView";
+import { ComponentView } from "@/app/ui/_components/component-page/ComponentView";
 import { AnimateEnter } from "../AnimateEnter";
 
 export function ComponentsExample() {

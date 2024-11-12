@@ -42,8 +42,8 @@ import { DockMenu } from "@/app/_components/ui/docks";
 import { InfiniteSliderExample } from "@/app/_components/ui/slider";
 import { TooltipExample } from "@/app/_components/ui/tooltip";
 import { MultiStepForm } from "@/app/_components/ui/forms";
-import { CheckboxDemo } from "@/app/_components/ui/checkbox/Checkbox";
-import { PopoverDemo } from "@/app/_components/ui/popover/Popover";
+import { CheckboxExample } from "@/app/_components/ui/checkbox/Checkbox";
+import { PopoverExample } from "@/app/_components/ui/popover/Popover";
 import { Spinner } from "@/app/_components/ui/icons";
 
 const TWCONFIG = {
@@ -172,7 +172,7 @@ export const COMPONENTS = [
   {
     name: "Popover",
     slug: "popover",
-    component: <PopoverDemo />,
+    component: <PopoverExample />,
     type: "popover",
     isNew: true,
     download: "npm install framer-motion @radix-ui/react-hover-card",
@@ -237,7 +237,7 @@ export const COMPONENTS = [
   {
     name: "Checkbox",
     slug: "checkbox",
-    component: <CheckboxDemo />,
+    component: <CheckboxExample />,
     type: "checkbox",
     isNew: true,
     download: "npm install framer-motion @radix-ui/react-checkbox",

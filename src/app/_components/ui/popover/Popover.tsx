@@ -8,7 +8,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import * as RadixPopover from "@radix-ui/react-hover-card";
 
-export function PopoverDemo() {
+export function PopoverExample() {
   return (
     <Popover>
       <a

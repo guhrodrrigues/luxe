@@ -53,11 +53,11 @@ export function CommandMenu() {
       router.replace(`/ui/${route}`);
       setShowCommandMenu(false);
     },
-    [router, setShowCommandMenu]
+    [router, setShowCommandMenu],
   );
 
   const orderedComponents = COMPONENTS.sort((a, b) =>
-    a.name.localeCompare(b.name)
+    a.name.localeCompare(b.name),
   );
 
   const groups: Groups = [
@@ -95,12 +95,12 @@ export function CommandMenu() {
                   {action.name}
                 </div>
                 {action.isNew && (
-                  <span className="bg-emerald-400 text-black px-1.5 py-px text-[10px] leading-4 rounded-md font-semibold">
+                  <span className="rounded-md bg-emerald-400 px-1.5 py-px text-[10px] font-semibold leading-4 text-black">
                     New
                   </span>
                 )}
                 {action.isUpdated && (
-                  <span className="bg-amber-400 text-black px-1.5 py-px text-[10px] leading-4 rounded-md font-semibold">
+                  <span className="rounded-md bg-amber-400 px-1.5 py-px text-[10px] font-semibold leading-4 text-black">
                     Updated
                   </span>
                 )}

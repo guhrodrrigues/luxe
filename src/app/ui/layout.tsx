@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 import { ComponentsList } from "./_components/component-page/ComponentsList";
 import { AnimateEnter } from "@/app/(home)/_components/AnimateEnter";
-import { Header } from "@/app/(ui)/ui/_components/Header";
+import { Header } from "@/app/ui/_components/Header";
 import { CommandMenu } from "@/app/_components/command-menu";
 import { CommandMenuProvider } from "@/app/_components/command-menu/_context/CommandMenuProvider";
 
@@ -54,9 +54,9 @@ type ComponentPageLayout = {
 
 export default function ComponentPageLayout({ children }: ComponentPageLayout) {
   return (
-    <main className="mx-auto mt-16 flex w-full max-w-[1400px] border-dashed max-lg:mb-14 max-lg:flex-col max-lg:gap-12 lg:border-x lg:border-neutral-800/60">
-      <CommandMenuProvider>
-        <Header />
+    <CommandMenuProvider>
+      <Header />
+      <div className="mx-auto flex w-full max-w-[1400px] border-dashed max-lg:mb-14 max-lg:flex-col max-lg:gap-12 xl:border-x xl:border-neutral-800/60">
         <AnimateEnter
           delay={0.2}
           duration={0.3}
@@ -71,8 +71,8 @@ export default function ComponentPageLayout({ children }: ComponentPageLayout) {
         >
           {children}
         </AnimateEnter>
-        <CommandMenu />
-      </CommandMenuProvider>
-    </main>
+      </div>
+      <CommandMenu />
+    </CommandMenuProvider>
   );
 }

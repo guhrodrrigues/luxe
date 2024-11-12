@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 import * as RadixCheckbox from "@radix-ui/react-checkbox";
 
-export function CheckboxDemo() {
+export function CheckboxExample() {
   return (
     <form className="flex items-start gap-3">
       <Checkbox />
