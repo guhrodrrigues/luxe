@@ -118,6 +118,7 @@ export default async function InstallationSlugPage({
                     Create a new project
                   </h1>
                   <CodeBlock
+                    fileName="Terminal"
                     code="npx create-next-app@latest my-app"
                     lang="shellscript"
                   />
@@ -151,6 +152,7 @@ export default async function InstallationSlugPage({
                 <div className="space-y-4 pl-8 pt-1">
                   <h1 className="font-medium text-primary">Start the app</h1>
                   <CodeBlock
+                    fileName="Terminal"
                     code={"cd my-app && npm run dev"}
                     lang="shellscript"
                   />
@@ -170,6 +172,7 @@ export default async function InstallationSlugPage({
                     Create a new project
                   </h1>
                   <CodeBlock
+                    fileName="Terminal"
                     code="npm create vite@latest my-app"
                     lang="shellscript"
                   />
@@ -187,6 +190,7 @@ export default async function InstallationSlugPage({
                     After the above command, install and enter the application
                   </h1>
                   <CodeBlock
+                    fileName="Terminal"
                     code="cd my-app && npm install"
                     lang="shellscript"
                   />
@@ -202,13 +206,13 @@ export default async function InstallationSlugPage({
                 <div className="space-y-4 pb-10 pl-8 pt-1">
                   <h1 className="font-medium text-primary">Add Tailwind CSS</h1>
                   <CodeBlock
+                    fileName="Terminal"
                     code={
                       "npm install -D tailwindcss postcss autoprefixer" +
                       "\n" +
                       "npx tailwindcss init -p"
                     }
                     lang="shellscript"
-                    copyCode={false}
                   />
                 </div>
               </div>
@@ -272,6 +276,7 @@ export default async function InstallationSlugPage({
                   </h1>
                   <div className="space-y-5">
                     <CodeBlock
+                      fileName="Terminal"
                       code={
                         "# So you can import 'path' without error" +
                         "\n" +
