@@ -118,7 +118,7 @@ export function MultiStepForm() {
             }}
           >
             <div className="px-4 pt-5">
-              <h3 className="mb-2 font-medium text-zinc-800 dark:text-zinc-100">
+              <h3 className="mb-2 font-medium text-zinc-100">
                 {STEPS[activeIndex].title}
               </h3>
               <p className="text-neutral-300">

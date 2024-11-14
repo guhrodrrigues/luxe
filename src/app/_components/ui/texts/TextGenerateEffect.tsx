@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { cn } from "@/utils/cn";
 
 export function TextGenerateEffectExample() {
-  const text = `This is a text generate effect component.`;
+  const text = `This is a text generation effect.`;
 
   return <TextGenerateEffect text={text} duration={0.3} />;
 }
