@@ -67,12 +67,16 @@ const TWCONFIG = {
   },
   ["shine"]: {
     animation: {
-      shine: "shine 2s linear infinite",
+      shine: "shine 6s linear infinite",
     },
     keyframes: {
       shine: {
-        from: { backgroundPosition: "0 0" },
-        to: { backgroundPosition: "-200% 0" },
+        from: {
+          backgroundPosition: "0 0",
+        },
+        to: {
+          backgroundPosition: "-400% 0",
+        },
       },
     },
   },
@@ -401,6 +405,7 @@ export const COMPONENTS = [
     component: <TextShine />,
     type: "texts",
     twConfig: TWCONFIG["shine"],
+    isUpdated: true,
   },
   {
     name: "Text Glitch",

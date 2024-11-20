@@ -26,7 +26,7 @@ const config: Config = {
       animation: {
         flip: "flip 6s infinite steps(2, end)",
         rotate: "rotate 3s linear infinite both",
-        shine: "shine 2s linear infinite",
+        shine: "shine 6s linear infinite",
         "border-width": "border-width 3s infinite alternate",
         "text-gradient": "text-gradient 2s linear infinite",
         "text-shake": "text-shake 1s ease 1",
@@ -58,7 +58,7 @@ const config: Config = {
             backgroundPosition: "0 0",
           },
           to: {
-            backgroundPosition: "-200% 0",
+            backgroundPosition: "-400% 0",
           },
         },
         "border-width": {
