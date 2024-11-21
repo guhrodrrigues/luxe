@@ -404,7 +404,6 @@ export const COMPONENTS = [
     slug: "text-shine",
     component: <TextShine />,
     type: "texts",
-    twConfig: TWCONFIG["shine"],
     isUpdated: true,
   },
   {
