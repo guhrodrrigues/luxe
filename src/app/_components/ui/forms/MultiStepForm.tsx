@@ -1,5 +1,4 @@
-// @NOTE: in case you are using Next.js
-"use client";
+"use client"; // @NOTE: add in case you are using Next.js
 
 import React, { useEffect, useState } from "react";
 import useMeasure from "react-use-measure";
@@ -7,45 +6,21 @@ import { AnimatePresence, Variants, motion } from "framer-motion";
 
 import { cn } from "@/utils/cn";
 
-type ButtonProps = {
-  onClick: () => void;
-  variant?: "primary" | "secondary" | "outline";
-} & React.ComponentProps<"button">;
-
-function Button({ children, onClick, variant = "outline" }: ButtonProps) {
-  return (
-    <motion.button
-      onClick={onClick}
-      className={cn("h-[30px] rounded-lg px-3 text-sm font-medium", {
-        "bg-gradient-to-b from-white to-neutral-300 text-black":
-          variant === "primary",
-        "border border-neutral-800 bg-gradient-to-b from-neutral-700 to-neutral-800 text-white":
-          variant === "secondary",
-        "border border-neutral-800 text-neutral-300": variant === "outline",
-      })}
-      initial={{ opacity: 0, filter: "blur(4px)" }}
-      animate={{ opacity: 1, filter: "blur(0px)" }}
-      whileTap={{ scale: 0.95 }}
-    >
-      {children}
-    </motion.button>
-  );
-}
-
 export function MultiStepForm() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState(1);
   const [ref, { height: heightContent }] = useMeasure();
 
   const STEPS = [
     {
       title: "Luxe",
       description:
-        "Illuminate your applications with elegance and sophistication.",
+        "A library of components ready for you to copy and paste, designed to illuminate your applications with elegance, sophistication and a unique touch of style.",
     },
     {
       title: "How to use?",
       description:
-        "Simply click on a component, copy the code and paste it into your project.",
+        "Simply click on a component, copy the code and paste it into your project. This will give your application an extra shine.",
     },
     {
       title: "Results",
@@ -54,7 +29,8 @@ export function MultiStepForm() {
     },
     {
       title: "Copy now",
-      description: "Elevate your project with sophisticated components!",
+      description:
+        "Elevate your project with sophisticated, ready-to-use components. Illuminate up your applications quickly, easily and effortlessly!",
     },
   ];
 
@@ -63,36 +39,40 @@ export function MultiStepForm() {
     if (activeIndex >= STEPS.length) setActiveIndex(STEPS.length - 1);
   }, [activeIndex]);
 
-  const progressWidth = ((activeIndex + 1) / STEPS.length) * 100;
+  function handleSetActiveIndex(index: number) {
+    const direction = index > activeIndex ? 1 : -1;
+    setDirection(direction);
+
+    setActiveIndex(index);
+  }
 
   const variants: Variants = {
-    initial: {
-      y: 50,
+    initial: (direction: number) => ({
       opacity: 0,
-      filter: "blur(4px)",
-      height: heightContent || "auto",
+      height: heightContent > 0 ? heightContent : "auto",
+      x: direction > 0 ? 364 : -364,
       position: "initial",
-    },
+    }),
     animate: {
-      zIndex: 1,
-      y: 0,
       opacity: 1,
-      filter: "blur(0px)",
-      height: heightContent || "auto",
+      height: heightContent > 0 ? heightContent : "auto",
+      x: 0,
+      zIndex: 1,
     },
-    exit: {
+    exit: (direction: number) => ({
       zIndex: 0,
-      y: -50,
       opacity: 0,
-      filter: "blur(4px)",
+      x: direction < 0 ? 364 : -364,
       position: "absolute",
       top: 0,
       width: "100%",
-    },
+    }),
   };
 
+  const progressWidth = ((activeIndex + 1) / STEPS.length) * 100;
+
   return (
-    <div className="w-[364px] overflow-hidden rounded-xl border border-neutral-800 bg-neutral-900">
+    <div className="w-[364px] overflow-hidden rounded-xl border border-neutral-800/80 bg-[#111111]">
       <div className="relative">
         <div className="relative h-1 w-full bg-neutral-800">
           <motion.div
@@ -103,54 +83,49 @@ export function MultiStepForm() {
             transition={{ duration: 0.3 }}
           />
         </div>
-        <AnimatePresence initial={false} mode="popLayout">
+        <AnimatePresence initial={false} mode="popLayout" custom={direction}>
           <motion.div
             key={activeIndex}
-            ref={ref}
             variants={variants}
             initial="initial"
             animate="animate"
             exit="exit"
             transition={{
-              type: "spring",
-              stiffness: 400,
-              damping: 30,
+              x: { type: "spring", stiffness: 300, damping: 30 },
+              opacity: { duration: 0.2 },
             }}
+            custom={direction}
           >
-            <div className="px-4 pt-5">
+            <div ref={ref} className="px-4 py-5">
               <h3 className="mb-2 font-medium text-zinc-100">
                 {STEPS[activeIndex].title}
               </h3>
-              <p className="text-neutral-300">
+              <p className="text-neutral-400">
                 {STEPS[activeIndex].description}
               </p>
             </div>
           </motion.div>
         </AnimatePresence>
-      </div>
-      <div className="relative z-10 bg-neutral-900">
-        <div className="mx-auto mt-5 h-px w-full max-w-xs border-t border-dashed border-neutral-800" />
-        <div className="flex items-center justify-between p-4">
-          {activeIndex > 0 ? (
-            <Button
-              variant="outline"
-              onClick={() => setActiveIndex(activeIndex - 1)}
+        <div className="relative z-10 border-t border-neutral-800/80 bg-[#0f0f0f]">
+          <div className="flex items-center justify-between px-4 py-2">
+            <button
+              disabled={activeIndex === 0}
+              onClick={() => handleSetActiveIndex(activeIndex - 1)}
+              className="h-8 w-[95px] rounded-full border border-neutral-800 bg-[#171717] text-[13px] font-medium text-primary shadow disabled:cursor-not-allowed disabled:opacity-50"
             >
               Previous
-            </Button>
-          ) : (
-            <div />
-          )}
-          <Button
-            variant={activeIndex === STEPS.length - 1 ? "secondary" : "primary"}
-            onClick={() =>
-              activeIndex === STEPS.length - 1
-                ? null
-                : setActiveIndex(activeIndex + 1)
-            }
-          >
-            {activeIndex === STEPS.length - 1 ? "Close" : "Continue"}
-          </Button>
+            </button>
+            <button
+              disabled={activeIndex === STEPS.length - 1}
+              onClick={() =>
+                activeIndex !== STEPS.length - 1 &&
+                handleSetActiveIndex(activeIndex + 1)
+              }
+              className="h-8 w-[95px] rounded-full border border-neutral-800 bg-[#171717] text-[13px] font-medium text-primary shadow disabled:cursor-not-allowed disabled:opacity-50"
+            >
+              Continue
+            </button>
+          </div>
         </div>
       </div>
     </div>
