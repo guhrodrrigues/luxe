@@ -1,5 +1,4 @@
-// @NOTE: in case you are using Next.js
-"use client";
+"use client"; // @NOTE: add in case you are using Next.js
 
 import Link from "next/link";
 
@@ -38,7 +37,7 @@ function useMenuAnimation(isOpen: boolean) {
         type: "spring",
         bounce: 0,
         duration: 0.5,
-      }
+      },
     );
 
     animate(
@@ -49,7 +48,7 @@ function useMenuAnimation(isOpen: boolean) {
       {
         duration: 0.2,
         delay: isOpen ? staggerMenuItems : 0,
-      }
+      },
     );
   }, [isOpen, animate, staggerMenuItems]);
 
@@ -84,14 +83,14 @@ export function DropdownMenu({
   return (
     <nav
       className={cn(
-        "max-w-[200px] w-full mx-auto space-y-2",
-        containerClassName
+        "mx-auto w-full max-w-[200px] space-y-2",
+        containerClassName,
       )}
       ref={scope}
     >
       <motion.button
         whileTap={{ scale: 0.97 }}
-        className="bg-neutral-900 border border-neutral-800 max-w-[300px] w-full flex items-center justify-between p-2.5 rounded-xl"
+        className="flex w-full max-w-[300px] items-center justify-between rounded-xl border border-neutral-800 bg-neutral-900 p-2.5"
         onClick={() => setIsOpen((prevState) => !prevState)}
       >
         <span className="text-sm font-medium text-neutral-300">Settings</span>
@@ -101,8 +100,8 @@ export function DropdownMenu({
       </motion.button>
       <ul
         className={cn(
-          "absolute z-[1] max-w-[200px] w-full space-y-3 p-2.5 bg-neutral-900 border border-neutral-800 rounded-xl",
-          isOpen ? "pointer-events-auto" : "pointer-events-none"
+          "absolute z-[1] w-full max-w-[200px] space-y-3 rounded-xl border border-neutral-800 bg-neutral-900 p-2.5",
+          isOpen ? "pointer-events-auto" : "pointer-events-none",
         )}
         style={{
           clipPath: "inset(10% 50% 90% 50% round 12px)",
@@ -113,9 +112,9 @@ export function DropdownMenu({
             <Link
               href="" // Where you will be sent
               className={cn(
-                "group flex items-center gap-2 rounded-md border border-transparent text-neutral-400 hover:text-neutral-300 focus-visible:text-neutral-300 focus-visible:border-neutral-800 focus-visible:outline-none",
+                "group flex items-center gap-2 rounded-md border border-transparent text-neutral-400 hover:text-neutral-300 focus-visible:border-neutral-800 focus-visible:text-neutral-300 focus-visible:outline-none",
                 itemClassName,
-                customStyle
+                customStyle,
               )}
             >
               <span>{icon}</span>
@@ -123,7 +122,7 @@ export function DropdownMenu({
                 {name}
                 <ChevronRightIcon
                   size={12}
-                  className="-translate-x-1 scale-0 opacity-0 group-hover:opacity-100 group-hover:scale-100 group-hover:translate-x-0 transition-all"
+                  className="-translate-x-1 scale-0 opacity-0 transition-all group-hover:translate-x-0 group-hover:scale-100 group-hover:opacity-100"
                 />
               </span>
             </Link>

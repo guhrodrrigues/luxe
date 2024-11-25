@@ -1,5 +1,4 @@
-// @NOTE: in case you are using Next.js
-"use client";
+"use client"; // @NOTE: add in case you are using Next.js
 
 import { useState } from "react";
 

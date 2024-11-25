@@ -26,7 +26,7 @@ export function ComponentView({
   return (
     <div
       className={cn(
-        "flex min-h-[250px] items-center justify-center overflow-hidden overflow-x-auto rounded-xl border border-neutral-800/60 bg-neutral-950 p-8 shadow",
+        "flex min-h-[250px] items-center justify-center overflow-hidden overflow-x-auto border border-neutral-800/60 bg-neutral-950 p-8 shadow max-sm:-mx-6 sm:rounded-xl",
         isReloadAnimation && "relative",
         className,
       )}

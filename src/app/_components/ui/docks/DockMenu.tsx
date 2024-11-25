@@ -1,5 +1,4 @@
-// @NOTE: in case you are using Next.js
-"use client";
+"use client"; // @NOTE: add in case you are using Next.js
 
 import { ElementRef, HTMLAttributes, useRef } from "react";
 
@@ -43,7 +42,7 @@ function Dock({
     >
       <motion.div
         ref={containerRef}
-        className="h-16 items-end gap-4 rounded-full bg-neutral-950 border border-neutral-800 px-3 pb-2 flex shadow-inner shadow-neutral-300/5"
+        className="flex h-16 items-end gap-4 rounded-full border border-neutral-800 bg-neutral-950 px-3 pb-2 shadow-inner shadow-neutral-300/5"
         onMouseLeave={() => mouseX.set(Infinity)}
         onMouseMove={(e) => {
           const rect = containerRef.current?.getBoundingClientRect();
@@ -91,7 +90,7 @@ function DockItem({ children, containerX, mouseX }: DockItemProps) {
     <motion.div
       role="button"
       ref={itemRef}
-      className="group p-2 flex aspect-square items-center justify-center overflow-hidden rounded-full transition active:-translate-y-10 bg-neutral-950 border-neutral-800 border shadow-inner shadow-neutral-300/20 active:duration-1000 active:ease-out text-neutral-400 hover:text-white duration-500"
+      className="group flex aspect-square items-center justify-center overflow-hidden rounded-full border border-neutral-800 bg-neutral-950 p-2 text-neutral-400 shadow-inner shadow-neutral-300/20 transition duration-500 hover:text-white active:-translate-y-10 active:duration-1000 active:ease-out"
       style={{
         width,
       }}
