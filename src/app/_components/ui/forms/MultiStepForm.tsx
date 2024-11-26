@@ -1,10 +1,9 @@
 "use client"; // @NOTE: add in case you are using Next.js
 
-import React, { useEffect, useState } from "react";
-import useMeasure from "react-use-measure";
-import { AnimatePresence, Variants, motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
-import { cn } from "@/utils/cn";
+import { AnimatePresence, Variants, motion } from "framer-motion";
+import useMeasure from "react-use-measure";
 
 export function MultiStepForm() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -15,12 +14,12 @@ export function MultiStepForm() {
     {
       title: "Luxe",
       description:
-        "A library of components ready for you to copy and paste, designed to illuminate your applications with elegance, sophistication and a unique touch of style.",
+        "A library of components ready for you to copy and paste, designed to illuminate your apps with elegance, sophistication and a unique touch of style.",
     },
     {
       title: "How to use?",
       description:
-        "Simply click on a component, copy the code and paste it into your project. This will give your application an extra shine.",
+        "Simply click on a component, copy the code and paste it into your project. This will give your app an extra shine.",
     },
     {
       title: "Results",
@@ -30,7 +29,7 @@ export function MultiStepForm() {
     {
       title: "Copy now",
       description:
-        "Elevate your project with sophisticated, ready-to-use components. Illuminate up your applications quickly, easily and effortlessly!",
+        "Elevate your project with sophisticated, ready-to-use components. Illuminate up your app quickly, easily and effortlessly!",
     },
   ];
 
@@ -50,7 +49,7 @@ export function MultiStepForm() {
     initial: (direction: number) => ({
       opacity: 0,
       height: heightContent > 0 ? heightContent : "auto",
-      x: direction > 0 ? 364 : -364,
+      x: direction > 0 ? 370 : -370,
       position: "initial",
     }),
     animate: {
@@ -62,7 +61,7 @@ export function MultiStepForm() {
     exit: (direction: number) => ({
       zIndex: 0,
       opacity: 0,
-      x: direction < 0 ? 364 : -364,
+      x: direction < 0 ? 370 : -370,
       position: "absolute",
       top: 0,
       width: "100%",
@@ -72,16 +71,18 @@ export function MultiStepForm() {
   const progressWidth = ((activeIndex + 1) / STEPS.length) * 100;
 
   return (
-    <div className="w-[364px] overflow-hidden rounded-xl border border-neutral-800/80 bg-[#111111]">
+    <div className="w-[370px] overflow-hidden rounded-xl border border-[#222222] bg-[#111111]">
       <div className="relative">
-        <div className="relative h-1 w-full bg-neutral-800">
-          <motion.div
-            className="h-full bg-neutral-700"
-            style={{ width: `${progressWidth}%` }}
-            initial={{ width: 0 }}
-            animate={{ width: `${progressWidth}%` }}
-            transition={{ duration: 0.3 }}
-          />
+        <div className="px-4 pt-4">
+          <div className="relative h-1 w-full rounded-full bg-neutral-900">
+            <motion.div
+              className="h-full rounded-[inherit] bg-neutral-800"
+              style={{ width: `${progressWidth}%` }}
+              initial={{ width: 0 }}
+              animate={{ width: `${progressWidth}%` }}
+              transition={{ duration: 0.3 }}
+            />
+          </div>
         </div>
         <AnimatePresence initial={false} mode="popLayout" custom={direction}>
           <motion.div
@@ -100,18 +101,18 @@ export function MultiStepForm() {
               <h3 className="mb-2 font-medium text-zinc-100">
                 {STEPS[activeIndex].title}
               </h3>
-              <p className="text-neutral-400">
+              <p className="text-[15px] text-neutral-400">
                 {STEPS[activeIndex].description}
               </p>
             </div>
           </motion.div>
         </AnimatePresence>
-        <div className="relative z-10 border-t border-neutral-800/80 bg-[#0f0f0f]">
-          <div className="flex items-center justify-between px-4 py-2">
+        <div className="relative z-10 border-t border-[#222222] bg-[#0f0f0f]">
+          <div className="flex items-center justify-between px-4 py-3">
             <button
               disabled={activeIndex === 0}
               onClick={() => handleSetActiveIndex(activeIndex - 1)}
-              className="h-8 w-[95px] rounded-full border border-neutral-800 bg-[#171717] text-[13px] font-medium text-primary shadow disabled:cursor-not-allowed disabled:opacity-50"
+              className="h-7 rounded-lg border border-neutral-800 bg-[#171717] px-3 text-[13px] font-medium text-primary shadow disabled:cursor-not-allowed disabled:opacity-50"
             >
               Previous
             </button>
@@ -121,9 +122,9 @@ export function MultiStepForm() {
                 activeIndex !== STEPS.length - 1 &&
                 handleSetActiveIndex(activeIndex + 1)
               }
-              className="h-8 w-[95px] rounded-full border border-neutral-800 bg-[#171717] text-[13px] font-medium text-primary shadow disabled:cursor-not-allowed disabled:opacity-50"
+              className="h-7 rounded-lg border border-neutral-800 bg-[#171717] px-3 text-[13px] font-medium text-primary shadow disabled:cursor-not-allowed disabled:opacity-50"
             >
-              Continue
+              Next
             </button>
           </div>
         </div>

@@ -223,7 +223,7 @@ export const COMPONENTS = [
     slug: "multi-step-form",
     component: <MultiStepForm />,
     type: "forms",
-    isNew: true,
+    isUpdated: true,
     download: "npm install framer-motion react-use-measure clsx tailwind-merge",
     cnFunction: true,
     colSpan: true,
