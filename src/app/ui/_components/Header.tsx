@@ -16,7 +16,7 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 h-[4rem] w-full bg-background">
-      <nav className="mx-auto flex h-full max-w-[1400px] items-center justify-between gap-6 border-b border-dashed border-neutral-800/60 px-6 xl:border-x">
+      <nav className="mx-auto flex h-full max-w-[1400px] items-center justify-between gap-6 border-b border-dashed border-neutral-800/40 px-6 xl:border-x">
         <AnimateEnter className="flex items-end gap-1.5">
           <Link href="/">
             <Image src={minLogo} alt="Luxe's logo" className="w-4 sm:hidden" />
@@ -44,13 +44,13 @@ export function Header() {
         >
           <button
             onClick={() => setShowCommandMenu(true)}
-            className="flex w-auto items-center justify-between gap-6 rounded-lg border border-border bg-background-muted px-3 py-1.5 text-sm duration-300 hover:bg-neutral-900 max-sm:flex-1 sm:w-56"
+            className="flex w-auto items-center justify-between gap-6 rounded-lg border border-[#222222] bg-[#0f0f0f] px-3 py-[7px] text-xs max-sm:flex-1 sm:w-56"
           >
             <span className="flex items-center gap-2 text-neutral-500">
-              <SearchIcon size={12} />
+              <SearchIcon size={14} />
               Search...
             </span>
-            <span className="flex items-center gap-0.5 rounded-md border border-border px-1.5 text-[10px] max-sm:hidden">
+            <span className="flex items-center gap-px rounded border border-border bg-[#111111] px-1.5 text-[10px] font-[460] max-sm:hidden">
               <CommandIcon size={10} />K
             </span>
           </button>

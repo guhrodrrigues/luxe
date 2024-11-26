@@ -56,7 +56,7 @@ export default function ComponentPageLayout({ children }: ComponentPageLayout) {
   return (
     <CommandMenuProvider>
       <Header />
-      <div className="mx-auto flex w-full max-w-[1400px] border-dashed max-lg:mb-14 max-lg:flex-col max-lg:gap-12 xl:border-x xl:border-neutral-800/60">
+      <div className="mx-auto flex w-full max-w-[1400px] border-dashed max-lg:mb-14 max-lg:flex-col max-lg:gap-12 xl:border-x xl:border-neutral-800/40">
         <AnimateEnter
           delay={0.2}
           duration={0.3}
@@ -67,7 +67,7 @@ export default function ComponentPageLayout({ children }: ComponentPageLayout) {
         <AnimateEnter
           delay={0.2}
           duration={0.3}
-          className="min-w-0 flex-grow px-6 lg:mt-6 lg:px-10"
+          className="min-w-0 flex-grow px-6 lg:mt-6 lg:px-20"
         >
           {children}
         </AnimateEnter>

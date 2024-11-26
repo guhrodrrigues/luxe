@@ -33,7 +33,7 @@ export function CodeBlock({
           <CopyCode code={code} />
         </div>
       )}
-      <div className={cn("relative overflow-x-auto p-4")}>
+      <div className="relative overflow-x-auto p-4">
         <Code code={code} lang={lang} />
       </div>
     </div>

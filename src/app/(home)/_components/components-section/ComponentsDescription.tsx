@@ -4,7 +4,7 @@ import { TextAnimateEnter } from "@/app/_components/TextAnimateEnter";
 export function ComponentsDescription() {
   return (
     <AnimateEnter className="space-y-5 text-center">
-      <h1 className="max-w-2xl mx-auto text-4xl md:text-5xl font-display leading-tight font-semibold text-gradient">
+      <h1 className="text-gradient mx-auto max-w-2xl text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
         Elevate your project with sophisticated components
       </h1>
       <TextAnimateEnter

@@ -83,7 +83,7 @@ export function CommandMenu() {
 
   return (
     <CommandDialog open={showCommandMenu} onOpenChange={setShowCommandMenu}>
-      <CommandInput placeholder="Type to search ↵" />
+      <CommandInput placeholder="Type to search" />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
         {groups.map((group) => (

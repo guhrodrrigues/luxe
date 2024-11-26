@@ -41,7 +41,7 @@ import { InputFocusBlur } from "@/app/_components/ui/inputs/InputFocusBlur";
 import { DockMenu } from "@/app/_components/ui/docks";
 import { InfiniteSliderExample } from "@/app/_components/ui/slider";
 import { TooltipExample } from "@/app/_components/ui/tooltip";
-import { MultiStepForm } from "@/app/_components/ui/forms";
+import { MultiStepModal } from "@/app/_components/ui/modals";
 import { CheckboxExample } from "@/app/_components/ui/checkbox/Checkbox";
 import { PopoverExample } from "@/app/_components/ui/popover/Popover";
 import { Spinner } from "@/app/_components/ui/icons";
@@ -179,7 +179,7 @@ export const COMPONENTS = [
     component: <PopoverExample />,
     type: "popover",
     isNew: true,
-    download: "npm install framer-motion @radix-ui/react-hover-card",
+    download: "npm i framer-motion @radix-ui/react-hover-card",
     colSpan: true,
   },
   {
@@ -188,7 +188,7 @@ export const COMPONENTS = [
     component: <TextGenerateEffectExample />,
     type: "texts",
     isNew: true,
-    download: "npm install framer-motion clsx tailwind-merge",
+    download: "npm i framer-motion clsx tailwind-merge",
     cnFunction: true,
     isReloadAnimation: true,
   },
@@ -198,7 +198,7 @@ export const COMPONENTS = [
     component: <TooltipExample />,
     type: "tooltip",
     isNew: true,
-    download: "npm install framer-motion clsx tailwind-merge",
+    download: "npm i framer-motion clsx tailwind-merge",
     cnFunction: true,
   },
   {
@@ -207,7 +207,7 @@ export const COMPONENTS = [
     component: <TextHoverEnterExample />,
     type: "texts",
     isNew: true,
-    download: "npm install framer-motion clsx tailwind-merge",
+    download: "npm i framer-motion clsx tailwind-merge",
     cnFunction: true,
   },
   {
@@ -219,12 +219,12 @@ export const COMPONENTS = [
     twConfig: TWCONFIG["brightness"],
   },
   {
-    name: "Multi Step Form",
-    slug: "multi-step-form",
-    component: <MultiStepForm />,
-    type: "forms",
+    name: "Multi Step Modal",
+    slug: "multi-step-modal",
+    component: <MultiStepModal />,
+    type: "modals",
     isUpdated: true,
-    download: "npm install framer-motion react-use-measure clsx tailwind-merge",
+    download: "npm i framer-motion react-use-measure clsx tailwind-merge",
     cnFunction: true,
     colSpan: true,
     className: "min-h-[500px]",
@@ -234,7 +234,7 @@ export const COMPONENTS = [
     slug: "button-magnetic",
     component: <ButtonMagneticExample />,
     type: "buttons",
-    download: "npm install framer-motion clsx tailwind-merge",
+    download: "npm i framer-motion clsx tailwind-merge",
     isNew: true,
     cnFunction: true,
   },
@@ -244,7 +244,7 @@ export const COMPONENTS = [
     component: <CheckboxExample />,
     type: "checkbox",
     isNew: true,
-    download: "npm install framer-motion @radix-ui/react-checkbox",
+    download: "npm i framer-motion @radix-ui/react-checkbox",
   },
   {
     name: "Spinner",
@@ -269,7 +269,7 @@ export const COMPONENTS = [
     isNew: true,
     colSpan: true,
     twConfig: TWCONFIG["infinite-slider"],
-    download: "npm install clsx tailwind-merge",
+    download: "npm i clsx tailwind-merge",
     cnFunction: true,
   },
   {
@@ -351,7 +351,7 @@ export const COMPONENTS = [
     slug: "card-revealed-pointer",
     component: <CardRevealedPointer />,
     type: "cards",
-    download: "npm install framer-motion",
+    download: "npm i framer-motion",
   },
   {
     name: "Card Comment",
@@ -365,7 +365,7 @@ export const COMPONENTS = [
     slug: "card-hover-effect",
     component: <CardHoverEffect />,
     type: "cards",
-    download: "npm install framer-motion clsx tailwind-merge",
+    download: "npm i framer-motion clsx tailwind-merge",
     colSpan: true,
     cnFunction: true,
   },
@@ -382,7 +382,7 @@ export const COMPONENTS = [
     component: <DropdownMenu />,
     colSpan: true,
     type: "dropdown",
-    download: "npm install framer-motion clsx tailwind-merge lucide-react",
+    download: "npm i framer-motion clsx tailwind-merge lucide-react",
     cnFunction: true,
   },
   {
@@ -391,7 +391,7 @@ export const COMPONENTS = [
     component: <InputFocusBlur placeholder="Placeholder" />,
     colSpan: true,
     type: "inputs",
-    download: "npm install framer-motion tailwind-variants lucide-react",
+    download: "npm i framer-motion tailwind-variants lucide-react",
   },
   {
     name: "Text Gradient",
@@ -430,7 +430,7 @@ export const COMPONENTS = [
     slug: "dock",
     component: <DockMenu />,
     type: "docks",
-    download: "npm install framer-motion clsx tailwind-merge lucide-react",
+    download: "npm i framer-motion clsx tailwind-merge lucide-react",
     cnFunction: true,
   },
 ];

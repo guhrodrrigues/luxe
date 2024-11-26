@@ -191,7 +191,7 @@ export default async function InstallationSlugPage({
                   </h1>
                   <CodeBlock
                     fileName="Terminal"
-                    code="cd my-app && npm install"
+                    code="cd my-app && npm i"
                     lang="shellscript"
                   />
                 </div>
@@ -208,7 +208,7 @@ export default async function InstallationSlugPage({
                   <CodeBlock
                     fileName="Terminal"
                     code={
-                      "npm install -D tailwindcss postcss autoprefixer" +
+                      "npm i -D tailwindcss postcss autoprefixer" +
                       "\n" +
                       "npx tailwindcss init -p"
                     }

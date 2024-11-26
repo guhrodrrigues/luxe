@@ -15,14 +15,14 @@ type PaginationProps = {
 
 export function Pagination({ back, next }: PaginationProps) {
   return (
-    <div className="flex items-center justify-between border-t border-dashed border-neutral-800/70 pt-9">
+    <div className="flex items-center justify-between border-t border-dashed border-neutral-800/40 pt-9">
       <div>
         {back?.href && back?.name && (
           <Link
             href={back.href}
             className="flex flex-col gap-0.5 text-sm duration-200 hover:opacity-60"
           >
-            <span>Back</span>
+            <span>Previous</span>
             <div className="flex items-center gap-1">
               <ArrowLeftIcon size={12} className="text-primary" />
               <span className="text-primary">{back.name}</span>

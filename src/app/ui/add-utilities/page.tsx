@@ -16,7 +16,7 @@ async function readFilePath(filePath: string) {
 
   const fileContent = await readFile(
     path.join(process.cwd(), filePath),
-    "utf8"
+    "utf8",
   );
 
   return fileContent;
@@ -66,7 +66,7 @@ export default async function AddUtilitiesPage() {
   const cnCode = await readFilePath(cnPath);
 
   return (
-    <main className="my-2 xl:mb-24 space-y-12">
+    <main className="my-2 space-y-12 xl:mb-24">
       <div className="space-y-6">
         <Breadcrumbs groupName="Get Started" currentPage="Add Utilities" />
         <div className="space-y-3">
@@ -79,7 +79,7 @@ export default async function AddUtilitiesPage() {
       </div>
       <div className="space-y-6">
         <CodeBlock
-          code="npm install clsx tailwind-merge"
+          code="npm i clsx tailwind-merge"
           fileName="Terminal"
           lang="shellscript"
         />

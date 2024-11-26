@@ -4,11 +4,11 @@ import { GetStartedButton } from "./GetStartedButton";
 
 export function SloganSection() {
   return (
-    <section className="w-full h-full overflow-hidden">
-      <div className="flex flex-col gap-8 lg:gap-10 items-center justify-center relative pb-20 md:pb-40 pt-14 mt-28 md:mt-44">
+    <section className="h-full w-full overflow-hidden">
+      <div className="relative mt-28 flex flex-col items-center justify-center gap-8 pb-20 pt-14 md:mt-44 md:pb-40 lg:gap-10">
         <BlurBackground />
         <AnimateEnter className="flex flex-col items-center" delay={0.2}>
-          <h1 className="max-w-lg mx-auto text-center text-4xl md:text-5xl font-display leading-tight font-semibold text-gradient">
+          <h1 className="text-gradient mx-auto max-w-lg text-center text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
             Illuminate your apps. Fast and easy.
           </h1>
         </AnimateEnter>
@@ -27,7 +27,7 @@ export function SloganSection() {
 function BlurBackground() {
   return (
     <svg
-      className="absolute -z-[1] inset-x-0 w-full mx-auto pointer-events-none -bottom-[420px] md:-bottom-96"
+      className="pointer-events-none absolute inset-x-0 -bottom-[420px] -z-[1] mx-auto w-full md:-bottom-96"
       width="944"
       height="1033"
       viewBox="0 0 944 1033"

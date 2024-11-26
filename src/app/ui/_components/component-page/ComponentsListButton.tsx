@@ -28,35 +28,35 @@ export function ComponentsListButton({
     <Link
       href={slug}
       className={cn(
-        "relative text-sm select-none -mx-3 px-3 py-2.5 border border-transparent rounded-lg",
+        "relative -mx-3 select-none rounded-lg border border-transparent px-3 py-2 text-sm font-[460]",
         isActive
           ? "z-0 text-primary"
-          : "text-foreground/80 duration-300 hover:text-neutral-300"
+          : "text-foreground/80 duration-300 hover:text-neutral-300",
       )}
     >
       {isActive && (
         <motion.div
           layoutId="active"
           transition={{ duration: 0.2 }}
-          className="absolute inset-0 border rounded-[inherit] bg-neutral-900 border-border"
+          className="absolute inset-0 rounded-[inherit] border border-[#222222] bg-[#111111]"
         />
       )}
       {isNew ? (
-        <div className="relative flex items-center justify-between z-[1]">
-          <span className="relative block z-[1]">{name}</span>
-          <span className="bg-emerald-400 text-black px-1.5 py-[0.5px] text-[10px] leading-4 rounded-md font-semibold">
+        <div className="relative z-[1] flex items-center justify-between">
+          <span className="relative z-[1] block text-[13px]">{name}</span>
+          <span className="rounded-md bg-emerald-400 px-1.5 py-[0.5px] text-[10px] font-semibold leading-4 text-black">
             New
           </span>
         </div>
       ) : isUpdated ? (
-        <div className="relative flex items-center justify-between z-[1]">
-          <span className="relative block z-[1]">{name}</span>
-          <span className="bg-amber-400 text-black px-1.5 py-[0.5px] text-[10px] leading-4 rounded-md font-semibold">
+        <div className="relative z-[1] flex items-center justify-between">
+          <span className="relative z-[1] block text-[13px]">{name}</span>
+          <span className="rounded-md bg-amber-400 px-1.5 py-[0.5px] text-[10px] font-semibold leading-4 text-black">
             Updated
           </span>
         </div>
       ) : (
-        <span className="relative block z-[1]">{name}</span>
+        <span className="relative z-[1] block text-[13px]">{name}</span>
       )}
     </Link>
   );
