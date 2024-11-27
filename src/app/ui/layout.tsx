@@ -60,7 +60,7 @@ export default function ComponentPageLayout({ children }: ComponentPageLayout) {
         <AnimateEnter
           delay={0.2}
           duration={0.3}
-          className="flex-shrink-0 lg:w-[270px]"
+          className="flex-shrink-0 lg:w-[260px]"
         >
           <ComponentsList />
         </AnimateEnter>

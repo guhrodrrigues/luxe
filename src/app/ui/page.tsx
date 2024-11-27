@@ -14,11 +14,11 @@ export default function UiPage() {
     <main className="my-2 space-y-16 xl:mb-24">
       <div className="space-y-6">
         <Breadcrumbs groupName="Get Started" currentPage="Browse Components" />
-        <div className="space-y-3">
+        <div className="space-y-5">
           <h1 className="text-3xl font-semibold text-primary">
             Browse Components
           </h1>
-          <p className="max-w-lg font-normal text-primary/80">
+          <p className="font-normal text-primary/80">
             Navigate to all the components that will make your application
             sophisticated and luxurious.
           </p>
@@ -43,13 +43,9 @@ export default function UiPage() {
             >
               <Link
                 href={`/ui/${slug}`}
-                className="group flex w-fit select-none items-center gap-1 text-neutral-300 duration-200 hover:gap-2 hover:text-primary"
+                className="flex w-fit select-none items-center gap-1 text-neutral-300 duration-200 hover:opacity-60"
               >
-                <span>{name}</span>
-                <MoveRightIcon
-                  size={12}
-                  className="scale-0 duration-200 group-hover:scale-100"
-                />
+                {name}
               </Link>
               <ComponentView
                 isReloadAnimation={isReloadAnimation}

@@ -28,7 +28,9 @@ export function CodeBlock({
         <div className="flex h-10 items-center justify-between border-b border-neutral-800/60 bg-neutral-900/40 px-4">
           <div className="flex items-center gap-1.5">
             {fileName === "Terminal" ? <TerminalIcon /> : <FileIcon />}
-            <span className="text-sm text-foreground">{fileName}</span>
+            <span className="text-[13px] leading-none text-neutral-500">
+              {fileName}
+            </span>
           </div>
           <CopyCode code={code} />
         </div>

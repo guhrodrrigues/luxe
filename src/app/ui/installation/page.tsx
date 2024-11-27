@@ -46,9 +46,9 @@ export default function InstallationPage() {
     <main className="my-2 space-y-16 xl:mb-24">
       <div className="space-y-6">
         <Breadcrumbs groupName="Get Started" currentPage="Installation" />
-        <div className="space-y-3">
+        <div className="space-y-5">
           <h1 className="text-3xl font-semibold text-primary">Installation</h1>
-          <p className="max-w-lg font-normal text-primary/80">
+          <p className="font-normal text-primary/80">
             How to install dependencies and structure your application.
           </p>
         </div>
