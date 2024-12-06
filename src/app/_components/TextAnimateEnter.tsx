@@ -26,13 +26,12 @@ export function TextAnimateEnter({
         <motion.span
           key={char + index}
           className={cn(
-            "whitespace-pre inline-block font-normal text-primary",
-            className
+            "inline-block whitespace-pre font-normal text-primary",
+            className,
           )}
-          initial={{ opacity: 0, filter: "blur(4px)", y: "100%" }}
+          initial={{ opacity: 0, y: "100%" }}
           whileInView={{
             opacity: 1,
-            filter: "blur(0px)",
             y: 0,
           }}
           transition={{

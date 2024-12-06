@@ -9,6 +9,7 @@ export function ComponentsDescription() {
       </h1>
       <TextAnimateEnter
         text={`Simply click on a component, copy the code and paste it into your project. This will give your application an extra shine.`}
+        className="text-neutral-300"
         containerClassName="max-w-lg mx-auto"
         initialDelay={0.1}
         duration={0.6}
