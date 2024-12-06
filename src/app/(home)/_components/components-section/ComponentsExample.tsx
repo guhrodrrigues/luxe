@@ -24,38 +24,16 @@ import { DropdownMenu } from "@/app/_components/ui/dropdown";
 import { AnimatedTabs } from "@/app/_components/ui/tabs";
 
 const COMPONENTS_EXAMPLE = [
-  {
-    component: <TextGenerateEffectExample />,
-    isReloadAnimation: true,
-  },
-  {
-    component: <TooltipExample />,
-  },
-  {
-    component: <TextHoverEnterExample />,
-  },
-  {
-    component: <BadgeBackgroundShine />,
-  },
-  {
-    component: <DropdownMenu />,
-  },
-  {
-    component: <CheckboxExample />,
-  },
-  {
-    component: <ButtonLoading />,
-  },
-  {
-    component: <TextShine />,
-  },
-  {
-    component: <ButtonBackgroundShine />,
-  },
-  {
-    component: <AnimatedTabs />,
-    className: "md:col-span-3",
-  },
+  { component: <TextGenerateEffectExample />, isReloadAnimation: true },
+  { component: <TooltipExample /> },
+  { component: <TextHoverEnterExample /> },
+  { component: <BadgeBackgroundShine /> },
+  { component: <DropdownMenu /> },
+  { component: <CheckboxExample /> },
+  { component: <ButtonLoading /> },
+  { component: <TextShine /> },
+  { component: <ButtonBackgroundShine /> },
+  { component: <AnimatedTabs />, className: "md:col-span-3" },
 ];
 
 export function ComponentsExample() {
