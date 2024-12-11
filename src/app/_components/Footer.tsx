@@ -10,25 +10,25 @@ import { AnimateEnter } from "@/app/(home)/_components/AnimateEnter";
 
 export function Footer() {
   return (
-    <footer className="border-t relative z-10 border-border bg-background overflow-hidden">
+    <footer className="relative z-10 overflow-hidden border-t border-border/50 bg-background">
       <Blur />
-      <div className="relative px-8 md:px-3 mx-auto max-w-7xl w-full py-16">
-        <div className="flex max-md:flex-col gap-10 md:justify-between">
+      <div className="relative mx-auto w-full max-w-7xl px-8 py-16 md:px-3">
+        <div className="flex gap-10 max-md:flex-col md:justify-between">
           <div className="flex flex-col gap-5">
             <AnimateEnter>
               <Image src={logo} alt="Luxe's logo" width={80} height={80} />
             </AnimateEnter>
             <AnimateEnter delay={0.1} className="flex flex-col gap-1">
-              <p className="text-foreground font-medium text-sm">
+              <p className="text-sm font-medium text-foreground">
                 Elevating the web design.
               </p>
-              <span className="text-foreground font-medium text-sm">
+              <span className="text-sm font-medium text-foreground">
                 Made by{" "}
                 <a
                   href="https://guhrodrigues.com"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-primary/90 duration-200"
+                  className="text-neutral-200 duration-200"
                 >
                   Gustavo Rodrigues.
                 </a>
@@ -39,12 +39,12 @@ export function Footer() {
             </AnimateEnter>
           </div>
           <AnimateEnter delay={0.3} className="space-y-4">
-            <div className="text-sm flex flex-col gap-4">
+            <div className="flex flex-col gap-4 text-sm">
               <Link
                 href="/ui"
                 className="text-foreground duration-200 hover:text-primary"
               >
-                Explore all components
+                Explore Gallery
               </Link>
               <a
                 href="https://github.com/guhrodrrigues/luxe"
@@ -76,7 +76,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="group flex items-center gap-1 text-foreground duration-200 hover:text-primary"
               >
-                X (Twitter)
+                Twitter
                 <ArrowUpRightIcon
                   size={10}
                   className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
@@ -94,7 +94,7 @@ function Blur() {
   return (
     <div
       aria-hidden="true"
-      className="-top-1 left-1/2 h-[200px] w-full max-w-[400px] user-select-none center pointer-events-none absolute -translate-x-1/2 -translate-y-1/2"
+      className="user-select-none center pointer-events-none absolute -top-1 left-1/2 h-[200px] w-full max-w-[400px] -translate-x-1/2 -translate-y-1/2"
       style={{
         background:
           "conic-gradient(from 90deg at 50% 50%, #00000000 50%, #0a0a0a 50%),radial-gradient(rgba(134, 134, 134, 0.1) 0%, transparent 80%)",

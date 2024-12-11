@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 
-import { ComponentsList } from "./_components/component-page/ComponentsList";
+import { ComponentsList } from "./_components/ComponentsList";
 import { AnimateEnter } from "@/app/(home)/_components/AnimateEnter";
 import { Header } from "@/app/ui/_components/Header";
 import { CommandMenu } from "@/app/_components/command-menu";

@@ -32,7 +32,6 @@ export function Header() {
               href="https://guhrodrigues.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="duration-200 hover:opacity-60"
             >
               Gustavo Rodrigues
             </a>
@@ -44,7 +43,7 @@ export function Header() {
         >
           <button
             onClick={() => setShowCommandMenu(true)}
-            className="flex w-auto items-center justify-between gap-6 rounded-lg border border-[#222222] bg-[#0f0f0f] px-3 py-[7px] text-xs max-sm:flex-1 sm:w-56"
+            className="flex w-auto items-center justify-between gap-6 rounded-lg border border-[#222222]/70 bg-[#0f0f0f] px-3 py-[7px] text-xs max-sm:flex-1 sm:w-56"
           >
             <span className="flex items-center gap-2 text-neutral-500">
               <SearchIcon size={14} />

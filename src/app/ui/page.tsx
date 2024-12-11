@@ -6,7 +6,7 @@ import { cn } from "@/utils/cn";
 
 import { COMPONENTS } from "@/data/components";
 
-import { ComponentView } from "./_components/component-page/ComponentView";
+import { ComponentView } from "./_components/ComponentView";
 import { Breadcrumbs } from "./_components/Breadcrumbs";
 
 export default function UiPage() {

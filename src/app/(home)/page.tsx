@@ -8,7 +8,7 @@ import { Footer } from "../_components/Footer";
 export default function Home() {
   return (
     <main className="mt-20">
-      <div className="px-4 mx-auto max-w-7xl w-full">
+      <div className="mx-auto w-full max-w-7xl px-4">
         <HeroSection />
         <TechsSection />
         <ComponentsSection />

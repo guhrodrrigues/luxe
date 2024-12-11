@@ -8,7 +8,7 @@ import { promisify } from "util";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 
 import { Breadcrumbs } from "../_components/Breadcrumbs";
-import { CodeBlock } from "../_components/component-page/CodeBlock";
+import { CodeBlock } from "../_components/CodeBlock";
 import { Pagination } from "../_components/Pagination";
 
 async function readFilePath(filePath: string) {

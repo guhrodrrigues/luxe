@@ -18,9 +18,7 @@ export function ComponentsList() {
         }}
       >
         <div className="mb-8 flex flex-col gap-1.5">
-          <span className="text-xs font-medium text-neutral-500">
-            Get Started
-          </span>
+          <span className="text-xs text-neutral-50">Get Started</span>
           <div className="flex flex-col">
             {GET_STARTED.map((component) => (
               <ComponentsListButton
@@ -32,7 +30,7 @@ export function ComponentsList() {
           </div>
         </div>
         <ul className="flex flex-col gap-1.5">
-          <span className="relative z-[1] text-xs font-medium text-neutral-500">
+          <span className="relative z-[1] text-xs text-neutral-50">
             Components
           </span>
           <div className="flex flex-col pb-12">

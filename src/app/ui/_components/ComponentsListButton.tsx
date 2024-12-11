@@ -31,14 +31,14 @@ export function ComponentsListButton({
         "relative -mx-3 select-none rounded-lg border border-transparent px-3 py-2 text-sm font-[460]",
         isActive
           ? "z-0 text-primary"
-          : "text-foreground/80 duration-300 hover:text-neutral-300",
+          : "text-foreground duration-300 hover:text-neutral-300",
       )}
     >
       {isActive && (
         <motion.div
           layoutId="active"
           transition={{ duration: 0.2 }}
-          className="absolute inset-0 rounded-[inherit] border border-[#222222] bg-[#111111]"
+          className="absolute inset-0 rounded-[inherit] border border-[#222222]/80 bg-[#111111]"
         />
       )}
       {isNew ? (

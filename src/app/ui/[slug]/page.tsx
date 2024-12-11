@@ -9,8 +9,8 @@ import { COMPONENTS } from "@/data/components";
 
 import { cn } from "@/utils/cn";
 
-import { CodeBlock } from "../_components/component-page/CodeBlock";
-import { ComponentView } from "../_components/component-page/ComponentView";
+import { CodeBlock } from "../_components/CodeBlock";
+import { ComponentView } from "../_components/ComponentView";
 import { Breadcrumbs } from "../_components/Breadcrumbs";
 import { Pagination } from "../_components/Pagination";
 

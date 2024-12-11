@@ -9,7 +9,7 @@ import path from "path";
 import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 
 import { INSTALLATION } from "../_data/installation";
-import { CodeBlock } from "../../_components/component-page/CodeBlock";
+import { CodeBlock } from "../../_components/CodeBlock";
 import { Breadcrumbs } from "../../_components/Breadcrumbs";
 import { Pagination } from "../../_components/Pagination";
 

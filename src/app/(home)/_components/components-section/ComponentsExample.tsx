@@ -1,24 +1,18 @@
 "use client";
 
-import { COMPONENTS } from "@/data/components";
-
-import { ComponentView } from "@/app/ui/_components/component-page/ComponentView";
+import { ComponentView } from "@/app/ui/_components/ComponentView";
 import { AnimateEnter } from "../AnimateEnter";
 import {
-  TextAnimatedGradient,
   TextGenerateEffectExample,
   TextHoverEnterExample,
   TextShine,
 } from "@/app/_components/ui/texts";
 import { TooltipExample } from "@/app/_components/ui/tooltip";
-import { ButtonGlitchBrightness } from "@/app/_components/ui/buttons/ButtonGlitchBrightness";
 import {
   ButtonBackgroundShine,
   ButtonLoading,
-  ButtonMagneticExample,
 } from "@/app/_components/ui/buttons";
 import { CheckboxExample } from "@/app/_components/ui/checkbox/Checkbox";
-import { Spinner } from "@/app/_components/ui/icons";
 import { BadgeBackgroundShine } from "@/app/_components/ui/badges";
 import { DropdownMenu } from "@/app/_components/ui/dropdown";
 import { AnimatedTabs } from "@/app/_components/ui/tabs";

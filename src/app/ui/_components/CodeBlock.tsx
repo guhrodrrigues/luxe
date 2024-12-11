@@ -25,7 +25,7 @@ export function CodeBlock({
       )}
     >
       {!fileName && !copyCode ? null : (
-        <div className="flex h-10 items-center justify-between border-b border-neutral-800/60 bg-neutral-900/40 px-4">
+        <div className="flex h-10 items-center justify-between border-b border-neutral-800/60 bg-neutral-900/30 px-4">
           <div className="flex items-center gap-1.5">
             {fileName === "Terminal" ? <TerminalIcon /> : <FileIcon />}
             <span className="text-[13px] leading-none text-neutral-500">
