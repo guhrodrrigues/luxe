@@ -224,7 +224,6 @@ export const COMPONENTS = [
     type: "modals",
     isNew: true,
     download: "npm i framer-motion react-use-measure clsx tailwind-merge",
-    cnFunction: true,
     colSpan: true,
     className: "min-h-[500px]",
   },
