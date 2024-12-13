@@ -71,7 +71,7 @@ export function Footer() {
                 />
               </a>
               <a
-                href="https://x.com/guhrodrrigues"
+                href="https://twitter.com/guhrodrrigues"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex items-center gap-1 text-foreground duration-200 hover:text-primary"

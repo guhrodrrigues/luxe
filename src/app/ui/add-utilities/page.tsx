@@ -71,7 +71,7 @@ export default async function AddUtilitiesPage() {
         <Breadcrumbs groupName="Get Started" currentPage="Add Utilities" />
         <div className="space-y-5">
           <h1 className="text-3xl font-semibold text-primary">Add Utilities</h1>
-          <p className="font-normal text-primary/80">
+          <p className="text-[16px] font-normal leading-relaxed text-primary/80">
             This code is widely used in Luxe, it is responsible for merging
             classes when they have conditionals.
           </p>

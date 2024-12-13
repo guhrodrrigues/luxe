@@ -5,12 +5,12 @@ export const INSTALLATION = [
     slug: "next",
     icon: <Icons.nextjs color="#fff" />,
     name: "Next.js",
-    description: "Enables you to create high-quality web applications.",
+    description: "Create high-quality web applications.",
   },
   {
     slug: "vite",
     icon: <Icons.vite color="#fff" />,
     name: "Vite",
-    description: "Superset interface shared between dev and build.",
+    description: "Superset interface shared between dev & build.",
   },
 ];

@@ -3,8 +3,6 @@ import { Metadata } from "next";
 import { ComponentsList } from "./_components/ComponentsList";
 import { AnimateEnter } from "@/app/(home)/_components/AnimateEnter";
 import { Header } from "@/app/ui/_components/Header";
-import { CommandMenu } from "@/app/_components/command-menu";
-import { CommandMenuProvider } from "@/app/_components/command-menu/_context/CommandMenuProvider";
 
 export const metadata: Metadata = {
   title: {
@@ -54,25 +52,20 @@ type ComponentPageLayout = {
 
 export default function ComponentPageLayout({ children }: ComponentPageLayout) {
   return (
-    <CommandMenuProvider>
+    <>
       <Header />
-      <div className="mx-auto flex w-full max-w-[1400px] border-dashed max-lg:mb-14 max-lg:flex-col max-lg:gap-12 xl:border-x xl:border-neutral-800/40">
-        <AnimateEnter
-          delay={0.2}
-          duration={0.3}
-          className="flex-shrink-0 lg:w-[260px]"
-        >
+      <div className="flex border-dashed max-lg:mb-14 max-lg:flex-col max-lg:gap-12">
+        <AnimateEnter delay={0.2} duration={0.3} className="flex-shrink-0">
           <ComponentsList />
         </AnimateEnter>
         <AnimateEnter
           delay={0.2}
           duration={0.3}
-          className="min-w-0 flex-grow px-6 lg:mt-6 lg:px-20"
+          className="mx-auto w-full max-w-[900px] flex-grow px-6 lg:mt-20 [@media(min-width:1024px)_and_(max-width:1500px)]:pl-52"
         >
           {children}
         </AnimateEnter>
       </div>
-      <CommandMenu />
-    </CommandMenuProvider>
+    </>
   );
 }

@@ -48,12 +48,12 @@ export default function InstallationPage() {
         <Breadcrumbs groupName="Get Started" currentPage="Installation" />
         <div className="space-y-5">
           <h1 className="text-3xl font-semibold text-primary">Installation</h1>
-          <p className="font-normal text-primary/80">
+          <p className="text-[16px] font-normal leading-relaxed text-primary/80">
             How to install dependencies and structure your application.
           </p>
         </div>
       </div>
-      <div className="grid place-items-center gap-10 lg:grid-cols-2 lg:gap-10">
+      <div className="grid place-items-center gap-10 lg:grid-cols-2 lg:gap-4">
         {INSTALLATION.map(({ slug, icon, name, description }) => (
           <Card
             key={name}

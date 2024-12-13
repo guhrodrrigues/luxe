@@ -11,6 +11,7 @@ type ComponentsListButton = {
   slug: string;
   name: string;
   isNew?: boolean;
+  onClick?: () => void;
   isUpdated?: boolean;
 };
 
@@ -19,6 +20,7 @@ export function ComponentsListButton({
   slug,
   isNew = false,
   isUpdated = false,
+  onClick,
 }: ComponentsListButton) {
   const pathname = usePathname();
 
@@ -27,6 +29,7 @@ export function ComponentsListButton({
   return (
     <Link
       href={slug}
+      onClick={onClick}
       className={cn(
         "relative -mx-3 select-none rounded-lg border border-transparent px-3 py-2 text-sm font-[460]",
         isActive

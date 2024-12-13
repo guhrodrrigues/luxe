@@ -215,7 +215,6 @@ export const COMPONENTS = [
     slug: "button-glitch-brightness",
     component: <ButtonGlitchBrightness />,
     type: "buttons",
-    isNew: true,
     twConfig: TWCONFIG["brightness"],
   },
   {
@@ -223,7 +222,7 @@ export const COMPONENTS = [
     slug: "multi-step-modal",
     component: <MultiStepModal />,
     type: "modals",
-    isUpdated: true,
+    isNew: true,
     download: "npm i framer-motion react-use-measure clsx tailwind-merge",
     cnFunction: true,
     colSpan: true,
@@ -251,7 +250,6 @@ export const COMPONENTS = [
     slug: "spinner",
     component: <Spinner />,
     type: "icons",
-    isNew: true,
     twConfig: TWCONFIG["spinner"],
   },
   {
@@ -298,7 +296,6 @@ export const COMPONENTS = [
     component: <ButtonLoading />,
     type: "buttons",
     twConfig: TWCONFIG["button-loading"],
-    isUpdated: true,
   },
   {
     name: "Button Success",

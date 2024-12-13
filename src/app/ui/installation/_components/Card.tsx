@@ -17,28 +17,28 @@ export function Card({ slug, icon, name, description }: CardProps) {
   return (
     <Link
       href={`/ui/installation/${slug}`}
-      className="group relative w-full border border-white/10 px-7 pt-10 pb-7 min-h-[300px] rounded-xl bg-neutral-950 duration-200 hover:bg-neutral-900"
+      className="group relative min-h-[300px] w-full rounded-xl border border-white/10 bg-neutral-950 px-7 pb-7 pt-10 duration-200 hover:bg-[#111111]"
     >
       <GradientLine />
       <div
         aria-hidden
-        className="bg-neutral-950 border-white/10 border absolute h-full w-[97%] mx-auto inset-0 -top-1.5 rounded-[inherit] duration-200 -z-[1] group-hover:bg-neutral-900"
+        className="absolute inset-0 -top-1.5 -z-[1] mx-auto h-full w-[97%] rounded-[inherit] border border-white/10 bg-neutral-950 duration-200 group-hover:bg-neutral-900"
       >
         <GradientLine />
       </div>
       <div
         aria-hidden
-        className="bg-neutral-950 border-white/10 border absolute h-full w-[94%] mx-auto inset-0 -top-3 rounded-[inherit] duration-200 -z-[2] group-hover:bg-neutral-900"
+        className="absolute inset-0 -top-3 -z-[2] mx-auto h-full w-[94%] rounded-[inherit] border border-white/10 bg-neutral-950 duration-200 group-hover:bg-neutral-900"
       >
         <GradientLine />
       </div>
       <div className="space-y-6">
-        <div className="flex justify-center items-center">
+        <div className="flex items-center justify-center">
           <Illustration icon={icon} />
         </div>
         <div className="space-y-1.5">
-          <h1 className="text-3xl font-semibold text-primary">{name}</h1>
-          <p>{description}</p>
+          <h1 className="text-2xl font-semibold text-primary">{name}</h1>
+          <p className="text-[15px]">{description}</p>
         </div>
       </div>
     </Link>
@@ -47,7 +47,7 @@ export function Card({ slug, icon, name, description }: CardProps) {
 
 function GradientLine() {
   return (
-    <div className="absolute right-5 -top-px h-px w-80 bg-gradient-to-l from-transparent via-white/20 via-10% to-transparent" />
+    <div className="absolute -top-px right-5 h-px w-80 bg-gradient-to-l from-transparent via-white/20 via-10% to-transparent" />
   );
 }
 
@@ -62,7 +62,7 @@ export const Illustration = ({ icon }: { icon: JSX.Element }) => {
   useEffect(() => {
     const interval = setInterval(() => {
       highlightedStars.current = Array.from({ length: 5 }, () =>
-        Math.floor(Math.random() * stars)
+        Math.floor(Math.random() * stars),
       );
 
       setGlowingStars([...highlightedStars.current]);
@@ -73,10 +73,10 @@ export const Illustration = ({ icon }: { icon: JSX.Element }) => {
 
   return (
     <div
-      className="relative h-48 p-1 w-full grid gap-px"
+      className="relative grid h-48 w-full gap-px p-1"
       style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
     >
-      <div className="absolute inset-0 w-full h-full flex items-center justify-center z-40">
+      <div className="absolute inset-0 z-40 flex h-full w-full items-center justify-center">
         {icon}
       </div>
       {[...Array(stars)].map((_, index) => {
@@ -121,7 +121,7 @@ function Star({ isGlowing, delay }: StarProps) {
         ease: "easeInOut",
         delay: delay,
       }}
-      className="bg-[#666] h-[1px] w-[1px] rounded-full relative z-20"
+      className="relative z-20 h-[1px] w-[1px] rounded-full bg-[#666]"
     />
   );
 }
@@ -147,7 +147,7 @@ function Glow({ delay }: GlowProps) {
       exit={{
         opacity: 0,
       }}
-      className="absolute left-1/2 -translate-x-1/2 z-10 h-[4px] w-[4px] rounded-full bg-white/50 blur-[1px] shadow-2xl shadow-white/10"
+      className="absolute left-1/2 z-10 h-[4px] w-[4px] -translate-x-1/2 rounded-full bg-white/50 shadow-2xl shadow-white/10 blur-[1px]"
     />
   );
 }

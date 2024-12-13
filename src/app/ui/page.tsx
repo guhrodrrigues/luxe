@@ -18,7 +18,7 @@ export default function UiPage() {
           <h1 className="text-3xl font-semibold text-primary">
             Browse Components
           </h1>
-          <p className="font-normal text-primary/80">
+          <p className="text-[16px] font-normal leading-relaxed text-primary/80">
             Navigate to all the components that will make your application
             sophisticated and luxurious.
           </p>
