@@ -1,7 +1,5 @@
 import Link from "next/link";
 
-import { MoveRightIcon } from "lucide-react";
-
 import { cn } from "@/utils/cn";
 
 import { COMPONENTS } from "@/data/components";

@@ -11,6 +11,6 @@ export const INSTALLATION = [
     slug: "vite",
     icon: <Icons.vite color="#fff" />,
     name: "Vite",
-    description: "Superset interface shared between dev & build.",
+    description: "Superset interface between dev & build.",
   },
 ];
