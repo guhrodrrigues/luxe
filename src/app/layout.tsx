@@ -29,6 +29,8 @@ export const metadata: Metadata = {
     "Gustavo Rodrigues",
     "guhrodrigues.com",
     "luxeui.com",
+    "luxe.guhrodrigues.com",
+    "Motion",
     "UI Design",
     "Luxe",
     "UI Library",

@@ -33,7 +33,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
         >
           <div className="relative flex h-full w-full grow flex-col rounded-[16px] border border-border/60 bg-background px-3 py-5">
             <div className="h-full overflow-y-auto px-3 pt-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-              <div className="mb-6 flex flex-col gap-1.5">
+              <div className="mb-6 flex flex-col gap-1">
                 <span className="text-xs text-neutral-50">Get Started</span>
                 <div className="flex flex-col">
                   {GET_STARTED.map((component) => (
@@ -46,7 +46,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
                   ))}
                 </div>
               </div>
-              <ul className="flex flex-col gap-1.5">
+              <ul className="flex flex-col gap-1">
                 <span className="relative z-[1] text-xs text-neutral-50">
                   Components
                 </span>

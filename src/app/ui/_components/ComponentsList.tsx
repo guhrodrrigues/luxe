@@ -23,13 +23,13 @@ export function ComponentsList() {
   const SOCIALS = [
     {
       content: (
-        <Icons.github className="h-3.5 w-3.5 text-neutral-600 duration-200 group-hover:text-neutral-300" />
+        <Icons.github className="h-3.5 w-3.5 text-neutral-600 duration-200 group-hover:text-white" />
       ),
       href: "https://github.com/guhrodrrigues/luxe",
     },
     {
       content: (
-        <Icons.twitter className="h-3.5 w-3.5 fill-neutral-600 duration-200 group-hover:fill-neutral-300" />
+        <Icons.twitter className="h-3.5 w-3.5 fill-neutral-600 duration-200 group-hover:fill-white" />
       ),
       href: "https://twitter.com/guhrodrrigues",
     },
@@ -48,14 +48,14 @@ export function ComponentsList() {
               href={href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative p-1"
+              className="group relative p-[5px]"
               onMouseEnter={() => setHoveredIdx(idx)}
               onMouseLeave={() => setHoveredIdx(null)}
             >
               <AnimatePresence>
                 {hoveredIdx === idx && (
                   <motion.span
-                    className="absolute inset-0 z-0 block h-full w-full rounded-md bg-neutral-900"
+                    className="absolute inset-0 z-0 block h-full w-full rounded-md bg-[#161616]"
                     layoutId="cardHoverEffect"
                     initial={{ opacity: 0 }}
                     animate={{
@@ -82,7 +82,7 @@ export function ComponentsList() {
             "linear-gradient(#0d0d0d,#0d0d0d,transparent 0,#0d0d0d 40px,#0d0d0d calc(100% - 100px),transparent)",
         }}
       >
-        <div className="mb-8 flex flex-col gap-1.5">
+        <div className="mb-8 flex flex-col gap-1">
           <span className="text-xs text-neutral-50">Get Started</span>
           <div className="flex flex-col">
             {GET_STARTED.map((component) => (
@@ -94,7 +94,7 @@ export function ComponentsList() {
             ))}
           </div>
         </div>
-        <ul className="flex flex-col gap-1.5">
+        <ul className="flex flex-col gap-1">
           <span className="relative z-[1] text-xs text-neutral-50">
             Components
           </span>
