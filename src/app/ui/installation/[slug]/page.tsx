@@ -226,7 +226,7 @@ export default async function InstallationSlugPage({
                 <div className="space-y-4 pb-10 pl-8 pt-1">
                   <h1 className="font-medium text-primary">
                     Edit{" "}
-                    <code className="rounded bg-neutral-800/80 px-1 py-px text-sm text-neutral-400">
+                    <code className="rounded bg-neutral-800/80 px-1 py-1 text-sm">
                       tsconfig.json
                     </code>{" "}
                     file
@@ -248,7 +248,7 @@ export default async function InstallationSlugPage({
                 <div className="space-y-4 pb-10 pl-8 pt-1">
                   <h1 className="font-medium text-primary">
                     Edit{" "}
-                    <code className="rounded bg-neutral-800/80 px-1 py-px text-sm text-neutral-400">
+                    <code className="rounded bg-neutral-800/80 px-1 py-1 text-sm">
                       tsconfig.app.json
                     </code>{" "}
                     file
@@ -270,7 +270,7 @@ export default async function InstallationSlugPage({
                 <div className="space-y-4 pl-8 pt-1">
                   <h1 className="font-medium text-primary">
                     Update{" "}
-                    <code className="rounded bg-neutral-800/80 px-1 py-px text-sm text-neutral-400">
+                    <code className="rounded bg-neutral-800/80 px-1 py-1 text-sm">
                       vite.config.ts
                     </code>
                   </h1>
