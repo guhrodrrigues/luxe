@@ -55,7 +55,7 @@ export function ComponentsList() {
               <AnimatePresence>
                 {hoveredIdx === idx && (
                   <motion.span
-                    className="absolute inset-0 z-0 block h-full w-full rounded-md bg-[#161616]"
+                    className="absolute inset-0 z-0 block h-full w-full rounded-md bg-[#1c1c1c]"
                     layoutId="cardHoverEffect"
                     initial={{ opacity: 0 }}
                     animate={{

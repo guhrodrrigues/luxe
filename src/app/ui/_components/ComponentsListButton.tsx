@@ -41,7 +41,7 @@ export function ComponentsListButton({
         <motion.div
           layoutId="active"
           transition={{ duration: 0.2 }}
-          className="absolute inset-0 rounded-[inherit] bg-[#161616]"
+          className="absolute inset-0 rounded-[inherit] bg-[#1c1c1c]"
         />
       )}
       {isNew ? (
