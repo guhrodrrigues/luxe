@@ -8,13 +8,13 @@ import { cn } from "@/utils/cn";
 
 type CardHoverEffectProps = {
   containerClassName?: string;
-  itemClassName?: string;
+  className?: string;
   hoveredItemClassName?: string;
-};
+} & React.ComponentProps<"div">;
 
 export function CardHoverEffect({
   containerClassName,
-  itemClassName,
+  className,
   hoveredItemClassName,
 }: CardHoverEffectProps) {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
@@ -23,29 +23,23 @@ export function CardHoverEffect({
     {
       title: "Luxe",
       description: "Explore the new library of components copy and paste.",
-      href: "https://luxeui.com",
     },
     {
       title: "Luxe",
       description: "Explore the new library of components copy and paste.",
-      href: "https://luxeui.com",
     },
     {
       title: "Luxe",
       description: "Explore the new library of components copy and paste.",
-      href: "https://luxeui.com",
     },
   ];
 
   return (
     <div className={cn("grid md:grid-cols-3", containerClassName)}>
-      {ITEMS.map(({ title, description, href }, idx) => (
-        <a
+      {ITEMS.map(({ title, description }, idx) => (
+        <div
           key={idx}
-          href={href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={cn("relative flex flex-col gap-3 p-4", itemClassName)}
+          className={cn("relative flex flex-col gap-3 p-4", className)}
           onMouseEnter={() => setHoveredIdx(idx)}
           onMouseLeave={() => setHoveredIdx(null)}
         >
@@ -69,11 +63,11 @@ export function CardHoverEffect({
               />
             )}
           </AnimatePresence>
-          <div className="z-[1] space-y-3">
+          <div className="z-[1] select-none space-y-3">
             <h1 className="font-medium text-white">{title}</h1>
             <p className="text-neutral-400">{description}</p>
           </div>
-        </a>
+        </div>
       ))}
     </div>
   );

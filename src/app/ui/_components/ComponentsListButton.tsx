@@ -34,7 +34,7 @@ export function ComponentsListButton({
         "relative -mx-2.5 mt-1 select-none rounded-lg px-2.5 py-1.5 text-sm font-medium",
         isActive
           ? "z-0 text-primary"
-          : "text-foreground duration-300 hover:text-neutral-300",
+          : "text-foreground duration-150 hover:text-neutral-300",
       )}
     >
       {isActive && (

@@ -36,7 +36,7 @@ export function ComponentsList() {
   ];
 
   return (
-    <aside className="bottom-0 left-0 top-0 h-screen w-[240px] flex-1 border-r border-dashed border-neutral-800/40 pt-6 max-lg:hidden lg:fixed">
+    <aside className="bottom-0 left-0 top-0 h-screen w-[240px] flex-1 border-r border-dashed border-neutral-800/50 pt-6 max-lg:hidden lg:fixed">
       <div className="flex items-center justify-between px-6 pb-[18px]">
         <Link href="/">
           <Image src={logo} alt="Luxe's logo" className="w-16" />
@@ -74,7 +74,7 @@ export function ComponentsList() {
           ))}
         </div>
       </div>
-      <div className="mx-4 h-px border-t border-dashed border-neutral-800/40" />
+      <div className="mx-4 h-px border-t border-dashed border-neutral-800/50" />
       <nav
         className="h-full overflow-y-auto px-6 pb-10 pt-8 [-ms-overflow-style:none] [scrollbar-width:none] max-lg:hidden [&::-webkit-scrollbar]:hidden"
         style={{
