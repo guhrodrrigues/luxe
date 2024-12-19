@@ -20,7 +20,7 @@ export function CodeBlock({
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-lg border border-neutral-800/60 bg-neutral-900/40",
+        "relative overflow-hidden rounded-xl border border-neutral-800/60 bg-neutral-900/40",
         className,
       )}
     >
@@ -28,7 +28,7 @@ export function CodeBlock({
         <div className="flex h-10 items-center justify-between border-b border-neutral-800/60 bg-neutral-900/30 px-4">
           <div className="flex items-center gap-1.5">
             {fileName === "Terminal" ? <TerminalIcon /> : <FileIcon />}
-            <span className="text-[13px] leading-none text-neutral-500">
+            <span className="text-[13px] font-medium leading-none text-neutral-500">
               {fileName}
             </span>
           </div>

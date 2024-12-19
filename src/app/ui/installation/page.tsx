@@ -44,10 +44,12 @@ export const metadata: Metadata = {
 export default function InstallationPage() {
   return (
     <main className="my-2 space-y-16 xl:mb-24">
-      <div className="space-y-6">
+      <div className="space-y-4">
         <Breadcrumbs groupName="Get Started" currentPage="Installation" />
-        <div className="space-y-5">
-          <h1 className="text-3xl font-semibold text-primary">Installation</h1>
+        <div className="space-y-3.5">
+          <h1 className="text-3xl font-bold -tracking-wide text-primary">
+            Installation
+          </h1>
           <p className="text-[16px] font-normal leading-relaxed text-primary/80">
             How to install dependencies and structure your application.
           </p>

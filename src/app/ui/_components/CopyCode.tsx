@@ -5,10 +5,11 @@ import { useState } from "react";
 import { TextMorph } from "@/app/_components/TextMorph";
 
 type CopyCode = {
+  id?: string;
   code: string;
 };
 
-export function CopyCode({ code }: CopyCode) {
+export function CopyCode({ id, code }: CopyCode) {
   const [copied, setCopied] = useState(false);
 
   function handleCopy() {
@@ -20,6 +21,7 @@ export function CopyCode({ code }: CopyCode) {
 
   return (
     <button
+      id={id}
       onClick={handleCopy}
       className="flex items-center gap-0.5 text-xs font-medium"
     >

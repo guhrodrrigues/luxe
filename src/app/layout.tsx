@@ -1,14 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { fontSans, fontMono } from "@/utils/fonts";
 
 import "@/styles/globals.css";
 
 import { cn } from "@/utils/cn";
-
-const inter = Inter({
-  variable: "--font-sans",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   authors: [{ name: "Gustavo Rodrigues", url: "https://guhrodrigues.com" }],
@@ -102,7 +98,8 @@ export default function RootLayout({
       <body
         className={cn(
           "overflow-x-hidden bg-background font-sans text-foreground antialiased outline-none",
-          inter.variable,
+          fontSans.variable,
+          fontMono.variable,
         )}
       >
         {children}

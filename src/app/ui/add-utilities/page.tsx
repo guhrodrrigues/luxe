@@ -67,17 +67,19 @@ export default async function AddUtilitiesPage() {
 
   return (
     <main className="my-2 space-y-12 xl:mb-24">
-      <div className="space-y-6">
+      <div className="space-y-4">
         <Breadcrumbs groupName="Get Started" currentPage="Add Utilities" />
-        <div className="space-y-5">
-          <h1 className="text-3xl font-semibold text-primary">Add Utilities</h1>
+        <div className="space-y-3.5">
+          <h1 className="text-3xl font-bold -tracking-wide text-primary">
+            Add Utilities
+          </h1>
           <p className="text-[16px] font-normal leading-relaxed text-primary/80">
             This code is widely used in Luxe, it is responsible for merging
             classes when they have conditionals.
           </p>
         </div>
       </div>
-      <div className="space-y-6">
+      <div className="space-y-4">
         <CodeBlock
           code="npm i clsx tailwind-merge"
           fileName="Terminal"

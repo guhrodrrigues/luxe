@@ -92,14 +92,16 @@ export default async function InstallationSlugPage({
 
   return (
     <main className="my-2 space-y-12 xl:mb-24">
-      <div className="space-y-6">
+      <div className="space-y-4">
         <Breadcrumbs
           backLink="/ui/installation"
           groupName="Installation"
           currentPage={name}
         />
-        <div className="space-y-5">
-          <h1 className="text-3xl font-semibold text-primary">{name}</h1>
+        <div className="space-y-3.5">
+          <h1 className="text-3xl font-bold -tracking-wide text-primary">
+            {name}
+          </h1>
           <p className="font-normal text-primary/80">
             Install and configure {name}.
           </p>
@@ -173,7 +175,7 @@ export default async function InstallationSlugPage({
                   </h1>
                   <CodeBlock
                     fileName="Terminal"
-                    code="npm create vite@latest my-app"
+                    code="npm create vite my-app"
                     lang="shellscript"
                   />
                 </div>
@@ -226,7 +228,7 @@ export default async function InstallationSlugPage({
                 <div className="space-y-4 pb-10 pl-8 pt-1">
                   <h1 className="font-medium text-primary">
                     Edit{" "}
-                    <code className="rounded bg-neutral-800/80 px-1 py-1 text-sm">
+                    <code className="font-mono rounded bg-neutral-800/80 px-1 py-1 text-sm">
                       tsconfig.json
                     </code>{" "}
                     file
@@ -248,7 +250,7 @@ export default async function InstallationSlugPage({
                 <div className="space-y-4 pb-10 pl-8 pt-1">
                   <h1 className="font-medium text-primary">
                     Edit{" "}
-                    <code className="rounded bg-neutral-800/80 px-1 py-1 text-sm">
+                    <code className="font-mono rounded bg-neutral-800/80 px-1 py-1 text-sm">
                       tsconfig.app.json
                     </code>{" "}
                     file
@@ -270,11 +272,11 @@ export default async function InstallationSlugPage({
                 <div className="space-y-4 pl-8 pt-1">
                   <h1 className="font-medium text-primary">
                     Update{" "}
-                    <code className="rounded bg-neutral-800/80 px-1 py-1 text-sm">
+                    <code className="font-mono rounded bg-neutral-800/80 px-1 py-1 text-sm">
                       vite.config.ts
                     </code>
                   </h1>
-                  <div className="space-y-5">
+                  <div className="space-y-3.5">
                     <CodeBlock
                       fileName="Terminal"
                       code={

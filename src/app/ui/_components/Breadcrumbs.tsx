@@ -22,7 +22,7 @@ export function Breadcrumbs({ groupName, backLink, currentPage }: Breadcrumbs) {
           {groupName}
         </span>
       )}
-      <ChevronRight size={12} />
+      <ChevronRight size={14} />
       <span className="text-sm text-primary">{currentPage}</span>
     </div>
   );

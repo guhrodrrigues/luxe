@@ -113,14 +113,14 @@ export default async function ComponentPage({
 
   return (
     <main className="my-2 xl:mb-24">
-      <div className="space-y-12">
-        <div className="space-y-6">
+      <div className="space-y-8">
+        <div className="space-y-4">
           <Breadcrumbs
             backLink="/ui"
             groupName="Components"
             currentPage={component.name}
           />
-          <h1 className="text-3xl font-semibold text-primary">
+          <h1 className="text-3xl font-bold -tracking-wide text-primary">
             {component.name}
           </h1>
         </div>
