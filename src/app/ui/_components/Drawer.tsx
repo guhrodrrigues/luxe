@@ -31,7 +31,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
             { "--initial-transform": "calc(100% + 8px)" } as React.CSSProperties
           }
         >
-          <div className="relative flex h-full w-full grow flex-col rounded-[16px] border border-border/60 bg-background px-3 py-5">
+          <div className="relative flex h-full w-full grow flex-col rounded-[16px] bg-[#0c0c0c] px-3 py-5">
             <div className="h-full overflow-y-auto px-3 pt-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               <div className="mb-6 flex flex-col gap-1">
                 <span className="text-xs text-neutral-50">Get Started</span>

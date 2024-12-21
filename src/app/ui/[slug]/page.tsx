@@ -124,31 +124,29 @@ export default async function ComponentPage({
             {component.name}
           </h1>
         </div>
-        <div className="space-y-10">
-          <ComponentView
-            isReloadAnimation={component.isReloadAnimation}
-            className={cn(component.className)}
-          >
-            {component.component}
-          </ComponentView>
-          {component.download && (
-            <CodeBlock
-              code={component.download}
-              fileName="Terminal"
-              lang="shellscript"
-            />
-          )}
-          {component.cnFunction && (
-            <CodeBlock code={cnCode} fileName="utils/cn.ts" />
-          )}
+        <ComponentView
+          isReloadAnimation={component.isReloadAnimation}
+          className={cn(component.className)}
+        >
+          {component.component}
+        </ComponentView>
+        {component.download && (
           <CodeBlock
-            code={code}
-            fileName={`${component.name.replace(/\s+/g, "")}.tsx`}
+            code={component.download}
+            fileName="Terminal"
+            lang="shellscript"
           />
-          {twConfig && (
-            <CodeBlock code={twConfig} fileName="tailwind.config.ts" />
-          )}
-        </div>
+        )}
+        {component.cnFunction && (
+          <CodeBlock code={cnCode} fileName="utils/cn.ts" />
+        )}
+        <CodeBlock
+          code={code}
+          fileName={`${component.name.replace(/\s+/g, "")}.tsx`}
+        />
+        {twConfig && (
+          <CodeBlock code={twConfig} fileName="tailwind.config.ts" />
+        )}
 
         <Pagination
           back={{

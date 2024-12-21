@@ -47,14 +47,14 @@ export function ComponentsListButton({
       {isNew ? (
         <div className="relative z-[1] flex items-center justify-between">
           <span className="relative z-[1] block text-[13px]">{name}</span>
-          <span className="rounded-md bg-emerald-400/10 px-1.5 py-[0.5px] text-[10px] font-semibold leading-4 text-emerald-400">
+          <span className="rounded-md bg-gradient-to-b from-emerald-300 to-emerald-500 px-1.5 py-[0.5px] text-[10px] font-semibold leading-4 text-black">
             New
           </span>
         </div>
       ) : isUpdated ? (
         <div className="relative z-[1] flex items-center justify-between">
           <span className="relative z-[1] block text-[13px]">{name}</span>
-          <span className="rounded-md bg-amber-400/10 px-1.5 py-[0.5px] text-[10px] font-semibold leading-4 text-amber-400">
+          <span className="rounded-md bg-gradient-to-b from-amber-300 to-amber-500 px-1.5 py-[0.5px] text-[10px] font-semibold leading-4 text-black">
             Updated
           </span>
         </div>
