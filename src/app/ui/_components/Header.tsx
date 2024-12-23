@@ -19,7 +19,7 @@ export function Header() {
     <>
       {isVisible && (
         <header className="sticky top-0 z-50 h-[3.5rem] w-full bg-background">
-          <nav className="mx-auto flex h-full items-center justify-between gap-6 border-b border-dashed border-neutral-800/40 px-6 xl:border-x">
+          <nav className="mx-auto flex h-full items-center justify-between gap-6 border-b border-dashed border-[#191919] px-6 xl:border-x">
             <AnimateEnter>
               <Link href="/">
                 <Image src={logo} alt="Luxe's logo" className="w-16" />

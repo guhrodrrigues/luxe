@@ -32,9 +32,11 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
           }
         >
           <div className="relative flex h-full w-full grow flex-col rounded-[16px] bg-[#0c0c0c] px-3 py-5">
-            <div className="h-full overflow-y-auto px-3 pt-4 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-              <div className="mb-6 flex flex-col gap-1">
-                <span className="text-xs text-neutral-50">Get Started</span>
+            <div className="h-full overflow-y-auto px-3 pt-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              <div className="flex flex-col gap-1">
+                <span className="-ml-0.5 text-xs font-medium text-foreground">
+                  Get Started
+                </span>
                 <div className="flex flex-col">
                   {GET_STARTED.map((component) => (
                     <ComponentsListButton
@@ -46,8 +48,12 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
                   ))}
                 </div>
               </div>
+              <div
+                aria-hidden
+                className="mx-1 mb-5 mt-4 h-px border-t border-dashed border-[#191919]"
+              />
               <ul className="flex flex-col gap-1">
-                <span className="relative z-[1] text-xs text-neutral-50">
+                <span className="relative z-[1] -ml-0.5 text-xs font-medium text-foreground">
                   Components
                 </span>
                 <div className="flex flex-col pb-3">

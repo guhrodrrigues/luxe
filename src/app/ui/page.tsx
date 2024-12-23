@@ -41,7 +41,7 @@ export default function UiPage() {
             >
               <Link
                 href={`/ui/${slug}`}
-                className="flex w-fit select-none items-center gap-1 text-neutral-300 duration-200 hover:opacity-60"
+                className="flex w-fit select-none items-center gap-1 text-neutral-300 duration-200 hover:text-primary"
               >
                 {name}
               </Link>

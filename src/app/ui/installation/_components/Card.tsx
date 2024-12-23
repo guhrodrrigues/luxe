@@ -40,7 +40,7 @@ export function Card({ slug, icon, name, description }: CardProps) {
           <h1 className="text-2xl font-bold -tracking-wide text-primary">
             {name}
           </h1>
-          <p className="text-[15px]">{description}</p>
+          <p className="text-[15px] text-primary/80">{description}</p>
         </div>
       </div>
     </Link>

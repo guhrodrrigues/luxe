@@ -13,7 +13,7 @@ export function Breadcrumbs({ groupName, backLink, currentPage }: Breadcrumbs) {
       {backLink ? (
         <Link
           href={backLink}
-          className="flex w-fit items-center gap-1 text-sm duration-200 hover:opacity-60"
+          className="flex w-fit items-center gap-1 text-sm duration-200 hover:text-primary"
         >
           {groupName}
         </Link>
