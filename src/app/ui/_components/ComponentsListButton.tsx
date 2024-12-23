@@ -33,9 +33,7 @@ export function ComponentsListButton({
       data-active={isActive}
       className={cn(
         "relative -mx-2.5 mt-1 select-none rounded-lg px-2 py-1.5 text-sm font-medium",
-        isActive
-          ? "z-0 text-primary"
-          : "text-neutral-300 duration-150 hover:text-neutral-300",
+        isActive ? "z-0 text-primary" : "text-neutral-300",
       )}
     >
       {isActive && (
