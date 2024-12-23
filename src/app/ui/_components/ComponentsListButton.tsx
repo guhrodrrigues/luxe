@@ -3,8 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-import { motion } from "framer-motion";
-
 import { cn } from "@/utils/cn";
 
 type ComponentsListButton = {
@@ -33,16 +31,11 @@ export function ComponentsListButton({
       data-active={isActive}
       className={cn(
         "relative -mx-2.5 mt-1 select-none rounded-lg px-2 py-1.5 text-sm font-medium",
-        isActive ? "z-0 text-primary" : "text-neutral-300",
+        isActive
+          ? "z-0 bg-[#1c1c1c] text-primary"
+          : "text-neutral-300 hover:bg-[#1c1c1c]",
       )}
     >
-      {isActive && (
-        <motion.div
-          layoutId="active"
-          transition={{ duration: 0.2 }}
-          className="absolute inset-0 rounded-[inherit] bg-[#1c1c1c]"
-        />
-      )}
       {isNew ? (
         <div className="relative z-[1] flex items-center justify-between">
           <span className="relative z-[1] block text-[13px]">{name}</span>

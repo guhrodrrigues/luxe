@@ -50,7 +50,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
               </div>
               <div
                 aria-hidden
-                className="mx-1 mb-5 mt-4 h-px border-t border-dashed border-[#191919]"
+                className="mx-1 mb-5 mt-4 h-px border-t border-dashed border-[#1f1f1f]"
               />
               <ul className="flex flex-col gap-1">
                 <span className="relative z-[1] -ml-0.5 text-xs font-medium text-foreground">
