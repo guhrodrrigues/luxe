@@ -34,7 +34,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
           <div className="relative flex h-full w-full grow flex-col rounded-[16px] bg-[#0c0c0c] px-3 py-5">
             <div className="h-full overflow-y-auto px-3 pt-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               <div className="flex flex-col gap-1">
-                <span className="-ml-0.5 text-xs font-medium text-foreground">
+                <span className="-ml-[2.5px] text-xs font-medium text-foreground">
                   Get Started
                 </span>
                 <div className="flex flex-col">
@@ -52,8 +52,8 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
                 aria-hidden
                 className="mx-1 mb-5 mt-4 h-px border-t border-dashed border-[#1f1f1f]"
               />
-              <ul className="flex flex-col gap-1">
-                <span className="relative z-[1] -ml-0.5 text-xs font-medium text-foreground">
+              <div className="flex flex-col gap-1">
+                <span className="relative z-[1] -ml-[2.5px] text-xs font-medium text-foreground">
                   Components
                 </span>
                 <div className="flex flex-col pb-3">
@@ -68,7 +68,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
                     />
                   ))}
                 </div>
-              </ul>
+              </div>
             </div>
           </div>
         </VaulDrawer.Content>
