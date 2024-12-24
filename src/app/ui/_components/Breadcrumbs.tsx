@@ -13,17 +13,17 @@ export function Breadcrumbs({ groupName, backLink, currentPage }: Breadcrumbs) {
       {backLink ? (
         <Link
           href={backLink}
-          className="flex w-fit items-center gap-1 text-sm duration-200 hover:text-primary"
+          className="flex w-fit items-center gap-1 text-sm font-medium duration-200 hover:text-primary"
         >
           {groupName}
         </Link>
       ) : (
-        <span className="flex w-fit items-center gap-1 text-sm">
+        <span className="flex w-fit items-center gap-1 text-sm font-medium">
           {groupName}
         </span>
       )}
       <ChevronRight size={14} />
-      <span className="text-sm text-primary">{currentPage}</span>
+      <span className="text-sm font-medium text-primary">{currentPage}</span>
     </div>
   );
 }

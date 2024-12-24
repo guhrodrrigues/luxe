@@ -30,7 +30,7 @@ export function ComponentsList() {
   ];
 
   return (
-    <aside className="bottom-0 left-0 top-0 h-screen w-[240px] flex-1 border-r border-dashed border-[#191919] bg-[#0c0c0c] pt-5 max-lg:hidden lg:fixed">
+    <aside className="right-dotted bottom-0 left-0 top-0 h-screen w-[240px] flex-1 bg-[#0c0c0c] pt-7 max-lg:hidden lg:fixed">
       <div className="-mx-0.5 flex items-center justify-between px-6 pb-[14px]">
         <Link href="/">
           <Image src={logo} alt="Luxe's logo" className="w-16" />
@@ -70,10 +70,7 @@ export function ComponentsList() {
             ))}
           </div>
         </div>
-        <div
-          aria-hidden
-          className="mx-1 mb-6 mt-4 h-px border-t border-dashed border-[#1f1f1f]"
-        />
+        <div aria-hidden className="top-dotted mx-1 mb-6 mt-4 h-px" />
         <div className="flex flex-col gap-1">
           <span className="relative z-[1] -ml-0.5 text-xs font-medium text-foreground">
             Components

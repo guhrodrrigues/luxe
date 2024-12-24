@@ -66,7 +66,7 @@ export default async function AddUtilitiesPage() {
   const cnCode = await readFilePath(cnPath);
 
   return (
-    <main className="my-2 space-y-12 xl:mb-24">
+    <main className="my-2 space-y-10 xl:mb-24">
       <div className="space-y-4">
         <Breadcrumbs groupName="Get Started" currentPage="Add Utilities" />
         <div className="space-y-3.5">
@@ -79,13 +79,38 @@ export default async function AddUtilitiesPage() {
           </p>
         </div>
       </div>
-      <div className="space-y-4">
-        <CodeBlock
-          code="npm i clsx tailwind-merge"
-          fileName="Terminal"
-          lang="shellscript"
-        />
-        <CodeBlock code={cnCode} fileName="utils/cn.ts" />
+      <div>
+        <div className="relative">
+          <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-800">
+            <span className="font-semibold text-primary">1</span>
+          </div>
+          <div className="ml-[1.1rem] border-l border-border">
+            <div className="space-y-4 pb-10 pl-8 pt-1">
+              <h1 className="font-medium text-primary">Install dependencies</h1>
+              <CodeBlock
+                code="npm i clsx tailwind-merge"
+                fileName="Terminal"
+                lang="shellscript"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="relative">
+          <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-800">
+            <span className="font-semibold text-primary">2</span>
+          </div>
+          <div className="ml-[1.1rem] border-l border-border">
+            <div className="space-y-4 pl-8 pt-1">
+              <h1 className="font-medium text-primary">
+                Create a file with the path{" "}
+                <code className="rounded bg-neutral-800/80 px-1 py-1 font-mono text-sm">
+                  utils/cn.ts
+                </code>
+              </h1>
+              <CodeBlock code={cnCode} fileName="utils/cn.ts" />
+            </div>
+          </div>
+        </div>
       </div>
 
       <Pagination

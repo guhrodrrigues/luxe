@@ -16,7 +16,7 @@ type PaginationProps = {
 
 export function Pagination({ back, next }: PaginationProps) {
   return (
-    <div className="flex items-center justify-between border-t border-dashed border-[#191919] pt-9">
+    <div className="top-dotted flex items-center justify-between pt-9">
       <div>
         {back?.href && back?.name && (
           <Link href={back.href} className="group flex flex-col gap-1.5">

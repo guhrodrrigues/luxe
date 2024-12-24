@@ -48,10 +48,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
                   ))}
                 </div>
               </div>
-              <div
-                aria-hidden
-                className="mx-1 mb-5 mt-4 h-px border-t border-dashed border-[#1f1f1f]"
-              />
+              <div aria-hidden className="top-dotted mx-1 mb-5 mt-4 h-px" />
               <div className="flex flex-col gap-1">
                 <span className="relative z-[1] -ml-[2.5px] text-xs font-medium text-foreground">
                   Components

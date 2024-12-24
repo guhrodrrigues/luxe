@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import { fontSans, fontMono } from "@/utils/fonts";
 
 import "@/styles/globals.css";
@@ -16,11 +15,7 @@ export const metadata: Metadata = {
   },
   description:
     "Library of components copy and paste to illuminate your applications with elegance and sophistication.",
-  icons: {
-    apple: "/favicon.svg",
-    icon: "/favicon.svg",
-    shortcut: "/favicon.svg",
-  },
+  icons: ["/favicon.svg"],
   keywords: [
     "Gustavo Rodrigues",
     "guhrodrigues.com",

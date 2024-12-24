@@ -113,7 +113,7 @@ export default async function ComponentPage({
 
   return (
     <main className="my-2 xl:mb-24">
-      <div className="space-y-8">
+      <div className="space-y-10">
         <div className="space-y-4">
           <Breadcrumbs
             backLink="/ui"
@@ -124,29 +124,31 @@ export default async function ComponentPage({
             {component.name}
           </h1>
         </div>
-        <ComponentView
-          isReloadAnimation={component.isReloadAnimation}
-          className={cn(component.className)}
-        >
-          {component.component}
-        </ComponentView>
-        {component.download && (
+        <div className="space-y-6">
+          <ComponentView
+            isReloadAnimation={component.isReloadAnimation}
+            className={cn(component.className)}
+          >
+            {component.component}
+          </ComponentView>
+          {component.download && (
+            <CodeBlock
+              code={component.download}
+              fileName="Terminal"
+              lang="shellscript"
+            />
+          )}
+          {component.cnFunction && (
+            <CodeBlock code={cnCode} fileName="utils/cn.ts" />
+          )}
           <CodeBlock
-            code={component.download}
-            fileName="Terminal"
-            lang="shellscript"
+            code={code}
+            fileName={`${component.name.replace(/\s+/g, "")}.tsx`}
           />
-        )}
-        {component.cnFunction && (
-          <CodeBlock code={cnCode} fileName="utils/cn.ts" />
-        )}
-        <CodeBlock
-          code={code}
-          fileName={`${component.name.replace(/\s+/g, "")}.tsx`}
-        />
-        {twConfig && (
-          <CodeBlock code={twConfig} fileName="tailwind.config.ts" />
-        )}
+          {twConfig && (
+            <CodeBlock code={twConfig} fileName="tailwind.config.ts" />
+          )}
+        </div>
 
         <Pagination
           back={{
