@@ -2,7 +2,7 @@
 
 import React, { forwardRef, useState, useCallback } from "react";
 
-import { motion, AnimationProps } from "framer-motion";
+import { motion, AnimationProps } from "motion/react";
 
 import { tv } from "tailwind-variants";
 

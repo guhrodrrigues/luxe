@@ -1,6 +1,6 @@
 "use client"; // @NOTE: add in case you are using Next.js
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 import { cn } from "@/utils/cn";
 

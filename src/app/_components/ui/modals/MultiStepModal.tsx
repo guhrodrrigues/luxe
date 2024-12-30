@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from "react";
 
-import { AnimatePresence, Variants, motion } from "framer-motion";
+import { AnimatePresence, Variants, motion } from "motion/react";
 import useMeasure from "react-use-measure";
 
 const STEPS = [

@@ -4,16 +4,15 @@ import Link from "next/link";
 
 import { useEffect, useRef, useState } from "react";
 
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "motion/react";
 
 type CardProps = {
   slug: string;
   icon: JSX.Element;
   name: string;
-  description: string;
 };
 
-export function Card({ slug, icon, name, description }: CardProps) {
+export function Card({ slug, icon, name }: CardProps) {
   return (
     <Link
       href={`/ui/installation/${slug}`}
@@ -37,10 +36,9 @@ export function Card({ slug, icon, name, description }: CardProps) {
           <Illustration icon={icon} />
         </div>
         <div className="space-y-1.5">
-          <h1 className="text-2xl font-bold -tracking-wide text-primary">
+          <h1 className="text-3xl font-bold -tracking-wide text-primary">
             {name}
           </h1>
-          <p className="text-[15px] text-primary/80">{description}</p>
         </div>
       </div>
     </Link>

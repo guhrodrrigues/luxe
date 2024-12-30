@@ -10,7 +10,7 @@ export const TECHS = [
     name: "tailwindcss",
   },
   {
-    icon: <Icons.framer />,
-    name: "Framer Motion",
+    icon: <Icons.motion />,
+    name: "Motion",
   },
 ];

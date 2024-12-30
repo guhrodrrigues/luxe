@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-import { motion, stagger, useAnimate, useInView } from "framer-motion";
+import { motion, stagger, useAnimate, useInView } from "motion/react";
 
 const words = [
   {
@@ -32,7 +32,7 @@ export function TypewriterTitle() {
           duration: 0.3,
           delay: stagger(0.1),
           ease: "easeInOut",
-        }
+        },
       );
     }
   }, [isInView, animate]);
@@ -80,7 +80,7 @@ export function TypewriterTitle() {
         }}
         viewport={{ once: true }}
       >
-        <div className="max-[400px]:text-xl text-2xl lg:text-5xl font-bold whitespace-nowrap">
+        <div className="whitespace-nowrap text-2xl font-bold max-[400px]:text-xl lg:text-5xl">
           {renderWords()}
         </div>
       </motion.div>
@@ -103,7 +103,7 @@ function Cursor() {
         repeat: Infinity,
         repeatType: "reverse",
       }}
-      className="block rounded-sm max-[400px]:h-[26px] w-[4px] h-8 lg:h-12 bg-neutral-500"
+      className="block h-8 w-[4px] rounded-sm bg-neutral-500 max-[400px]:h-[26px] lg:h-12"
     />
   );
 }

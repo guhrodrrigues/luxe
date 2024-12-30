@@ -4,7 +4,7 @@ import Link from "next/link";
 
 import { useState, useEffect } from "react";
 
-import { useAnimate, stagger, motion } from "framer-motion";
+import { useAnimate, stagger, motion } from "motion/react";
 
 import {
   LayoutGridIcon,

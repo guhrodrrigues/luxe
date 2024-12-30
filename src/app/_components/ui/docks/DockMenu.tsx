@@ -12,7 +12,7 @@ import {
   useMotionValue,
   useSpring,
   useTransform,
-} from "framer-motion";
+} from "motion/react";
 
 type DockItem = {
   id: string;

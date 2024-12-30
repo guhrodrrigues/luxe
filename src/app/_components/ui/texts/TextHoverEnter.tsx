@@ -2,7 +2,7 @@
 
 import { cn } from "@/utils/cn";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export function TextHoverEnterExample() {
   return <TextHoverEnter>Hover Me</TextHoverEnter>;

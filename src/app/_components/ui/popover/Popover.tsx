@@ -4,7 +4,7 @@ import Image from "next/image";
 
 import { useState } from "react";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import * as RadixPopover from "@radix-ui/react-hover-card";
 
 export function PopoverExample() {

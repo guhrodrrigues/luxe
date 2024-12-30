@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import { motion, SpringOptions, useSpring, useTransform } from "framer-motion";
+import { motion, SpringOptions, useSpring, useTransform } from "motion/react";
 
 import { cn } from "@/utils/cn";
 

@@ -56,14 +56,8 @@ export default function InstallationPage() {
         </div>
       </div>
       <div className="grid place-items-start gap-10 lg:grid-cols-2 lg:gap-4">
-        {INSTALLATION.map(({ slug, icon, name, description }) => (
-          <Card
-            key={name}
-            slug={slug}
-            icon={icon}
-            name={name}
-            description={description}
-          />
+        {INSTALLATION.map(({ slug, icon, name }) => (
+          <Card key={name} slug={slug} icon={icon} name={name} />
         ))}
       </div>
 

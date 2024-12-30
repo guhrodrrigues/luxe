@@ -1,6 +1,6 @@
 "use client"; // @NOTE: add in case you are using Next.js
 
-import { useMotionValue, motion, useMotionTemplate } from "framer-motion";
+import { useMotionValue, motion, useMotionTemplate } from "motion/react";
 
 export function CardRevealedPointer() {
   const mouseX = useMotionValue(0);
