@@ -44,7 +44,7 @@ function Dock({
         ref={containerRef}
         className="flex h-16 items-end gap-4 rounded-full border border-neutral-800 bg-neutral-950 px-3 pb-2 shadow-inner shadow-neutral-300/5"
         onMouseLeave={() => mouseX.set(Infinity)}
-        onMouseMove={(e) => {
+        onMouseMove={(e: MouseEvent) => {
           const rect = containerRef.current?.getBoundingClientRect();
 
           if (rect) {
