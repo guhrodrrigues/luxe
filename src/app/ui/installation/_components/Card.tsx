@@ -17,7 +17,7 @@ export function Card({ slug, icon, name, description }: CardProps) {
   return (
     <Link
       href={`/ui/installation/${slug}`}
-      className="group relative min-h-[300px] w-full max-w-[500px] rounded-xl border border-white/10 bg-neutral-950 px-7 pb-7 pt-10 duration-200 hover:bg-[#111111]"
+      className="group relative h-full min-h-[300px] w-full max-w-[500px] rounded-xl border border-white/10 bg-neutral-950 px-7 pb-7 pt-10 duration-200 hover:bg-[#111111]"
     >
       <GradientLine />
       <div
