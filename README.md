@@ -1,4 +1,4 @@
-<img src="/public/open-graphs/og-luxe-website.png" />
+https://github.com/user-attachments/assets/20ea16b2-c7ba-4705-99be-d2f3e5858ab8
 
 ### Luxe
 
