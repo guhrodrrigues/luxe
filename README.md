@@ -2,7 +2,7 @@ https://github.com/user-attachments/assets/20ea16b2-c7ba-4705-99be-d2f3e5858ab8
 
 ### Luxe
 
-Explore the new website that simplifies the creation of sophisticated dark mode components. With React, Tailwind CSS and Framer Motion, easily achieve an elegant and modern aesthetic in your digital projects.
+Explore the new website that simplifies the creation of sophisticated components. With React, Tailwind CSS and Motion, easily achieve an elegant and modern aesthetic in your digital projects.
 
 <a href="https://luxeui.com">
   See the website
