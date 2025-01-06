@@ -1,4 +1,4 @@
-https://github.com/user-attachments/assets/20ea16b2-c7ba-4705-99be-d2f3e5858ab8
+https://github.com/user-attachments/assets/92a08035-ee5d-4d88-a258-7a7ffe0bdcc6
 
 ### Luxe
 
