@@ -6,10 +6,11 @@ import { COMPONENTS } from "@/data/components";
 
 import { ComponentView } from "./_components/ComponentView";
 import { Breadcrumbs } from "./_components/Breadcrumbs";
+import { Pagination } from "./_components/Pagination";
 
 export default function UiPage() {
   return (
-    <main className="my-2 space-y-16 xl:mb-24">
+    <main className="my-2 space-y-10 xl:mb-24">
       <div className="space-y-4">
         <Breadcrumbs groupName="Get Started" currentPage="Browse Components" />
         <div className="space-y-3.5">
@@ -55,6 +56,7 @@ export default function UiPage() {
           ),
         )}
       </div>
+      <Pagination back={{ href: "/ui/add-utilities", name: "Add Utilities" }} />
     </main>
   );
 }

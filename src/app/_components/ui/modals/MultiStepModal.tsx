@@ -29,33 +29,33 @@ const STEPS = [
 ];
 
 export function MultiStepModal() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [activeIdx, setActiveIdx] = useState(0);
   const [direction, setDirection] = useState(1);
   const [ref, { height: heightContent }] = useMeasure();
 
-  const handleSetActiveIndex = useCallback(
-    (index: number) => {
-      if (activeIndex >= STEPS.length) setActiveIndex(STEPS.length - 1);
-      if (activeIndex < 0) setActiveIndex(0);
+  const handleSetActiveIdx = useCallback(
+    (idx: number) => {
+      if (activeIdx < 0) setActiveIdx(0);
+      if (activeIdx >= STEPS.length) setActiveIdx(STEPS.length - 1);
 
-      const newIndex = index;
-      const direction = newIndex > activeIndex ? 1 : -1;
+      const direction = idx > activeIdx ? 1 : -1;
       setDirection(direction);
-
-      setActiveIndex(newIndex);
+      setActiveIdx(idx);
     },
-    [activeIndex],
+    [activeIdx],
   );
 
   const variants: Variants = {
     initial: (direction: number) => ({
       opacity: 0,
       height: heightContent > 0 ? heightContent : "auto",
+      position: "absolute",
       x: direction > 0 ? 370 : -370,
     }),
     animate: {
       opacity: 1,
       height: heightContent > 0 ? heightContent : "auto",
+      position: "relative",
       x: 0,
       zIndex: 1,
     },
@@ -74,7 +74,7 @@ export function MultiStepModal() {
       <div className="relative">
         <AnimatePresence initial={false} mode="popLayout" custom={direction}>
           <motion.div
-            key={activeIndex}
+            key={activeIdx}
             custom={direction}
             variants={variants}
             initial="initial"
@@ -87,10 +87,10 @@ export function MultiStepModal() {
           >
             <div ref={ref} className="px-4 py-5">
               <h3 className="mb-2 font-medium text-zinc-100">
-                {STEPS[activeIndex].title}
+                {STEPS[activeIdx].title}
               </h3>
               <p className="text-[15px] text-neutral-400">
-                {STEPS[activeIndex].description}
+                {STEPS[activeIdx].description}
               </p>
             </div>
           </motion.div>
@@ -98,18 +98,19 @@ export function MultiStepModal() {
         <div className="relative z-10 border-t border-[#222222] bg-[#0f0f0f]">
           <div className="flex items-center justify-between px-4 py-2">
             <button
-              disabled={activeIndex === 0}
-              onClick={() => handleSetActiveIndex(activeIndex - 1)}
+              disabled={activeIdx === 0}
+              onClick={() => handleSetActiveIdx(activeIdx - 1)}
               className="h-8 w-24 rounded-full border border-neutral-800 bg-[#171717] px-3 text-[13px] font-medium text-primary shadow disabled:cursor-not-allowed disabled:opacity-50"
             >
               Back
             </button>
             <button
-              disabled={activeIndex === STEPS.length - 1}
-              onClick={() =>
-                activeIndex !== STEPS.length - 1 &&
-                handleSetActiveIndex(activeIndex + 1)
-              }
+              disabled={activeIdx === STEPS.length - 1}
+              onClick={() => {
+                if (activeIdx === STEPS.length - 1) return;
+
+                handleSetActiveIdx(activeIdx + 1);
+              }}
               className="h-8 w-24 rounded-full border border-neutral-800 bg-[#171717] px-3 text-[13px] font-medium text-primary shadow disabled:cursor-not-allowed disabled:opacity-50"
             >
               Continue
