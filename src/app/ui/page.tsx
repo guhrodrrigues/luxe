@@ -10,7 +10,7 @@ import { Pagination } from "./_components/Pagination";
 
 export default function UiPage() {
   return (
-    <main className="my-2 space-y-10 xl:mb-24">
+    <main className="my-2 space-y-12 xl:mb-24">
       <div className="space-y-4">
         <Breadcrumbs groupName="Get Started" currentPage="Browse Components" />
         <div className="space-y-3.5">
