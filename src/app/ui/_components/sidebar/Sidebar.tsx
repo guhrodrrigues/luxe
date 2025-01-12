@@ -20,7 +20,6 @@ export function Sidebar() {
         </Link>
         <div className="flex items-center gap-2.5">
           <ToggleTheme />
-          <div aria-hidden className="right-dotted h-4 w-px" />
           <a
             href="https://github.com/guhrodrrigues/luxe"
             target="_blank"
