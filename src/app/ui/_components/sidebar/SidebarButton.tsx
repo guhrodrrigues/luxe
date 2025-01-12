@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 
 import { cn } from "@/utils/cn";
 
-type ComponentsListButton = {
+type SidebarButton = {
   slug: string;
   name: string;
   isNew?: boolean;
@@ -13,13 +13,13 @@ type ComponentsListButton = {
   isUpdated?: boolean;
 };
 
-export function ComponentsListButton({
+export function SidebarButton({
   name,
   slug,
   isNew = false,
   isUpdated = false,
   onClick,
-}: ComponentsListButton) {
+}: SidebarButton) {
   const pathname = usePathname();
 
   const isActive = pathname === slug;
@@ -32,8 +32,8 @@ export function ComponentsListButton({
       className={cn(
         "relative -mx-2.5 mt-1 select-none rounded-lg px-2 py-1.5 text-sm font-medium",
         isActive
-          ? "z-0 bg-[#1c1c1c] text-primary"
-          : "text-neutral-300 hover:bg-[#1c1c1c]",
+          ? "z-0 bg-[#e3e3e3] text-black dark:bg-[#1c1c1c] dark:text-white"
+          : "text-[#2b2b2b] hover:bg-[#e3e3e3] dark:text-neutral-300 dark:hover:bg-[#1c1c1c]",
       )}
     >
       {isNew ? (

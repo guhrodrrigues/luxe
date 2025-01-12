@@ -16,23 +16,23 @@ export function Card({ slug, icon, name }: CardProps) {
   return (
     <Link
       href={`/ui/installation/${slug}`}
-      className="group relative min-h-[300px] w-full max-w-[500px] rounded-xl border border-white/10 bg-neutral-950 px-7 pb-7 pt-10 duration-200 hover:bg-[#111111]"
+      className="group relative min-h-[300px] w-full max-w-[500px] rounded-xl border border-black/10 bg-background px-7 pb-7 pt-10 duration-200 hover:bg-neutral-200 dark:border-white/10 dark:hover:bg-neutral-900"
     >
       <GradientLine />
       <div
         aria-hidden
-        className="absolute inset-0 -top-1.5 -z-[1] mx-auto h-full w-[97%] rounded-[inherit] border border-white/10 bg-neutral-950 duration-200 group-hover:bg-neutral-900"
+        className="absolute inset-0 -top-1.5 -z-[1] mx-auto h-full w-[97%] rounded-[inherit] border border-black/10 bg-background duration-200 group-hover:bg-neutral-200 dark:border-white/10 dark:group-hover:bg-neutral-900"
       >
         <GradientLine />
       </div>
       <div
         aria-hidden
-        className="absolute inset-0 -top-3 -z-[2] mx-auto h-full w-[94%] rounded-[inherit] border border-white/10 bg-neutral-950 duration-200 group-hover:bg-neutral-900"
+        className="absolute inset-0 -top-3 -z-[2] mx-auto h-full w-[94%] rounded-[inherit] border border-black/10 bg-background duration-200 group-hover:bg-neutral-200 dark:border-white/10 dark:group-hover:bg-neutral-900"
       >
         <GradientLine />
       </div>
-      <div className="space-y-4">
-        <div className="flex items-center justify-center">
+      <div className="relative space-y-4">
+        <div className="relative flex items-center justify-center">
           <Illustration icon={icon} />
         </div>
         <div className="space-y-1.5">
@@ -47,7 +47,7 @@ export function Card({ slug, icon, name }: CardProps) {
 
 function GradientLine() {
   return (
-    <div className="absolute -top-px right-5 h-px w-80 bg-gradient-to-l from-transparent via-white/20 via-10% to-transparent" />
+    <div className="absolute -top-px right-5 z-[2] h-px w-80 bg-gradient-to-l from-transparent via-black/10 via-10% to-transparent dark:via-white/20" />
   );
 }
 
@@ -114,14 +114,14 @@ function Star({ isGlowing, delay }: StarProps) {
       }}
       animate={{
         scale: isGlowing ? [1, 1.2, 2.5, 2.2, 1.5] : 1,
-        background: isGlowing ? "#fff" : "#666",
+        background: isGlowing ? "var(--primary)" : "#777",
       }}
       transition={{
         duration: 2,
         ease: "easeInOut",
         delay: delay,
       }}
-      className="relative z-20 h-[1px] w-[1px] rounded-full bg-[#666]"
+      className="relative z-20 h-[1px] w-[1px] rounded-full bg-[#777]"
     />
   );
 }

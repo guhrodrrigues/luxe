@@ -7,12 +7,17 @@ type CodeProps = {
 
 export async function codeToHtml({ code, lang = "tsx" }: CodeProps) {
   const highlighter = await createHighlighter({
-    themes: ["github-dark"],
+    themes: ["github-dark", "github-light"],
     langs: [lang],
   });
 
   return highlighter.codeToHtml(code, {
     lang: lang,
-    theme: "github-dark",
+    themes: {
+      dark: "github-dark",
+      light: "github-light",
+    },
+    defaultColor: false,
+    cssVariablePrefix: "--_s-",
   });
 }

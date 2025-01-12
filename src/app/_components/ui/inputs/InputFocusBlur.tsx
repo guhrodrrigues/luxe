@@ -17,9 +17,9 @@ const STANDARD_DURATION = 0.3;
 
 const inputFocusBlurStyles = tv({
   slots: {
-    baseStyle: `w-full h-[42px] px-3 flex items-center rounded-xl border border-neutral-800 focus-within:border-neutral-200 
-    bg-neutral-900 transition-all duration-200 relative data-[filled=true]:border-neutral-200`,
-    inputStyle: `flex-1 h-full py-2 outline-none text-sm text-neutral-300 bg-transparent relative z-[9999] placeholder:sr-only 
+    baseStyle: `w-full h-[42px] px-3 flex items-center rounded-xl border border-neutral-200 dark:border-neutral-800 focus-within:border-neutral-300 dark:focus-within:border-neutral-200 
+    bg-neutral-50 dark:bg-neutral-900 transition-all duration-200 relative data-[filled=true]:border-neutral-300 dark:data-[filled=true]:border-neutral-200`,
+    inputStyle: `flex-1 h-full py-2 outline-none text-sm text-neutral-500 dark:text-neutral-300 bg-transparent relative z-[9999] placeholder:sr-only 
     disabled:cursor-not-allowed`,
     placeholderStyle: `text-sm text-neutral-500 absolute left-3`,
     feedbackErrorStyle: `flex items-center gap-1 text-xs text-red-300 mt-1`,
@@ -32,7 +32,7 @@ const inputFocusBlurStyles = tv({
     },
     disabled: {
       true: {
-        baseStyle: `bg-neutral-800 cursor-not-allowed`,
+        baseStyle: `bg-neutral-200 dark:bg-neutral-800 cursor-not-allowed`,
       },
     },
   },

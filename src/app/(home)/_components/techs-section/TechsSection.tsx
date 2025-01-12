@@ -23,7 +23,7 @@ export function TechsSection() {
             <TextAnimateEnter
               text={`Various technologies used to build beautiful interfaces, fluid animations and easy access.`}
               containerClassName="text-center max-w-md mx-auto px-3 leading-relaxed"
-              className="text-neutral-300"
+              className="text-neutral-600 dark:text-neutral-300"
               initialDelay={0.5}
               duration={0.6}
             />

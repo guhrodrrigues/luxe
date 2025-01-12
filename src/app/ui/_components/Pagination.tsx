@@ -94,5 +94,3 @@ function ChevronIconGlitch({
     </div>
   );
 }
-
-function ChevronRight() {}

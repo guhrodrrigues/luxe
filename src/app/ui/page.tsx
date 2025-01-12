@@ -17,7 +17,7 @@ export default function UiPage() {
           <h1 className="text-3xl font-bold -tracking-wide text-primary">
             Browse Components
           </h1>
-          <p className="text-[16px] font-normal leading-relaxed text-primary/80">
+          <p className="text-[16px] font-normal leading-relaxed text-black/80 dark:text-white/90">
             Navigate to all the components that will make your application
             sophisticated and luxurious.
           </p>
@@ -42,7 +42,7 @@ export default function UiPage() {
             >
               <Link
                 href={`/ui/${slug}`}
-                className="flex w-fit select-none items-center gap-1 text-neutral-300 duration-200 hover:text-primary"
+                className="flex w-fit select-none items-center gap-1 font-[460] text-[#2b2b2b] duration-200 hover:!text-primary dark:text-neutral-300"
               >
                 {name}
               </Link>

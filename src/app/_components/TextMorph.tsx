@@ -39,7 +39,7 @@ export function TextMorph({ children, className }: TextMorphProps) {
             exit={{ opacity: 0 }}
             transition={{
               type: "spring",
-              stiffness: 280,
+              stiffness: 360,
               damping: 18,
               mass: 0.3,
             }}

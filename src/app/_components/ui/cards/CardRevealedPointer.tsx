@@ -6,7 +6,7 @@ export function CardRevealedPointer() {
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
-  const background = useMotionTemplate`radial-gradient(200px circle at ${mouseX}px ${mouseY}px, rgba(38, 38, 38, 0.4), transparent 80%)`;
+  const background = useMotionTemplate`radial-gradient(200px circle at ${mouseX}px ${mouseY}px, rgba(255, 255, 255, 0.15), transparent 80%)`;
 
   return (
     <div
@@ -27,10 +27,12 @@ export function CardRevealedPointer() {
       />
       <div className="relative flex flex-col gap-3 rounded-xl border border-white/10 px-4 py-5">
         <div className="space-y-2">
-          <h3 className="text-xl font-semibold text-neutral-200">Luxe</h3>
-          <p className="text-sm leading-[1.5] text-neutral-400">
+          <h3 className="text-xl font-semibold text-neutral-100 dark:text-neutral-200">
+            Luxe
+          </h3>
+          <p className="text-sm leading-[1.5] text-neutral-200 dark:text-neutral-400">
             Explore the new website that simplifies the creation of
-            sophisticated dark mode components.
+            sophisticated components for the web.
           </p>
         </div>
       </div>

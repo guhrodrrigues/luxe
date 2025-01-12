@@ -43,7 +43,6 @@ import { InfiniteSliderExample } from "@/app/_components/ui/slider";
 import { TooltipExample } from "@/app/_components/ui/tooltip";
 import { MultiStepModal } from "@/app/_components/ui/modals";
 import { CheckboxExample } from "@/app/_components/ui/checkbox/Checkbox";
-import { PopoverExample } from "@/app/_components/ui/popover/Popover";
 import { Spinner } from "@/app/_components/ui/icons";
 
 const TWCONFIG = {
@@ -174,15 +173,6 @@ const TWCONFIG = {
 
 export const COMPONENTS = [
   {
-    name: "Popover",
-    slug: "popover",
-    component: <PopoverExample />,
-    type: "popover",
-    isNew: true,
-    download: "npm i motion @radix-ui/react-hover-card",
-    colSpan: true,
-  },
-  {
     name: "Text Generate Effect",
     slug: "text-generate-effect",
     component: <TextGenerateEffectExample />,
@@ -224,6 +214,7 @@ export const COMPONENTS = [
     type: "modals",
     isNew: true,
     download: "npm i motion react-use-measure clsx tailwind-merge",
+    cnFunction: true,
     colSpan: true,
     className: "min-h-[500px]",
   },
@@ -249,6 +240,8 @@ export const COMPONENTS = [
     slug: "spinner",
     component: <Spinner />,
     type: "icons",
+    cnFunction: true,
+    download: "npm i clsx tailwind-merge",
     twConfig: TWCONFIG["spinner"],
   },
   {
@@ -275,11 +268,15 @@ export const COMPONENTS = [
     component: <ButtonAnimatedBorder />,
     type: "buttons",
     twConfig: TWCONFIG["animated-border"],
+    download: "npm i clsx tailwind-merge",
+    cnFunction: true,
   },
   {
     name: "Button Rotate Border",
     slug: "button-rotate-border",
     component: <ButtonRotateBorder />,
+    download: "npm i clsx tailwind-merge",
+    cnFunction: true,
     type: "buttons",
   },
   {
@@ -287,13 +284,17 @@ export const COMPONENTS = [
     slug: "button-background-shine",
     component: <ButtonBackgroundShine />,
     type: "buttons",
+    download: "npm i clsx tailwind-merge",
+    cnFunction: true,
     twConfig: TWCONFIG["shine"],
   },
   {
     name: "Button Loading",
     slug: "button-loading",
     component: <ButtonLoading />,
+    download: "npm i motion clsx tailwind-merge",
     type: "buttons",
+    cnFunction: true,
     twConfig: TWCONFIG["button-loading"],
   },
   {
@@ -313,12 +314,16 @@ export const COMPONENTS = [
     slug: "badge-animated-border",
     component: <BadgeAnimatedBorder />,
     type: "badges",
+    cnFunction: true,
+    download: "npm i clsx tailwind-merge",
     twConfig: TWCONFIG["animated-border"],
   },
   {
     name: "Badge Rotate Border",
     slug: "badge-rotate-border",
     component: <BadgeRotateBorder />,
+    cnFunction: true,
+    download: "npm i clsx tailwind-merge",
     type: "badges",
   },
   {
@@ -326,6 +331,8 @@ export const COMPONENTS = [
     slug: "badge-background-shine",
     component: <BadgeBackgroundShine />,
     type: "badges",
+    download: "npm i clsx tailwind-merge",
+    cnFunction: true,
     twConfig: TWCONFIG["shine"],
   },
   {
@@ -333,6 +340,8 @@ export const COMPONENTS = [
     slug: "card-background-shine",
     component: <CardBackgroundShine />,
     type: "cards",
+    download: "npm i clsx tailwind-merge",
+    cnFunction: true,
     twConfig: TWCONFIG["shine"],
   },
   {
@@ -340,6 +349,8 @@ export const COMPONENTS = [
     slug: "card-animated-border",
     component: <CardAnimatedBorder />,
     type: "cards",
+    download: "npm i clsx tailwind-merge",
+    cnFunction: true,
     twConfig: TWCONFIG["animated-border"],
   },
   {
@@ -400,6 +411,8 @@ export const COMPONENTS = [
     slug: "text-shine",
     component: <TextShine />,
     type: "texts",
+    cnFunction: true,
+    download: "npm i motion clsx tailwind-merge",
     isUpdated: true,
   },
   {

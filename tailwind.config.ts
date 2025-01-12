@@ -2,6 +2,7 @@ import type { Config } from "tailwindcss";
 import colors from "tailwindcss/colors";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,17 +12,15 @@ const config: Config = {
     extend: {
       colors: {
         background: {
-          DEFAULT: colors.neutral[950],
+          DEFAULT: "var(--background)",
           muted: "#0d0d0d",
         },
-        primary: colors.white,
+        main: "var(--main)",
+        primary: "var(--primary)",
         secondary: "#c2c2c2",
-        foreground: {
-          DEFAULT: "#b5b3ad",
-          accent: "#f1f7feb5",
-        },
+        foreground: "var(--foreground)",
         muted: colors.neutral[500],
-        border: "#262626",
+        border: "var(--border)",
       },
       animation: {
         flip: "flip 6s infinite steps(2, end)",

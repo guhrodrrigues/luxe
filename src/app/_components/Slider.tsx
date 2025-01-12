@@ -15,7 +15,7 @@ export function Slider({ children, className }: SliderProps) {
       className={cn("group relative flex gap-10 overflow-hidden", className)}
       data-id="slider"
     >
-      <div className="absolute left-0 w-1/12 h-full bg-gradient-to-r from-background to-transparent z-10" />
+      <div className="absolute left-0 z-10 h-full w-1/12 bg-gradient-to-r from-background to-transparent" />
       {createArray(0, 16).map((_, i) => (
         <div
           key={i}
@@ -25,7 +25,7 @@ export function Slider({ children, className }: SliderProps) {
           {children}
         </div>
       ))}
-      <div className="absolute right-0 w-1/12 h-full bg-gradient-to-l from-background to-transparent z-10" />
+      <div className="absolute right-0 z-10 h-full w-1/12 bg-gradient-to-l from-background to-transparent" />
     </div>
   );
 }

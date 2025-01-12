@@ -1,8 +1,9 @@
 import { Metadata } from "next";
 
-import { ComponentsList } from "./_components/ComponentsList";
+import { Sidebar } from "@/app/ui/_components/sidebar/Sidebar";
 import { AnimateEnter } from "@/app/(home)/_components/AnimateEnter";
 import { Header } from "@/app/ui/_components/Header";
+import { ThemeProvider } from "../theme-provider";
 
 export const metadata: Metadata = {
   title: {
@@ -54,9 +55,9 @@ export default function ComponentPageLayout({ children }: ComponentPageLayout) {
   return (
     <>
       <Header />
-      <div className="flex border-dashed max-lg:mb-14 max-lg:flex-col max-lg:gap-12">
+      <div className="flex max-lg:mb-14 max-lg:flex-col max-lg:gap-12">
         <AnimateEnter delay={0.2} duration={0.3} className="flex-shrink-0">
-          <ComponentsList />
+          <Sidebar />
         </AnimateEnter>
         <AnimateEnter
           delay={0.2}

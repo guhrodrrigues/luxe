@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export function FeedbacksCard() {
   return (
-    <div className="relative flex flex-col gap-8 w-full max-w-lg">
-      <p className="text-base font-medium text-center leading-[1.5] text-neutral-300">
+    <div className="relative flex w-full max-w-lg flex-col gap-8">
+      <p className="text-center text-base font-medium leading-[1.5] text-neutral-600 dark:text-neutral-300">
         “Luxe is an ultra-aesthetic user interface library. I think it's
         promising when built as an abstract layer on top of your existing design
         system.”
@@ -21,11 +21,13 @@ export function FeedbacksCard() {
             href="https://x.com/guilherme_rodz"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-base font-medium text-neutral-300 leading-none duration-300"
+            className="text-base font-medium leading-none text-neutral-600 duration-300 dark:text-neutral-300"
           >
             Guilherme Rodz
           </a>
-          <span className="text-neutral-400">Design Engineer, Unkey</span>
+          <span className="text-neutral-500 dark:text-neutral-400">
+            Creator of input-otp
+          </span>
         </div>
       </div>
     </div>

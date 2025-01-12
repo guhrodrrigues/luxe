@@ -1,6 +1,7 @@
-import { ButtonGlitchBrightness } from "@/app/_components/ButtonGlitchBrightness";
 import { AnimateEnter } from "../AnimateEnter";
 import { GetStartedButton } from "./GetStartedButton";
+import { GalleryButton } from "./GalleryButton";
+import { GridBackground } from "../GridBackground";
 
 export function SloganSection() {
   return (
@@ -17,8 +18,9 @@ export function SloganSection() {
           delay={0.2}
         >
           <GetStartedButton />
-          <ButtonGlitchBrightness href="/ui" text="Explore Gallery" />
+          <GalleryButton />
         </AnimateEnter>
+        <GridBackground />
       </div>
     </section>
   );
@@ -27,7 +29,7 @@ export function SloganSection() {
 function BlurBackground() {
   return (
     <svg
-      className="pointer-events-none absolute inset-x-0 -bottom-[420px] -z-[1] mx-auto w-full md:-bottom-96"
+      className="pointer-events-none absolute inset-x-0 -bottom-[420px] -z-[1] mx-auto hidden w-full dark:block md:-bottom-96"
       width="944"
       height="1033"
       viewBox="0 0 944 1033"
@@ -327,8 +329,8 @@ function BlurBackground() {
           y2="861.554"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="white" />
-          <stop offset="1" stopColor="white" stopOpacity="0" />
+          <stop stopColor="var(--primary)" />
+          <stop offset="1" stopColor="var(--primary)" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_2076_3208"
@@ -338,8 +340,8 @@ function BlurBackground() {
           y2="882.5"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="white" />
-          <stop offset="1" stopColor="white" stopOpacity="0" />
+          <stop stopColor="var(--primary)" />
+          <stop offset="1" stopColor="var(--primary)" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_2076_3208"
@@ -349,8 +351,8 @@ function BlurBackground() {
           y2="899.2"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="white" />
-          <stop offset="1" stopColor="white" stopOpacity="0" />
+          <stop stopColor="var(--primary)" />
+          <stop offset="1" stopColor="var(--primary)" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_2076_3208"
@@ -360,8 +362,8 @@ function BlurBackground() {
           y2="892.362"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="white" />
-          <stop offset="1" stopColor="white" stopOpacity="0" />
+          <stop stopColor="var(--primary)" />
+          <stop offset="1" stopColor="var(--primary)" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint4_linear_2076_3208"
@@ -371,8 +373,8 @@ function BlurBackground() {
           y2="852"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="white" />
-          <stop offset="1" stopColor="white" stopOpacity="0" />
+          <stop stopColor="var(--primary)" />
+          <stop offset="1" stopColor="var(--primary)" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint5_linear_2076_3208"
@@ -382,8 +384,8 @@ function BlurBackground() {
           y2="882.5"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="white" />
-          <stop offset="1" stopColor="white" stopOpacity="0" />
+          <stop stopColor="var(--primary)" />
+          <stop offset="1" stopColor="var(--primary)" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint6_linear_2076_3208"
@@ -393,8 +395,8 @@ function BlurBackground() {
           y2="882.5"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="white" />
-          <stop offset="1" stopColor="white" stopOpacity="0" />
+          <stop stopColor="var(--primary)" />
+          <stop offset="1" stopColor="var(--primary)" stopOpacity="0" />
         </linearGradient>
         <linearGradient
           id="paint7_linear_2076_3208"
@@ -404,8 +406,8 @@ function BlurBackground() {
           y2="860"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stopColor="white" />
-          <stop offset="1" stopColor="white" stopOpacity="0" />
+          <stop stopColor="var(--primary)" />
+          <stop offset="1" stopColor="var(--primary)" stopOpacity="0" />
         </linearGradient>
       </defs>
     </svg>

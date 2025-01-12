@@ -14,9 +14,18 @@ import {
   useTransform,
 } from "motion/react";
 
+export function DockMenu() {
+  const items = [
+    { icon: <HomeIcon size={24} /> },
+    { icon: <AlbumIcon size={24} /> },
+    { icon: <MonitorIcon size={24} /> },
+  ];
+
+  return <Dock items={items} />;
+}
+
 type DockItem = {
-  id: string;
-  icon?: JSX.Element;
+  icon: JSX.Element;
 };
 
 type DockContainerProps = {
@@ -42,7 +51,7 @@ function Dock({
     >
       <motion.div
         ref={containerRef}
-        className="flex h-16 items-end gap-4 rounded-full border border-neutral-800 bg-neutral-950 px-3 pb-2 shadow-inner shadow-neutral-300/5"
+        className="flex h-14 items-end gap-2 rounded-full border border-neutral-200 bg-neutral-100 px-3 pb-1.5 dark:border-neutral-800/50 dark:bg-neutral-950"
         onMouseLeave={() => mouseX.set(Infinity)}
         onMouseMove={(e: MouseEvent) => {
           const rect = containerRef.current?.getBoundingClientRect();
@@ -53,9 +62,9 @@ function Dock({
           }
         }}
       >
-        {items.map((item) => (
-          <DockItem key={item.id} containerX={containerX} mouseX={mouseX}>
-            {item.icon}
+        {items.map(({ icon }, idx) => (
+          <DockItem key={idx} containerX={containerX} mouseX={mouseX}>
+            {icon}
           </DockItem>
         ))}
       </motion.div>
@@ -90,7 +99,7 @@ function DockItem({ children, containerX, mouseX }: DockItemProps) {
     <motion.div
       role="button"
       ref={itemRef}
-      className="group flex aspect-square items-center justify-center overflow-hidden rounded-full border border-neutral-800 bg-neutral-950 p-2 text-neutral-400 shadow-inner shadow-neutral-300/20 transition duration-500 hover:text-white active:-translate-y-10 active:duration-1000 active:ease-out"
+      className="group flex aspect-square items-center justify-center overflow-hidden rounded-full bg-neutral-200 p-2 text-neutral-500 transition duration-500 active:-translate-y-10 active:duration-1000 active:ease-out dark:bg-neutral-900 dark:text-neutral-400"
       style={{
         width,
       }}
@@ -98,14 +107,4 @@ function DockItem({ children, containerX, mouseX }: DockItemProps) {
       {children}
     </motion.div>
   );
-}
-
-export function DockMenu() {
-  const items = [
-    { id: "first-id", icon: <HomeIcon size={32} /> },
-    { id: "second-id", icon: <AlbumIcon size={32} /> },
-    { id: "fourth-id", icon: <MonitorIcon size={32} /> },
-  ];
-
-  return <Dock items={items} />;
 }

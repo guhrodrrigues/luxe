@@ -50,7 +50,7 @@ export default function InstallationPage() {
           <h1 className="text-3xl font-bold -tracking-wide text-primary">
             Installation
           </h1>
-          <p className="text-[16px] font-normal leading-relaxed text-primary/80">
+          <p className="text-[16px] font-normal leading-relaxed text-black/80 dark:text-white/90">
             How to install dependencies and structure your application.
           </p>
         </div>

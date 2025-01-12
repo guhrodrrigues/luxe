@@ -6,26 +6,24 @@ export function GetStartedButton() {
   return (
     <Link
       href="/ui/installation"
-      className="group relative inline-flex items-center gap-1 rounded-xl px-4 py-2.5 text-sm font-semibold duration-300 hover:bg-neutral-800 hover:text-primary"
+      className="group flex items-center gap-1.5 rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-semibold text-neutral-600 duration-300 hover:bg-neutral-200 dark:border-transparent dark:bg-transparent dark:text-foreground dark:hover:bg-neutral-800 dark:hover:text-primary"
     >
-      <TextGlitch text="Get Started" />
+      <span>Get Started</span>
+      <ChevronIconGlitch />
     </Link>
   );
 }
 
-function TextGlitch({ text }: { text: string }) {
+function ChevronIconGlitch() {
   return (
-    <div className="relative overflow-hidden">
-      <span className="invisible flex items-center gap-1">
-        {text}
+    <div className="relative overflow-hidden font-medium">
+      <span className="invisible">
         <ChevronRightIcon size={14} />
       </span>
-      <span className="absolute left-0 top-0 flex items-center gap-1 font-semibold transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full">
-        {text}
+      <span className="absolute left-0 top-0 text-neutral-600 transition-transform duration-300 ease-in-out hover:duration-150 group-hover:translate-x-full dark:text-foreground">
         <ChevronRightIcon size={14} />
       </span>
-      <span className="absolute left-0 top-0 flex translate-y-full items-center gap-1 font-semibold transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0">
-        {text}
+      <span className="absolute left-0 top-0 -translate-x-full text-neutral-600 transition-transform duration-300 ease-in-out hover:duration-150 group-hover:translate-x-0 dark:text-primary">
         <ChevronRightIcon size={14} />
       </span>
     </div>

@@ -1,13 +1,16 @@
 "use client";
 
-import { GET_STARTED } from "@/data/get-started";
 import { useState } from "react";
-
 import { Drawer as VaulDrawer } from "vaul";
 
-import { ComponentsListButton } from "./ComponentsListButton";
+import { SidebarButton } from "./sidebar/SidebarButton";
 
 import { COMPONENTS } from "@/data/components";
+
+import { ToggleTheme } from "./sidebar/ToggleTheme";
+import { Icons } from "@/app/_components/Icons";
+
+import { GET_STARTED } from "@/data/get-started";
 
 export default function Drawer({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -31,7 +34,18 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
             { "--initial-transform": "calc(100% + 8px)" } as React.CSSProperties
           }
         >
-          <div className="relative flex h-full w-full grow flex-col rounded-[16px] bg-[#0c0c0c] px-3 py-5">
+          <div className="relative flex h-full w-full grow flex-col rounded-[16px] bg-main px-3 pb-5">
+            <div className="flex items-center justify-between gap-2 px-2 py-3">
+              <a
+                href="https://github.com/guhrodrrigues/luxe"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group"
+              >
+                <Icons.github className="h-3.5 w-3.5 text-neutral-400 duration-150 group-hover:text-primary dark:text-neutral-600" />
+              </a>
+              <ToggleTheme />
+            </div>
             <div className="h-full overflow-y-auto px-3 pt-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               <div className="flex flex-col gap-1">
                 <span className="-ml-[2.5px] text-xs font-medium text-foreground">
@@ -39,7 +53,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
                 </span>
                 <div className="flex flex-col">
                   {GET_STARTED.map((component) => (
-                    <ComponentsListButton
+                    <SidebarButton
                       key={component.slug}
                       name={component.name}
                       slug={component.slug}
@@ -55,7 +69,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
                 </span>
                 <div className="flex flex-col pb-3">
                   {orderedComponents.map((component) => (
-                    <ComponentsListButton
+                    <SidebarButton
                       key={component.name}
                       name={component.name}
                       slug={`/ui/${component.slug}`}

@@ -1,6 +1,7 @@
 "use client"; // @NOTE: add in case you are using Next.js
 
 import { useState } from "react";
+
 import { motion } from "motion/react";
 
 import { cn } from "@/utils/cn";
@@ -8,7 +9,7 @@ import { cn } from "@/utils/cn";
 export function TooltipExample() {
   return (
     <Tooltip text="Add to library">
-      <button className="rounded-xl border border-neutral-900 bg-neutral-950 px-4 py-2 text-sm font-medium">
+      <button className="rounded-xl border border-neutral-300 bg-neutral-100 px-4 py-2 text-sm font-medium text-neutral-500 dark:border-neutral-900 dark:bg-neutral-950 dark:text-neutral-400">
         Hover Me
       </button>
     </Tooltip>
@@ -30,7 +31,8 @@ function Tooltip({ text, children, className }: TooltipProps) {
     >
       <motion.div
         className={cn(
-          "absolute -top-4 left-1/2 whitespace-nowrap rounded-md border border-border bg-neutral-900 px-2 py-1 text-xs text-white shadow [translate:-50%_-50%]",
+          "absolute -top-4 left-1/2 whitespace-nowrap rounded-md border border-neutral-300 bg-neutral-100 [translate:-50%_-50%]",
+          "px-2 py-1 text-xs text-black dark:border-[#262626] dark:bg-neutral-900 dark:text-white",
           className,
         )}
         initial={{ opacity: 0, y: 5, filter: "blur(4px)", scale: 0.9 }}

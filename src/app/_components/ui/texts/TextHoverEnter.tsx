@@ -25,7 +25,7 @@ function TextHoverEnter({ children, className }: TextGlitchProps) {
   return (
     <motion.div
       className={cn(
-        "relative block overflow-hidden whitespace-nowrap text-base font-medium text-neutral-400",
+        "relative block select-none overflow-hidden whitespace-nowrap text-base font-medium text-neutral-500 dark:text-neutral-400",
         className,
       )}
       initial="initial"

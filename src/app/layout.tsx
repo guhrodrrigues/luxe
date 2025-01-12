@@ -4,6 +4,7 @@ import { fontSans, fontMono } from "@/utils/fonts";
 import "@/styles/globals.css";
 
 import { cn } from "@/utils/cn";
+import { ThemeProvider } from "./theme-provider";
 
 export const metadata: Metadata = {
   authors: [{ name: "Gustavo Rodrigues", url: "https://guhrodrigues.com" }],
@@ -26,19 +27,18 @@ export const metadata: Metadata = {
     "Luxe",
     "UI Library",
     "Design Engineer",
-    "Front-end Developer",
-    "FullStack Developer",
+    "Frontend Developer",
     "Component library",
     "Frontend",
     "Copy and Paste",
     "CLI",
     "Command Line Interface",
+    "Dark Mode",
+    "Light Mode",
     "UX Design",
-    "FullStack",
     "Developer",
     "Software",
     "Design",
-    "Brazil",
     "Vercel",
     "Next.js",
     "React",
@@ -46,6 +46,7 @@ export const metadata: Metadata = {
     "TailwindCSS",
     "Framer Motion",
     "Server Components",
+    "Client Components",
   ],
   openGraph: {
     images: [
@@ -89,7 +90,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
           "overflow-x-hidden bg-background font-sans text-foreground antialiased outline-none",
@@ -97,7 +98,13 @@ export default function RootLayout({
           fontMono.variable,
         )}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -2,14 +2,28 @@ import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
 type Breadcrumbs = {
+  category?: string;
   groupName: string;
   backLink?: string;
   currentPage: string;
 };
 
-export function Breadcrumbs({ groupName, backLink, currentPage }: Breadcrumbs) {
+export function Breadcrumbs({
+  category,
+  groupName,
+  backLink,
+  currentPage,
+}: Breadcrumbs) {
   return (
     <div className="flex items-center gap-1">
+      {category && (
+        <>
+          <span className="flex w-fit items-center gap-1 text-sm font-medium">
+            {category}
+          </span>
+          <ChevronRight size={14} />
+        </>
+      )}
       {backLink ? (
         <Link
           href={backLink}

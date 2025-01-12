@@ -55,15 +55,9 @@ function useMenuAnimation(isOpen: boolean) {
   return scope;
 }
 
-type DropdownMenuProps = {
-  containerClassName?: string;
-  itemClassName?: string;
-};
+type DropdownMenuProps = React.ComponentProps<"nav">;
 
-export function DropdownMenu({
-  containerClassName,
-  itemClassName,
-}: DropdownMenuProps) {
+export function DropdownMenu({ className, ...props }: DropdownMenuProps) {
   const [isOpen, setIsOpen] = useState(false);
   const scope = useMenuAnimation(isOpen);
 
@@ -82,25 +76,25 @@ export function DropdownMenu({
 
   return (
     <nav
-      className={cn(
-        "mx-auto w-full max-w-[200px] space-y-2",
-        containerClassName,
-      )}
+      className={cn("mx-auto w-full max-w-[200px] space-y-2", className)}
       ref={scope}
+      {...props}
     >
       <motion.button
         whileTap={{ scale: 0.97 }}
-        className="flex w-full max-w-[300px] items-center justify-between rounded-xl border border-neutral-800 bg-neutral-900 p-2.5"
+        className="flex w-full max-w-[300px] items-center justify-between rounded-xl border border-neutral-200 bg-neutral-50 p-2.5 dark:border-neutral-800 dark:bg-neutral-900"
         onClick={() => setIsOpen((prevState) => !prevState)}
       >
-        <span className="text-sm font-medium text-neutral-300">Settings</span>
+        <span className="text-sm font-medium text-neutral-500 dark:text-neutral-300">
+          Settings
+        </span>
         <div style={{ transformOrigin: "50% 55%" }}>
           <SettingsIcon size={14} className="text-neutral-400" id="menu-icon" />
         </div>
       </motion.button>
       <ul
         className={cn(
-          "absolute z-[1] w-full max-w-[200px] space-y-3 rounded-xl border border-neutral-800 bg-neutral-900 p-2.5",
+          "absolute z-[1] mx-auto w-full max-w-[200px] space-y-3 rounded-xl border border-neutral-200 bg-neutral-50 p-2.5 dark:border-neutral-800 dark:bg-neutral-900",
           isOpen ? "pointer-events-auto" : "pointer-events-none",
         )}
         style={{
@@ -109,11 +103,9 @@ export function DropdownMenu({
       >
         {items.map(({ icon, name, customStyle }) => (
           <li key={name}>
-            <Link
-              href="" // Where you will be sent
+            <button
               className={cn(
-                "group flex items-center gap-2 rounded-md border border-transparent text-neutral-400 hover:text-neutral-300 focus-visible:border-neutral-800 focus-visible:text-neutral-300 focus-visible:outline-none",
-                itemClassName,
+                "group flex w-full items-center gap-2 rounded-md border border-transparent text-neutral-500 hover:text-neutral-600 focus-visible:border-neutral-200 focus-visible:text-neutral-600 focus-visible:outline-none dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus-visible:border-neutral-800 dark:focus-visible:text-neutral-300",
                 customStyle,
               )}
             >
@@ -125,7 +117,7 @@ export function DropdownMenu({
                   className="-translate-x-1 scale-0 opacity-0 transition-all group-hover:translate-x-0 group-hover:scale-100 group-hover:opacity-100"
                 />
               </span>
-            </Link>
+            </button>
           </li>
         ))}
       </ul>

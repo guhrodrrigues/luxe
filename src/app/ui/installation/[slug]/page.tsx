@@ -94,6 +94,7 @@ export default async function InstallationSlugPage({
     <main className="my-2 space-y-12 xl:mb-24">
       <div className="space-y-4">
         <Breadcrumbs
+          category="Get Started"
           backLink="/ui/installation"
           groupName="Installation"
           currentPage={name}
@@ -102,7 +103,7 @@ export default async function InstallationSlugPage({
           <h1 className="text-3xl font-bold -tracking-wide text-primary">
             {name}
           </h1>
-          <p className="font-normal text-primary/80">
+          <p className="font-normal text-black/80 dark:text-white/90">
             Install and configure {name}.
           </p>
         </div>
@@ -111,7 +112,7 @@ export default async function InstallationSlugPage({
         {slug === "next" ? (
           <>
             <div className="relative">
-              <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-800">
+              <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
                 <span className="font-semibold text-primary">1</span>
               </div>
               <div className="ml-[1.1rem] border-l border-border">
@@ -129,7 +130,7 @@ export default async function InstallationSlugPage({
             </div>
 
             <div className="relative">
-              <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-800">
+              <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
                 <span className="font-semibold text-primary">2</span>
               </div>
               <div className="ml-[1.1rem] border-l border-border">
@@ -148,7 +149,7 @@ export default async function InstallationSlugPage({
             </div>
 
             <div className="relative">
-              <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-800">
+              <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
                 <span className="font-semibold text-primary">3</span>
               </div>
               <div className="ml-[1.1rem] border-l border-border">
@@ -166,7 +167,7 @@ export default async function InstallationSlugPage({
         ) : (
           <>
             <div className="relative">
-              <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-800">
+              <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
                 <span className="font-semibold text-primary">1</span>
               </div>
               <div className="ml-[1.1rem] border-l border-border">
@@ -184,7 +185,7 @@ export default async function InstallationSlugPage({
             </div>
 
             <div className="relative">
-              <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-800">
+              <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
                 <span className="font-semibold text-primary">2</span>
               </div>
               <div className="ml-[1.1rem] border-l border-border">
@@ -202,7 +203,7 @@ export default async function InstallationSlugPage({
             </div>
 
             <div className="relative">
-              <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-800">
+              <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
                 <span className="font-semibold text-primary">3</span>
               </div>
               <div className="ml-[1.1rem] border-l border-border">
@@ -222,14 +223,14 @@ export default async function InstallationSlugPage({
             </div>
 
             <div className="relative">
-              <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-800">
+              <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
                 <span className="font-semibold text-primary">4</span>
               </div>
               <div className="ml-[1.1rem] border-l border-border">
                 <div className="space-y-4 pb-10 pl-8 pt-1">
                   <h1 className="font-medium text-primary">
                     Edit{" "}
-                    <code className="rounded bg-neutral-800/80 px-1 py-1 font-mono text-sm">
+                    <code className="rounded bg-neutral-300/80 px-1 py-1 font-mono text-sm dark:bg-neutral-800/80">
                       tsconfig.json
                     </code>{" "}
                     file
@@ -244,14 +245,14 @@ export default async function InstallationSlugPage({
             </div>
 
             <div className="relative">
-              <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-800">
+              <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
                 <span className="font-semibold text-primary">5</span>
               </div>
               <div className="ml-[1.1rem] border-l border-border">
                 <div className="space-y-4 pb-10 pl-8 pt-1">
                   <h1 className="font-medium text-primary">
                     Edit{" "}
-                    <code className="rounded bg-neutral-800/80 px-1 py-1 font-mono text-sm">
+                    <code className="rounded bg-neutral-300/80 px-1 py-1 font-mono text-sm dark:bg-neutral-800/80">
                       tsconfig.app.json
                     </code>{" "}
                     file
@@ -266,14 +267,14 @@ export default async function InstallationSlugPage({
             </div>
 
             <div className="relative">
-              <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-800">
+              <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
                 <span className="font-semibold text-primary">6</span>
               </div>
               <div className="ml-[1.1rem] border-l border-border">
                 <div className="space-y-4 pl-8 pt-1">
                   <h1 className="font-medium text-primary">
                     Update{" "}
-                    <code className="rounded bg-neutral-800/80 px-1 py-1 font-mono text-sm">
+                    <code className="rounded bg-neutral-300/80 px-1 py-1 font-mono text-sm dark:bg-neutral-800/80">
                       vite.config.ts
                     </code>
                   </h1>

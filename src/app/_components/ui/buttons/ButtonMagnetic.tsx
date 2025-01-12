@@ -36,7 +36,7 @@ function ButtonMagnetic({ className, children }: ButtonMagneticProps) {
     <motion.button
       ref={ref}
       className={cn(
-        "relative rounded-xl bg-white px-4 py-2 text-sm font-semibold text-black",
+        "relative rounded-xl bg-black px-4 py-2 text-sm font-medium text-white dark:bg-white dark:text-black",
         className,
       )}
       onMouseMove={handleMouseMove}

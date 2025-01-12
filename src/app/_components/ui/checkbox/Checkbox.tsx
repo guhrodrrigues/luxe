@@ -11,11 +11,11 @@ export function CheckboxExample() {
       <div className="grid gap-1.5">
         <label
           htmlFor="terms"
-          className="text-sm font-medium leading-none text-white peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+          className="text-sm font-medium leading-none text-black peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-white"
         >
           Accept terms and conditions
         </label>
-        <span className="text-sm text-neutral-400">
+        <span className="text-sm text-neutral-500 dark:text-neutral-400">
           You agree to our Terms of Service and Privacy Policy.
         </span>
       </div>
@@ -26,12 +26,12 @@ export function CheckboxExample() {
 function Checkbox() {
   return (
     <RadixCheckbox.Root
-      className="flex h-5 w-5 flex-shrink-0 appearance-none items-center justify-center rounded border border-neutral-800 bg-neutral-900 outline-none"
+      className="flex h-5 w-5 flex-shrink-0 appearance-none items-center justify-center rounded border border-neutral-300 bg-neutral-100 outline-none dark:border-neutral-800 dark:bg-neutral-900"
       id="terms"
     >
       <RadixCheckbox.Indicator>
         <motion.div
-          className="h-[inherit] w-[inherit] rounded bg-white"
+          className="h-[inherit] w-[inherit] rounded bg-black dark:bg-white"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ type: "spring", stiffness: 400, damping: 30 }}
@@ -54,20 +54,17 @@ function CheckIcon() {
     >
       <motion.path
         d="M5 7.5L7 9.5L7.40859 8.81902C8.13346 7.6109 9.00376 6.49624 10 5.5V5.5"
-        stroke="#000"
+        className="stroke-white dark:stroke-black"
         strokeWidth={1.5}
         strokeLinecap="round"
         strokeLinejoin="round"
         initial={{
-          opacity: 0,
           pathLength: 0,
         }}
         animate={{
-          opacity: 1,
           pathLength: 1,
         }}
         exit={{
-          opacity: 0,
           pathLength: 0,
         }}
         transition={{

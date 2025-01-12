@@ -11,29 +11,29 @@ export const metadata: Metadata = {
 export default function NotFoundPage() {
   return (
     <main className="mt-40 px-4">
-      <section className="flex flex-col items-center justify-center relative min-h-[300px] [@media(min-height:793px)]:min-h-[500px]">
+      <section className="relative flex min-h-[300px] flex-col items-center justify-center [@media(min-height:793px)]:min-h-[500px]">
         <div
           aria-hidden="true"
-          className="pointer-events-none absolute inset-0 overflow-hidden transition-opacity backdrop-brightness-200 backdrop-contrast-125 opacity-0 duration-1000"
+          className="pointer-events-none absolute inset-0 overflow-hidden opacity-0 backdrop-brightness-200 backdrop-contrast-125 transition-opacity duration-1000"
         >
-          <div className="absolute aspect-square min-w-[200vw] min-h-[200vh] translate-x-[calc(var(--tx)-50%)] translate-y-[calc(var(--ty)-50%)]">
+          <div className="absolute aspect-square min-h-[200vh] min-w-[200vw] translate-x-[calc(var(--tx)-50%)] translate-y-[calc(var(--ty)-50%)]">
             <div className="absolute inset-0 bg-center bg-no-repeat [background-image:radial-gradient(300px_300px_at_center,transparent,rgba(0,0,0,.9)_70%)]"></div>
           </div>
           <div
             aria-hidden="true"
-            className="absolute inset-0 pointer-events-none container"
+            className="container pointer-events-none absolute inset-0"
           >
-            <div className="w-full h-full" />
+            <div className="h-full w-full" />
           </div>
         </div>
-        <div className="flex flex-col justify-center items-center gap-4 text-center">
-          <h1 className="text-5xl font-bold text-gradient">Not Found</h1>
-          <p className="max-w-md mx-auto text-secondary">
+        <div className="flex flex-col items-center justify-center gap-4 text-center">
+          <h1 className="text-gradient text-5xl font-bold">Not Found</h1>
+          <p className="mx-auto max-w-md text-foreground">
             The route you're trying to access doesn't exist.
           </p>
           <Link
             href="/"
-            className="flex items-center mt-1 gap-2 text-sm py-2 px-4 font-semibold bg-primary text-black rounded-xl mx-auto duration-300 hover:bg-primary/70"
+            className="mx-auto mt-1 flex items-center gap-2 rounded-xl bg-black px-4 py-2 text-sm font-semibold text-white duration-300 hover:bg-black/70 dark:bg-white dark:text-black dark:hover:bg-white/70"
           >
             <MoveLeftIcon size={10} />
             <span>Back to home</span>

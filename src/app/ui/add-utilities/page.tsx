@@ -73,15 +73,15 @@ export default async function AddUtilitiesPage() {
           <h1 className="text-3xl font-bold -tracking-wide text-primary">
             Add Utilities
           </h1>
-          <p className="text-[16px] font-normal leading-relaxed text-primary/80">
+          <p className="max-w-lg text-[16px] font-normal leading-relaxed text-black/80 dark:text-white/90">
             This code is widely used in Luxe, it is responsible for merging
-            classes when they have conditionals.
+            classes when they have conditionals and for organizing the code.
           </p>
         </div>
       </div>
       <div>
         <div className="relative">
-          <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-800">
+          <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
             <span className="font-semibold text-primary">1</span>
           </div>
           <div className="ml-[1.1rem] border-l border-border">
@@ -96,14 +96,14 @@ export default async function AddUtilitiesPage() {
           </div>
         </div>
         <div className="relative">
-          <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-800">
+          <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
             <span className="font-semibold text-primary">2</span>
           </div>
           <div className="ml-[1.1rem] border-l border-border">
             <div className="space-y-4 pl-8 pt-1">
               <h1 className="font-medium text-primary">
                 Create a file with the path{" "}
-                <code className="rounded bg-neutral-800/80 px-1 py-1 font-mono text-sm">
+                <code className="rounded bg-neutral-300/80 px-1 py-1 font-mono text-sm dark:bg-neutral-800/80">
                   utils/cn.ts
                 </code>
               </h1>

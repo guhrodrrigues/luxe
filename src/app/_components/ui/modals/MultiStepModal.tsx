@@ -5,6 +5,8 @@ import { useCallback, useState } from "react";
 import { AnimatePresence, Variants, motion } from "motion/react";
 import useMeasure from "react-use-measure";
 
+import { cn } from "@/utils/cn";
+
 const STEPS = [
   {
     title: "Luxe",
@@ -63,14 +65,13 @@ export function MultiStepModal() {
       zIndex: 0,
       opacity: 0,
       x: direction < 0 ? 370 : -370,
-      position: "absolute",
       top: 0,
       width: "100%",
     }),
   };
 
   return (
-    <div className="w-[370px] overflow-hidden rounded-xl border border-[#222222] bg-[#111111]">
+    <div className="w-[370px] overflow-hidden rounded-xl border border-[#dddddd] bg-neutral-100 dark:border-[#222222] dark:bg-[#111111]">
       <div className="relative">
         <AnimatePresence initial={false} mode="popLayout" custom={direction}>
           <motion.div
@@ -86,21 +87,24 @@ export function MultiStepModal() {
             }}
           >
             <div ref={ref} className="px-4 py-5">
-              <h3 className="mb-2 font-medium text-zinc-100">
+              <h3 className="mb-2 font-medium text-neutral-700 dark:text-neutral-100">
                 {STEPS[activeIdx].title}
               </h3>
-              <p className="text-[15px] text-neutral-400">
+              <p className="text-[15px] text-neutral-500 dark:text-neutral-400">
                 {STEPS[activeIdx].description}
               </p>
             </div>
           </motion.div>
         </AnimatePresence>
-        <div className="relative z-10 border-t border-[#222222] bg-[#0f0f0f]">
+        <div className="relative z-10 border-t border-[#dddddd] bg-neutral-100 dark:border-[#222222] dark:bg-[#0f0f0f]">
           <div className="flex items-center justify-between px-4 py-2">
             <button
               disabled={activeIdx === 0}
               onClick={() => handleSetActiveIdx(activeIdx - 1)}
-              className="h-8 w-24 rounded-full border border-neutral-800 bg-[#171717] px-3 text-[13px] font-medium text-primary shadow disabled:cursor-not-allowed disabled:opacity-50"
+              className={cn(
+                "h-8 w-24 rounded-full border border-neutral-300 bg-neutral-100 px-3 text-[13px] font-medium text-primary",
+                "disabled:cursor-not-allowed disabled:opacity-50 dark:border-neutral-800 dark:bg-[#171717]",
+              )}
             >
               Back
             </button>
@@ -111,7 +115,10 @@ export function MultiStepModal() {
 
                 handleSetActiveIdx(activeIdx + 1);
               }}
-              className="h-8 w-24 rounded-full border border-neutral-800 bg-[#171717] px-3 text-[13px] font-medium text-primary shadow disabled:cursor-not-allowed disabled:opacity-50"
+              className={cn(
+                "h-8 w-24 rounded-full border border-neutral-300 bg-neutral-100 px-3 text-[13px] font-medium text-primary",
+                "disabled:cursor-not-allowed disabled:opacity-50 dark:border-neutral-800 dark:bg-[#171717]",
+              )}
             >
               Continue
             </button>

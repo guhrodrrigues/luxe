@@ -47,7 +47,7 @@ export function CardHoverEffect({
             {hoveredIdx === idx && (
               <motion.span
                 className={cn(
-                  "absolute inset-0 z-0 block h-full w-full rounded-xl bg-neutral-900",
+                  "absolute inset-0 z-0 block h-full w-full rounded-xl bg-neutral-200 dark:bg-neutral-900",
                   hoveredItemClassName,
                 )}
                 layoutId="cardHoverEffect"
@@ -64,8 +64,10 @@ export function CardHoverEffect({
             )}
           </AnimatePresence>
           <div className="z-[1] select-none space-y-3">
-            <h1 className="font-medium text-white">{title}</h1>
-            <p className="text-neutral-400">{description}</p>
+            <h1 className="font-medium text-black dark:text-white">{title}</h1>
+            <p className="text-neutral-500 dark:text-neutral-400">
+              {description}
+            </p>
           </div>
         </div>
       ))}
