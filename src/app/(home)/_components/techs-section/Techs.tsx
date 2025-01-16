@@ -1,22 +1,32 @@
-"use client";
-
-import { Slider } from "@/app/_components/Slider";
 import { TECHS } from "@/data/techs";
 import { AnimateEnter } from "../AnimateEnter";
 
-export function TechsSlider() {
+export function Techs() {
   return (
-    <AnimateEnter delay={0.8} className="flex select-none flex-col rounded-lg">
-      <Slider className="max-w-xl">
-        {TECHS.map(({ icon, name }) => (
+    <AnimateEnter
+      className="flex items-center justify-center gap-10 gap-y-6 max-sm:flex-col"
+      delay={0.9}
+    >
+      <div className="flex items-center gap-10">
+        {TECHS.slice(0, 2).map(({ icon, name }) => (
           <div key={name} className="flex items-center gap-1">
             <span>{icon}</span>
-            <span className="flex-shrink-0 text-base font-semibold -tracking-wide text-primary">
+            <span className="flex-shrink-0 text-lg font-semibold -tracking-wide text-primary">
               {name}
             </span>
           </div>
         ))}
-      </Slider>
+      </div>
+      <div className="flex items-center gap-10">
+        {TECHS.slice(2, 4).map(({ icon, name }) => (
+          <div key={name} className="flex items-center gap-1">
+            <span>{icon}</span>
+            <span className="flex-shrink-0 text-lg font-semibold -tracking-wide text-primary">
+              {name}
+            </span>
+          </div>
+        ))}
+      </div>
     </AnimateEnter>
   );
 }

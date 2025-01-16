@@ -1,6 +1,6 @@
-import { TechsSlider } from "./Techs";
-import { AnimateEnter } from "../AnimateEnter";
 import { TextAnimateEnter } from "@/app/_components/TextAnimateEnter";
+import { Techs } from "./Techs";
+import { AnimateEnter } from "../AnimateEnter";
 
 export function TechsSection() {
   return (
@@ -18,7 +18,7 @@ export function TechsSection() {
               "conic-gradient(from 90deg at 50% 50%, #00000000 50%, #0a0a0a 50%),radial-gradient(rgba(134, 134, 134, 0.1) 0%, transparent 80%)",
           }}
         />
-        <div className="flex flex-col items-center justify-center gap-14">
+        <div className="flex flex-col items-center justify-center gap-10">
           <AnimateEnter delay={0.6}>
             <TextAnimateEnter
               text={`Various technologies used to build beautiful interfaces, fluid animations and easy access.`}
@@ -28,7 +28,7 @@ export function TechsSection() {
               duration={0.6}
             />
           </AnimateEnter>
-          <TechsSlider />
+          <Techs />
         </div>
       </div>
     </section>

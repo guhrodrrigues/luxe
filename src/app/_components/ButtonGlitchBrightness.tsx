@@ -1,6 +1,4 @@
-"use clients";
-
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 
 export function ButtonGlitchBrightness({
   href,

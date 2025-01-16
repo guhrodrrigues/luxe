@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 
 import { GET_STARTED } from "@/data/get-started";
 import { COMPONENTS } from "@/data/components";

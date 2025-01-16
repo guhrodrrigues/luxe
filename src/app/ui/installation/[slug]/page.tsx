@@ -115,7 +115,7 @@ export default async function InstallationSlugPage({
               <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
                 <span className="font-semibold text-primary">1</span>
               </div>
-              <div className="ml-[1.1rem] border-l border-border">
+              <div className="ml-[1.1rem] border-l border-border dark:border-neutral-900">
                 <div className="space-y-4 pb-10 pl-8 pt-1">
                   <h1 className="font-medium text-primary">
                     Create a new project
@@ -133,7 +133,7 @@ export default async function InstallationSlugPage({
               <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
                 <span className="font-semibold text-primary">2</span>
               </div>
-              <div className="ml-[1.1rem] border-l border-border">
+              <div className="ml-[1.1rem] border-l border-border dark:border-neutral-900">
                 <div className="space-y-4 pb-10 pl-8 pt-1">
                   <h1 className="font-medium text-primary">
                     After the above command, it is mandatory to select these
@@ -152,7 +152,7 @@ export default async function InstallationSlugPage({
               <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
                 <span className="font-semibold text-primary">3</span>
               </div>
-              <div className="ml-[1.1rem] border-l border-border">
+              <div className="ml-[1.1rem] border-l border-border dark:border-neutral-900">
                 <div className="space-y-4 pl-8 pt-1">
                   <h1 className="font-medium text-primary">Start the app</h1>
                   <CodeBlock
@@ -170,7 +170,7 @@ export default async function InstallationSlugPage({
               <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
                 <span className="font-semibold text-primary">1</span>
               </div>
-              <div className="ml-[1.1rem] border-l border-border">
+              <div className="ml-[1.1rem] border-l border-border dark:border-neutral-900">
                 <div className="space-y-4 pb-10 pl-8 pt-1">
                   <h1 className="font-medium text-primary">
                     Create a new project
@@ -188,7 +188,7 @@ export default async function InstallationSlugPage({
               <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
                 <span className="font-semibold text-primary">2</span>
               </div>
-              <div className="ml-[1.1rem] border-l border-border">
+              <div className="ml-[1.1rem] border-l border-border dark:border-neutral-900">
                 <div className="space-y-4 pb-10 pl-8 pt-1">
                   <h1 className="font-medium text-primary">
                     After the above command, install and enter the application
@@ -206,7 +206,7 @@ export default async function InstallationSlugPage({
               <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
                 <span className="font-semibold text-primary">3</span>
               </div>
-              <div className="ml-[1.1rem] border-l border-border">
+              <div className="ml-[1.1rem] border-l border-border dark:border-neutral-900">
                 <div className="space-y-4 pb-10 pl-8 pt-1">
                   <h1 className="font-medium text-primary">Add Tailwind CSS</h1>
                   <CodeBlock
@@ -226,7 +226,7 @@ export default async function InstallationSlugPage({
               <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
                 <span className="font-semibold text-primary">4</span>
               </div>
-              <div className="ml-[1.1rem] border-l border-border">
+              <div className="ml-[1.1rem] border-l border-border dark:border-neutral-900">
                 <div className="space-y-4 pb-10 pl-8 pt-1">
                   <h1 className="font-medium text-primary">
                     Edit{" "}
@@ -248,7 +248,7 @@ export default async function InstallationSlugPage({
               <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
                 <span className="font-semibold text-primary">5</span>
               </div>
-              <div className="ml-[1.1rem] border-l border-border">
+              <div className="ml-[1.1rem] border-l border-border dark:border-neutral-900">
                 <div className="space-y-4 pb-10 pl-8 pt-1">
                   <h1 className="font-medium text-primary">
                     Edit{" "}
@@ -270,7 +270,7 @@ export default async function InstallationSlugPage({
               <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
                 <span className="font-semibold text-primary">6</span>
               </div>
-              <div className="ml-[1.1rem] border-l border-border">
+              <div className="ml-[1.1rem] border-l border-border dark:border-neutral-900">
                 <div className="space-y-4 pl-8 pt-1">
                   <h1 className="font-medium text-primary">
                     Update{" "}

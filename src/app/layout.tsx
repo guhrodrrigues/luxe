@@ -6,6 +6,8 @@ import "@/styles/globals.css";
 import { cn } from "@/utils/cn";
 import { ThemeProvider } from "./theme-provider";
 
+import { ViewTransitions } from "next-view-transitions";
+
 export const metadata: Metadata = {
   authors: [{ name: "Gustavo Rodrigues", url: "https://guhrodrigues.com" }],
   category: "developer",
@@ -90,22 +92,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(
-          "overflow-x-hidden bg-background font-sans text-foreground antialiased outline-none",
-          fontSans.variable,
-          fontMono.variable,
-        )}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          disableTransitionOnChange
+    <ViewTransitions>
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={cn(
+            "overflow-x-hidden bg-background font-sans text-foreground antialiased outline-none",
+            fontSans.variable,
+            fontMono.variable,
+          )}
         >
-          {children}
-        </ThemeProvider>
-      </body>
-    </html>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="dark"
+            disableTransitionOnChange
+          >
+            {children}
+          </ThemeProvider>
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }

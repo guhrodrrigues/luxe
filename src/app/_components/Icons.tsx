@@ -19,7 +19,7 @@ export const Icons = {
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       className={cn(
-        "mr-1 h-[24px] w-[24px] text-neutral-600 dark:text-neutral-300",
+        "mr-1 h-[28px] w-[28px] text-neutral-600 dark:text-neutral-300",
         props.className,
       )}
       fill="currentColor"
@@ -35,8 +35,8 @@ export const Icons = {
       strokeWidth="0"
       viewBox="0 0 24 24"
       className="flex-shrink-0 text-neutral-600 dark:text-neutral-300"
-      width="30"
-      height="30"
+      width="34"
+      height="34"
       xmlns="http://www.w3.org/2000/svg"
       {...props}
     >
@@ -46,7 +46,7 @@ export const Icons = {
   motion: (props: IconProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="38"
+      width="42"
       height="14"
       viewBox="0 0 1400 454"
       className={cn("fill-neutral-600 dark:fill-neutral-300", props.className)}
@@ -184,6 +184,22 @@ export const Icons = {
           d="M232.46,40.09a29.43,29.43,0,0,0-5.91-9.61,27.28,27.28,0,0,0-9.38-6.6,32,32,0,0,0-12.8-2.39,29.68,29.68,0,0,0-15.69,4.21,31,31,0,0,0-11,11.43,32.93,32.93,0,0,0-4.09,16.54,33.93,33.93,0,0,0,4,16.38,29.88,29.88,0,0,0,11.2,11.71,32,32,0,0,0,16.77,4.32,33.86,33.86,0,0,0,11.6-1.93,28.28,28.28,0,0,0,9.21-5.35A21.13,21.13,0,0,0,232,71L220,65.05a15.59,15.59,0,0,1-5.63,5.8,16.51,16.51,0,0,1-8.7,2.16,17.07,17.07,0,0,1-9-2.39,15,15,0,0,1-5.91-6.77,17.86,17.86,0,0,1-1.5-5.74h44.54a14.68,14.68,0,0,0,.63-3c.11-1.1.17-2.22.17-3.36A32.47,32.47,0,0,0,232.46,40.09Zm-36.39-3.93a14.81,14.81,0,0,1,8.3-2.39,14.39,14.39,0,0,1,8.36,2.39,13.32,13.32,0,0,1,5,6.48,14.11,14.11,0,0,1,.84,4h-29.1A17.74,17.74,0,0,1,190.56,43,14.78,14.78,0,0,1,196.07,36.16Z"
         />
       </g>
+    </svg>
+  ),
+  radix: (props: IconProps) => (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      fill="none"
+      viewBox="4 0 17 25"
+      className={cn("fill-neutral-600 dark:fill-neutral-300", props.className)}
+      {...props}
+    >
+      <path
+        d="M12 25a8 8 0 1 1 0-16v16zM12 0H4v8h8V0zM17 8a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"
+        fill="current"
+      />
     </svg>
   ),
 };

@@ -56,16 +56,12 @@ export default function ComponentPageLayout({ children }: ComponentPageLayout) {
     <>
       <Header />
       <div className="flex max-lg:mb-14 max-lg:flex-col max-lg:gap-12">
-        <AnimateEnter delay={0.2} duration={0.3} className="flex-shrink-0">
+        <div className="flex-shrink-0">
           <Sidebar />
-        </AnimateEnter>
-        <AnimateEnter
-          delay={0.2}
-          duration={0.3}
-          className="mx-auto w-full max-w-[900px] flex-grow px-6 lg:mt-20 [@media(min-width:1024px)_and_(max-width:1500px)]:pl-52"
-        >
+        </div>
+        <div className="mx-auto w-full max-w-[900px] flex-grow px-6 lg:mt-20 [@media(min-width:1024px)_and_(max-width:1500px)]:pl-52">
           {children}
-        </AnimateEnter>
+        </div>
       </div>
     </>
   );

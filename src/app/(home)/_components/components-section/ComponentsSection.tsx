@@ -1,6 +1,6 @@
-import Link from "next/link";
+import { Link } from "next-view-transitions";
 
-import { ChevronLeftIcon, ChevronRightIcon } from "lucide-react";
+import { ChevronRightIcon } from "lucide-react";
 
 import { ComponentsExample } from "./ComponentsExample";
 import { AnimateEnter } from "../AnimateEnter";

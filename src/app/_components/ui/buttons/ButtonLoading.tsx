@@ -43,7 +43,7 @@ function Spinner() {
 function TextShine() {
   return (
     <motion.h1
-      className="bg-[linear-gradient(110deg,#696969,35%,#fff,50%,#696969,75%,#696969)] bg-[length:200%_100%] bg-clip-text text-sm font-medium text-transparent dark:bg-[linear-gradient(110deg,#bfbfbf,35%,#000,50%,#bfbfbf,75%,#bfbfbf)]"
+      className="bg-[linear-gradient(110deg,#696969,35%,#fff,50%,#696969,75%,#696969)] bg-[length:200%_100%] bg-clip-text text-sm font-medium text-transparent dark:bg-[linear-gradient(110deg,#747373,35%,#000,50%,#747373,75%,#747373)]"
       initial={{ backgroundPosition: "200% 0" }}
       animate={{ backgroundPosition: "-200% 0" }}
       transition={{

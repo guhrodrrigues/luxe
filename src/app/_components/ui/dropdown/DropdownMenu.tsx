@@ -1,7 +1,5 @@
 "use client"; // @NOTE: add in case you are using Next.js
 
-import Link from "next/link";
-
 import { useState, useEffect } from "react";
 
 import { useAnimate, stagger, motion } from "motion/react";

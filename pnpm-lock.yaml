@@ -38,6 +38,9 @@ importers:
       next-themes:
         specifier: ^0.4.4
         version: 0.4.4(react-dom@18.0.0(react@18.0.0))(react@18.0.0)
+      next-view-transitions:
+        specifier: ^0.3.4
+        version: 0.3.4(next@14.2.10(react-dom@18.0.0(react@18.0.0))(react@18.0.0))(react-dom@18.0.0(react@18.0.0))(react@18.0.0)
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
@@ -2084,6 +2087,13 @@ packages:
     peerDependencies:
       react: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
       react-dom: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
+
+  next-view-transitions@0.3.4:
+    resolution: {integrity: sha512-SSiskenQ8JkEFGzPjvFwC5LGGoqgTxM5dxexkeugxvcXFLpWI2ZUh4IsCURD3ovW+8Ue7xXlrtrpy8b7XR7IwQ==}
+    peerDependencies:
+      next: '>=14.0.0'
+      react: ^18.2.0
+      react-dom: ^18.2.0
 
   next@14.2.10:
     resolution: {integrity: sha512-sDDExXnh33cY3RkS9JuFEKaS4HmlWmDKP1VJioucCG6z5KuA008DPsDZOzi8UfqEk3Ii+2NCQSJrfbEWtZZfww==}
@@ -5049,6 +5059,12 @@ snapshots:
 
   next-themes@0.4.4(react-dom@18.0.0(react@18.0.0))(react@18.0.0):
     dependencies:
+      react: 18.0.0
+      react-dom: 18.0.0(react@18.0.0)
+
+  next-view-transitions@0.3.4(next@14.2.10(react-dom@18.0.0(react@18.0.0))(react@18.0.0))(react-dom@18.0.0(react@18.0.0))(react@18.0.0):
+    dependencies:
+      next: 14.2.10(react-dom@18.0.0(react@18.0.0))(react@18.0.0)
       react: 18.0.0
       react-dom: 18.0.0(react@18.0.0)
 

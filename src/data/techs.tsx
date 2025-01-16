@@ -13,4 +13,8 @@ export const TECHS = [
     icon: <Icons.motion />,
     name: "Motion",
   },
+  {
+    icon: <Icons.radix />,
+    name: "Radix UI",
+  },
 ];
