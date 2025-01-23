@@ -59,7 +59,7 @@ export function Footer() {
                   <Link
                     key={idx}
                     href={slug}
-                    className="relative flex w-fit items-center gap-1 text-foreground duration-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-400 after:transition-transform after:duration-300 after:ease-in-out hover:text-primary hover:after:origin-bottom-left hover:after:scale-x-100"
+                    className="group flex w-fit items-center gap-1 text-foreground duration-200 hover:text-primary"
                   >
                     {name}
                   </Link>
@@ -73,7 +73,7 @@ export function Footer() {
                   href="https://github.com/guhrodrrigues/luxe"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative flex w-fit items-center gap-1 text-foreground duration-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-400 after:transition-transform after:duration-300 after:ease-in-out hover:text-primary hover:after:origin-bottom-left hover:after:scale-x-100"
+                  className="group flex w-fit items-center gap-1 text-foreground duration-200 hover:text-primary"
                 >
                   GitHub
                   <ArrowIconGlitch />
@@ -82,7 +82,7 @@ export function Footer() {
                   href="https://twitter.com/guhrodrrigues"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative flex items-center gap-1 text-foreground duration-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-400 after:transition-transform after:duration-300 after:ease-in-out hover:text-primary hover:after:origin-bottom-left hover:after:scale-x-100"
+                  className="group flex w-fit items-center gap-1 text-foreground duration-200 hover:text-primary"
                 >
                   Twitter
                   <ArrowIconGlitch />
@@ -118,7 +118,7 @@ function ArrowIconGlitch() {
       <span className="absolute left-0 top-0 text-neutral-400 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full group-hover:translate-x-full">
         <ArrowUpRightIcon size={10} />
       </span>
-      <span className="absolute left-0 top-0 -translate-x-full translate-y-full text-neutral-400 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-x-0 group-hover:translate-y-0">
+      <span className="absolute left-0 top-0 -translate-x-full translate-y-full text-primary transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-x-0 group-hover:translate-y-0">
         <ArrowUpRightIcon size={10} />
       </span>
     </div>
