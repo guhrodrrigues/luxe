@@ -35,7 +35,7 @@ export function ComponentsExample() {
     <div className="grid gap-5 md:grid-cols-3">
       {COMPONENTS_EXAMPLE.map(
         ({ isReloadAnimation, component, className }, idx) => (
-          <AnimateEnter key={idx} delay={idx * 0.05} className={className}>
+          <AnimateEnter key={idx} delay={idx * 0.03} className={className}>
             <ComponentView isReloadAnimation={isReloadAnimation}>
               {component}
             </ComponentView>

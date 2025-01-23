@@ -59,7 +59,7 @@ export function Footer() {
                   <Link
                     key={idx}
                     href={slug}
-                    className="group flex items-center gap-1 text-foreground duration-200 hover:text-primary"
+                    className="relative flex w-fit items-center gap-1 text-foreground duration-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-400 after:transition-transform after:duration-300 after:ease-in-out hover:text-primary hover:after:origin-bottom-left hover:after:scale-x-100"
                   >
                     {name}
                   </Link>
@@ -73,7 +73,7 @@ export function Footer() {
                   href="https://github.com/guhrodrrigues/luxe"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-1 text-foreground duration-200 hover:text-primary"
+                  className="group relative flex w-fit items-center gap-1 text-foreground duration-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-400 after:transition-transform after:duration-300 after:ease-in-out hover:text-primary hover:after:origin-bottom-left hover:after:scale-x-100"
                 >
                   GitHub
                   <ArrowIconGlitch />
@@ -82,7 +82,7 @@ export function Footer() {
                   href="https://twitter.com/guhrodrrigues"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex items-center gap-1 text-foreground duration-200 hover:text-primary"
+                  className="group relative flex items-center gap-1 text-foreground duration-200 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right after:scale-x-0 after:bg-neutral-400 after:transition-transform after:duration-300 after:ease-in-out hover:text-primary hover:after:origin-bottom-left hover:after:scale-x-100"
                 >
                   Twitter
                   <ArrowIconGlitch />

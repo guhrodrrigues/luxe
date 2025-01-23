@@ -9,17 +9,14 @@ import { TextAnimateEnter } from "@/app/_components/TextAnimateEnter";
 export function ComponentsSection() {
   return (
     <section className="mt-56 flex flex-col items-center justify-center gap-20">
-      <AnimateEnter className="space-y-5 text-center">
+      <AnimateEnter className="space-y-6 text-center">
         <h1 className="text-gradient mx-auto max-w-2xl text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
           Elevate your web apps with sophisticated components
         </h1>
-        <TextAnimateEnter
-          text={`Simply click on a component, copy the code and paste it into your project. This will give your application an extra shine.`}
-          className="text-neutral-600 dark:text-neutral-300"
-          containerClassName="max-w-lg mx-auto"
-          initialDelay={0.1}
-          duration={0.6}
-        />
+        <p className="mx-auto max-w-lg text-neutral-600 dark:text-neutral-300">
+          Simply click on a component, copy the code and paste it into your
+          project. This will give your application an extra shine.
+        </p>
       </AnimateEnter>
       <ComponentsExample />
       <AnimateEnter delay={0.3}>

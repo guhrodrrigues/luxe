@@ -1,4 +1,3 @@
-import { TextAnimateEnter } from "@/app/_components/TextAnimateEnter";
 import { Techs } from "./Techs";
 import { AnimateEnter } from "../AnimateEnter";
 
@@ -19,16 +18,15 @@ export function TechsSection() {
           }}
         />
         <div className="flex flex-col items-center justify-center gap-10">
-          <AnimateEnter delay={0.6}>
-            <TextAnimateEnter
-              text={`Various technologies used to build beautiful interfaces, fluid animations and easy access.`}
-              containerClassName="text-center max-w-md mx-auto px-3 leading-relaxed"
-              className="text-neutral-600 dark:text-neutral-300"
-              initialDelay={0.5}
-              duration={0.6}
-            />
+          <AnimateEnter delay={0.4}>
+            <p className="mx-auto max-w-md px-3 text-center leading-relaxed text-neutral-600 dark:text-neutral-300">
+              Various technologies used to build beautiful interfaces, fluid
+              animations and easy access.
+            </p>
           </AnimateEnter>
-          <Techs />
+          <AnimateEnter delay={0.5}>
+            <Techs />
+          </AnimateEnter>
         </div>
       </div>
     </section>

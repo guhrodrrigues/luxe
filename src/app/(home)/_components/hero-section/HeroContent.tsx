@@ -21,21 +21,19 @@ export async function HeroContent() {
   const starCount = await getRepoStarCount();
 
   return (
-    <div className="z-[3] flex flex-col items-center gap-5 text-center">
-      <AnimateEnter>
+    <div className="z-[3] flex flex-col items-center gap-6 text-center">
+      <AnimateEnter delay={0.1}>
         <Icons.slogan />
       </AnimateEnter>
-      <AnimateEnter delay={0.1}>
-        <TextAnimateEnter
-          text={`Library of components copy and paste to illuminate your applications with elegance and sophistication.`}
-          className="text-neutral-600 dark:text-neutral-300"
-          containerClassName="max-w-md mx-auto"
-          duration={0.6}
-        />
+      <AnimateEnter delay={0.2}>
+        <p className="mx-auto max-w-md text-neutral-600 dark:text-neutral-300">
+          Library of components copy and paste to illuminate your applications
+          with elegance and sophistication.
+        </p>
       </AnimateEnter>
       <AnimateEnter
         className="flex flex-wrap items-center justify-center gap-2"
-        delay={0.5}
+        delay={0.3}
       >
         <ButtonGlitchBrightness href="/ui/installation" text="Get Started" />
         <a

@@ -1,10 +1,12 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
+import { useTheme } from "next-themes";
+
 import { TextMorph } from "@/app/_components/TextMorph";
 import { AnimatePresence, motion, useScroll } from "motion/react";
-import { useTheme } from "next-themes";
 import { Icons } from "@/app/_components/Icons";
-import { useEffect, useState } from "react";
 
 export function FloatToggleTheme() {
   const [visible, setVisible] = useState(false);

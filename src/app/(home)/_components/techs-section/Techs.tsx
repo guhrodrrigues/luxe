@@ -1,12 +1,8 @@
 import { TECHS } from "@/data/techs";
-import { AnimateEnter } from "../AnimateEnter";
 
 export function Techs() {
   return (
-    <AnimateEnter
-      className="flex items-center justify-center gap-10 gap-y-6 max-sm:flex-col"
-      delay={0.9}
-    >
+    <div className="flex items-center justify-center gap-10 gap-y-6 max-sm:flex-col">
       <div className="flex items-center gap-10">
         {TECHS.slice(0, 2).map(({ icon, name }) => (
           <div key={name} className="flex items-center gap-1">
@@ -27,6 +23,6 @@ export function Techs() {
           </div>
         ))}
       </div>
-    </AnimateEnter>
+    </div>
   );
 }
