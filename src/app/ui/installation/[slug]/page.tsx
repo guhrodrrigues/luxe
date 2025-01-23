@@ -1,12 +1,9 @@
-import Link from "next/link";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { promisify } from "util";
 import fs from "fs";
 import path from "path";
-
-import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 
 import { INSTALLATION } from "../_data/installation";
 import { CodeBlock } from "../../_components/CodeBlock";
@@ -117,9 +114,9 @@ export default async function InstallationSlugPage({
               </div>
               <div className="ml-[1.1rem] border-l border-border dark:border-neutral-900">
                 <div className="space-y-4 pb-10 pl-8 pt-1">
-                  <h1 className="font-medium text-primary">
+                  <h2 className="font-medium text-primary">
                     Create a new project
-                  </h1>
+                  </h2>
                   <CodeBlock
                     fileName="Terminal"
                     code="npx create-next-app@latest my-app"
@@ -135,10 +132,10 @@ export default async function InstallationSlugPage({
               </div>
               <div className="ml-[1.1rem] border-l border-border dark:border-neutral-900">
                 <div className="space-y-4 pb-10 pl-8 pt-1">
-                  <h1 className="font-medium text-primary">
+                  <h2 className="font-medium text-primary">
                     After the above command, it is mandatory to select these
                     values in the prompts
-                  </h1>
+                  </h2>
                   <CodeBlock
                     code={await readFilePath("next")}
                     lang="shellscript"
@@ -154,7 +151,7 @@ export default async function InstallationSlugPage({
               </div>
               <div className="ml-[1.1rem] border-l border-border dark:border-neutral-900">
                 <div className="space-y-4 pl-8 pt-1">
-                  <h1 className="font-medium text-primary">Start the app</h1>
+                  <h2 className="font-medium text-primary">Start the app</h2>
                   <CodeBlock
                     fileName="Terminal"
                     code={"cd my-app && npm run dev"}
@@ -172,9 +169,9 @@ export default async function InstallationSlugPage({
               </div>
               <div className="ml-[1.1rem] border-l border-border dark:border-neutral-900">
                 <div className="space-y-4 pb-10 pl-8 pt-1">
-                  <h1 className="font-medium text-primary">
+                  <h2 className="font-medium text-primary">
                     Create a new project
-                  </h1>
+                  </h2>
                   <CodeBlock
                     fileName="Terminal"
                     code="npm create vite my-app"
@@ -190,9 +187,9 @@ export default async function InstallationSlugPage({
               </div>
               <div className="ml-[1.1rem] border-l border-border dark:border-neutral-900">
                 <div className="space-y-4 pb-10 pl-8 pt-1">
-                  <h1 className="font-medium text-primary">
-                    After the above command, install and enter the application
-                  </h1>
+                  <h2 className="font-medium text-primary">
+                    Install dependencies
+                  </h2>
                   <CodeBlock
                     fileName="Terminal"
                     code="cd my-app && npm i"
@@ -208,7 +205,7 @@ export default async function InstallationSlugPage({
               </div>
               <div className="ml-[1.1rem] border-l border-border dark:border-neutral-900">
                 <div className="space-y-4 pb-10 pl-8 pt-1">
-                  <h1 className="font-medium text-primary">Add Tailwind CSS</h1>
+                  <h2 className="font-medium text-primary">Add Tailwind CSS</h2>
                   <CodeBlock
                     fileName="Terminal"
                     code={
@@ -228,13 +225,13 @@ export default async function InstallationSlugPage({
               </div>
               <div className="ml-[1.1rem] border-l border-border dark:border-neutral-900">
                 <div className="space-y-4 pb-10 pl-8 pt-1">
-                  <h1 className="font-medium text-primary">
+                  <h2 className="font-medium text-primary">
                     Edit{" "}
                     <code className="rounded bg-neutral-300/80 px-1 py-1 font-mono text-sm dark:bg-neutral-800/80">
                       tsconfig.json
                     </code>{" "}
                     file
-                  </h1>
+                  </h2>
                   <CodeBlock
                     fileName="tsconfig.json"
                     code={await readFilePath("tsconfig.json")}
@@ -250,13 +247,13 @@ export default async function InstallationSlugPage({
               </div>
               <div className="ml-[1.1rem] border-l border-border dark:border-neutral-900">
                 <div className="space-y-4 pb-10 pl-8 pt-1">
-                  <h1 className="font-medium text-primary">
+                  <h2 className="font-medium text-primary">
                     Edit{" "}
                     <code className="rounded bg-neutral-300/80 px-1 py-1 font-mono text-sm dark:bg-neutral-800/80">
                       tsconfig.app.json
                     </code>{" "}
                     file
-                  </h1>
+                  </h2>
                   <CodeBlock
                     code={await readFilePath("tsconfig.app.json")}
                     fileName="tsconfig.app.json"
@@ -272,12 +269,12 @@ export default async function InstallationSlugPage({
               </div>
               <div className="ml-[1.1rem] border-l border-border dark:border-neutral-900">
                 <div className="space-y-4 pl-8 pt-1">
-                  <h1 className="font-medium text-primary">
+                  <h2 className="font-medium text-primary">
                     Update{" "}
                     <code className="rounded bg-neutral-300/80 px-1 py-1 font-mono text-sm dark:bg-neutral-800/80">
                       vite.config.ts
                     </code>
-                  </h1>
+                  </h2>
                   <div className="space-y-3.5">
                     <CodeBlock
                       fileName="Terminal"

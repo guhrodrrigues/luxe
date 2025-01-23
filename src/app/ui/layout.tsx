@@ -1,9 +1,7 @@
 import { Metadata } from "next";
 
 import { Sidebar } from "@/app/ui/_components/sidebar/Sidebar";
-import { AnimateEnter } from "@/app/(home)/_components/AnimateEnter";
 import { Header } from "@/app/ui/_components/Header";
-import { ThemeProvider } from "../theme-provider";
 
 export const metadata: Metadata = {
   title: {

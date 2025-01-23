@@ -1,11 +1,8 @@
 import { Metadata } from "next";
-import Link from "next/link";
 
 import fs from "fs";
 import path from "path";
 import { promisify } from "util";
-
-import { ArrowLeftIcon, ArrowRightIcon } from "lucide-react";
 
 import { Breadcrumbs } from "../_components/Breadcrumbs";
 import { CodeBlock } from "../_components/CodeBlock";
@@ -86,7 +83,7 @@ export default async function AddUtilitiesPage() {
           </div>
           <div className="ml-[1.1rem] border-l border-border dark:border-neutral-900">
             <div className="space-y-4 pb-10 pl-8 pt-1">
-              <h1 className="font-medium text-primary">Install dependencies</h1>
+              <h2 className="font-medium text-primary">Install dependencies</h2>
               <CodeBlock
                 code="npm i clsx tailwind-merge"
                 fileName="Terminal"
@@ -101,12 +98,12 @@ export default async function AddUtilitiesPage() {
           </div>
           <div className="ml-[1.1rem] border-l border-border dark:border-neutral-900">
             <div className="space-y-4 pl-8 pt-1">
-              <h1 className="font-medium text-primary">
+              <h2 className="font-medium text-primary">
                 Create a file with the path{" "}
                 <code className="rounded bg-neutral-300/80 px-1 py-1 font-mono text-sm dark:bg-neutral-800/80">
                   utils/cn.ts
                 </code>
-              </h1>
+              </h2>
               <CodeBlock code={cnCode} fileName="utils/cn.ts" />
             </div>
           </div>

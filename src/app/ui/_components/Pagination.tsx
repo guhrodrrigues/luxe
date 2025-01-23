@@ -20,7 +20,7 @@ export function Pagination({ back, next }: PaginationProps) {
       <div>
         {back?.href && back?.name && (
           <Link href={back.href} className="group flex flex-col gap-1.5">
-            <span className="ml-[18px] text-[13px] font-medium leading-none">
+            <span className="ml-[18px] text-sm font-medium leading-none">
               Previous
             </span>
             <div className="flex items-center gap-1">
@@ -35,7 +35,7 @@ export function Pagination({ back, next }: PaginationProps) {
       <div>
         {next?.href && next?.name && (
           <Link href={next.href} className="group flex flex-col gap-1.5">
-            <span className="mr-[18px] text-end text-[13px] font-medium leading-none">
+            <span className="mr-[18px] text-end text-sm font-medium leading-none">
               Next
             </span>
             <div className="flex items-center gap-1">
