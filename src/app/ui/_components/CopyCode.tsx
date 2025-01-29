@@ -17,7 +17,7 @@ export function CopyCode({ code }: CopyCode) {
     navigator.clipboard.writeText(code);
     setCopied(true);
 
-    setTimeout(() => setCopied(false), 1500);
+    setTimeout(() => setCopied(false), 1200);
   }
 
   return (
