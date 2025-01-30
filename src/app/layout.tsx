@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     template: "%s · Luxe",
   },
   description:
-    "Library of components copy and paste to illuminate your applications with elegance and sophistication.",
+    "Copy and paste components ready to use. Accessible & practical.",
   icons: ["/favicon.svg"],
   keywords: [
     "Gustavo Rodrigues",
@@ -40,6 +40,7 @@ export const metadata: Metadata = {
     "UX Design",
     "Developer",
     "Software",
+    "Copy and paste components ready to use. Accessible & practical.",
     "Design",
     "Vercel",
     "Next.js",
@@ -63,7 +64,7 @@ export const metadata: Metadata = {
     siteName: "Gustavo Rodrigues",
     title: "Luxe",
     description:
-      "Copy & Paste components. Illuminate your apps. Fast and Easy.",
+      "Copy and paste components ready to use. Accessible & practical.",
     type: "website",
     url: "https://luxeui.com",
   },
@@ -80,7 +81,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Luxe",
     description:
-      "Copy & Paste components. Illuminate your apps. Fast and Easy.",
+      "Copy and paste components ready to use. Accessible & practical.",
     site: "@guhrodrrigues",
     creator: "Gustavo Rodrigues",
   },
