@@ -27,11 +27,11 @@ export function Footer() {
       <Blur />
       <div className="relative mx-auto w-full max-w-7xl px-8 py-16 md:px-3">
         <div className="flex gap-10 max-md:flex-col md:justify-between">
-          <div className="flex flex-col gap-5">
-            <AnimateEnter>
+          <AnimateEnter className="flex flex-col gap-5">
+            <div>
               <Icons.logo className="w-20" />
-            </AnimateEnter>
-            <AnimateEnter delay={0.1} className="flex flex-col gap-1">
+            </div>
+            <div className="flex flex-col gap-1">
               <p className="text-sm text-primary text-opacity-80">
                 Elevating the web design.
               </p>
@@ -46,13 +46,11 @@ export function Footer() {
                 </a>{" "}
                 &#169; {new Date().getFullYear()}
               </p>
-            </AnimateEnter>
-            <AnimateEnter delay={0.2}>
-              <RequestComponentButton />
-            </AnimateEnter>
-          </div>
+            </div>
+            <RequestComponentButton />
+          </AnimateEnter>
           <div className="flex items-start gap-10 max-sm:flex-col sm:gap-36">
-            <AnimateEnter delay={0.3} className="space-y-4">
+            <AnimateEnter delay={0.1} className="space-y-4">
               <div className="flex flex-col gap-4 text-sm">
                 <h1 className="font-medium text-primary">Explore</h1>
                 {NAVIGATE.map(({ name, slug }, idx) => (
@@ -66,7 +64,7 @@ export function Footer() {
                 ))}
               </div>
             </AnimateEnter>
-            <AnimateEnter delay={0.4} className="space-y-4">
+            <AnimateEnter delay={0.2} className="space-y-4">
               <div className="flex flex-col gap-4 text-sm">
                 <h1 className="font-medium text-primary">Connect</h1>
                 <a
