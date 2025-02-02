@@ -44,6 +44,7 @@ import { TooltipExample } from "@/app/_components/ui/tooltip";
 import { MultiStepModal } from "@/app/_components/ui/modals";
 import { CheckboxExample } from "@/app/_components/ui/checkbox/Checkbox";
 import { Spinner } from "@/app/_components/ui/icons";
+import { ScrollProgress } from "@/app/_components/ui/progress";
 
 const TWCONFIG = {
   ["animated-border"]: {
@@ -441,5 +442,19 @@ export const COMPONENTS = [
     type: "docks",
     download: "npm i motion clsx tailwind-merge lucide-react",
     cnFunction: true,
+  },
+  {
+    name: "Scroll Progress",
+    slug: "scroll-progress",
+    component: (
+      <>
+        <ScrollProgress />
+        <h1>Scroll through the page!</h1>
+      </>
+    ),
+    type: "progress",
+    download: "npm i motion clsx tailwind-merge",
+    cnFunction: true,
+    isNew: true,
   },
 ];
