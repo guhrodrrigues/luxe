@@ -26,7 +26,7 @@ const STEPS = [
   {
     title: "Copy now",
     description:
-      "Elevate your project with sophisticated, ready-to-use components. Illuminate up your app quickly, easily and effortlessly!",
+      "Elevate your project with sophisticated, ready to use components. Illuminate up your app quickly, easily and effortlessly!",
   },
 ];
 

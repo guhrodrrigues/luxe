@@ -21,16 +21,19 @@ export function CardHoverEffect({
 
   const ITEMS = [
     {
-      title: "Luxe",
-      description: "Explore the new library of components copy and paste.",
+      title: "How to use?",
+      description:
+        "Simply click on a component, copy the code and paste it into your app.",
     },
     {
-      title: "Luxe",
-      description: "Explore the new library of components copy and paste.",
+      title: "Results",
+      description:
+        "Luxe will add extra shine to your application, with smooth components.",
     },
     {
-      title: "Luxe",
-      description: "Explore the new library of components copy and paste.",
+      title: "Copy now",
+      description:
+        "Elevate your project with sophisticated, ready to use components.",
     },
   ];
 

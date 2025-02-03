@@ -13,7 +13,7 @@ export function Sidebar() {
   );
 
   return (
-    <aside className="right-dotted bottom-0 left-0 top-0 h-screen w-[250px] flex-1 bg-main pt-7 max-lg:hidden lg:fixed">
+    <aside className="right-dotted fixed bottom-0 left-0 top-0 h-screen w-[250px] flex-1 bg-main pt-7 max-lg:hidden">
       <div className="-mx-0.5 flex items-center justify-between px-6 pb-[14px]">
         <Link href="/">
           <Icons.logo className="w-16" />
