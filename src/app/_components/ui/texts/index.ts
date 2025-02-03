@@ -6,3 +6,4 @@ export * from "./TextShake";
 export * from "./TextAnimatedDecoration";
 export * from "./TextGenerateEffect";
 export * from "./TextHoverEnter";
+export * from "./TextNumberTicker";

@@ -4,21 +4,21 @@ import { cn } from "@/utils/cn";
 import { useInView, useMotionValue, useSpring } from "motion/react";
 import { ComponentPropsWithoutRef, useEffect, useRef } from "react";
 
-type NumberTickerProps = {
+type TextNumberTickerProps = {
   value: number;
   direction?: "up" | "down";
   delay?: number;
   decimalPlaces?: number;
 } & ComponentPropsWithoutRef<"span">;
 
-export function NumberTicker({
+export function TextNumberTicker({
   value,
   direction = "up",
   delay = 0,
   className,
   decimalPlaces = 0,
   ...props
-}: NumberTickerProps) {
+}: TextNumberTickerProps) {
   const ref = useRef<HTMLSpanElement>(null);
   const isDown = direction.includes("down");
   const isInView = useInView(ref, { once: true, margin: "0px" });

@@ -44,7 +44,7 @@ import { TooltipExample } from "@/app/_components/ui/tooltip";
 import { MultiStepModal } from "@/app/_components/ui/modals";
 import { CheckboxExample } from "@/app/_components/ui/checkbox/Checkbox";
 import { Spinner } from "@/app/_components/ui/icons";
-import { NumberTicker } from "@/app/_components/ui/texts/NumberTicker";
+import { TextNumberTicker } from "@/app/_components/ui/texts/TextNumberTicker";
 
 const TWCONFIG = {
   ["animated-border"]: {
@@ -444,9 +444,9 @@ export const COMPONENTS = [
     cnFunction: true,
   },
   {
-    name: "Number Ticker",
-    slug: "number-ticker",
-    component: <NumberTicker value={100} className="text-3xl" />,
+    name: "Text Number Ticker",
+    slug: "text-number-ticker",
+    component: <TextNumberTicker value={100} className="text-3xl" />,
     type: "texts",
     download: "npm i motion clsx tailwind-merge",
     cnFunction: true,
