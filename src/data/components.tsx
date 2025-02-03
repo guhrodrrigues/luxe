@@ -446,7 +446,7 @@ export const COMPONENTS = [
   {
     name: "Number Ticker",
     slug: "number-ticker",
-    component: <NumberTicker value={100} />,
+    component: <NumberTicker value={100} className="text-3xl" />,
     type: "texts",
     download: "npm i motion clsx tailwind-merge",
     cnFunction: true,
