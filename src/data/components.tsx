@@ -44,6 +44,7 @@ import { TooltipExample } from "@/app/_components/ui/tooltip";
 import { MultiStepModal } from "@/app/_components/ui/modals";
 import { CheckboxExample } from "@/app/_components/ui/checkbox/Checkbox";
 import { Spinner } from "@/app/_components/ui/icons";
+import { NumberTicker } from "@/app/_components/ui/texts/NumberTicker";
 
 const TWCONFIG = {
   ["animated-border"]: {
@@ -441,5 +442,14 @@ export const COMPONENTS = [
     type: "docks",
     download: "npm i motion clsx tailwind-merge lucide-react",
     cnFunction: true,
+  },
+  {
+    name: "Number Ticker",
+    slug: "number-ticker",
+    component: <NumberTicker value={100} />,
+    type: "texts",
+    download: "npm i motion clsx tailwind-merge",
+    cnFunction: true,
+    isNew: true,
   },
 ];
