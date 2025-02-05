@@ -27,7 +27,7 @@ export function CodeBlock({
       )}
     >
       {fileName && copyCode && (
-        <div className="flex h-10 items-center justify-between border-b border-neutral-300/50 bg-neutral-200/30 px-4 dark:border-neutral-800/60 dark:bg-neutral-900/30">
+        <div className="flex h-10 items-center justify-between border-b border-neutral-300/50 bg-neutral-200/30 pl-4 pr-3 dark:border-neutral-800/60 dark:bg-neutral-900/30">
           <div className="flex items-center gap-2">
             {fileName === "Terminal" ? (
               <TerminalIcon

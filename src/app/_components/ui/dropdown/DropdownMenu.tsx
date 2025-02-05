@@ -1,4 +1,4 @@
-"use client"; // @NOTE: add in case you are using Next.js
+"use client"; // @NOTE: Add in case you are using Next.js
 
 import { useState, useEffect } from "react";
 
@@ -68,7 +68,7 @@ export function DropdownMenu({ className, ...props }: DropdownMenuProps) {
       icon: <TrashIcon size={16} />,
       name: "Remove account",
       customStyle:
-        "!text-red-500 hover:bg-red-500/10 focus-visible:text-red-500 focus-visible:bg-red-500/10 focus-visible:border-red-500/10",
+        "!text-red-500 duration-150 hover:bg-red-500/10 focus-visible:text-red-500 focus-visible:bg-red-500/10 focus-visible:!border-red-500/10",
     },
   ];
 
@@ -80,34 +80,37 @@ export function DropdownMenu({ className, ...props }: DropdownMenuProps) {
     >
       <motion.button
         whileTap={{ scale: 0.97 }}
-        className="flex w-full max-w-[300px] items-center justify-between rounded-xl border border-neutral-200 bg-neutral-50 p-2.5 dark:border-neutral-800 dark:bg-neutral-900"
+        className={cn(
+          "flex w-full max-w-[300px] items-center justify-between rounded-xl border border-neutral-200 bg-neutral-50 px-3.5 py-2.5",
+          "focus-visible:border-neutral-300 focus-visible:outline-none dark:border-neutral-800 dark:bg-neutral-900 dark:focus-visible:border-neutral-700",
+        )}
         onClick={() => setIsOpen((prevState) => !prevState)}
       >
         <span className="text-sm font-medium text-neutral-500 dark:text-neutral-300">
           Settings
         </span>
         <div style={{ transformOrigin: "50% 55%" }}>
-          <SettingsIcon size={14} className="text-neutral-400" id="menu-icon" />
+          <SettingsIcon size={15} className="text-neutral-400" id="menu-icon" />
         </div>
       </motion.button>
       <ul
         className={cn(
-          "absolute z-[1] mx-auto w-full max-w-[200px] space-y-3 rounded-xl border border-neutral-200 bg-neutral-50 p-2.5 dark:border-neutral-800 dark:bg-neutral-900",
+          // @NOTE: Add absolute position to the floating dropdown menu
+          "relative z-[1] mx-auto w-full max-w-[200px] space-y-1.5 rounded-xl border border-neutral-200 bg-neutral-50 p-2.5 dark:border-neutral-800 dark:bg-neutral-900",
           isOpen ? "pointer-events-auto" : "pointer-events-none",
         )}
-        style={{
-          clipPath: "inset(10% 50% 90% 50% round 12px)",
-        }}
       >
-        {items.map(({ icon, name, customStyle }) => (
-          <li key={name}>
+        {items.map(({ icon, name, customStyle }, index) => (
+          <li key={index}>
             <button
               className={cn(
-                "group flex w-full items-center gap-2 rounded-md border border-transparent text-neutral-500 hover:text-neutral-600 focus-visible:border-neutral-200 focus-visible:text-neutral-600 focus-visible:outline-none dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus-visible:border-neutral-800 dark:focus-visible:text-neutral-300",
+                "group flex w-full items-center gap-2 rounded-md border border-transparent p-0.5 text-neutral-500 transition-colors",
+                "hover:text-neutral-600 focus-visible:border-neutral-200 focus-visible:text-neutral-600 focus-visible:outline-none",
+                "dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus-visible:border-neutral-800 dark:focus-visible:text-neutral-300",
                 customStyle,
               )}
             >
-              <span>{icon}</span>
+              {icon}
               <span className="flex items-center gap-1 text-sm font-medium">
                 {name}
                 <ChevronRightIcon

@@ -1,4 +1,4 @@
-"use client"; // @NOTE: add in case you are using Next.js
+"use client"; // @NOTE: Add in case you are using Next.js
 
 import { useEffect, useRef, useState } from "react";
 

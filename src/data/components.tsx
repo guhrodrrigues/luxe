@@ -390,6 +390,7 @@ export const COMPONENTS = [
     colSpan: true,
     type: "dropdown",
     download: "npm i motion clsx tailwind-merge lucide-react",
+    isUpdated: true,
     cnFunction: true,
   },
   {
