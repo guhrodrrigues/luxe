@@ -26,7 +26,7 @@ export default function NotFoundPage() {
             <div className="h-full w-full" />
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center gap-4 text-center">
+        <div className="flex flex-col items-center justify-center gap-6 text-center">
           <h1 className="text-gradient text-5xl font-bold">Not Found</h1>
           <p className="mx-auto max-w-md text-neutral-600 dark:text-neutral-300">
             The route you're trying to access doesn't exist.
