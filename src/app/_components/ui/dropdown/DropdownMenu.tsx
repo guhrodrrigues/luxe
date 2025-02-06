@@ -99,6 +99,7 @@ export function DropdownMenu({ className, ...props }: DropdownMenuProps) {
           "relative z-[1] mx-auto flex w-full max-w-[200px] flex-col gap-1.5 rounded-xl border border-neutral-200 bg-neutral-50 px-1.5 py-2.5 dark:border-neutral-800 dark:bg-neutral-900",
           isOpen ? "pointer-events-auto" : "pointer-events-none",
         )}
+        style={{ clipPath: "inset(10% 50% 90% 50% round 12px)" }}
       >
         {items.map(({ icon, name, customStyle }, index) => (
           <li key={index}>
