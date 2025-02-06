@@ -68,7 +68,7 @@ export function DropdownMenu({ className, ...props }: DropdownMenuProps) {
       icon: <TrashIcon size={16} />,
       name: "Remove account",
       customStyle:
-        "!text-red-500 duration-150 hover:bg-red-500/10 focus-visible:text-red-500 focus-visible:bg-red-500/10 focus-visible:!border-red-500/10",
+        "!text-red-500 duration-150 hover:!bg-red-600/10 focus-visible:text-red-500 focus-visible:!bg-red-500/10 focus-visible:!border-red-500/10",
     },
   ];
 
@@ -96,7 +96,7 @@ export function DropdownMenu({ className, ...props }: DropdownMenuProps) {
       <ul
         className={cn(
           // @NOTE: Add absolute position to the floating dropdown menu
-          "relative z-[1] mx-auto w-full max-w-[200px] space-y-1.5 rounded-xl border border-neutral-200 bg-neutral-50 p-2.5 dark:border-neutral-800 dark:bg-neutral-900",
+          "relative z-[1] mx-auto flex w-full max-w-[200px] flex-col gap-1.5 rounded-xl border border-neutral-200 bg-neutral-50 px-1.5 py-2.5 dark:border-neutral-800 dark:bg-neutral-900",
           isOpen ? "pointer-events-auto" : "pointer-events-none",
         )}
       >
@@ -104,9 +104,10 @@ export function DropdownMenu({ className, ...props }: DropdownMenuProps) {
           <li key={index}>
             <button
               className={cn(
-                "group flex w-full items-center gap-2 rounded-md border border-transparent p-0.5 text-neutral-500 transition-colors",
+                "group flex w-full items-center gap-2 rounded-lg border border-transparent py-1 text-neutral-500 transition-colors",
                 "hover:text-neutral-600 focus-visible:border-neutral-200 focus-visible:text-neutral-600 focus-visible:outline-none",
                 "dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus-visible:border-neutral-800 dark:focus-visible:text-neutral-300",
+                "select-none px-1.5 hover:bg-neutral-200/40 focus-visible:bg-neutral-200/40 dark:hover:bg-neutral-800/60 dark:focus-visible:bg-neutral-800/60",
                 customStyle,
               )}
             >
