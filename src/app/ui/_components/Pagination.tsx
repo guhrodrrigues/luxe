@@ -16,37 +16,37 @@ type PaginationProps = {
 
 export function Pagination({ back, next }: PaginationProps) {
   return (
-    <div className="top-dotted flex items-center justify-between pt-9">
-      <div>
-        {back?.href && back?.name && (
-          <Link href={back.href} className="group flex flex-col gap-[7px]">
-            <span className="ml-[18px] text-sm font-medium leading-none">
-              Previous
-            </span>
-            <div className="flex items-center gap-1">
-              <ChevronIconGlitch />
-              <span className="text-sm font-medium leading-none text-primary">
-                {back.name}
-              </span>
-            </div>
-          </Link>
-        )}
-      </div>
-      <div>
-        {next?.href && next?.name && (
-          <Link href={next.href} className="group flex flex-col gap-[7px]">
-            <span className="mr-[18px] text-end text-sm font-medium leading-none">
+    <div className="flex gap-3 border-t border-neutral-200 pt-8 dark:border-neutral-900 max-sm:flex-col sm:items-center">
+      {back?.href && back?.name && (
+        <Link
+          href={back.href}
+          className="group flex flex-1 flex-col gap-2 whitespace-nowrap rounded-xl border border-neutral-200 p-3.5 transition-colors hover:bg-[#eeeeee] dark:border-neutral-900 dark:hover:bg-[#111111]"
+        >
+          <div className="flex items-center gap-1">
+            <ChevronIconGlitch />
+            <span className="mb-px text-sm leading-none">Previous</span>
+          </div>
+          <span className="ml-1 text-sm font-medium leading-none text-primary">
+            {back.name}
+          </span>
+        </Link>
+      )}
+      {next?.href && next?.name && (
+        <Link
+          href={next.href}
+          className="group flex flex-1 flex-col items-end gap-2 whitespace-nowrap rounded-xl border border-neutral-200 p-3.5 transition-colors hover:bg-[#eeeeee] dark:border-neutral-900 dark:hover:bg-[#111111]"
+        >
+          <div className="flex items-center gap-1">
+            <span className="mb-px text-sm leading-none text-foreground">
               Next
             </span>
-            <div className="flex items-center gap-1">
-              <span className="text-sm font-medium leading-none text-primary">
-                {next.name}
-              </span>
-              <ChevronIconGlitch direction="right" />
-            </div>
-          </Link>
-        )}
-      </div>
+            <ChevronIconGlitch direction="right" />
+          </div>
+          <span className="mr-1 text-sm font-medium leading-none text-primary">
+            {next.name}
+          </span>
+        </Link>
+      )}
     </div>
   );
 }
@@ -60,9 +60,9 @@ function ChevronIconGlitch({
     <div className="relative overflow-hidden font-medium">
       <span className="invisible">
         {direction === "left" ? (
-          <ChevronLeftIcon size={14} />
+          <ChevronLeftIcon size={15} />
         ) : (
-          <ChevronRightIcon size={14} />
+          <ChevronRightIcon size={15} />
         )}
       </span>
       <span
@@ -74,21 +74,21 @@ function ChevronIconGlitch({
         )}
       >
         {direction === "left" ? (
-          <ChevronLeftIcon size={14} />
+          <ChevronLeftIcon size={15} />
         ) : (
-          <ChevronRightIcon size={14} />
+          <ChevronRightIcon size={15} />
         )}
       </span>
       <span
         className={cn(
-          "absolute left-0 top-0 text-primary transition-transform duration-300 ease-in-out hover:duration-150 group-hover:translate-x-0",
+          "absolute left-0 top-0 text-neutral-400 transition-transform duration-300 ease-in-out hover:duration-150 group-hover:translate-x-0",
           direction === "left" ? "translate-x-full" : "-translate-x-full",
         )}
       >
         {direction === "left" ? (
-          <ChevronLeftIcon size={14} />
+          <ChevronLeftIcon size={15} />
         ) : (
-          <ChevronRightIcon size={14} />
+          <ChevronRightIcon size={15} />
         )}
       </span>
     </div>

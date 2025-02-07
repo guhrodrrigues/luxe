@@ -43,7 +43,7 @@ export const metadata: Metadata = {
 
 export default function InstallationPage() {
   return (
-    <main className="my-2 space-y-12 xl:mb-24">
+    <main className="my-2 space-y-10 xl:mb-24">
       <div className="space-y-4">
         <Breadcrumbs groupName="Get Started" currentPage="Installation" />
         <div className="space-y-3.5">
