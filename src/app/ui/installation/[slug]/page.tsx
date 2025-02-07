@@ -88,7 +88,7 @@ export default async function InstallationSlugPage({
   const previousPage = INSTALLATION[currentPage - 1];
 
   return (
-    <main className="my-2 space-y-12 xl:mb-24">
+    <main className="my-2 space-y-10 xl:mb-24">
       <div className="space-y-4">
         <Breadcrumbs
           category="Get Started"
@@ -227,7 +227,7 @@ export default async function InstallationSlugPage({
                 <div className="space-y-4 pb-10 pl-8 pt-1">
                   <h2 className="font-medium text-primary">
                     Edit{" "}
-                    <code className="rounded bg-neutral-300/80 px-1 py-1 font-mono text-sm dark:bg-neutral-800/80">
+                    <code className="rounded bg-neutral-300/80 px-1 py-1 font-mono text-sm text-foreground dark:bg-neutral-800/80">
                       tsconfig.json
                     </code>{" "}
                     file
@@ -249,7 +249,7 @@ export default async function InstallationSlugPage({
                 <div className="space-y-4 pb-10 pl-8 pt-1">
                   <h2 className="font-medium text-primary">
                     Edit{" "}
-                    <code className="rounded bg-neutral-300/80 px-1 py-1 font-mono text-sm dark:bg-neutral-800/80">
+                    <code className="rounded bg-neutral-300/80 px-1 py-1 font-mono text-sm text-foreground dark:bg-neutral-800/80">
                       tsconfig.app.json
                     </code>{" "}
                     file
@@ -271,7 +271,7 @@ export default async function InstallationSlugPage({
                 <div className="space-y-4 pl-8 pt-1">
                   <h2 className="font-medium text-primary">
                     Update{" "}
-                    <code className="rounded bg-neutral-300/80 px-1 py-1 font-mono text-sm dark:bg-neutral-800/80">
+                    <code className="rounded bg-neutral-300/80 px-1 py-1 font-mono text-sm text-foreground dark:bg-neutral-800/80">
                       vite.config.ts
                     </code>
                   </h2>

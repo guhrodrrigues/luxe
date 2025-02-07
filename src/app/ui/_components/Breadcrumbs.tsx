@@ -27,7 +27,7 @@ export function Breadcrumbs({
       {backLink ? (
         <Link
           href={backLink}
-          className="flex w-fit items-center gap-1 text-sm font-medium duration-200 hover:text-primary"
+          className="flex w-fit items-center gap-1 rounded text-sm font-medium outline-none duration-200 focus-within:ring-1 hover:text-primary focus-visible:ring-neutral-300 dark:focus-visible:ring-neutral-800"
         >
           {groupName}
         </Link>

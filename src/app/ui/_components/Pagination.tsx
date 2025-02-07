@@ -20,7 +20,7 @@ export function Pagination({ back, next }: PaginationProps) {
       {back?.href && back?.name && (
         <Link
           href={back.href}
-          className="group flex flex-1 flex-col gap-2 whitespace-nowrap rounded-xl border border-neutral-200 p-3.5 transition-colors hover:bg-[#eeeeee] dark:border-neutral-900 dark:hover:bg-[#111111]"
+          className="group flex flex-1 flex-col gap-2 whitespace-nowrap rounded-xl border border-neutral-200 p-3.5 outline-none transition-colors hover:bg-[#eeeeee] focus-visible:border-neutral-300 dark:border-neutral-900 dark:hover:bg-[#111111] dark:focus-visible:border-neutral-800"
         >
           <div className="flex items-center gap-1">
             <ChevronIconGlitch />
@@ -34,7 +34,7 @@ export function Pagination({ back, next }: PaginationProps) {
       {next?.href && next?.name && (
         <Link
           href={next.href}
-          className="group flex flex-1 flex-col items-end gap-2 whitespace-nowrap rounded-xl border border-neutral-200 p-3.5 transition-colors hover:bg-[#eeeeee] dark:border-neutral-900 dark:hover:bg-[#111111]"
+          className="group flex flex-1 flex-col items-end gap-2 whitespace-nowrap rounded-xl border border-neutral-200 p-3.5 outline-none transition-colors hover:bg-[#eeeeee] focus-visible:border-neutral-300 dark:border-neutral-900 dark:hover:bg-[#111111] dark:focus-visible:border-neutral-800"
         >
           <div className="flex items-center gap-1">
             <span className="mb-px text-sm leading-none text-foreground">

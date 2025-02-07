@@ -30,10 +30,10 @@ export function SidebarButton({
       onClick={onClick}
       data-active={isActive}
       className={cn(
-        "relative -mx-2.5 mt-1 select-none rounded-lg border border-transparent px-2 py-1.5 text-sm font-medium",
+        "relative -mx-2.5 mt-1 select-none rounded-lg border border-transparent px-2 py-1.5 text-sm font-medium outline-none focus-visible:border-neutral-200 dark:focus-visible:border-neutral-800",
         isActive
-          ? "z-0 border-neutral-200 bg-[#eeeeee] text-black dark:border-neutral-800 dark:bg-[#1c1c1c] dark:text-white"
-          : "text-[#2b2b2b] hover:bg-[#eeeeee] dark:text-neutral-300 dark:hover:bg-[#1c1c1c]",
+          ? "z-0 border-neutral-200 bg-[#ebebeb] text-black dark:border-neutral-800 dark:bg-[#1c1c1c] dark:text-white"
+          : "text-[#2b2b2b] hover:bg-[#ebebeb] dark:text-neutral-300 dark:hover:bg-[#1c1c1c]",
       )}
     >
       {isNew ? (

@@ -14,8 +14,11 @@ export function Sidebar() {
 
   return (
     <aside className="right-dotted fixed bottom-0 left-0 top-0 h-screen w-[250px] flex-1 bg-main pt-7 max-lg:hidden">
-      <div className="-mx-0.5 flex items-center justify-between px-6 pb-[14px]">
-        <Link href="/">
+      <div className="-mx-0.5 flex items-center justify-between px-6 pb-1.5">
+        <Link
+          href="/"
+          className="-mx-2 rounded-md px-2 py-1.5 outline-none focus-visible:ring-1 focus-visible:ring-neutral-300/80 dark:focus-visible:ring-neutral-800"
+        >
           <Icons.logo className="w-16" />
         </Link>
         <div className="flex items-center gap-2.5">
@@ -24,7 +27,7 @@ export function Sidebar() {
             href="https://github.com/guhrodrrigues/luxe"
             target="_blank"
             rel="noopener noreferrer"
-            className="group"
+            className="group rounded-md p-0.5 outline-none focus-visible:ring-1 focus-visible:ring-neutral-300/80 dark:focus-visible:ring-neutral-800"
           >
             <Icons.github className="h-3.5 w-3.5 text-neutral-400 duration-150 group-hover:text-primary dark:text-neutral-600" />
           </a>

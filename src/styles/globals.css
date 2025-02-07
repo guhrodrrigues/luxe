@@ -77,6 +77,12 @@ html {
 .shiki {
   background-color: transparent !important;
   font-size: 14px;
+  border: 1px solid transparent;
+
+  &:focus-visible {
+    border-color: var(--border);
+    outline: none;
+  }
 
   & span {
     color: var(--shiki--light, var(--_s-light))

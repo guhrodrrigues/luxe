@@ -23,7 +23,7 @@ export function CopyCode({ code }: CopyCode) {
   return (
     <button
       onClick={handleCopy}
-      className="relative flex h-7 w-7 items-center justify-center rounded-md text-foreground dark:text-neutral-500"
+      className="relative flex h-7 w-7 items-center justify-center rounded-md text-foreground outline-none focus-visible:ring-1 focus-visible:ring-neutral-300/80 dark:text-neutral-500 dark:focus-visible:ring-neutral-800"
     >
       <AnimatePresence mode="wait" initial={false}>
         {copied ? (

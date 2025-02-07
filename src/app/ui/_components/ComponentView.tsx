@@ -36,7 +36,7 @@ export function ComponentView({
         <div className="absolute right-4 top-3 z-[5]">
           <motion.button
             key={reloadKey}
-            className="text-neutral-500"
+            className="rounded-md p-1 text-neutral-500 outline-none focus-within:ring-neutral-300 focus-visible:ring-1 dark:focus-within:ring-neutral-800"
             animate={{ rotate: reloadKey ? 360 : 0 }}
             onClick={handleReload}
           >

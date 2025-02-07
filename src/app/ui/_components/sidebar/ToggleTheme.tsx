@@ -24,7 +24,7 @@ export function ToggleTheme() {
         <button
           key={idx}
           onClick={() => setTheme(itemTheme)}
-          className="relative flex h-[18px] w-[20px] items-center justify-center rounded-[6px]"
+          className="relative flex h-[18px] w-[20px] items-center justify-center rounded-[6px] outline-none focus-visible:ring-1 focus-visible:ring-neutral-300/80 dark:focus-visible:ring-neutral-800"
         >
           <div
             className={cn(

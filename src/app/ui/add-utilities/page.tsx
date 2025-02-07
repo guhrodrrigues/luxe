@@ -100,7 +100,7 @@ export default async function AddUtilitiesPage() {
             <div className="space-y-4 pl-8 pt-1">
               <h2 className="font-medium text-primary">
                 Create a file with the path{" "}
-                <code className="rounded bg-neutral-300/80 px-1 py-1 font-mono text-sm dark:bg-neutral-800/80">
+                <code className="rounded bg-neutral-300/80 px-1 py-1 font-mono text-sm text-foreground dark:bg-neutral-800/80">
                   utils/cn.ts
                 </code>
               </h2>
