@@ -34,7 +34,7 @@ export function Sidebar() {
         </div>
       </div>
       <nav
-        className="h-full overflow-y-auto px-6 pb-10 pt-[20px] [-ms-overflow-style:none] [scrollbar-width:none] max-lg:hidden [&::-webkit-scrollbar]:hidden"
+        className="flex h-full flex-col gap-6 overflow-y-auto px-6 pb-10 pt-[20px] [-ms-overflow-style:none] [scrollbar-width:none] max-lg:hidden [&::-webkit-scrollbar]:hidden"
         style={{
           maskImage:
             "linear-gradient(#0c0c0c,#0c0c0c,transparent 0,#0c0c0c 24px,#0c0c0c calc(100% - 60px),transparent)",
@@ -54,7 +54,6 @@ export function Sidebar() {
             ))}
           </div>
         </div>
-        <div aria-hidden className="top-dotted mx-1 mb-6 mt-4 h-px" />
         <div className="flex flex-col gap-1">
           <span className="relative z-[1] -ml-0.5 text-xs font-medium text-foreground">
             Components

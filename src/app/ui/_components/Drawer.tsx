@@ -46,7 +46,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
               </a>
               <ToggleTheme />
             </div>
-            <div className="h-full overflow-y-auto px-3 pt-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+            <div className="flex h-full flex-col gap-6 overflow-y-auto px-3 pt-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               <div className="flex flex-col gap-1">
                 <span className="-ml-[2.5px] text-xs font-medium text-foreground">
                   Get Started
@@ -62,7 +62,6 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
                   ))}
                 </div>
               </div>
-              <div aria-hidden className="top-dotted mx-1 mb-5 mt-4 h-px" />
               <div className="flex flex-col gap-1">
                 <span className="relative z-[1] -ml-[2.5px] text-xs font-medium text-foreground">
                   Components

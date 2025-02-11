@@ -32,15 +32,9 @@ export function ToggleTheme() {
           >
             {icon}
           </div>
-          <AnimatePresence initial={false}>
-            {theme === itemTheme && (
-              <motion.div
-                className="absolute inset-0 rounded-[inherit] bg-[#dddddd] dark:bg-[#222222]"
-                layoutId="active-theme"
-                transition={{ duration: 0.2 }}
-              />
-            )}
-          </AnimatePresence>
+          {theme === itemTheme && (
+            <div className="absolute inset-0 rounded-[inherit] bg-[#dddddd] dark:bg-[#222222]" />
+          )}
         </button>
       ))}
     </div>
