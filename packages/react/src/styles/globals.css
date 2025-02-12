@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--surface: #f5f5f5;
+	--font-geist-sans: "Geist", serif;
+}
+
+.dark {
+	--surface: #0a0a0a;
+}
+
+@layer base {
+	* {
+		font-variant-ligatures: none;
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	img,
+	button {
+		@apply select-none;
+	}
+
+	body {
+		@apply antialiased bg-surface;
+	}
+
+	::selection {
+		@apply bg-neutral-400/20;
+	}
+}

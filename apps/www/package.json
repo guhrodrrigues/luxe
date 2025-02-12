@@ -38,7 +38,6 @@
 		"husky": "9.0.11",
 		"postcss": "^8",
 		"shiki": "^1.24.3",
-		"tailwindcss": "^3.3.0",
 		"typescript": "^5"
 	}
 }
