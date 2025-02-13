@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-geist-sans: "Geist", serif;
+}
+
+@layer base {
+  * {
+    font-variant-ligatures: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  img,
+  button {
+    @apply select-none;
+  }
+
+  body {
+    @apply antialiased bg-neutral-100 dark:bg-neutral-950;
+  }
+
+  ::selection {
+    @apply bg-neutral-400/20;
+  }
+}

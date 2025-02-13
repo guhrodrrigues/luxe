@@ -1,0 +1,9 @@
+{
+	"extends": "@luxe/ts-config/react.json",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/registry/*": ["src/*"]
+		}
+	}
+}

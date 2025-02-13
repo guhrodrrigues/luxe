@@ -1,50 +1,46 @@
 {
-  "name": "luxe",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
-    "prepare": "husky"
-  },
-  "dependencies": {
-    "@radix-ui/react-checkbox": "^1.1.2",
-    "@radix-ui/react-dialog": "^1.0.5",
-    "@radix-ui/react-hover-card": "^1.1.2",
-    "@radix-ui/react-tabs": "^1.1.2",
-    "clsx": "^2.1.0",
-    "geist": "^1.3.1",
-    "lucide-react": "^0.330.0",
-    "motion": "^11.15.0",
-    "next": "14.2.10",
-    "next-themes": "^0.4.4",
-    "next-view-transitions": "^0.3.4",
-    "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.6.8",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-use-measure": "^2.1.1",
-    "tailwind-merge": "^2.2.1",
-    "tailwind-variants": "0.2.0",
-    "tailwindcss-animate": "^1.0.7",
-    "usehooks-ts": "^3.1.0",
-    "vaul": "^1.1.1"
-  },
-  "devDependencies": {
-    "@commitlint/cli": "18.6.1",
-    "@commitlint/config-conventional": "18.6.2",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "autoprefixer": "^10.0.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.1.0",
-    "husky": "9.0.11",
-    "postcss": "^8",
-    "shiki": "^1.24.3",
-    "tailwindcss": "^3.3.0",
-    "typescript": "^5"
-  }
+	"name": "luxe",
+	"type": "module",
+	"private": true,
+	"license": "MIT",
+	"packageManager": "pnpm@10.3.0",
+	"engines": {
+		"node": ">=20"
+	},
+	"dependencies": {
+		"@luxe/react": "workspace:*"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@chromatic-com/storybook": "^3.2.4",
+		"@commitlint/cli": "18.6.1",
+		"@commitlint/config-conventional": "18.6.2",
+		"@luxe/ts-config": "workspace:*",
+		"@storybook/addon-a11y": "^8.5.5",
+		"@storybook/addon-essentials": "^8.5.5",
+		"@storybook/addon-interactions": "^8.5.5",
+		"@storybook/addon-onboarding": "^8.5.5",
+		"@storybook/addon-themes": "^8.5.5",
+		"@storybook/blocks": "^8.5.5",
+		"@storybook/manager-api": "^8.5.5",
+		"@storybook/react": "^8.5.5",
+		"@storybook/react-vite": "^8.5.5",
+		"@storybook/test": "^8.5.5",
+		"@storybook/theming": "^8.5.5",
+		"@vitejs/plugin-react": "^4.3.4",
+		"prop-types": "^15.8.1",
+		"storybook": "^8.5.5",
+		"tailwindcss": "3.4.17",
+		"tailwindcss-animate": "^1.0.7",
+		"turbo": "^2.4.1",
+		"typescript": "^5",
+		"vite": "^6.1.0"
+	},
+	"scripts": {
+		"dev": "turbo dev",
+		"build": "turbo build",
+		"lint": "turbo lint",
+		"storybook": "storybook dev -p 6006",
+		"storybook:build": "storybook build"
+	}
 }
