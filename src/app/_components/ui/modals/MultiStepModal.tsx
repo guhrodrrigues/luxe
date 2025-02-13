@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from "react";
 
-import { AnimatePresence, Variants, motion } from "motion/react";
+import { AnimatePresence, type Variants, motion } from "motion/react";
 import useMeasure from "react-use-measure";
 
 import { cn } from "@/utils/cn";
@@ -102,7 +102,7 @@ export function MultiStepModal() {
               disabled={activeIdx === 0}
               onClick={() => handleSetActiveIdx(activeIdx - 1)}
               className={cn(
-                "h-8 w-24 rounded-full border border-neutral-300 bg-neutral-100 px-3 text-[13px] font-medium text-primary",
+                "h-8 w-24 rounded-full border border-neutral-300 bg-neutral-100 px-3 text-[13px] font-medium text-black dark:text-white",
                 "disabled:cursor-not-allowed disabled:opacity-50 dark:border-neutral-800 dark:bg-[#171717]",
               )}
             >
@@ -116,7 +116,7 @@ export function MultiStepModal() {
                 handleSetActiveIdx(activeIdx + 1);
               }}
               className={cn(
-                "h-8 w-24 rounded-full border border-neutral-300 bg-neutral-100 px-3 text-[13px] font-medium text-primary",
+                "h-8 w-24 rounded-full border border-neutral-300 bg-neutral-100 px-3 text-[13px] font-medium text-black dark:text-white",
                 "disabled:cursor-not-allowed disabled:opacity-50 dark:border-neutral-800 dark:bg-[#171717]",
               )}
             >
