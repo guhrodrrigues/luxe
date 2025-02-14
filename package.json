@@ -8,7 +8,10 @@
 		"node": ">=20"
 	},
 	"dependencies": {
-		"@luxe/react": "workspace:*"
+		"@luxe/cli": "link:",
+		"@luxe/react": "workspace:*",
+		"dist": "link:dist",
+		"luxe": "link:"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "1.9.4",
@@ -42,5 +45,12 @@
 		"lint": "turbo lint",
 		"storybook": "storybook dev -p 6006",
 		"storybook:build": "storybook build"
+	},
+	"pnpm": {
+		"overrides": {
+			"luxe": "link:",
+			"@luxe/cli": "link:",
+			"dist": "link:dist"
+		}
 	}
 }

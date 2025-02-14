@@ -1,0 +1,9 @@
+{
+	"extends": "@luxe/ts-config/base.json",
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"@/*": ["./src/*"]
+		}
+	}
+}
