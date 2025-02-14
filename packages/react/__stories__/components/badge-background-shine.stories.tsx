@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { DropdownMenu } from '@/registry/components/dropdown-menu'
+import { BadgeBackgroundShine } from '@/registry/components/badge-background-shine'
 
 const meta: Meta = {
-  title: 'components/Dropdown',
-  component: DropdownMenu,
+  title: 'components/BadgeBackgroundShine',
+  component: BadgeBackgroundShine,
   parameters: {
     layout: 'centered',
   },

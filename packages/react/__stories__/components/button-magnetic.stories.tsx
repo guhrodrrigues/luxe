@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { DropdownMenu } from '@/registry/components/dropdown-menu'
+import { ButtonMagneticExample } from '@/registry/components/button-magnetic'
 
 const meta: Meta = {
-  title: 'components/Dropdown',
-  component: DropdownMenu,
+  title: 'components/ButtonMagnetic',
+  component: ButtonMagneticExample,
   parameters: {
     layout: 'centered',
   },

@@ -1,17 +1,17 @@
-"use client";
+"use client"; // @NOTE: Add in case you are using Next.js
 
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
-import { motion, stagger, useAnimate } from "motion/react";
+import { useAnimate, stagger, motion } from "motion/react";
 
 import {
-  BellIcon,
-  Building2,
-  ChevronRightIcon,
   LayoutGridIcon,
-  SettingsIcon,
   TrashIcon,
+  Building2,
   UserCircleIcon,
+  SettingsIcon,
+  ChevronRightIcon,
+  BellIcon,
 } from "lucide-react";
 
 import { cn } from "@/registry/utils/cn";
@@ -35,7 +35,7 @@ function useMenuAnimation(isOpen: boolean) {
         type: "spring",
         bounce: 0,
         duration: 0.5,
-      }
+      },
     );
 
     animate(
@@ -46,7 +46,7 @@ function useMenuAnimation(isOpen: boolean) {
       {
         duration: 0.2,
         delay: isOpen ? staggerMenuItems : 0,
-      }
+      },
     );
   }, [isOpen, animate, staggerMenuItems]);
 
@@ -82,7 +82,7 @@ export function DropdownMenu({ className, ...props }: DropdownMenuProps) {
         whileTap={{ scale: 0.97 }}
         className={cn(
           "flex w-full max-w-[300px] items-center justify-between rounded-xl border border-neutral-200 bg-neutral-50 px-3.5 py-2.5",
-          "focus-visible:border-neutral-300 focus-visible:outline-none dark:border-neutral-800 dark:bg-neutral-900 dark:focus-visible:border-neutral-700"
+          "focus-visible:border-neutral-300 focus-visible:outline-none dark:border-neutral-800 dark:bg-neutral-900 dark:focus-visible:border-neutral-700",
         )}
         onClick={() => setIsOpen((prevState) => !prevState)}
       >
@@ -97,7 +97,7 @@ export function DropdownMenu({ className, ...props }: DropdownMenuProps) {
         className={cn(
           // @NOTE: Add absolute position to the floating dropdown menu
           "relative z-[1] mx-auto flex w-full max-w-[200px] flex-col gap-1.5 rounded-xl border border-neutral-200 bg-neutral-50 px-1.5 py-2.5 dark:border-neutral-800 dark:bg-neutral-900",
-          isOpen ? "pointer-events-auto" : "pointer-events-none"
+          isOpen ? "pointer-events-auto" : "pointer-events-none",
         )}
         style={{ clipPath: "inset(10% 50% 90% 50% round 12px)" }}
       >
@@ -109,7 +109,7 @@ export function DropdownMenu({ className, ...props }: DropdownMenuProps) {
                 "hover:text-neutral-600 focus-visible:border-neutral-200 focus-visible:text-neutral-600 focus-visible:outline-none",
                 "dark:text-neutral-400 dark:hover:text-neutral-300 dark:focus-visible:border-neutral-800 dark:focus-visible:text-neutral-300",
                 "select-none px-1.5 hover:bg-neutral-200/40 focus-visible:bg-neutral-200/40 dark:hover:bg-neutral-800/60 dark:focus-visible:bg-neutral-800/60",
-                customStyle
+                customStyle,
               )}
             >
               {icon}

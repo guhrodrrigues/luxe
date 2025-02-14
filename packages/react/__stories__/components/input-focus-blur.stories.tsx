@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { InputFocusBlur } from '@/registry/components/inputs'
+import { InputFocusBlur } from '@/registry/components/input-focus-blur'
 
 const meta: Meta = {
   title: 'components/InputFocusBlur',

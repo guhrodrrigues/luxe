@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { DropdownMenu } from '@/registry/components/dropdown-menu'
+import { ButtonDestructive } from '@/registry/components/button-destructive'
 
 const meta: Meta = {
-  title: 'components/Dropdown',
-  component: DropdownMenu,
+  title: 'components/ButtonDestructive',
+  component: ButtonDestructive,
   parameters: {
     layout: 'centered',
   },

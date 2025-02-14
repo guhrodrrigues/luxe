@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { DropdownMenu } from '@/registry/components/dropdown-menu'
+import { TextGenerateEffectExample } from '@/registry/components/text-generate-effect'
 
 const meta: Meta = {
-  title: 'components/Dropdown',
-  component: DropdownMenu,
+  title: 'components/TextGenerateEffect',
+  component: TextGenerateEffectExample,
   parameters: {
     layout: 'centered',
   },

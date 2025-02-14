@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { DropdownMenu } from '@/registry/components/dropdown-menu'
+import { TextAnimatedGradient } from '@/registry/components/text-animated-gradient'
 
 const meta: Meta = {
-  title: 'components/Dropdown',
-  component: DropdownMenu,
+  title: 'components/TextAnimatedGradient',
+  component: TextAnimatedGradient,
   parameters: {
     layout: 'centered',
   },

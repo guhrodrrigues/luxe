@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { DropdownMenu } from '@/registry/components/dropdown-menu'
+import { TextGlitch } from '@/registry/components/text-glitch'
 
 const meta: Meta = {
-  title: 'components/Dropdown',
-  component: DropdownMenu,
+  title: 'components/TextGlitch',
+  component: TextGlitch,
   parameters: {
     layout: 'centered',
   },

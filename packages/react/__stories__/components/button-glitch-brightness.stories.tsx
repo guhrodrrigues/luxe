@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { DropdownMenu } from '@/registry/components/dropdown-menu'
+import { ButtonGlitchBrightness } from '@/registry/components/button-glitch-brightness'
 
 const meta: Meta = {
-  title: 'components/Dropdown',
-  component: DropdownMenu,
+  title: 'components/ButtonGlitchBrightness',
+  component: ButtonGlitchBrightness,
   parameters: {
     layout: 'centered',
   },

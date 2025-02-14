@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { DropdownMenu } from '@/registry/components/dropdown-menu'
+import { ButtonAnimatedBorder } from '@/registry/components/button-animated-border'
 
 const meta: Meta = {
-  title: 'components/Dropdown',
-  component: DropdownMenu,
+  title: 'components/ButtonAnimatedBorder',
+  component: ButtonAnimatedBorder,
   parameters: {
     layout: 'centered',
   },

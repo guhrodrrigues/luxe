@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { DropdownMenu } from '@/registry/components/dropdown-menu'
+import { CardBackgroundShine } from '@/registry/components/card-background-shine'
 
 const meta: Meta = {
-  title: 'components/Dropdown',
-  component: DropdownMenu,
+  title: 'components/CardBackgroundShine',
+  component: CardBackgroundShine,
   parameters: {
     layout: 'centered',
   },

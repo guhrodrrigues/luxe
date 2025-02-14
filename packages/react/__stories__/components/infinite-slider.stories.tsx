@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { DropdownMenu } from '@/registry/components/dropdown-menu'
+import { InfiniteSliderExample } from '@/registry/components/infinite-slider'
 
 const meta: Meta = {
-  title: 'components/Dropdown',
-  component: DropdownMenu,
+  title: 'components/InfiniteSlider',
+  component: InfiniteSliderExample,
   parameters: {
     layout: 'centered',
   },
