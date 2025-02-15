@@ -5,7 +5,7 @@ import { LUXE_JSON_FILE } from './const'
 
 export type LuxeManifest = {
   tailwind: {
-    css: string
+    css: Record<string, string>
   }
   aliases: {
     components: string

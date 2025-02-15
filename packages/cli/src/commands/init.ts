@@ -43,7 +43,14 @@ export const init = new Command()
 
         await luxeManifestFile.set({
           tailwind: {
-            css: tailwindCSS,
+            css: Object.keys(tailwindCSS).reduce((acc, aliasKey) => {
+							const key = aliasKey as keyof typeof tailwindCSS
+							acc[key] = (tailwindCSS[key] as string).replace('./', '@/')
+							
+							return acc
+						},
+						{} as Record<keyof typeof tailwindCSS, string>,
+					),
           },
           aliases: Object.keys(aliases).reduce(
             (acc, aliasKey) => {

@@ -197,7 +197,13 @@ importers:
       commander:
         specifier: ^13.1.0
         version: 13.1.0
+      jsonschema:
+        specifier: ^1.5.0
+        version: 1.5.0
     devDependencies:
+      '@types/node':
+        specifier: ^20
+        version: 20.17.17
       tsup:
         specifier: ^8.3.6
         version: 8.3.6(jiti@1.21.7)(postcss@8.5.2)(typescript@5.7.3)(yaml@2.7.0)
@@ -2298,6 +2304,9 @@ packages:
   jsonparse@1.3.1:
     resolution: {integrity: sha512-POQXvpdL69+CluYsillJ7SUhKvytYjW9vG/GKpnf+xP8UWgYEM/RaMzHHofbALDiKbbP1W8UEYmgGl39WkPZsg==}
     engines: {'0': node >= 0.2.0}
+
+  jsonschema@1.5.0:
+    resolution: {integrity: sha512-K+A9hhqbn0f3pJX17Q/7H6yQfD/5OXgdrR5UE12gMXCiN9D5Xq2o5mddV2QEcX/bjla99ASsAAQUyMCCRWAEhw==}
 
   kind-of@6.0.3:
     resolution: {integrity: sha512-dcS1ul+9tmeD95T+x28/ehLgd9mENa3LsvDTtzm3vyBEO7RPptvAD+t44WVXaUjTBRcrpFeFlC8WCruUR456hw==}
@@ -5489,6 +5498,8 @@ snapshots:
       graceful-fs: 4.2.11
 
   jsonparse@1.3.1: {}
+
+  jsonschema@1.5.0: {}
 
   kind-of@6.0.3: {}
 
