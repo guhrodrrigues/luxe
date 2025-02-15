@@ -17,23 +17,23 @@
       "required": ["css"],
       "additionalProperties": false
     },
-    "alias": {
+    "aliases": {
       "type": "object",
       "description": "Aliases for importing project modules.",
       "properties": {
         "components": {
           "type": "string",
-          "description": "Alias for the components directory."
+          "description": "Aliases for the components directory."
         },
         "utils": {
           "type": "string",
-          "description": "Alias for the utilities directory."
+          "description": "Aliases for the utilities directory."
         }
       },
       "required": ["components", "utils"],
       "additionalProperties": false
     }
   },
-  "required": ["tailwind", "alias"],
+  "required": ["tailwind", "aliases"],
   "additionalProperties": false
 }
