@@ -2,7 +2,7 @@
 
 import { program } from 'commander'
 
-import { name, description, version } from '../package.json'
+import { description, name, version } from '../package.json'
 
 import { init } from '@/commands/init'
 
