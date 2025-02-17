@@ -1,4 +1,5 @@
 {
+  "$schema": "https://luxeui.com/schemas/luxe.json",
   "$id": "https://luxeui.com/schemas/luxe.json",
   "title": "Luxe Manifest",
   "description": "Manifest file for Luxe. Defines project configurations, including Tailwind CSS and aliases for components and utilities.",
