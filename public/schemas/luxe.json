@@ -10,8 +10,7 @@
       "properties": {
         "css": {
           "type": "string",
-          "description": "Path to the Tailwind CSS stylesheet file.",
-          "pattern": "^(\\.|~|/)?[\\w-/]+\\.css$"
+          "description": "Path to the Tailwind CSS stylesheet file."
         }
       },
       "required": ["css"],
@@ -23,13 +22,11 @@
       "properties": {
         "components": {
           "type": "string",
-          "description": "Aliases for the components directory.",
-          "pattern": "^(@/|\\./)?[a-zA-Z0-9-_]+(/[a-zA-Z0-9-_]+)*$"
+          "description": "Aliases for the components directory."
         },
         "utils": {
           "type": "string",
-          "description": "Aliases for the utilities directory.",
-          "pattern": "^(@/|\\./)?[a-zA-Z0-9-_]+(/[a-zA-Z0-9-_]+)*$"
+          "description": "Aliases for the utilities directory."
         }
       },
       "required": ["components", "utils"],
