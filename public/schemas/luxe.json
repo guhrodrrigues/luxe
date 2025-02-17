@@ -23,11 +23,13 @@
       "properties": {
         "components": {
           "type": "string",
-          "description": "Aliases for the components directory."
+          "description": "Aliases for the components directory.",
+          "pattern": "^(@/|\\./)?[a-zA-Z0-9-_]+(/[a-zA-Z0-9-_]+)*$"
         },
         "utils": {
           "type": "string",
-          "description": "Aliases for the utilities directory."
+          "description": "Aliases for the utilities directory.",
+          "pattern": "^(@/|\\./)?[a-zA-Z0-9-_]+(/[a-zA-Z0-9-_]+)*$"
         }
       },
       "required": ["components", "utils"],
