@@ -5,4 +5,5 @@ export enum InitLogMessage {
   CONFIGURE_PATH_ALIAS = "Now, let's configure path alias",
   SETUP_SUCCESS = 'The setup was completed successfully!',
   EXISTS_MANIFEST = 'The file `luxe.json` already exists!',
+  INVALID_PATH_ALIAS = 'Error! Enter a valid path format.',
 }

@@ -3,9 +3,11 @@ import path from 'node:path'
 
 import { LUXE_JSON_FILE } from './const'
 
+import { apiConfig } from '@/services/api-config'
+
 export type LuxeManifest = {
   tailwind: {
-    css: Record<string, string>
+    css: string
   }
   aliases: {
     components: string
@@ -14,8 +16,8 @@ export type LuxeManifest = {
 }
 
 export const luxeManifestFile = {
-  get: async (): Promise<LuxeManifest | null> => {
-    const pathLuxeFile = path.resolve(LUXE_JSON_FILE)
+  read: async (): Promise<LuxeManifest | null> => {
+    const pathLuxeFile = path.resolve(process.cwd(), LUXE_JSON_FILE)
     const isLuxeManifestFileExists = existsSync(pathLuxeFile)
 
     if (!isLuxeManifestFileExists) {
@@ -30,8 +32,16 @@ export const luxeManifestFile = {
 
     return parsedLuxeManifestFile
   },
-  set: async (props: LuxeManifest): Promise<void> => {
-    const stringifyManifest = JSON.stringify(props, null, 2)
+  write: async (props: LuxeManifest): Promise<void> => {
+    const stringifyManifest = JSON.stringify(
+      {
+        // $schema: apiConfig.luxeManifestUrl,
+        ...props,
+      },
+      null,
+      2,
+    )
+
     await fs.writeFile(LUXE_JSON_FILE, stringifyManifest, 'utf8')
   },
 }

@@ -8,7 +8,7 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": ["node_modules/", "build/", ".next/"]
+		"ignore": ["node_modules/", "build/", ".next/", "dist/"]
 	},
 	"formatter": {
 		"enabled": true,

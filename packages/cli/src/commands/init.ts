@@ -1,6 +1,8 @@
 import * as p from '@clack/prompts'
 import { Command } from 'commander'
 
+import { INIT_DEFAULT_PROMPTS } from '@/utils/const'
+import { convertPathToAlias } from '@/utils/convert-path-to-alias'
 import { InitLogMessage } from '@/utils/enums'
 import { luxeManifestFile } from '@/utils/luxe-manifest-file'
 import { validadeLuxeManifest } from '@/utils/validate-luxe-manifest'
@@ -14,14 +16,34 @@ export const init = new Command()
   )
   .action(async () => {
     try {
-      let luxeManifestFileContent = await luxeManifestFile.get()
+      let luxeManifestFileContent = await luxeManifestFile.read()
 
-      if (!luxeManifestFileContent) {
-        const { tailwind: tailwindCSS, aliases } = await p.group({
+      if (luxeManifestFileContent) {
+        await validadeLuxeManifest({
+          manifest: luxeManifestFileContent,
+        })
+
+        log.warn(InitLogMessage.EXISTS_MANIFEST)
+
+        return
+      }
+
+      function validateAliasPath(pathValue: string) {
+        const ALIAS_PATH_REGEX = /^(\/?[a-z0-9A-Z\-]+)+$/
+
+        if (ALIAS_PATH_REGEX.test(pathValue)) {
+          return InitLogMessage.INVALID_PATH_ALIAS
+        }
+      }
+
+      const promptResponse = await p.group(
+        {
           tailwind: () =>
             p.text({
               message: InitLogMessage.CSS_FILE_QUESTION,
-              defaultValue: './src/styles/globals.css',
+              defaultValue: INIT_DEFAULT_PROMPTS.TAILWIND,
+              placeholder: INIT_DEFAULT_PROMPTS.TAILWIND,
+              validate: validateAliasPath,
             }),
           aliases: () => {
             log.info(InitLogMessage.CONFIGURE_PATH_ALIAS)
@@ -30,54 +52,46 @@ export const init = new Command()
               components: () =>
                 p.text({
                   message: InitLogMessage.COMPONENTS_FOLDER_QUESTION,
-                  defaultValue: './src/components/ui',
+                  defaultValue: INIT_DEFAULT_PROMPTS.ALIASES.COMPONENTS,
+                  placeholder: INIT_DEFAULT_PROMPTS.ALIASES.COMPONENTS,
+                  validate: validateAliasPath,
                 }),
               utils: () =>
                 p.text({
                   message: InitLogMessage.UTILS_FOLDER_QUESTION,
-                  defaultValue: './src/utils',
+                  defaultValue: INIT_DEFAULT_PROMPTS.ALIASES.UTILS,
+                  placeholder: INIT_DEFAULT_PROMPTS.ALIASES.UTILS,
+                  validate: validateAliasPath,
                 }),
             })
           },
-        })
-
-        await luxeManifestFile.set({
-          tailwind: {
-            css: Object.keys(tailwindCSS).reduce((acc, aliasKey) => {
-							const key = aliasKey as keyof typeof tailwindCSS
-							acc[key] = (tailwindCSS[key] as string).replace('./', '@/')
-							
-							return acc
-						},
-						{} as Record<keyof typeof tailwindCSS, string>,
-					),
+        },
+        {
+          onCancel() {
+            p.cancel('Operation cancelled.')
+            process.exit(0)
           },
-          aliases: Object.keys(aliases).reduce(
-            (acc, aliasKey) => {
-              const key = aliasKey as keyof typeof aliases
-              acc[key] = aliases[key].replace('./', '@/')
+        },
+      )
 
-              return acc
-            },
-            {} as Record<keyof typeof aliases, string>,
-          ),
-        })
-
-        luxeManifestFileContent = await luxeManifestFile.get()
-
-        await validadeLuxeManifest({
-          manifest: luxeManifestFileContent!,
-        })
-
-        log.success(InitLogMessage.SETUP_SUCCESS)
-
-        return
-      }
-
-      await validadeLuxeManifest({
-        manifest: luxeManifestFileContent,
+      await luxeManifestFile.write({
+        tailwind: {
+          css: convertPathToAlias(promptResponse.tailwind),
+        },
+        aliases: {
+          components: convertPathToAlias(promptResponse.aliases.components),
+          utils: convertPathToAlias(promptResponse.aliases.utils),
+        },
       })
 
-      log.warn(InitLogMessage.EXISTS_MANIFEST)
-    } catch {}
+      luxeManifestFileContent = await luxeManifestFile.read()
+
+      await validadeLuxeManifest({
+        manifest: luxeManifestFileContent!,
+      })
+
+      log.success(InitLogMessage.SETUP_SUCCESS)
+    } catch (err) {
+      log.error(err.message)
+    }
   })

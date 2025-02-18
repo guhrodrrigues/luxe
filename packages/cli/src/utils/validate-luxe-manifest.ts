@@ -29,7 +29,7 @@ export async function validadeLuxeManifest({
 
     if (!validation.valid) {
       throw new ValidationError(
-        `Invalid Luxe Manifest.\nRefer to ${chalk.white.underline(apiConfig.luxeManifestUrl)}.`,
+        `Invalid Luxe Manifest.\nRefer to ${chalk.white.underline(apiConfig.luxeManifestUrl)}`,
       )
     }
   } catch (err) {
@@ -37,6 +37,7 @@ export async function validadeLuxeManifest({
       log.error(err.message)
     } else {
       log.error(`Unexpected error: ${err.message || err}`)
+      process.exit(0)
     }
   }
 }

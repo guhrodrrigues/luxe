@@ -1,0 +1,39 @@
+{
+	"$id": "https://luxeui.com/schemas/luxe.json",
+	"title": "Luxe Manifest",
+	"description": "Manifest file for Luxe. Defines project configurations, including Tailwind CSS and aliases for components and utilities.",
+	"type": "object",
+	"properties": {
+		"tailwind": {
+			"type": "object",
+			"description": "Tailwind CSS configuration for the project.",
+			"properties": {
+				"css": {
+					"type": "string",
+					"description": "Path to the Tailwind CSS stylesheet file.",
+					"pattern": "^(\\.|~|/)?[\\w-/]+\\.css$"
+				}
+			},
+			"required": ["css"],
+			"additionalProperties": false
+		},
+		"aliases": {
+			"type": "object",
+			"description": "Aliases for importing project modules.",
+			"properties": {
+				"components": {
+					"type": "string",
+					"description": "Alias for the components directory."
+				},
+				"utils": {
+					"type": "string",
+					"description": "Alias for the utilities directory."
+				}
+			},
+			"required": ["components", "utils"],
+			"additionalProperties": false
+		}
+	},
+	"required": ["tailwind", "alias"],
+	"additionalProperties": false
+}
