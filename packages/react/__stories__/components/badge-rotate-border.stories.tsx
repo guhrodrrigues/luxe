@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { DropdownMenu } from '@/registry/components/dropdown-menu'
+import { BadgeRotateBorder } from '@/registry/components/badge-rotate-border'
 
 const meta: Meta = {
-  title: 'components/Dropdown',
-  component: DropdownMenu,
+  title: 'components/BadgeRotateBorder',
+  component: BadgeRotateBorder,
   parameters: {
     layout: 'centered',
   },

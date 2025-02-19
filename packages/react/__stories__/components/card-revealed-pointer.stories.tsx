@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { DropdownMenu } from '@/registry/components/dropdown-menu'
+import { CardRevealedPointer } from '@/registry/components/card-revealed-pointer'
 
 const meta: Meta = {
-  title: 'components/Dropdown',
-  component: DropdownMenu,
+  title: 'components/CardRevealedPointer',
+  component: CardRevealedPointer,
   parameters: {
     layout: 'centered',
   },

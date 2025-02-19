@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { DropdownMenu } from '@/registry/components/dropdown-menu'
+import { Spinner } from '@/registry/components/spinner'
 
 const meta: Meta = {
-  title: 'components/Dropdown',
-  component: DropdownMenu,
+  title: 'components/Spinner',
+  component: Spinner,
   parameters: {
     layout: 'centered',
   },

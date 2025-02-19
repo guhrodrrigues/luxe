@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { DropdownMenu } from '@/registry/components/dropdown-menu'
+import { ButtonSuccess } from '@/registry/components/button-success'
 
 const meta: Meta = {
-  title: 'components/Dropdown',
-  component: DropdownMenu,
+  title: 'components/ButtonSuccess',
+  component: ButtonSuccess,
   parameters: {
     layout: 'centered',
   },

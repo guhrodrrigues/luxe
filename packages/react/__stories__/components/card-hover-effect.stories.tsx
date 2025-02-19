@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { DropdownMenu } from '@/registry/components/dropdown-menu'
+import { CardHoverEffect } from '@/registry/components/card-hover-effect'
 
 const meta: Meta = {
-  title: 'components/Dropdown',
-  component: DropdownMenu,
+  title: 'components/CardHoverEffect',
+  component: CardHoverEffect,
   parameters: {
     layout: 'centered',
   },

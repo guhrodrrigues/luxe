@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { DropdownMenu } from '@/registry/components/dropdown-menu'
+import { DockMenu } from '@/registry/components/dock-menu'
 
 const meta: Meta = {
-  title: 'components/Dropdown',
-  component: DropdownMenu,
+  title: 'components/DockMenu',
+  component: DockMenu,
   parameters: {
     layout: 'centered',
   },

@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { DropdownMenu } from '@/registry/components/dropdown-menu'
+import { TextHoverEnterExample } from '@/registry/components/text-hover-enter'
 
 const meta: Meta = {
-  title: 'components/Dropdown',
-  component: DropdownMenu,
+  title: 'components/TextHoverEnter',
+  component: TextHoverEnterExample,
   parameters: {
     layout: 'centered',
   },

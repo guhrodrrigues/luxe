@@ -5,7 +5,7 @@ import { useCallback, useState } from "react";
 import { AnimatePresence, type Variants, motion } from "motion/react";
 import useMeasure from "react-use-measure";
 
-import { cn } from "../../utils/cn";
+import { cn } from "@/registry/utils/cn";
 
 const STEPS = [
   {
