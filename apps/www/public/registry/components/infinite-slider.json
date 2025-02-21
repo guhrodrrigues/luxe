@@ -1,0 +1,12 @@
+{
+  "name": "infinite-slider",
+  "type": "ui:components",
+  "externalDependencies": [],
+  "internalDependencies": [],
+  "files": [
+    {
+      "name": "infinite-slider.tsx",
+      "content": "import { cn } from '<%= it.aliases.utils %>/cn';\n\nexport function InfiniteSliderExample() {\n  return (\n    <InfiniteSlider pauseOnHover>\n      <img\n        src=\"https://i.imgur.com/NfGQgBk.png\"\n        className=\"aspect-square w-[120px] rounded-[4px]\"\n        alt=\"01's image\"\n      />\n      <img\n        src=\"https://i.imgur.com/EeC1h3b.jpeg\"\n        className=\"aspect-square w-[120px] rounded-[4px]\"\n        alt=\"02's image\"\n      />\n      <img\n        src=\"https://i.imgur.com/4VCS3zG.jpeg\"\n        className=\"aspect-square w-[120px] rounded-[4px]\"\n        alt=\"03's image\"\n      />\n      <img\n        src=\"https://i.imgur.com/yWunBhl.jpeg\"\n        className=\"aspect-square w-[120px] rounded-[4px]\"\n        alt=\"04's image\"\n      />\n      <img\n        src=\"https://i.imgur.com/dfDyDad.jpeg\"\n        className=\"aspect-square w-[120px] rounded-[4px]\"\n        alt=\"05's image\"\n      />\n      <img\n        src=\"https://i.imgur.com/7N3FxDW.jpeg\"\n        className=\"aspect-square w-[120px] rounded-[4px]\"\n        alt=\"06's image\"\n      />\n    </InfiniteSlider>\n  );\n}\n\ntype InfiniteSliderProps = {\n  children: React.ReactNode;\n  className?: string;\n  pauseOnHover?: boolean;\n};\n\nfunction InfiniteSlider({\n  children,\n  className,\n  pauseOnHover,\n}: InfiniteSliderProps) {\n  return (\n    <div\n      data-id=\"slider\"\n      className={cn(\"group relative flex gap-10 overflow-hidden\", className)}\n    >\n      <div className=\"absolute left-0 z-10 h-full w-1/12 bg-gradient-to-r from-neutral-100 to-transparent dark:from-neutral-950\" />\n\n      {Array.from({ length: 15 }).map((_, i) => (\n        <div\n          key={i}\n          className={cn(\n            \"flex shrink-0 animate-infinite-slider justify-around gap-10 [--gap:1rem]\",\n            pauseOnHover && \"group-hover:[animation-play-state:paused]\",\n          )}\n          data-id={`slider-child-${i + 1}`}\n        >\n          {children}\n        </div>\n      ))}\n      <div className=\"absolute right-0 z-10 h-full w-1/12 bg-gradient-to-l from-neutral-100 to-transparent dark:from-neutral-950\" />\n    </div>\n  );\n}\n"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "name": "text-glitch",
+  "type": "ui:components",
+  "externalDependencies": [],
+  "internalDependencies": [],
+  "files": [
+    {
+      "name": "text-glitch.tsx",
+      "content": "export function TextGlitch() {\n  return (\n    <div className=\"group relative overflow-hidden font-medium\">\n      <span className=\"invisible\">Hover Me</span>\n      <span className=\"absolute left-0 top-0 text-neutral-500 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full dark:text-neutral-400\">\n        Hover Me\n      </span>\n      <span className=\"absolute left-0 top-0 translate-y-full text-neutral-500 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0 dark:text-neutral-400\">\n        Hover Me\n      </span>\n    </div>\n  );\n}\n"
+    }
+  ]
+}

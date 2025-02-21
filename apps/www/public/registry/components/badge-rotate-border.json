@@ -1,0 +1,12 @@
+{
+  "name": "badge-rotate-border",
+  "type": "ui:components",
+  "externalDependencies": [],
+  "internalDependencies": [],
+  "files": [
+    {
+      "name": "badge-rotate-border.tsx",
+      "content": "import { cn } from '<%= it.aliases.utils %>/cn';\n\nexport function BadgeRotateBorder() {\n  return (\n    <div className=\"relative inline-flex overflow-hidden rounded-full p-px\">\n      <span\n        className={cn(\n          \"absolute inset-[-1000%] bg-[conic-gradient(from_90deg_at_50%_50%,#4e4e4e_0%,#d4d4d4_50%,#414141_100%)]\",\n          \"animate-[spin_2s_linear_infinite] dark:bg-[conic-gradient(from_90deg_at_50%_50%,#c2c2c2_0%,#505050_50%,#bebebe_100%)]\",\n        )}\n      />\n      <span className=\"inline-flex h-full w-full items-center justify-center rounded-full bg-neutral-100 px-3 py-1 text-xs font-medium text-neutral-500 backdrop-blur-3xl dark:bg-neutral-950 dark:text-neutral-100\">\n        Badge\n      </span>\n    </div>\n  );\n}\n"
+    }
+  ]
+}
