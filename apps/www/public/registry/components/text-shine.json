@@ -1,9 +1,7 @@
 {
   "name": "text-shine",
   "type": "ui:components",
-  "externalDependencies": [
-    "motion/react"
-  ],
+  "externalDependencies": [],
   "internalDependencies": [],
   "files": [
     {

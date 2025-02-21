@@ -1,9 +1,7 @@
 {
   "name": "checkbox",
   "type": "ui:components",
-  "externalDependencies": [
-    "motion/react"
-  ],
+  "externalDependencies": [],
   "internalDependencies": [
     "checkbox"
   ],

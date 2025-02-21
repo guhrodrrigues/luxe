@@ -1,9 +1,7 @@
 {
   "name": "dropdown-menu",
   "type": "ui:components",
-  "externalDependencies": [
-    "motion/react"
-  ],
+  "externalDependencies": [],
   "internalDependencies": [],
   "files": [
     {

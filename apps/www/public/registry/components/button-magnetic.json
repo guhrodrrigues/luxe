@@ -1,9 +1,7 @@
 {
   "name": "button-magnetic",
   "type": "ui:components",
-  "externalDependencies": [
-    "motion/react"
-  ],
+  "externalDependencies": [],
   "internalDependencies": [],
   "files": [
     {

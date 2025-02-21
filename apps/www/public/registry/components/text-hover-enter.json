@@ -1,9 +1,7 @@
 {
   "name": "text-hover-enter",
   "type": "ui:components",
-  "externalDependencies": [
-    "motion/react"
-  ],
+  "externalDependencies": [],
   "internalDependencies": [],
   "files": [
     {

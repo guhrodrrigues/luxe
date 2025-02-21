@@ -31,7 +31,7 @@ type Registry = {
 
 const IGNORED_EXTERNAL_DEPENDENCIES = new Set([
   'react',
-  'motion',
+  'motion/react',
   'lucide-react',
 ])
 const COMPONENTS_PATH = path.resolve(

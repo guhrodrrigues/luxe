@@ -1,9 +1,7 @@
 {
   "name": "dock-menu",
   "type": "ui:components",
-  "externalDependencies": [
-    "motion/react"
-  ],
+  "externalDependencies": [],
   "internalDependencies": [],
   "files": [
     {
