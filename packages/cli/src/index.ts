@@ -5,9 +5,15 @@ import { program } from 'commander'
 import { description, name, version } from '../package.json'
 
 import { init } from '@/commands/init'
+import { add } from '@/commands/add'
 
 function main() {
-  program.version(version).name(name).description(description).addCommand(init)
+  program
+    .version(version)
+    .name(name)
+    .description(description)
+    .addCommand(init)
+    .addCommand(add)
 
   program.parse()
 }

@@ -3,7 +3,6 @@ import { ValidationError, Validator } from 'jsonschema'
 
 import type { LuxeManifest } from './luxe-manifest-file'
 
-import { log } from '@/lib/log'
 import { apiConfig } from '@/services/api-config'
 
 type ValidadeLuxeManifestProps = {
@@ -34,10 +33,7 @@ export async function validadeLuxeManifest({
     }
   } catch (err) {
     if (err instanceof ValidationError) {
-      log.error(err.message)
-    } else {
-      log.error(`Unexpected error: ${err.message || err}`)
-      process.exit(0)
+      throw new Error(err.message)
     }
   }
 }

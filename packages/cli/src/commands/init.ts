@@ -1,5 +1,6 @@
 import * as p from '@clack/prompts'
 import { Command } from 'commander'
+import chalk from 'chalk'
 
 import { INIT_DEFAULT_PROMPTS } from '@/utils/const'
 import { convertPathToAlias } from '@/utils/convert-path-to-alias'
@@ -11,9 +12,7 @@ import { log } from '@/lib/log'
 
 export const init = new Command()
   .name('init')
-  .summary(
-    'initialize your project with ready to use Luxe components. Practical, fast, and customizable.',
-  )
+  .summary('initialize your project with ready to use Luxe components.')
   .action(async () => {
     try {
       let luxeManifestFileContent = await luxeManifestFile.read()
@@ -90,7 +89,7 @@ export const init = new Command()
         manifest: luxeManifestFileContent!,
       })
 
-      log.success(InitLogMessage.SETUP_SUCCESS)
+      log.success(chalk.green(InitLogMessage.SETUP_SUCCESS))
     } catch (err) {
       log.error(err.message)
     }
