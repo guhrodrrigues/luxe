@@ -203,12 +203,18 @@ importers:
       '@clack/prompts':
         specifier: ^0.10.0
         version: 0.10.0
+      camelcase:
+        specifier: ^8.0.0
+        version: 8.0.0
       chalk:
         specifier: ^5.4.1
         version: 5.4.1
       commander:
         specifier: ^13.1.0
         version: 13.1.0
+      eta:
+        specifier: ^3.5.0
+        version: 3.5.0
       jsonschema:
         specifier: ^1.5.0
         version: 1.5.0
@@ -1885,6 +1891,10 @@ packages:
     resolution: {integrity: sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg==}
     engines: {node: '>=6'}
 
+  camelcase@8.0.0:
+    resolution: {integrity: sha512-8WB3Jcas3swSvjIeA2yvCJ+Miyz5l1ZmB6HFb9R1317dt9LCQoswg/BGrmAmkWVEszSrrg4RwmO46qIm2OEnSA==}
+    engines: {node: '>=16'}
+
   caniuse-lite@1.0.30001699:
     resolution: {integrity: sha512-b+uH5BakXZ9Do9iK+CkDmctUSEqZl+SP056vc5usa0PL+ev5OHw003rZXcnjNDv3L8P5j6rwT6C0BPKSikW08w==}
 
@@ -2157,6 +2167,10 @@ packages:
   esutils@2.0.3:
     resolution: {integrity: sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g==}
     engines: {node: '>=0.10.0'}
+
+  eta@3.5.0:
+    resolution: {integrity: sha512-e3x3FBvGzeCIHhF+zhK8FZA2vC5uFn6b4HJjegUbIWrDb4mJ7JjTGMJY9VGIbRVpmSwHopNiaJibhjIr+HfLug==}
+    engines: {node: '>=6.0.0'}
 
   execa@5.1.1:
     resolution: {integrity: sha512-8uSpZZocAZRBAPIEINJj3Lo9HyGitllczc27Eh5YYojjMFMn8yHMDMaUHE2Jqfq05D/wucwI4JGURyXt1vchyg==}
@@ -5244,6 +5258,8 @@ snapshots:
 
   camelcase@5.3.1: {}
 
+  camelcase@8.0.0: {}
+
   caniuse-lite@1.0.30001699: {}
 
   ccount@2.0.1: {}
@@ -5519,6 +5535,8 @@ snapshots:
       '@types/estree': 1.0.6
 
   esutils@2.0.3: {}
+
+  eta@3.5.0: {}
 
   execa@5.1.1:
     dependencies:
