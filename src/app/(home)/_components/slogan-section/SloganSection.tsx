@@ -9,7 +9,7 @@ export function SloganSection() {
       <div className="relative mt-28 flex flex-col items-center justify-center gap-8 pb-20 pt-14 md:mt-44 md:pb-40 lg:gap-10">
         <BlurBackground />
         <AnimateEnter className="flex flex-col items-center" delay={0.2}>
-          <h1 className="text-gradient mx-auto max-w-lg text-center text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
+          <h1 className="text-gradient mx-auto max-w-lg text-center text-4xl font-semibold leading-tight -tracking-wide md:text-5xl">
             Illuminate your apps. Fast and easy.
           </h1>
         </AnimateEnter>

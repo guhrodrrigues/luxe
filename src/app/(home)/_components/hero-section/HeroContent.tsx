@@ -27,8 +27,8 @@ export async function HeroContent() {
       </AnimateEnter>
       <AnimateEnter delay={0.2}>
         <p className="mx-auto max-w-md text-neutral-600 dark:text-neutral-300">
-          Library of components copy and paste to illuminate your applications
-          with elegance and sophistication.
+          Library of copy and paste components to illuminate your apps with
+          elegance and sophistication.
         </p>
       </AnimateEnter>
       <AnimateEnter

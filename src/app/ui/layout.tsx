@@ -6,7 +6,7 @@ import { Header } from "@/app/ui/_components/Header";
 export const metadata: Metadata = {
   title: {
     default: "Browse Components",
-    template: "%s · Luxe",
+    template: "Luxe: %s",
   },
   description:
     "Navigate to all the components that will make your application sophisticated and luxurious.",

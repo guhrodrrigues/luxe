@@ -33,7 +33,7 @@ export function Footer() {
             </div>
             <div className="flex flex-col gap-1">
               <p className="text-sm text-primary text-opacity-80">
-                Elevating the web design.
+                Illuminate your apps.
               </p>
               <p className="text-sm text-black/60 dark:text-white/60">
                 <a

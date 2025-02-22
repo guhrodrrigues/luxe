@@ -10,7 +10,7 @@ export function ComponentsSection() {
   return (
     <section className="mt-56 flex flex-col items-center justify-center gap-20">
       <AnimateEnter className="space-y-6 text-center">
-        <h1 className="text-gradient mx-auto max-w-2xl text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
+        <h1 className="text-gradient mx-auto max-w-2xl text-4xl font-semibold leading-tight -tracking-wide md:text-5xl">
           Elevate your web apps with sophisticated components
         </h1>
         <p className="mx-auto max-w-lg text-neutral-600 dark:text-neutral-300">
