@@ -1,8 +1,8 @@
-"use client";
+"use client"; // @NOTE: Add in case you are using Next.js
 
 import { motion } from "motion/react";
 
-import { Checkbox as BaseUICheckbox } from "@base-ui-components/react/checkbox";
+import * as RadixCheckbox from "@radix-ui/react-checkbox";
 
 export function CheckboxExample() {
   return (
@@ -25,11 +25,11 @@ export function CheckboxExample() {
 
 function Checkbox() {
   return (
-    <BaseUICheckbox.Root
+    <RadixCheckbox.Root
       className="flex h-5 w-5 flex-shrink-0 appearance-none items-center justify-center rounded border border-neutral-300 bg-neutral-100 outline-none dark:border-neutral-800 dark:bg-neutral-900"
       id="terms"
     >
-      <BaseUICheckbox.Indicator>
+      <RadixCheckbox.Indicator>
         <motion.div
           className="h-[inherit] w-[inherit] rounded bg-black dark:bg-white"
           initial={{ scale: 0, opacity: 0 }}
@@ -38,8 +38,8 @@ function Checkbox() {
         >
           <CheckIcon />
         </motion.div>
-      </BaseUICheckbox.Indicator>
-    </BaseUICheckbox.Root>
+      </RadixCheckbox.Indicator>
+    </RadixCheckbox.Root>
   );
 }
 
