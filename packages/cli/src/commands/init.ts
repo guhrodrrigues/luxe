@@ -1,6 +1,6 @@
 import * as p from '@clack/prompts'
-import { Command } from 'commander'
 import chalk from 'chalk'
+import { Command } from 'commander'
 
 import { INIT_DEFAULT_PROMPTS } from '@/utils/const'
 import { convertPathToAlias } from '@/utils/convert-path-to-alias'

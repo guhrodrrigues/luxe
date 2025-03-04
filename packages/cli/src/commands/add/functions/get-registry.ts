@@ -1,6 +1,6 @@
 import { apiConfig } from '@/services/api-config'
 
-import type { RegistryType, Registry } from '@/@types/registry'
+import type { Registry, RegistryType } from '@/@types/registry'
 
 async function fetchRegistry<T>(path: string): Promise<T> {
   try {

@@ -4,8 +4,8 @@ import { program } from 'commander'
 
 import { description, name, version } from '../package.json'
 
-import { init } from '@/commands/init'
 import { add } from '@/commands/add'
+import { init } from '@/commands/init'
 
 function main() {
   program

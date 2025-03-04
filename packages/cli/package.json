@@ -11,11 +11,17 @@
 	},
 	"dependencies": {
 		"@clack/prompts": "^0.10.0",
+		"@radix-ui/react-checkbox": "^1.1.2",
 		"camelcase": "^8.0.0",
 		"chalk": "^5.4.1",
 		"commander": "^13.1.0",
 		"eta": "^3.5.0",
-		"jsonschema": "^1.5.0"
+		"find-up": "^7.0.0",
+		"jsonschema": "^1.5.0",
+		"package-manager-detector": "^0.2.11",
+		"prettier": "^3.5.3",
+		"react-use-measure": "^2.1.1",
+		"tailwind-variants": "0.2.0"
 	},
 	"devDependencies": {
 		"@types/node": "^20",

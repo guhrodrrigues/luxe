@@ -1,5 +1,5 @@
-import type { Eta } from 'eta'
 import type { LuxeManifest } from '@/utils/luxe-manifest-file'
+import type { Eta } from 'eta'
 
 type ResolveAliasesTemplateProps = Pick<LuxeManifest, 'aliases'> & {
   code: string
