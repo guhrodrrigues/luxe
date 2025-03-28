@@ -3,7 +3,7 @@
 		"css": "@/styles/globals.css"
 	},
 	"aliases": {
-		"components": "@/components/ui",
-		"utils": "@/utils"
+		"components": "@/components/ui/*",
+		"utils": "@/utils/*"
 	}
 }

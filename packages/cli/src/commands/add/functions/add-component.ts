@@ -1,52 +1,58 @@
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
 
-import chalk from 'chalk'
-import { Eta } from 'eta'
+import type { Eta } from 'eta'
 import prettier from 'prettier'
 
-import { installExternalDependencies } from '@/utils/install-external-dependencies'
-import { getRegistryInfo } from './get-registry'
-import { resolveAliasesTemplate } from './resolve-aliases-template'
+import { luxeConfig } from '@/utils/luxe-config-manager'
+import { ensureFolderExists } from '@/utils/ensure-folder-exists'
 
-import type { LuxeManifest } from '@/utils/luxe-manifest-file'
+import {
+  type ComponentFile,
+  componentFileSchema,
+} from '@/schemas/component-schema'
+import type { LuxeAliasesProps } from '@/schemas/luxe-config-schema'
 
-type AddComponentProps = Pick<LuxeManifest, 'aliases'> & {
-  componentName: string
-  registryComponents: string[]
-  componentsDirectory: string
-}
+/**
+ * Function responsible for adding the component code to the project.
+ */
+export async function addComponent(
+  componentFiles: ComponentFile[],
+  aliases: LuxeAliasesProps,
+  etaEngine: Eta,
+) {
+  const targetPath = aliases.components
+  const projectConfig = await luxeConfig.readConfig()
 
-const eta = new Eta()
+  const resolvedAliases = Object.entries(aliases).reduce(
+    (acc, [aliasKey]) => {
+      const typedKey = aliasKey as keyof LuxeAliasesProps
+      acc[aliasKey] = projectConfig.aliases[typedKey].slice(0, -2)
 
-export async function addComponent({
-  componentName,
-  registryComponents,
-  componentsDirectory,
-  aliases,
-}: AddComponentProps) {
-  if (!registryComponents.includes(componentName)) {
-    throw new Error(`The component ${chalk.blue(componentName)} not found.`)
+      return acc
+    },
+    {} as Record<string, string>,
+  )
+
+  ensureFolderExists(targetPath)
+
+  for (const file of componentFiles) {
+    const { name: fileName, content: rawContent } =
+      componentFileSchema.parse(file)
+
+    const resolvedContent = await etaEngine.renderStringAsync(rawContent, {
+      aliases: resolvedAliases,
+    })
+
+    const formattedContent = await prettier.format(resolvedContent, {
+      parser: 'typescript',
+      plugins: ['prettier-plugin-tailwindcss'],
+    })
+
+    await fs.writeFile(
+      path.resolve(targetPath, fileName),
+      formattedContent,
+      'utf8',
+    )
   }
-
-  const { files, externalDependencies } = await getRegistryInfo(
-    'components',
-    componentName,
-  )
-
-  const componentFilePath = path.resolve(
-    path.join(componentsDirectory, files[0].name),
-  )
-
-  let componentCode = resolveAliasesTemplate(eta, {
-    aliases,
-    code: files[0].content,
-  })
-
-  componentCode = await prettier.format(componentCode, {
-    parser: 'typescript',
-  })
-
-  await installExternalDependencies(externalDependencies)
-  await fs.writeFile(componentFilePath, componentCode, 'utf8')
 }

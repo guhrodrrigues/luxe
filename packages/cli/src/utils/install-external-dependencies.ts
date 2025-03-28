@@ -36,10 +36,15 @@ export async function installExternalDependencies(
         return {
           title: `Installing ${dependency}`,
           task: async () => {
-            await executeCommandAsync(
-              `${packageManager.agent} add ${dependency}`,
-            )
-            return `${chalk.green(dependency)} installed!`
+            try {
+              await executeCommandAsync(
+                `${packageManager.agent} add ${dependency}`,
+              )
+
+              return `${chalk.green(dependency)} installed!`
+            } catch {
+              return `${chalk.red(dependency)} not installed!`
+            }
           },
         }
       }),

@@ -3,7 +3,9 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-			"@/*": ["./src/*", "./@types/*"]
+			"@/*": ["./src/*"],
+			"@/components/ui/*": ["./src/components/ui/*"],
+			"@/utils/*": ["./src/utils/*"]
 		},
 		"useUnknownInCatchVariables": false
 	}

@@ -1,0 +1,2 @@
+export const DIRECTORY_NOT_FOUND_OR_EMPTY_PROJECT = '1'
+export const TS_CONFIG_FILE_NOT_FOUND = '2'
