@@ -4,8 +4,8 @@ import path from 'node:path'
 import { loadConfig } from 'tsconfig-paths'
 
 import * as ERRORS from '@/utils/errors'
-import { luxeConfig } from '@/utils/luxe-config-manager'
 import { ExecutionError } from '@/utils/errors/execution-error'
+import { luxeConfig } from '@/utils/luxe-config-manager'
 
 import type { LuxeAliasesProps } from '@/schemas/luxe-config-schema'
 

@@ -1,12 +1,12 @@
 {
-	"extends": "@luxe/ts-config/base.json",
-	"compilerOptions": {
-		"baseUrl": ".",
-		"paths": {
-			"@/*": ["./src/*"],
-			"@/components/ui/*": ["./src/components/ui/*"],
-			"@/utils/*": ["./src/utils/*"]
-		},
-		"useUnknownInCatchVariables": false
-	}
+  "extends": "@luxe/ts-config/base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    },
+    "useUnknownInCatchVariables": false
+  }
 }

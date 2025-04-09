@@ -4,8 +4,8 @@ import path from 'node:path'
 import type { Eta } from 'eta'
 import prettier from 'prettier'
 
-import { luxeConfig } from '@/utils/luxe-config-manager'
 import { ensureFolderExists } from '@/utils/ensure-folder-exists'
+import { luxeConfig } from '@/utils/luxe-config-manager'
 
 import {
   type ComponentFile,

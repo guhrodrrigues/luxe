@@ -3,11 +3,11 @@ import { Command } from 'commander'
 import { z } from 'zod'
 
 import chalk from 'chalk'
-import { pascalCase } from 'scule'
 import { Eta } from 'eta'
+import { pascalCase } from 'scule'
 
-import { ExecutionError } from '@/utils/errors/execution-error'
 import * as ERRORS from '@/utils/errors'
+import { ExecutionError } from '@/utils/errors/execution-error'
 import { installExternalDependencies } from '@/utils/install-external-dependencies'
 
 import { addComponent } from './functions/add-component'

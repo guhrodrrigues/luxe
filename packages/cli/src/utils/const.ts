@@ -7,3 +7,5 @@ export const INIT_DEFAULT_PROMPTS = Object.freeze({
     UTILS: './utils',
   },
 })
+
+export const REQUIRED_EXTERNAL_DEPENDENCIES = ['clsx', 'tailwind-merge']

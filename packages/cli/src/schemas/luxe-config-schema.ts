@@ -2,7 +2,6 @@ import { z } from 'zod'
 
 export const luxeAliasesSchema = z.object({
   components: z.string(),
-  utils: z.string(),
 })
 
 export const luxeConfigSchema = z.object({

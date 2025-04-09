@@ -26,13 +26,13 @@ export async function installExternalDependencies(
     dependencies: Record<string, string>
   }
 
-  for (const dependency of dependenciesToInstall) {
-    if (dependency in dependencies) {
-      continue
-    }
+  const dependenciesNotInstalled = dependenciesToInstall.filter(
+    dependency => !Object.keys(dependencies).includes(dependency),
+  )
 
+  if (dependenciesNotInstalled.length > 0) {
     await prompts.tasks(
-      dependenciesToInstall.map(dependency => {
+      dependenciesNotInstalled.map(dependency => {
         return {
           title: `Installing ${dependency}`,
           task: async () => {

@@ -1,4 +1,4 @@
-import { promises as fs, existsSync } from 'node:fs'
+import { promises as fs } from 'node:fs'
 import path from 'node:path'
 
 import { lilconfig } from 'lilconfig'
@@ -45,15 +45,12 @@ class LuxeConfigManager {
 
   async writeConfig(configProps: LuxeConfigProps): Promise<void> {
     this._configFilePath = path.resolve(LUXE_JSON_FILE)
-    const isConfigFileExists = existsSync(this._configFilePath)
 
-    if (!isConfigFileExists) {
-      await fs.writeFile(
-        this._configFilePath,
-        JSON.stringify(configProps, null, 2),
-        'utf8',
-      )
-    }
+    await fs.writeFile(
+      this._configFilePath,
+      JSON.stringify(configProps, null, 2),
+      'utf8',
+    )
   }
 }
 
