@@ -22,7 +22,14 @@ export const init = new Command()
       const { data } = await preFlightInit()
       const { cssPath, componentsPath } = data
 
-      updateTsconfigPaths()
+      const aliasedComponentsPath = componentsPath
+        .replace(/^\.\/src\//, '@/')
+        .concat('*')
+
+      updateTsconfigPaths({
+        [aliasedComponentsPath]: [componentsPath.concat('*')],
+      })
+
       injectCommonUtilities()
 
       await installExternalDependencies(REQUIRED_EXTERNAL_DEPENDENCIES)
@@ -32,7 +39,7 @@ export const init = new Command()
           css: cssPath,
         },
         aliases: {
-          components: componentsPath.replace(/^\.\/src\//, '@/').concat('*'),
+          components: aliasedComponentsPath,
         },
       })
     } catch (err) {

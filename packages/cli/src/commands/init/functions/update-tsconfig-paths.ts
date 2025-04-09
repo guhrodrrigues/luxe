@@ -3,7 +3,7 @@ import path from 'node:path'
 
 import * as tsConfigPaths from 'tsconfig-paths'
 
-export async function updateTsconfigPaths() {
+export async function updateTsconfigPaths(aliases: Record<string, string[]>) {
   const tsconfig = tsConfigPaths.loadConfig()
 
   if (tsconfig.resultType === 'success') {
@@ -21,7 +21,9 @@ export async function updateTsconfigPaths() {
       compilerOptions: {
         ...tsconfigJson.compilerOptions,
         paths: {
+          ...tsconfigJson.compilerOptions.paths,
           '@/*': ['./src/*'],
+          ...aliases,
         },
       },
     }

@@ -5,6 +5,9 @@
     "paths": {
       "@/*": [
         "./src/*"
+      ],
+      "@/components/ui/*": [
+        "./src/components/ui/*"
       ]
     },
     "useUnknownInCatchVariables": false
