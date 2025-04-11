@@ -51,6 +51,7 @@ const TabsTrigger = React.forwardRef<
 
   React.useEffect(() => {
     const element = triggerRef.current;
+
     if (element) {
       setIsActive(element.dataset.state === "active");
 
@@ -76,7 +77,10 @@ const TabsTrigger = React.forwardRef<
       {isActive && (
         <motion.div
           layout
-          className="absolute -bottom-[5px] flex h-0.5 w-full justify-center"
+          className={cn(
+            "absolute -bottom-[5px] flex h-0.5 w-full justify-center",
+            classNameIndicator,
+          )}
           transition={{
             type: "spring",
             stiffness: 255,
@@ -85,12 +89,7 @@ const TabsTrigger = React.forwardRef<
           }}
           layoutId={`underline-${tabsId}`}
         >
-          <div
-            className={cn(
-              "h-0.5 w-full rounded-full bg-primary/90",
-              classNameIndicator,
-            )}
-          />
+          <div className="h-0.5 w-full rounded-full bg-primary/90" />
         </motion.div>
       )}
       {children}

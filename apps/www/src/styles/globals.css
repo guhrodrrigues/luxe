@@ -78,6 +78,10 @@
     overflow-x: auto;
     font-size: 14px;
 
+    code {
+      font-family: var(--font-geist-mono);
+    }
+
     [data-line] {
       margin-top: 0 !important;
     }
@@ -111,7 +115,6 @@ html {
   background-color: transparent !important;
   font-size: 14px;
   border: 1px solid transparent;
-  font-family: var(--font-mono);
 
   &:focus-visible {
     border-color: var(--border);

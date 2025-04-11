@@ -2,15 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const TABS = [
-  { label: "All Posts" },
-  { label: "Interactions" },
-  { label: "Resources" },
-  { label: "Docs" },
-];
+type AnimatedTabsProps = {
+  tabs: Array<{
+    label: string;
+  }>;
+};
 
-export function AnimatedTabs() {
-  const [activeTab, setActiveTab] = useState(TABS[0].label);
+export function AnimatedTabs({ tabs }: AnimatedTabsProps) {
+  const [activeTab, setActiveTab] = useState(tabs[0].label);
   const containerRef = useRef<HTMLDivElement>(null);
   const activeTabRef = useRef<HTMLButtonElement>(null);
 
@@ -38,7 +37,7 @@ export function AnimatedTabs() {
         className="absolute z-10 w-full overflow-hidden [clip-path:inset(0px_75%_0px_0%_round_17px)] [transition:clip-path_0.25s_ease]"
       >
         <div className="relative flex w-full justify-center bg-black dark:bg-white">
-          {TABS.map((tab, index) => (
+          {tabs.map((tab, index) => (
             <button
               key={index}
               onClick={() => setActiveTab(tab.label)}
@@ -51,7 +50,7 @@ export function AnimatedTabs() {
         </div>
       </div>
       <div className="relative flex w-full justify-center">
-        {TABS.map(({ label }, index) => {
+        {tabs.map(({ label }, index) => {
           const isActive = activeTab === label;
 
           return (

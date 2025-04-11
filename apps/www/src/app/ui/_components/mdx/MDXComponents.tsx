@@ -9,7 +9,6 @@ import { cn } from "@/utils/cn";
 import { ComponentView } from "../ComponentView";
 import { CodeBlock } from "../CodeBlock";
 import { CopyCode } from "../CopyCode";
-import { CodeIcon, TerminalIcon } from "lucide-react";
 
 import {
   Tabs,
@@ -18,6 +17,7 @@ import {
   TabsTrigger,
 } from "@/app/ui/_components/Tabs";
 import { AnimatedTabs } from "@/app/_components/ui/tabs";
+import { Button } from "@/app/_components/ui/buttons/Button";
 
 const components: MDXComponents = {
   ComponentView: ({ children, isReloadAnimation, ...props }) => (
@@ -35,7 +35,7 @@ const components: MDXComponents = {
     </h1>
   ),
   h2: ({ children, ...props }) => (
-    <h1 className="text-2xl font-bold -tracking-wide text-primary" {...props}>
+    <h1 className="text-xl font-bold -tracking-wide text-primary" {...props}>
       {children}
     </h1>
   ),
@@ -47,36 +47,22 @@ const components: MDXComponents = {
       {children}
     </p>
   ),
-  CodeBlock: ({ children, fileName, copyCode, lang, ...props }) => (
-    <div
-      className={cn(
-        "relative overflow-hidden rounded-xl border border-neutral-300/50 bg-neutral-200/30 dark:border-neutral-800/60 dark:bg-neutral-900/40",
-        props.className,
-      )}
-    >
-      {fileName && copyCode && (
-        <div className="flex h-10 items-center justify-between border-b border-neutral-300/50 bg-neutral-200/30 pl-4 pr-2.5 dark:border-neutral-800/60 dark:bg-neutral-900/30">
-          <div className="flex items-center gap-2">
-            {fileName === "Terminal" ? (
-              <TerminalIcon
-                size={14}
-                className="text-neutral-500 dark:text-neutral-600"
-              />
-            ) : (
-              <CodeIcon
-                size={14}
-                className="text-neutral-500 dark:text-neutral-600"
-              />
-            )}
-            <span className="text-[13px] font-medium leading-none text-neutral-500">
-              {fileName}
-            </span>
-          </div>
-          <CopyCode code={children} />
-        </div>
-      )}
-      <div className="relative overflow-x-auto p-4">{children}</div>
-    </div>
+  CodeBlock: ({
+    children,
+    npmCommand,
+    yarnCommand,
+    pnpmCommand,
+    bunCommand,
+    ...props
+  }) => (
+    <CodeBlock
+      npmCommand={npmCommand}
+      yarnCommand={yarnCommand}
+      pnpmCommand={pnpmCommand}
+      bunCommand={bunCommand}
+      className={cn(props.className)}
+      {...props}
+    />
   ),
   CodeHighlight: ({ children, ...props }) => (
     <span
@@ -98,8 +84,21 @@ const components: MDXComponents = {
   TabsContent: ({ className, ...props }) => (
     <TabsContent className={cn(props.className)} {...props} />
   ),
-  AnimatedTabs: () => <AnimatedTabs />,
   CopyCode: ({ code, ...props }) => <CopyCode code={code} {...props} />,
+  kbd: ({ children, ...props }) => (
+    <kbd
+      className="rounded bg-neutral-300/80 px-1 py-1 font-mono text-sm text-foreground dark:bg-neutral-800/80"
+      {...props}
+    >
+      {children}
+    </kbd>
+  ),
+  AnimatedTabs: () => <AnimatedTabs />,
+  Button: ({ children, variant, ...props }) => (
+    <Button variant={variant} className={cn(props.className)} {...props}>
+      {children}
+    </Button>
+  ),
 };
 
 export function useMDXComponents(components: MDXComponents) {

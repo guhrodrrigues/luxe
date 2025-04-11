@@ -6,10 +6,11 @@ import { GET_STARTED } from "@/data/get-started";
 import { Icons } from "@/app/_components/Icons";
 import { SidebarButton } from "./SidebarButton";
 import { ToggleTheme } from "./ToggleTheme";
+import { getDocs } from "@/lib/mdx";
 
 export function Sidebar() {
-  const orderedComponents = COMPONENTS.sort((a, b) =>
-    a.name.localeCompare(b.name),
+  const orderedComponents = getDocs().sort((a, b) =>
+    a.title.localeCompare(b.title),
   );
 
   return (
@@ -62,11 +63,9 @@ export function Sidebar() {
           <div className="flex flex-col pb-8">
             {orderedComponents.map((component) => (
               <SidebarButton
-                key={component.name}
-                name={component.name}
+                key={component.title}
+                name={component.title}
                 slug={`/ui/${component.slug}`}
-                isNew={component.isNew}
-                isUpdated={component.isUpdated}
               />
             ))}
           </div>

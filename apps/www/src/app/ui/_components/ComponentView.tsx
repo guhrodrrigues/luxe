@@ -26,8 +26,7 @@ export function ComponentView({
   return (
     <div
       className={cn(
-        "overflow-y-auto overflow-x-auto border-neutral-300/50 bg-background dark:border-neutral-800/40 max-sm:-mx-6 max-sm:border-y sm:rounded-xl sm:border",
-        isReloadAnimation && "relative",
+        "relative overflow-y-auto overflow-x-auto border-neutral-300/50 bg-background dark:border-neutral-800/40 max-sm:-mx-6 max-sm:border-y sm:rounded-xl sm:border",
         className,
       )}
     >

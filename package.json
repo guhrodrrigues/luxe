@@ -10,6 +10,7 @@
 	"dependencies": {
 		"@luxe/cli": "link:",
 		"@luxe/react": "workspace:*",
+		"@radix-ui/react-slot": "^1.2.0",
 		"@tailwindcss/postcss": "^4.0.14",
 		"dist": "link:dist",
 		"luxe": "link:",
