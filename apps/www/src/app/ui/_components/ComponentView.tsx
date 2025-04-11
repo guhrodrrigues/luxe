@@ -1,37 +1,39 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
+import { useState } from "react";
 
-import { motion } from 'motion/react'
+import { motion } from "motion/react";
 
-import { RotateCwIcon } from 'lucide-react'
+import { RotateCwIcon } from "lucide-react";
 
-import { cn } from '@/utils/cn'
+import { cn } from "@/utils/cn";
 
 type ComponentViewProps = {
-  isReloadAnimation?: boolean
-} & React.ComponentProps<'div'>
+  isReloadAnimation?: boolean;
+} & React.ComponentProps<"div">;
 
 export function ComponentView({
   isReloadAnimation,
   className,
   children,
 }: ComponentViewProps) {
-  const [reloadKey, setReloadKey] = useState(0)
+  const [reloadKey, setReloadKey] = useState(0);
 
   function handleReload() {
-    setReloadKey(prevKey => prevKey + 1)
+    setReloadKey((prevKey) => prevKey + 1);
   }
 
   return (
     <div
       className={cn(
-        'flex min-h-[250px] items-center justify-center overflow-hidden overflow-x-auto border-neutral-300/50 bg-background p-8 dark:border-neutral-800/40 max-sm:-mx-6 max-sm:border-y sm:rounded-xl sm:border',
-        isReloadAnimation && 'relative',
+        "overflow-y-auto overflow-x-auto border-neutral-300/50 bg-background dark:border-neutral-800/40 max-sm:-mx-6 max-sm:border-y sm:rounded-xl sm:border",
+        isReloadAnimation && "relative",
         className,
       )}
     >
-      {isReloadAnimation ? <div key={reloadKey}>{children}</div> : children}
+      <div className="p-5">
+        {isReloadAnimation ? <div key={reloadKey}>{children}</div> : children}
+      </div>
       {isReloadAnimation && (
         <div className="absolute right-4 top-3 z-[5]">
           <motion.button
@@ -45,5 +47,5 @@ export function ComponentView({
         </div>
       )}
     </div>
-  )
+  );
 }

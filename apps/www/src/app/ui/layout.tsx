@@ -1,53 +1,53 @@
-import type { Metadata } from 'next'
+import { Metadata } from "next";
 
-import { Header } from '@/app/ui/_components/Header'
-import { Sidebar } from '@/app/ui/_components/sidebar/Sidebar'
+import { Sidebar } from "@/app/ui/_components/sidebar/Sidebar";
+import { Header } from "@/app/ui/_components/Header";
 
 export const metadata: Metadata = {
   title: {
-    default: 'Browse Components',
-    template: '%s · Luxe',
+    default: "Browse Components",
+    template: "Luxe: %s",
   },
   description:
-    'Navigate to all the components that will make your application sophisticated and luxurious.',
+    "Navigate to all the components that will make your application sophisticated and luxurious.",
   openGraph: {
     images: [
       {
         width: 1920,
         height: 1080,
-        url: 'https://luxeui.com/open-graphs/og-browse-components.png',
+        url: "https://luxeui.com/open-graphs/og-browse-components.png",
         alt: "Luxe's website cover",
       },
     ],
-    locale: 'en',
-    siteName: 'Gustavo Rodrigues',
-    title: 'Luxe — Browse Components',
+    locale: "en",
+    siteName: "Gustavo Rodrigues",
+    title: "Luxe — Browse Components",
     description:
-      'Navigate to all the components that will make your application sophisticated and luxurious.',
-    type: 'website',
-    url: 'https://luxeui.com/ui',
+      "Navigate to all the components that will make your application sophisticated and luxurious.",
+    type: "website",
+    url: "https://luxeui.com/ui",
   },
   twitter: {
     images: [
       {
         width: 1920,
         height: 1080,
-        url: 'https://luxeui.com/open-graphs/og-browse-components.png',
+        url: "https://luxeui.com/open-graphs/og-browse-components.png",
         alt: "Luxe's website cover",
       },
     ],
-    card: 'summary_large_image',
-    title: 'Luxe — Browse Components',
+    card: "summary_large_image",
+    title: "Luxe — Browse Components",
     description:
-      'Navigate to all the components that will make your application sophisticated and luxurious.',
-    site: '@guhrodrrigues',
-    creator: 'Gustavo Rodrigues',
+      "Navigate to all the components that will make your application sophisticated and luxurious.",
+    site: "@guhrodrrigues",
+    creator: "Gustavo Rodrigues",
   },
-}
+};
 
 type ComponentPageLayout = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
 export default function ComponentPageLayout({ children }: ComponentPageLayout) {
   return (
@@ -62,5 +62,5 @@ export default function ComponentPageLayout({ children }: ComponentPageLayout) {
         </div>
       </div>
     </>
-  )
+  );
 }

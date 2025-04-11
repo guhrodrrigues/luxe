@@ -1,5 +1,5 @@
-import { fontMono, fontSans } from "@/utils/fonts";
 import type { Metadata } from "next";
+import { fontSans, fontMono } from "@/utils/fonts";
 
 import "@/styles/globals.css";
 
@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   category: "developer",
   creator: "Gustavo Rodrigues",
   title: {
-    default: "Luxe",
-    template: "%s · Luxe",
+    default: "Luxe: Illuminate your apps.",
+    template: "Luxe: %s",
   },
   description:
-    "Library of components copy and paste to illuminate your applications with elegance and sophistication.",
+    "Library of copy and paste components to illuminate your apps with elegance and sophistication.",
   icons: ["/favicon.svg"],
   keywords: [
     "Gustavo Rodrigues",

@@ -1,16 +1,16 @@
-import { Link } from 'next-view-transitions'
+import { Link } from "next-view-transitions";
 
-import { COMPONENTS } from '@/data/components'
-import { GET_STARTED } from '@/data/get-started'
+import { COMPONENTS } from "@/data/components";
+import { GET_STARTED } from "@/data/get-started";
 
-import { Icons } from '@/app/_components/Icons'
-import { SidebarButton } from './SidebarButton'
-import { ToggleTheme } from './ToggleTheme'
+import { Icons } from "@/app/_components/Icons";
+import { SidebarButton } from "./SidebarButton";
+import { ToggleTheme } from "./ToggleTheme";
 
 export function Sidebar() {
   const orderedComponents = COMPONENTS.sort((a, b) =>
     a.name.localeCompare(b.name),
-  )
+  );
 
   return (
     <aside className="right-dotted fixed bottom-0 left-0 top-0 h-screen w-[250px] flex-1 bg-main pt-7 max-lg:hidden">
@@ -37,7 +37,7 @@ export function Sidebar() {
         className="flex h-full flex-col gap-6 overflow-y-auto px-6 pb-10 pt-[20px] [-ms-overflow-style:none] [scrollbar-width:none] max-lg:hidden [&::-webkit-scrollbar]:hidden"
         style={{
           maskImage:
-            'linear-gradient(#0c0c0c,#0c0c0c,transparent 0,#0c0c0c 24px,#0c0c0c calc(100% - 60px),transparent)',
+            "linear-gradient(#0c0c0c,#0c0c0c,transparent 0,#0c0c0c 24px,#0c0c0c calc(100% - 60px),transparent)",
         }}
       >
         <div className="flex flex-col gap-1">
@@ -45,11 +45,12 @@ export function Sidebar() {
             Get Started
           </span>
           <div className="flex flex-col">
-            {GET_STARTED.map(component => (
+            {GET_STARTED.map((component) => (
               <SidebarButton
                 key={component.slug}
                 name={component.name}
                 slug={component.slug}
+                isNew={component.isNew}
               />
             ))}
           </div>
@@ -59,7 +60,7 @@ export function Sidebar() {
             Components
           </span>
           <div className="flex flex-col pb-8">
-            {orderedComponents.map(component => (
+            {orderedComponents.map((component) => (
               <SidebarButton
                 key={component.name}
                 name={component.name}
@@ -72,5 +73,5 @@ export function Sidebar() {
         </div>
       </nav>
     </aside>
-  )
+  );
 }

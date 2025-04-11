@@ -1,39 +1,40 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
+import { useState } from "react";
 
-import { CheckIcon, ClipboardIcon } from 'lucide-react'
+import { CheckIcon, ClipboardIcon } from "lucide-react";
 
-import { AnimatePresence, motion } from 'motion/react'
+import { AnimatePresence, motion } from "motion/react";
 
 type CopyCode = {
-  code: string
-}
+  code: string;
+};
 
 export function CopyCode({ code }: CopyCode) {
-  const [copied, setCopied] = useState(false)
+  const [copied, setCopied] = useState(false);
 
   function handleCopy() {
-    navigator.clipboard.writeText(code)
-    setCopied(true)
+    navigator.clipboard.writeText(code);
+    setCopied(true);
 
-    setTimeout(() => setCopied(false), 1200)
+    setTimeout(() => setCopied(false), 1200);
   }
 
   return (
     <button
       onClick={handleCopy}
-      className="relative flex h-7 w-7 items-center justify-center rounded-md text-foreground outline-none focus-visible:ring-1 focus-visible:ring-neutral-300/80 dark:text-neutral-500 dark:focus-visible:ring-neutral-800"
+      className="relative flex size-7 border border-neutral-900 hover:bg-neutral-900 items-center justify-center rounded-md text-foreground outline-none dark:text-neutral-500 dark:focus-visible:ring-neutral-800 transition-colors"
     >
       <AnimatePresence mode="wait" initial={false}>
         {copied ? (
           <motion.span
             key="copied"
+            className="ml-px"
             initial={{ scale: 0.5 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0.5 }}
             transition={{
-              ease: 'easeOut',
+              ease: "easeOut",
               duration: 0.15,
             }}
           >
@@ -42,11 +43,12 @@ export function CopyCode({ code }: CopyCode) {
         ) : (
           <motion.span
             key="copy"
+            className="ml-px"
             initial={{ scale: 0.5 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0.5 }}
             transition={{
-              ease: 'easeOut',
+              ease: "easeOut",
               duration: 0.15,
             }}
           >
@@ -55,7 +57,7 @@ export function CopyCode({ code }: CopyCode) {
         )}
       </AnimatePresence>
     </button>
-  )
+  );
 }
 
 function Icon() {
@@ -75,5 +77,5 @@ function Icon() {
       <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
       <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
     </svg>
-  )
+  );
 }

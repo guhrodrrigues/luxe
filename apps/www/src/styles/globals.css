@@ -42,9 +42,7 @@
   --color-border: var(--border);
 
   --font-sans: var(--font-geist-sans);
-  --font-mono:
-    "__GeistMono_c1e5c9", ui-monospace, SFMono-Regular, Roboto Mono, Menlo,
-    Monaco, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
+  --font-mono: var(--font-geist-mono);
 }
 
 @layer base {
@@ -75,6 +73,15 @@
   -webkit-tap-highlight-color: transparent;
   scrollbar-width: thin;
   scrollbar-color: var(--scrollbar) transparent;
+
+  pre {
+    overflow-x: auto;
+    font-size: 14px;
+
+    [data-line] {
+      margin-top: 0 !important;
+    }
+  }
 }
 
 html {
@@ -84,6 +91,20 @@ html {
   tab-size: 4;
   font-feature-settings: normal;
   font-variation-settings: normal;
+
+  code[data-theme*=" "],
+  code[data-theme*=" "] span {
+    color: var(--shiki-light);
+    background-color: var(--shiki-light-bg);
+  }
+
+  &.dark {
+    code[data-theme*=" "],
+    code[data-theme*=" "] span {
+      color: var(--shiki-dark);
+      background-color: var(--shiki-dark-bg);
+    }
+  }
 }
 
 .shiki {

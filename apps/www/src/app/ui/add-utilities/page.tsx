@@ -1,63 +1,76 @@
-import type { Metadata } from 'next'
+import type { Metadata } from "next";
 
-import fs from 'fs'
-import path from 'path'
-import { promisify } from 'util'
+import fs from "fs";
+import path from "path";
+import { promisify } from "util";
 
-import { Breadcrumbs } from '../_components/Breadcrumbs'
-import { CodeBlock } from '../_components/CodeBlock'
-import { Pagination } from '../_components/Pagination'
+import { Breadcrumbs } from "../_components/Breadcrumbs";
+import { CodeBlock } from "../_components/CodeBlock";
+import { Pagination } from "../_components/Pagination";
+
+import {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+} from "@/app/ui/_components/Tabs";
+import { ComponentView } from "../_components/ComponentView";
+import { AnimatedTabs } from "@/app/_components/ui/tabs";
+import { CopyCode } from "../_components/CopyCode";
 
 async function readFilePath(filePath: string) {
-  const readFile = promisify(fs.readFile)
+  const readFile = promisify(fs.readFile);
 
-  const fileContent = await readFile(path.join(process.cwd(), filePath), 'utf8')
+  const fileContent = await readFile(
+    path.join(process.cwd(), filePath),
+    "utf8",
+  );
 
-  return fileContent
+  return fileContent;
 }
 
 export const metadata: Metadata = {
-  title: 'Add Utilities',
+  title: "Add Utilities",
   description:
-    'This code is widely used in Luxe, it is responsible for merging classes when they have conditionals.',
+    "This code is widely used in Luxe, it is responsible for merging classes when they have conditionals.",
   openGraph: {
     images: [
       {
         width: 1920,
         height: 1080,
-        url: 'https://luxeui.com/open-graphs/og-add-utilities.png',
+        url: "https://luxeui.com/open-graphs/og-add-utilities.png",
         alt: "Luxe's website cover",
       },
     ],
-    locale: 'en',
-    siteName: 'Gustavo Rodrigues',
-    title: 'Luxe — Add Utilities',
+    locale: "en",
+    siteName: "Gustavo Rodrigues",
+    title: "Luxe — Add Utilities",
     description:
-      'This code is widely used in Luxe, it is responsible for merging classes when they have conditionals.',
-    type: 'website',
-    url: 'https://luxeui.com/ui/add-utilities',
+      "This code is widely used in Luxe, it is responsible for merging classes when they have conditionals.",
+    type: "website",
+    url: "https://luxeui.com/ui/add-utilities",
   },
   twitter: {
     images: [
       {
         width: 1920,
         height: 1080,
-        url: 'https://luxeui.com/open-graphs/og-add-utilities.png',
+        url: "https://luxeui.com/open-graphs/og-add-utilities.png",
         alt: "Luxe's website cover",
       },
     ],
-    card: 'summary_large_image',
-    title: 'Luxe — Add Utilities',
+    card: "summary_large_image",
+    title: "Luxe — Add Utilities",
     description:
-      'This code is widely used in Luxe, it is responsible for merging classes when they have conditionals.',
-    site: '@guhrodrrigues',
-    creator: 'Gustavo Rodrigues',
+      "This code is widely used in Luxe, it is responsible for merging classes when they have conditionals.",
+    site: "@guhrodrrigues",
+    creator: "Gustavo Rodrigues",
   },
-}
+};
 
 export default async function AddUtilitiesPage() {
-  const cnPath = `./src/utils/cn.ts`
-  const cnCode = await readFilePath(cnPath)
+  const cnPath = `./src/utils/cn.ts`;
+  const cnCode = await readFilePath(cnPath);
 
   return (
     <main className="my-2 space-y-10 xl:mb-24">
@@ -96,7 +109,7 @@ export default async function AddUtilitiesPage() {
           <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
             <div className="space-y-4 pl-8 pt-1">
               <h2 className="font-medium text-primary">
-                Create a file with the path{' '}
+                Create a file with the path{" "}
                 <code className="rounded bg-neutral-300/80 px-1 py-1 font-mono text-sm text-foreground dark:bg-neutral-800/80">
                   utils/cn.ts
                 </code>
@@ -109,14 +122,14 @@ export default async function AddUtilitiesPage() {
 
       <Pagination
         back={{
-          href: '/ui/installation',
-          name: 'Installation',
+          href: "/ui/installation",
+          title: "Installation",
         }}
         next={{
-          href: '/ui',
-          name: 'Browse Components',
+          href: "/ui",
+          title: "Browse Components",
         }}
       />
     </main>
-  )
+  );
 }
