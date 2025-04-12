@@ -75,7 +75,7 @@ export function Header() {
             </span>
             <span
               className={cn(
-                "text-neutral-500 border border-border bg-[#eeeeee] dark:bg-[#101010] shadow-inner",
+                "text-neutral-400 border border-border bg-[#eeeeee] dark:bg-[#101010] shadow-inner",
                 "shadow-neutral-300 dark:shadow-neutral-800/60 px-1.5 py-1 rounded-md text-[10px] flex items-center gap-0.5",
               )}
             >
