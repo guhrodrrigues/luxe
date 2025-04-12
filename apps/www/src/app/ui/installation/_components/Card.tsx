@@ -1,16 +1,16 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
+import Link from "next/link";
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from "react";
 
-import { AnimatePresence, motion } from 'motion/react'
+import { AnimatePresence, motion } from "motion/react";
 
 type CardProps = {
-  slug: string
-  icon: JSX.Element
-  name: string
-}
+  slug: string;
+  icon: JSX.Element;
+  name: string;
+};
 
 export function Card({ slug, icon, name }: CardProps) {
   return (
@@ -42,47 +42,47 @@ export function Card({ slug, icon, name }: CardProps) {
         </div>
       </div>
     </Link>
-  )
+  );
 }
 
 function GradientLine() {
   return (
     <div className="absolute -top-px right-5 z-[2] h-px w-80 bg-gradient-to-l from-transparent via-black/10 via-10% to-transparent dark:via-white/20" />
-  )
+  );
 }
 
 export const Illustration = ({ icon }: { icon: JSX.Element }) => {
-  const [glowingStars, setGlowingStars] = useState<number[]>([])
+  const [glowingStars, setGlowingStars] = useState<number[]>([]);
 
-  const stars = 108
-  const columns = 18
+  const stars = 108;
+  const columns = 18;
 
-  const highlightedStars = useRef<number[]>([])
+  const highlightedStars = useRef<number[]>([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
       highlightedStars.current = Array.from({ length: 5 }, () =>
         Math.floor(Math.random() * stars),
-      )
+      );
 
-      setGlowingStars([...highlightedStars.current])
-    }, 3000)
+      setGlowingStars([...highlightedStars.current]);
+    }, 3000);
 
-    return () => clearInterval(interval)
-  }, [])
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div
-      className="relative grid h-48 w-full gap-px p-1"
+      className="relative grid h-44 w-full gap-px p-1"
       style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
     >
       <div className="absolute inset-0 z-40 flex h-full w-full items-center justify-center">
         {icon}
       </div>
       {[...Array(stars)].map((_, index) => {
-        const isGlowing = glowingStars.includes(index)
-        const startDelay = index * 0.01
-        const glowDelay = (index % 10) * 0.1
+        const isGlowing = glowingStars.includes(index);
+        const startDelay = index * 0.01;
+        const glowDelay = (index % 10) * 0.1;
 
         return (
           <div
@@ -94,16 +94,16 @@ export const Illustration = ({ icon }: { icon: JSX.Element }) => {
               {isGlowing && <Glow delay={glowDelay} />}
             </AnimatePresence>
           </div>
-        )
+        );
       })}
     </div>
-  )
-}
+  );
+};
 
 type StarProps = {
-  isGlowing: boolean
-  delay: number
-}
+  isGlowing: boolean;
+  delay: number;
+};
 
 function Star({ isGlowing, delay }: StarProps) {
   return (
@@ -114,21 +114,21 @@ function Star({ isGlowing, delay }: StarProps) {
       }}
       animate={{
         scale: isGlowing ? [1, 1.2, 2.5, 2.2, 1.5] : 1,
-        background: isGlowing ? 'var(--primary)' : '#777',
+        background: isGlowing ? "var(--primary)" : "#777",
       }}
       transition={{
         duration: 2,
-        ease: 'easeInOut',
+        ease: "easeInOut",
         delay: delay,
       }}
       className="relative z-20 h-[1px] w-[1px] rounded-full bg-[#777]"
     />
-  )
+  );
 }
 
 type GlowProps = {
-  delay: number
-}
+  delay: number;
+};
 
 function Glow({ delay }: GlowProps) {
   return (
@@ -141,7 +141,7 @@ function Glow({ delay }: GlowProps) {
       }}
       transition={{
         duration: 2,
-        ease: 'easeInOut',
+        ease: "easeInOut",
         delay: delay,
       }}
       exit={{
@@ -149,5 +149,5 @@ function Glow({ delay }: GlowProps) {
       }}
       className="absolute left-1/2 z-10 h-[4px] w-[4px] -translate-x-1/2 rounded-full bg-white/50 shadow-2xl shadow-white/10 blur-[1px]"
     />
-  )
+  );
 }

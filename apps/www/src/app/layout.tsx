@@ -7,6 +7,7 @@ import { cn } from "@/utils/cn";
 import { ThemeProvider } from "./theme-provider";
 
 import { ViewTransitions } from "next-view-transitions";
+import { Header } from "./ui/_components/Header";
 
 export const metadata: Metadata = {
   authors: [{ name: "Gustavo Rodrigues", url: "https://guhrodrigues.com" }],
@@ -107,6 +108,7 @@ export default function RootLayout({
             defaultTheme="dark"
             disableTransitionOnChange
           >
+            <Header />
             {children}
           </ThemeProvider>
         </body>

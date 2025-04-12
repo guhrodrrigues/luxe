@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 
 import { Sidebar } from "@/app/ui/_components/sidebar/Sidebar";
-import { Header } from "@/app/ui/_components/Header";
+import { OnThisPage } from "./_components/OnThisPage";
 
 export const metadata: Metadata = {
   title: {
@@ -51,16 +51,14 @@ type ComponentPageLayout = {
 
 export default function ComponentPageLayout({ children }: ComponentPageLayout) {
   return (
-    <>
-      <Header />
-      <div className="flex max-lg:mb-14 max-lg:flex-col max-lg:gap-12">
-        <div className="flex-shrink-0">
-          <Sidebar />
-        </div>
-        <div className="mx-auto w-full max-w-[900px] flex-grow px-6 lg:mt-20 [@media(min-width:1024px)_and_(max-width:1500px)]:pl-52">
+    <div className="max-w-7xl mx-auto flex-1 items-start md:grid md:grid-cols-[220px_minmax(0,1fr)] md:gap-6 lg:grid-cols-[250px_minmax(0,1fr)] lg:gap-10 horizontal-dotted">
+      <Sidebar />
+      <div className="relative xl:grid xl:grid-cols-[1fr_190px]">
+        <div className="mx-auto w-full min-w-0 max-w-[640px] mt-6">
           {children}
         </div>
+        <OnThisPage />
       </div>
-    </>
+    </div>
   );
 }

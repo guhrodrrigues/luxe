@@ -63,6 +63,13 @@
     @apply [background-image:linear-gradient(90deg,var(--dotted)_25%,transparent_25%)] [background-repeat:repeat-x] [background-size:4px_1px] [background-position:bottom];
   }
 
+  .horizontal-dotted {
+    @apply [background-image:linear-gradient(0deg,var(--dotted)_25%,transparent_25%),linear-gradient(0deg,var(--dotted)_25%,transparent_25%)]
+			[background-position:left,right]
+			[background-repeat:repeat-y,repeat-y]
+			[background-size:1px_4px,1px_4px];
+  }
+
   .right-dotted {
     @apply [background-image:linear-gradient(0deg,var(--dotted)_25%,transparent_25%)] [background-position:100%] [background-repeat:repeat-y] [background-size:1px_4px];
   }
