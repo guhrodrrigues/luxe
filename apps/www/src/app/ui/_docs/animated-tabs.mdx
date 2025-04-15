@@ -6,12 +6,18 @@ slug: "animated-tabs"
 
 <Tabs defaultValue="preview">
 
-<div className="border-b dark:border-neutral-800/60 border-neutral-300/50">
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
 
 <TabsList>
 	<TabsTrigger value="preview">Preview</TabsTrigger>
 	<TabsTrigger value="code">Code</TabsTrigger>
 </TabsList>
+
+<CopyCode 
+	code="animated-tabs"
+	example={true}
+	mode="text"
+/>
 
 </div>
 
@@ -21,19 +27,13 @@ slug: "animated-tabs"
 
 <AnimatedTabs />
 
-<div className="absolute top-8 right-4">
-
-<CopyCode code={"24242"} />
-
-</div>
-
 </ComponentView>
 
 </TabsContent>
 
 <TabsContent value="code">
 
-<ComponentView className="h-[340px] bg-neutral-200/30 dark:bg-neutral-900/40">
+<CodeBlock contentClassName="h-[340px]">
 
 ```tsx
 import { AnimatedTabs } from "@/components/ui/animated-tabs";
@@ -52,13 +52,7 @@ export function AnimatedTabsExample() {
 }
 ```
 
-<div className="absolute top-8 right-4">
-
-<CopyCode code={"24242"} />
-
-</div>
-
-</ComponentView>
+</CodeBlock>
 
 </TabsContent>
 
@@ -81,7 +75,7 @@ export function AnimatedTabsExample() {
 
 <TabsContent value="cli">
 
-<CodeBlock 
+<CommandBlock 
 	npmCommand="npx @luxeui/ui add animated-tabs" 
 	pnpmCommand="pnpm dlx @luxeui/ui add animated-tabs" 
 	yarnCommand="npx @luxeui/ui add animated-tabs" 
@@ -110,41 +104,40 @@ Copy and paste the following code into your project
 
 </h2>
 
-<ComponentView className="h-[350px] bg-neutral-200/30 dark:bg-neutral-900/40">
-
+<CodeBlock fileName="animated-tabs.tsx">
 ```tsx
 "use client"; // @NOTE: Add in case you are using Next.js
-
+ 
 import { useEffect, useRef, useState } from "react";
-
+ 
 type AnimatedTabsProps = {
   tabs: Array<{
     label: string;
   }>;
 };
-
+ 
 export function AnimatedTabs({ tabs }: AnimatedTabsProps) {
   const [activeTab, setActiveTab] = useState(tabs[0].label);
   const containerRef = useRef<HTMLDivElement>(null);
   const activeTabRef = useRef<HTMLButtonElement>(null);
-
+ 
   useEffect(() => {
     const container = containerRef.current;
-
+ 
     if (container && activeTab) {
       const activeTabElement = activeTabRef.current;
-
+ 
       if (activeTabElement) {
         const { offsetLeft, offsetWidth } = activeTabElement;
-
+ 
         const clipLeft = offsetLeft;
         const clipRight = offsetLeft + offsetWidth;
-
+ 
         container.style.clipPath = `inset(0 ${Number(100 - (clipRight / container.offsetWidth) * 100).toFixed()}% 0 ${Number((clipLeft / container.offsetWidth) * 100).toFixed()}% round 17px)`;
       }
     }
   }, [activeTab, activeTabRef, containerRef]);
-
+ 
   return (
     <div className="relative mx-auto flex w-fit flex-col items-center rounded-full">
       <div
@@ -167,7 +160,7 @@ export function AnimatedTabs({ tabs }: AnimatedTabsProps) {
       <div className="relative flex w-full justify-center">
         {tabs.map(({ label }, index) => {
           const isActive = activeTab === label;
-
+ 
           return (
             <button
               key={index}
@@ -184,14 +177,7 @@ export function AnimatedTabs({ tabs }: AnimatedTabsProps) {
   );
 }
 ```
-
-<div className="absolute top-8 right-4">
-
-<CopyCode code={"24242"} />
-
-</div>
-
-</ComponentView>
+</CodeBlock>
 
 </div>
 </div>

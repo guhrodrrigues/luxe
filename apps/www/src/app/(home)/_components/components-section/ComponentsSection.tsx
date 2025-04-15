@@ -1,10 +1,10 @@
-import { Link } from 'next-view-transitions'
+import { Link } from "next-view-transitions";
 
-import { ChevronRightIcon } from 'lucide-react'
+import { ChevronRightIcon } from "lucide-react";
 
-import { TextAnimateEnter } from '@/app/_components/TextAnimateEnter'
-import { AnimateEnter } from '../AnimateEnter'
-import { ComponentsExample } from './ComponentsExample'
+import { TextAnimateEnter } from "@/app/_components/TextAnimateEnter";
+import { AnimateEnter } from "../AnimateEnter";
+import { ComponentsExample } from "./ComponentsExample";
 
 export function ComponentsSection() {
   return (
@@ -18,12 +18,12 @@ export function ComponentsSection() {
           project. This will give your application an extra shine.
         </p>
       </AnimateEnter>
-      <ComponentsExample />
+      {/* <ComponentsExample /> */}
       <AnimateEnter delay={0.3}>
         <Button />
       </AnimateEnter>
     </section>
-  )
+  );
 }
 
 function Button() {
@@ -38,7 +38,7 @@ function Button() {
         <div className="relative h-full w-8 bg-white/20 blur dark:bg-white/40" />
       </div>
     </Link>
-  )
+  );
 }
 
 function ChevronIconGlitch() {
@@ -54,5 +54,5 @@ function ChevronIconGlitch() {
         <ChevronRightIcon size={14} />
       </span>
     </div>
-  )
+  );
 }

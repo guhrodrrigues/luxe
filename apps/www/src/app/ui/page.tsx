@@ -1,12 +1,12 @@
-import Link from 'next/link'
+import Link from "next/link";
 
-import { cn } from '@/utils/cn'
+import { cn } from "@/utils/cn";
 
-import { COMPONENTS } from '@/data/components'
+import { COMPONENTS } from "@/data/components";
 
-import { Breadcrumbs } from './_components/Breadcrumbs'
-import { ComponentView } from './_components/ComponentView'
-import { Pagination } from './_components/Pagination'
+import { Breadcrumbs } from "./_components/Breadcrumbs";
+import { ComponentView } from "./_components/ComponentView";
+import { Pagination } from "./_components/Pagination";
 
 export default function UiPage() {
   return (
@@ -36,8 +36,8 @@ export default function UiPage() {
             <div
               key={name}
               className={cn(
-                'flex min-w-0 flex-grow flex-col gap-4',
-                colSpan && 'md:col-span-2',
+                "flex min-w-0 flex-grow flex-col gap-4",
+                colSpan && "md:col-span-2",
               )}
             >
               <Link
@@ -56,7 +56,9 @@ export default function UiPage() {
           ),
         )}
       </div>
-      <Pagination back={{ href: '/ui/add-utilities', name: 'Add Utilities' }} />
+      <Pagination
+        back={{ href: "/ui/add-utilities", title: "Add Utilities" }}
+      />
     </main>
-  )
+  );
 }

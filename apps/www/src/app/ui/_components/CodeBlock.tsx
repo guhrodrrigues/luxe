@@ -1,83 +1,55 @@
-"use client";
-
 import { CodeIcon, TerminalIcon } from "lucide-react";
 
 import { cn } from "@/utils/cn";
 
-import Code from "./Code";
 import { CopyCode } from "./CopyCode";
-import { Tabs, TabsList, TabsTrigger, TabsContent } from "./Tabs";
-import { useMemo, useState } from "react";
+
+import { getFileContent } from "@/utils/get-file-content";
 
 type CodeBlockProps = {
-  npmCommand: string;
-  yarnCommand: string;
-  pnpmCommand: string;
-  bunCommand: string;
+  fileName?: string;
+  copyCode?: boolean;
+  contentClassName?: string;
 } & React.ComponentProps<"div">;
 
 export function CodeBlock({
-  npmCommand,
-  yarnCommand,
-  pnpmCommand,
-  bunCommand,
+  fileName,
   className,
+  children,
+  contentClassName,
+  copyCode = true,
 }: CodeBlockProps) {
-  const tabs = useMemo(() => {
-    return {
-      npm: npmCommand,
-      pnpm: pnpmCommand,
-      yarn: yarnCommand,
-      bun: bunCommand,
-    };
-  }, [npmCommand, pnpmCommand, yarnCommand, bunCommand]);
-
-  const [selectedPackage, setSelectedPackage] =
-    useState<keyof typeof tabs>("npm");
-
   return (
     <div
       className={cn(
-        "relative overflow-hidden rounded-xl border border-neutral-300/50 bg-neutral-200/30 dark:border-neutral-800/60 dark:bg-neutral-900/40",
+        "relative rounded-xl border border-neutral-300/50 bg-neutral-200/30 dark:border-neutral-800/60 dark:bg-neutral-900/40",
         className,
       )}
     >
-      <Tabs
-        defaultValue="npm"
-        value={selectedPackage}
-        onValueChange={(value) =>
-          setSelectedPackage(value as keyof typeof tabs)
-        }
-      >
-        <div className="flex items-center justify-between border-b border-neutral-300/50 bg-neutral-200/30 pr-2.5 dark:border-neutral-800/60 dark:bg-neutral-900/30">
-          <TabsList className="bg-transparent h-10 pl-4">
-            {Object.entries(tabs).map(([key, _]) => (
-              <TabsTrigger
-                key={key}
-                value={key}
-                classNameIndicator="-bottom-px"
-              >
-                {key}
-              </TabsTrigger>
-            ))}
-          </TabsList>
-          <CopyCode code={tabs[selectedPackage]} />
+      {fileName && copyCode && (
+        <div className="relative flex h-10 items-center justify-between border-b border-neutral-300/50 bg-neutral-200/30 pl-4 pr-2.5 dark:border-neutral-800/60 dark:bg-neutral-900/30">
+          <div className="flex items-center gap-2">
+            {fileName === "Terminal" ? (
+              <TerminalIcon
+                size={14}
+                className="text-neutral-500 dark:text-neutral-600"
+              />
+            ) : (
+              <CodeIcon
+                size={14}
+                className="text-neutral-500 dark:text-neutral-600"
+              />
+            )}
+            <span className="text-[13px] font-medium leading-none text-neutral-500">
+              {fileName}
+            </span>
+          </div>
+          <CopyCode code={getFileContent("_components/ui", fileName)} />
         </div>
-        <div className="relative overflow-x-auto px-4 pb-4">
-          {Object.entries(tabs).map(([key, value]) => (
-            <TabsContent key={key} value={key}>
-              <pre>
-                <code
-                  className="relative font-mono text-sm leading-none text-primary"
-                  data-language="bash"
-                >
-                  {value}
-                </code>
-              </pre>
-            </TabsContent>
-          ))}
-        </div>
-      </Tabs>
+      )}
+      <div className={cn("relative h-[350px] overflow-auto", contentClassName)}>
+        <div className="min-w-max w-max p-4">{children}</div>
+      </div>
     </div>
   );
 }

@@ -5,7 +5,7 @@ import path from "path";
 import { promisify } from "util";
 
 import { Breadcrumbs } from "../_components/Breadcrumbs";
-import { CodeBlock } from "../_components/CodeBlock";
+import { CodeBlock } from "../_components/CommandBlock";
 import { Pagination } from "../_components/Pagination";
 
 import {

@@ -1,27 +1,27 @@
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
-import fs from 'fs'
-import path from 'path'
-import { promisify } from 'util'
+import fs from "fs";
+import path from "path";
+import { promisify } from "util";
 
-import { Breadcrumbs } from '../../_components/Breadcrumbs'
-import { CodeBlock } from '../../_components/CodeBlock'
-import { Pagination } from '../../_components/Pagination'
-import { INSTALLATION } from '../_data/installation'
+import { Breadcrumbs } from "../../_components/Breadcrumbs";
+import { CodeBlock } from "../../_components/CommandBlock";
+import { Pagination } from "../../_components/Pagination";
+import { INSTALLATION } from "../_data/installation";
 
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string }
+  params: { slug: string };
 }): Promise<Metadata | undefined> {
-  const installation = INSTALLATION.find(el => el.slug === params.slug)
+  const installation = INSTALLATION.find((el) => el.slug === params.slug);
 
   if (!installation) {
-    return
+    return;
   }
 
-  const { name, slug } = installation
+  const { name, slug } = installation;
 
   return {
     title: `${name} Installation`,
@@ -29,13 +29,13 @@ export async function generateMetadata({
     openGraph: {
       title: `Luxe — ${name} Installation`,
       description: `How to install dependencies and structure your application with ${name}`,
-      type: 'website',
+      type: "website",
       url: `https://luxeui.com/ui/installation/${slug}`,
       images: [
         {
           width: 1920,
           height: 1080,
-          url: 'https://luxeui.com/open-graphs/og-installation.png',
+          url: "https://luxeui.com/open-graphs/og-installation.png",
           alt: "Luxe's website cover",
         },
       ],
@@ -43,49 +43,49 @@ export async function generateMetadata({
     twitter: {
       title: `Luxe — ${name} Installation`,
       description: `How to install dependencies and structure your application with ${name}`,
-      card: 'summary_large_image',
+      card: "summary_large_image",
       images: [
         {
           width: 1920,
           height: 1080,
-          url: 'https://luxeui.com/open-graphs/og-installation.png',
+          url: "https://luxeui.com/open-graphs/og-installation.png",
           alt: "Luxe's website cover",
         },
       ],
     },
-  }
+  };
 }
 
 async function readFilePath(filePath: string) {
-  const readFile = promisify(fs.readFile)
+  const readFile = promisify(fs.readFile);
 
   const fileContent = await readFile(
     path.join(
       process.cwd(),
       `./src/app/ui/installation/_data/_prompts/${filePath}.txt`,
     ),
-    'utf8',
-  )
+    "utf8",
+  );
 
-  return fileContent
+  return fileContent;
 }
 
 export default async function InstallationSlugPage({
   params,
 }: {
-  params: { slug: string }
+  params: { slug: string };
 }) {
-  const installation = INSTALLATION.find(el => el.slug === params.slug)
+  const installation = INSTALLATION.find((el) => el.slug === params.slug);
 
   if (!installation) {
-    notFound()
+    notFound();
   }
 
-  const { name, slug } = installation
+  const { name, slug } = installation;
 
-  const currentPage = INSTALLATION.indexOf(installation)
-  const nextPage = INSTALLATION[currentPage + 1]
-  const previousPage = INSTALLATION[currentPage - 1]
+  const currentPage = INSTALLATION.indexOf(installation);
+  const nextPage = INSTALLATION[currentPage + 1];
+  const previousPage = INSTALLATION[currentPage - 1];
 
   return (
     <main className="my-2 space-y-10 xl:mb-24">
@@ -106,7 +106,7 @@ export default async function InstallationSlugPage({
         </div>
       </div>
       <div aria-label={`${name} installation guide`}>
-        {slug === 'next' ? (
+        {slug === "next" ? (
           <>
             <div className="relative">
               <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
@@ -137,7 +137,7 @@ export default async function InstallationSlugPage({
                     values in the prompts
                   </h2>
                   <CodeBlock
-                    code={await readFilePath('next')}
+                    code={await readFilePath("next")}
                     lang="shellscript"
                     copyCode={false}
                   />
@@ -154,7 +154,7 @@ export default async function InstallationSlugPage({
                   <h2 className="font-medium text-primary">Start the app</h2>
                   <CodeBlock
                     fileName="Terminal"
-                    code={'cd my-app && npm run dev'}
+                    code={"cd my-app && npm run dev"}
                     lang="shellscript"
                   />
                 </div>
@@ -209,9 +209,9 @@ export default async function InstallationSlugPage({
                   <CodeBlock
                     fileName="Terminal"
                     code={
-                      'npm i -D tailwindcss postcss autoprefixer' +
-                      '\n' +
-                      'npx tailwindcss init -p'
+                      "npm i -D tailwindcss postcss autoprefixer" +
+                      "\n" +
+                      "npx tailwindcss init -p"
                     }
                     lang="shellscript"
                   />
@@ -226,15 +226,15 @@ export default async function InstallationSlugPage({
               <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
                 <div className="space-y-4 pb-10 pl-8 pt-1">
                   <h2 className="font-medium text-primary">
-                    Edit{' '}
+                    Edit{" "}
                     <code className="rounded bg-neutral-300/80 px-1 py-1 font-mono text-sm text-foreground dark:bg-neutral-800/80">
                       tsconfig.json
-                    </code>{' '}
+                    </code>{" "}
                     file
                   </h2>
                   <CodeBlock
                     fileName="tsconfig.json"
-                    code={await readFilePath('tsconfig.json')}
+                    code={await readFilePath("tsconfig.json")}
                     lang="json"
                   />
                 </div>
@@ -248,14 +248,14 @@ export default async function InstallationSlugPage({
               <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
                 <div className="space-y-4 pb-10 pl-8 pt-1">
                   <h2 className="font-medium text-primary">
-                    Edit{' '}
+                    Edit{" "}
                     <code className="rounded bg-neutral-300/80 px-1 py-1 font-mono text-sm text-foreground dark:bg-neutral-800/80">
                       tsconfig.app.json
-                    </code>{' '}
+                    </code>{" "}
                     file
                   </h2>
                   <CodeBlock
-                    code={await readFilePath('tsconfig.app.json')}
+                    code={await readFilePath("tsconfig.app.json")}
                     fileName="tsconfig.app.json"
                     lang="json"
                   />
@@ -270,7 +270,7 @@ export default async function InstallationSlugPage({
               <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
                 <div className="space-y-4 pl-8 pt-1">
                   <h2 className="font-medium text-primary">
-                    Update{' '}
+                    Update{" "}
                     <code className="rounded bg-neutral-300/80 px-1 py-1 font-mono text-sm text-foreground dark:bg-neutral-800/80">
                       vite.config.ts
                     </code>
@@ -280,14 +280,14 @@ export default async function InstallationSlugPage({
                       fileName="Terminal"
                       code={
                         "# So you can import 'path' without error" +
-                        '\n' +
-                        'npm i -D @types/node'
+                        "\n" +
+                        "npm i -D @types/node"
                       }
                       lang="shellscript"
                     />
                     <CodeBlock
                       fileName="vite.config.ts"
-                      code={await readFilePath('vite')}
+                      code={await readFilePath("vite")}
                       lang="ts"
                     />
                   </div>
@@ -300,14 +300,14 @@ export default async function InstallationSlugPage({
 
       <Pagination
         back={{
-          href: previousPage ? `/ui/installation/${previousPage.slug}` : '',
-          name: previousPage ? previousPage.name : '',
+          href: previousPage ? `/ui/installation/${previousPage.slug}` : "",
+          name: previousPage ? previousPage.name : "",
         }}
         next={{
-          href: nextPage ? `/ui/installation/${nextPage.slug}` : '',
-          name: nextPage ? nextPage.name : '',
+          href: nextPage ? `/ui/installation/${nextPage.slug}` : "",
+          name: nextPage ? nextPage.name : "",
         }}
       />
     </main>
-  )
+  );
 }

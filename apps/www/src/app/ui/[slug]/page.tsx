@@ -10,7 +10,7 @@ import { COMPONENTS } from "@/data/components";
 import { cn } from "@/utils/cn";
 
 import { Breadcrumbs } from "../_components/Breadcrumbs";
-import { CodeBlock } from "../_components/CodeBlock";
+import { CodeBlock } from "../_components/CommandBlock";
 import { ComponentView } from "../_components/ComponentView";
 import { Pagination } from "../_components/Pagination";
 import { getDocs } from "@/lib/mdx";

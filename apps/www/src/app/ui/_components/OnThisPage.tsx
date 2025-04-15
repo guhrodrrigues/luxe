@@ -109,25 +109,24 @@ export function OnThisPage() {
       )}
       <div className="flex flex-col">
         {headings.map(({ id, text, level }) => (
-          <div key={id}>
-            <button
-              onClick={() => handleScroll(id)}
-              className={cn(
-                "mt-0 ml-2 font-medium text-sm border-l border-neutral-300 dark:border-neutral-800 py-1 text-left text-neutral-500",
-                visibleHeadings.has(id)
-                  ? "text-primary !border-primary"
-                  : "duration-300 ease-in-out hover:text-primary",
-                {
-                  "pl-4": level === "h1",
-                  "pl-6": level === "h2",
-                  "pl-7": level === "h3",
-                },
-              )}
-              data-active={visibleHeadings.has(id) ? "true" : "false"}
-            >
-              {text}
-            </button>
-          </div>
+          <button
+            key={id}
+            onClick={() => handleScroll(id)}
+            className={cn(
+              "mt-0 ml-2 font-medium text-sm border-l border-neutral-300 dark:border-neutral-800 py-1 text-left text-neutral-500",
+              visibleHeadings.has(id)
+                ? "text-primary !border-primary"
+                : "duration-300 ease-in-out hover:text-primary",
+              {
+                "pl-4": level === "h1",
+                "pl-6": level === "h2",
+                "pl-7": level === "h3",
+              },
+            )}
+            data-active={visibleHeadings.has(id) ? "true" : "false"}
+          >
+            {text}
+          </button>
         ))}
       </div>
     </motion.aside>

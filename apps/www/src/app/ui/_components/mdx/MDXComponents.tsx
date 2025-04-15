@@ -7,7 +7,7 @@ import rehypePrettyCode from "rehype-pretty-code";
 
 import { cn } from "@/utils/cn";
 import { ComponentView } from "../ComponentView";
-import { CodeBlock } from "../CodeBlock";
+import { CommandBlock } from "../CommandBlock";
 import { CopyCode } from "../CopyCode";
 
 import {
@@ -16,8 +16,9 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/app/ui/_components/Tabs";
-import { AnimatedTabs } from "@/app/_components/ui/tabs";
-import { Button } from "@/app/_components/ui/buttons/Button";
+import { AnimatedTabs } from "@/app/_components/ui/animated-tabs";
+import { Button } from "@/app/_components/ui/button";
+import { CodeBlock } from "../CodeBlock";
 
 const components: MDXComponents = {
   ComponentView: ({ children, isReloadAnimation, ...props }) => (
@@ -47,7 +48,7 @@ const components: MDXComponents = {
       {children}
     </p>
   ),
-  CodeBlock: ({
+  CommandBlock: ({
     children,
     npmCommand,
     yarnCommand,
@@ -55,12 +56,21 @@ const components: MDXComponents = {
     bunCommand,
     ...props
   }) => (
-    <CodeBlock
+    <CommandBlock
       npmCommand={npmCommand}
       yarnCommand={yarnCommand}
       pnpmCommand={pnpmCommand}
       bunCommand={bunCommand}
       className={cn(props.className)}
+      {...props}
+    />
+  ),
+  CodeBlock: ({ fileName, contentClassName, copyCode = true, ...props }) => (
+    <CodeBlock
+      fileName={fileName}
+      copyCode={copyCode}
+      className={cn(props.className)}
+      contentClassName={contentClassName}
       {...props}
     />
   ),
@@ -84,7 +94,9 @@ const components: MDXComponents = {
   TabsContent: ({ className, ...props }) => (
     <TabsContent className={cn(props.className)} {...props} />
   ),
-  CopyCode: ({ code, ...props }) => <CopyCode code={code} {...props} />,
+  CopyCode: ({ code, mode, example, ...props }) => (
+    <CopyCode mode={mode} code={code} example={example} {...props} />
+  ),
   kbd: ({ children, ...props }) => (
     <kbd
       className="rounded bg-neutral-300/80 px-1 py-1 font-mono text-sm text-foreground dark:bg-neutral-800/80"
@@ -93,7 +105,16 @@ const components: MDXComponents = {
       {children}
     </kbd>
   ),
-  AnimatedTabs: () => <AnimatedTabs />,
+  AnimatedTabs: () => (
+    <AnimatedTabs
+      tabs={[
+        { label: "All Posts" },
+        { label: "Interactions" },
+        { label: "Resources" },
+        { label: "Docs" },
+      ]}
+    />
+  ),
   Button: ({ children, variant, ...props }) => (
     <Button variant={variant} className={cn(props.className)} {...props}>
       {children}

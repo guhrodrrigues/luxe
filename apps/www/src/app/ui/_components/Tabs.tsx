@@ -31,7 +31,7 @@ const TabsList = React.forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "inline-flex h-[48px] space-x-5 w-full items-center justify-start rounded-t-lg bg-background pl-3",
+      "inline-flex h-[44px] space-x-5 w-full items-center justify-start rounded-t-lg bg-background pl-3",
       className,
     )}
     {...props}
@@ -78,7 +78,7 @@ const TabsTrigger = React.forwardRef<
         <motion.div
           layout
           className={cn(
-            "absolute -bottom-[5px] flex h-0.5 w-full justify-center",
+            "absolute -bottom-[3.5px] flex h-0.5 w-full justify-center",
             classNameIndicator,
           )}
           transition={{
