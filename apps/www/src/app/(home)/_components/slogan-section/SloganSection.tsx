@@ -1,7 +1,11 @@
-import { AnimateEnter } from '../AnimateEnter'
-import { GridBackground } from '../GridBackground'
-import { GalleryButton } from './GalleryButton'
-import { GetStartedButton } from './GetStartedButton'
+"use client";
+
+import { motion } from "motion/react";
+
+import { AnimateEnter } from "../AnimateEnter";
+import { GridBackground } from "../GridBackground";
+import { GalleryButton } from "./GalleryButton";
+import { GetStartedButton } from "./GetStartedButton";
 
 export function SloganSection() {
   return (
@@ -23,24 +27,27 @@ export function SloganSection() {
         <GridBackground />
       </div>
     </section>
-  )
+  );
 }
 
 function BlurBackground() {
   return (
-    <svg
+    <motion.svg
       className="pointer-events-none absolute inset-x-0 -bottom-[420px] -z-[1] mx-auto hidden w-full dark:block md:-bottom-96"
       width="944"
       height="1033"
       viewBox="0 0 944 1033"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ delay: 0.3, duration: 0.5 }}
+      viewport={{ once: true }}
     >
       <g opacity="0.3">
         <g
           style={{
-            mixBlendMode: 'lighten',
-            filter: 'url(#filter0_f_2076_3208)',
+            mixBlendMode: "lighten",
+            filter: "url(#filter0_f_2076_3208)",
           }}
         >
           <ellipse
@@ -54,7 +61,7 @@ function BlurBackground() {
           />
         </g>
         <g
-          style={{ mixBlendMode: 'color-dodge' }}
+          style={{ mixBlendMode: "color-dodge" }}
           filter="url(#filter1_f_2076_3208)"
         >
           <ellipse
@@ -68,7 +75,7 @@ function BlurBackground() {
           />
         </g>
         <g
-          style={{ mixBlendMode: 'lighten' }}
+          style={{ mixBlendMode: "lighten" }}
           filter="url(#filter2_f_2076_3208)"
         >
           <ellipse
@@ -82,7 +89,7 @@ function BlurBackground() {
           />
         </g>
         <g
-          style={{ mixBlendMode: 'lighten' }}
+          style={{ mixBlendMode: "lighten" }}
           filter="url(#filter3_f_2076_3208)"
         >
           <ellipse
@@ -96,7 +103,7 @@ function BlurBackground() {
           />
         </g>
         <g
-          style={{ mixBlendMode: 'lighten' }}
+          style={{ mixBlendMode: "lighten" }}
           filter="url(#filter4_f_2076_3208)"
         >
           <ellipse
@@ -110,7 +117,7 @@ function BlurBackground() {
           />
         </g>
         <g
-          style={{ mixBlendMode: 'lighten' }}
+          style={{ mixBlendMode: "lighten" }}
           filter="url(#filter5_f_2076_3208)"
         >
           <ellipse
@@ -124,7 +131,7 @@ function BlurBackground() {
           />
         </g>
         <g
-          style={{ mixBlendMode: 'lighten' }}
+          style={{ mixBlendMode: "lighten" }}
           filter="url(#filter6_f_2076_3208)"
         >
           <ellipse
@@ -138,7 +145,7 @@ function BlurBackground() {
           />
         </g>
         <g
-          style={{ mixBlendMode: 'lighten' }}
+          style={{ mixBlendMode: "lighten" }}
           filter="url(#filter7_f_2076_3208)"
         >
           <ellipse
@@ -410,6 +417,6 @@ function BlurBackground() {
           <stop offset="1" stopColor="var(--primary)" stopOpacity="0" />
         </linearGradient>
       </defs>
-    </svg>
-  )
+    </motion.svg>
+  );
 }

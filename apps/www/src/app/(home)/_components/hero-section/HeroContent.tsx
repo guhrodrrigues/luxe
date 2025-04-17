@@ -1,24 +1,24 @@
-import { ButtonGlitchBrightness } from '@/app/_components/ButtonGlitchBrightness'
-import { Icons } from '@/app/_components/Icons'
-import { TextAnimateEnter } from '@/app/_components/TextAnimateEnter'
-import { AnimateEnter } from '../AnimateEnter'
-import { GridBackground } from '../GridBackground'
-import { AnimatedNumber } from './AnimatedNumber'
+import { ButtonGlitchBrightness } from "@/app/_components/ButtonGlitchBrightness";
+import { Icons } from "@/app/_components/Icons";
+import { TextAnimateEnter } from "@/app/_components/TextAnimateEnter";
+import { AnimateEnter } from "../AnimateEnter";
+import { GridBackground } from "../GridBackground";
+import { AnimatedNumber } from "./AnimatedNumber";
 
 async function getRepoStarCount() {
-  const res = await fetch('https://api.github.com/repos/guhrodrrigues/luxe')
-  const data = await res.json()
-  const starCount = data.stargazers_count
+  const res = await fetch("https://api.github.com/repos/guhrodrrigues/luxe");
+  const data = await res.json();
+  const starCount = data.stargazers_count;
 
   if (starCount > 999) {
-    return (starCount / 1000).toFixed(1) + 'K'
+    return (starCount / 1000).toFixed(1) + "K";
   }
 
-  return starCount
+  return starCount;
 }
 
 export async function HeroContent() {
-  const starCount = await getRepoStarCount()
+  const starCount = await getRepoStarCount();
 
   return (
     <div className="z-[3] flex flex-col items-center gap-6 text-center">
@@ -42,11 +42,11 @@ export async function HeroContent() {
           rel="noopener noreferrer"
           className="flex items-center gap-1.5 rounded-xl border border-border bg-background px-4 py-2 text-sm font-semibold text-neutral-600 duration-300 hover:bg-neutral-200 dark:text-secondary dark:hover:bg-neutral-900"
         >
-          <Icons.github className="h-3.5 w-3.5" />
+          <Icons.github className="size-3.5" />
           <AnimatedNumber value={starCount} />
         </a>
       </AnimateEnter>
       <GridBackground />
     </div>
-  )
+  );
 }

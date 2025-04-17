@@ -5,6 +5,8 @@ import { useRef, useState } from "react";
 import { motion } from "motion/react";
 import * as Slot from "@radix-ui/react-slot";
 
+import { TextGlitch } from "./text-glitch";
+
 import { cn } from "../utils/cn";
 
 type Variant = {
@@ -115,20 +117,6 @@ const variants: readonly Variant[] = [
   {
     variant: "glitch-brightness",
     component: ({ children, ...props }) => {
-      function TextGlitch({ children }: { children: React.ReactNode }) {
-        return (
-          <div className="relative overflow-hidden">
-            <span className="invisible">{children}</span>
-            <span className="absolute left-0 top-0 font-medium transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full">
-              {children}
-            </span>
-            <span className="absolute left-0 top-0 translate-y-full font-medium transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0">
-              {children}
-            </span>
-          </div>
-        );
-      }
-
       function Brightness() {
         return (
           <div

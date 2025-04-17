@@ -10,7 +10,6 @@ import { COMPONENTS } from "@/data/components";
 import { cn } from "@/utils/cn";
 
 import { Breadcrumbs } from "../_components/Breadcrumbs";
-import { CodeBlock } from "../_components/CommandBlock";
 import { ComponentView } from "../_components/ComponentView";
 import { Pagination } from "../_components/Pagination";
 import { getDocs } from "@/lib/mdx";
@@ -91,7 +90,7 @@ export default async function ComponentPage({
 
   return (
     <main className="my-2 xl:mb-24">
-      <div className="space-y-10">
+      <div className="space-y-20">
         <div className="space-y-4">
           <Breadcrumbs
             backLink="/ui"

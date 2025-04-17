@@ -7,6 +7,7 @@ import { ToggleTheme } from "./sidebar/ToggleTheme";
 import { usePathname } from "next/navigation";
 import { cn } from "@/utils/cn";
 import { CommandIcon, SearchIcon } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const ITEMS = [
   {
@@ -24,15 +25,36 @@ const ITEMS = [
 ];
 
 export function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
   const pathname = usePathname();
 
   const isDocsPage = pathname.startsWith("/ui");
 
+  function handleScroll() {
+    if (window.scrollY > 0) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <header
       className={cn(
-        "top-0 z-50 h-16 w-full",
+        "top-0 z-50 h-16 w-full border-b-[.75px] border-transparent transition-colors duration-300 ease-out",
         isDocsPage ? "sticky bg-background bottom-dotted" : "fixed",
+        !isDocsPage &&
+          isScrolled &&
+          "bg-background border-border dark:border-[#262626]/50",
       )}
     >
       <nav

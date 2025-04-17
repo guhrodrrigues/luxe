@@ -1,25 +1,25 @@
-import { Link } from 'next-view-transitions'
+import { Link } from "next-view-transitions";
 
-import { ArrowUpRightIcon } from 'lucide-react'
+import { ArrowUpRightIcon } from "lucide-react";
 
-import { AnimateEnter } from '@/app/(home)/_components/AnimateEnter'
-import { Icons } from './Icons'
-import { RequestComponentButton } from './RequestComponentButton'
+import { AnimateEnter } from "@/app/(home)/_components/AnimateEnter";
+import { Icons } from "./Icons";
+import { RequestComponentButton } from "./RequestComponentButton";
 
 export const NAVIGATE = [
   {
-    name: 'Installation',
-    slug: '/ui/installation',
+    name: "Installation",
+    slug: "/ui/installation",
   },
   {
-    name: 'Add Utilities',
-    slug: '/ui/add-utilities',
+    name: "Add Utilities",
+    slug: "/ui/add-utilities",
   },
   {
-    name: 'Browse Components',
-    slug: '/ui',
+    name: "Browse Components",
+    slug: "/ui",
   },
-]
+];
 
 export function Footer() {
   return (
@@ -28,9 +28,6 @@ export function Footer() {
       <div className="relative mx-auto w-full max-w-7xl px-8 py-16 md:px-3">
         <div className="flex gap-10 max-md:flex-col md:justify-between">
           <AnimateEnter className="flex flex-col gap-5">
-            <div>
-              <Icons.logo className="w-20" />
-            </div>
             <div className="flex flex-col gap-1">
               <p className="text-sm text-primary text-opacity-80">
                 Elevating the web design.
@@ -43,7 +40,7 @@ export function Footer() {
                   className="duration-200 hover:text-neutral-600 dark:hover:text-neutral-200"
                 >
                   Gustavo Rodrigues
-                </a>{' '}
+                </a>{" "}
                 &#169; {new Date().getFullYear()}
               </p>
             </div>
@@ -91,7 +88,7 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
 
 function Blur() {
@@ -101,10 +98,10 @@ function Blur() {
       className="pointer-events-none absolute -top-1 left-1/2 h-[200px] w-full max-w-[400px] -translate-x-1/2 -translate-y-1/2"
       style={{
         background:
-          'conic-gradient(from 90deg at 50% 50%, #00000000 50%, #0a0a0a 50%),radial-gradient(rgba(134, 134, 134, 0.1) 0%, transparent 80%)',
+          "conic-gradient(from 90deg at 50% 50%, #00000000 50%, #0a0a0a 50%),radial-gradient(rgba(134, 134, 134, 0.1) 0%, transparent 80%)",
       }}
     />
-  )
+  );
 }
 
 function ArrowIconGlitch() {
@@ -120,5 +117,5 @@ function ArrowIconGlitch() {
         <ArrowUpRightIcon size={10} />
       </span>
     </div>
-  )
+  );
 }

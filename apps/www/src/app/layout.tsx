@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import { fontSans, fontMono } from "@/utils/fonts";
 
+import { ViewTransitions } from "next-view-transitions";
+
 import "@/styles/globals.css";
 
 import { cn } from "@/utils/cn";
-import { ThemeProvider } from "./theme-provider";
 
-import { ViewTransitions } from "next-view-transitions";
+import { ThemeProvider } from "./theme-provider";
 import { Header } from "./ui/_components/Header";
 
 export const metadata: Metadata = {
@@ -94,15 +95,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <ViewTransitions>
-      <html lang="en" suppressHydrationWarning>
-        <body
-          className={cn(
-            "overflow-x-hidden bg-background font-sans text-foreground antialiased outline-none",
-            fontSans.variable,
-            fontMono.variable,
-          )}
-        >
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={cn(
+          "overflow-x-hidden bg-background font-sans text-foreground antialiased outline-none",
+          fontSans.variable,
+          fontMono.variable,
+        )}
+      >
+        <ViewTransitions>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
@@ -111,8 +112,8 @@ export default function RootLayout({
             <Header />
             {children}
           </ThemeProvider>
-        </body>
-      </html>
-    </ViewTransitions>
+        </ViewTransitions>
+      </body>
+    </html>
   );
 }
