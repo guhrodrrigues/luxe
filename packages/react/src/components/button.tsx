@@ -5,9 +5,7 @@ import { useRef, useState } from "react";
 import { motion } from "motion/react";
 import * as Slot from "@radix-ui/react-slot";
 
-import { TextGlitch } from "./text-glitch";
-
-import { cn } from "../utils/cn";
+import { cn } from "@/registry/utils/cn";
 
 type Variant = {
   variant: string;
@@ -117,6 +115,20 @@ const variants: readonly Variant[] = [
   {
     variant: "glitch-brightness",
     component: ({ children, ...props }) => {
+      function TextGlitch({ children }: { children: React.ReactNode }) {
+        return (
+          <div className="relative overflow-hidden">
+            <span className="invisible">{children}</span>
+            <span className="absolute left-0 top-0 font-medium transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full">
+              {children}
+            </span>
+            <span className="absolute left-0 top-0 translate-y-full font-medium transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0">
+              {children}
+            </span>
+          </div>
+        );
+      }
+
       function Brightness() {
         return (
           <div
@@ -161,6 +173,29 @@ const variants: readonly Variant[] = [
         style={{ padding: "var(--py) var(--px)" }}
       >
         {children}
+      </button>
+    ),
+  },
+  {
+    variant: "default",
+    component: ({ children, ...props }) => (
+      <button
+        {...props}
+        className={cn(
+          "group relative overflow-hidden w-fit rounded-xl font-medium text-neutral-200",
+          "bg-[#161616] text-sm shadow-inner shadow-neutral-400",
+          "dark:to-neutral-500/60 transition-all duration-200 dark:shadow-neutral-800/80",
+        )}
+        style={{ padding: "var(--py) var(--px)" }}
+      >
+        <span className="relative z-10">{children}</span>
+        <div
+          aria-hidden
+          className={cn(
+            "absolute z-0 inset-0 size-full bg-gradient-to-t from-neutral-500/40 duration-200 ease-out",
+            "dark:from-neutral-900/40 dark:to-neutral-800/60 opacity-0 group-hover:opacity-100",
+          )}
+        />
       </button>
     ),
   },

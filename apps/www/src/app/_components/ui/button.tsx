@@ -14,6 +14,29 @@ type Variant = {
 
 const variants: readonly Variant[] = [
   {
+    variant: "default",
+    component: ({ children, ...props }) => (
+      <button
+        {...props}
+        className={cn(
+          "group relative overflow-hidden w-fit rounded-xl font-medium text-neutral-200",
+          "bg-[#161616] text-sm shadow-inner shadow-neutral-400",
+          "dark:to-neutral-500/60 transition-all duration-200 dark:shadow-neutral-800/80",
+        )}
+        style={{ padding: "var(--py) var(--px)" }}
+      >
+        <span className="relative z-10">{children}</span>
+        <div
+          aria-hidden
+          className={cn(
+            "absolute z-0 inset-0 size-full bg-gradient-to-t from-neutral-500/40 duration-200 ease-out",
+            "dark:from-neutral-900/40 dark:to-neutral-800/60 opacity-0 group-hover:opacity-100",
+          )}
+        />
+      </button>
+    ),
+  },
+  {
     variant: "shine",
     component: (props) => (
       <button
@@ -182,7 +205,7 @@ export type ButtonProps = {
   variant?: (typeof variants)[number]["variant"];
 } & React.ComponentProps<"button">;
 
-export function Button({ variant = "animated-border", ...props }: ButtonProps) {
+export function Button({ variant = "default", ...props }: ButtonProps) {
   const FALLBACK_INDEX = 0;
 
   const variantComponent = variants.find(

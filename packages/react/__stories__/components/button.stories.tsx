@@ -18,6 +18,7 @@ const meta: Meta<ButtonProps> = {
         "success",
         "destructive",
         "glitch-brightness",
+        "default",
       ],
       control: "radio",
     },

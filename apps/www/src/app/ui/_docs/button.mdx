@@ -6,6 +6,63 @@ slug: "button"
 
 <div className="space-y-2">
 
+## Default
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code="default"
+	example={true}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[223px] flex items-center justify-center">
+
+<Button>
+	<span>Button</span>
+</Button>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Button } from "@/components/ui/button"
+
+export function ButtonExample() {
+  return (
+    <Button>
+      Button
+    </Button>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
 ## Shine
 
 <Tabs defaultValue="preview">
@@ -234,6 +291,177 @@ export function ButtonMagneticExample() {
 
 <div className="space-y-2 pt-4">
 
+## Glitch Brightness
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code="glitch-brightness"
+	example={true}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[223px] flex items-center justify-center">
+
+<Button variant="glitch-brightness">
+	<span>Button</span>
+</Button>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Button } from "@/components/ui/button"
+
+export function ButtonGlitchBrightnessExample() {
+  return (
+    <Button variant="glitch-brightness">
+      Button
+    </Button>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+## Success
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code="success"
+	example={true}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[223px] flex items-center justify-center">
+
+<Button variant="success">
+	<span>Button</span>
+</Button>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Button } from "@/components/ui/button"
+
+export function ButtonSuccessExample() {
+  return (
+    <Button variant="success">
+      Button
+    </Button>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+## Destructive
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code="destructive"
+	example={true}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[223px] flex items-center justify-center">
+
+<Button variant="destructive">
+	<span>Button</span>
+</Button>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Button } from "@/components/ui/button"
+
+export function ButtonDestructiveExample() {
+  return (
+    <Button variant="destructive">
+      Button
+    </Button>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
 ## Installation
 
 <Tabs defaultValue="cli">
@@ -324,13 +552,36 @@ type Variant = {
 
 const variants: readonly Variant[] = [
   {
+    variant: "default",
+    component: ({ children, ...props }) => (
+      <button
+        {...props}
+        className={cn(
+          "group relative overflow-hidden w-fit rounded-xl font-medium text-neutral-200",
+          "bg-[#161616] text-sm shadow-inner shadow-neutral-400",
+          "dark:to-neutral-500/60 transition-all duration-200 dark:shadow-neutral-800/80",
+        )}
+        style={{ padding: "var(--py) var(--px)" }}
+      >
+        <span className="relative z-10">{children}</span>
+        <div
+          aria-hidden
+          className={cn(
+            "absolute z-0 inset-0 size-full bg-gradient-to-t from-neutral-500/40 duration-200 ease-out",
+            "dark:from-neutral-900/40 dark:to-neutral-800/60 opacity-0 group-hover:opacity-100",
+          )}
+        />
+      </button>
+    ),
+  },
+  {
     variant: "shine",
     component: (props) => (
       <button
         {...props}
         className={cn(
           "animate-shine items-center justify-center rounded-xl border border-white/10 bg-[linear-gradient(110deg,#000000,45%,#303030,55%,#000000)]",
-          "bg-[length:400%_100%] text-sm text-neutral-200 transition-colors dark:border-neutral-800",
+          "bg-[length:400%_100%] text-neutral-200 transition-colors dark:border-neutral-800",
           "dark:bg-[linear-gradient(110deg,#000103,45%,#303030,55%,#000103)] dark:text-neutral-400",
           props.className,
         )}
@@ -492,7 +743,7 @@ export type ButtonProps = {
   variant?: (typeof variants)[number]["variant"];
 } & React.ComponentProps<"button">;
 
-export function Button({ variant = "animated-border", ...props }: ButtonProps) {
+export function Button({ variant = "default", ...props }: ButtonProps) {
   const FALLBACK_INDEX = 0;
 
   const variantComponent = variants.find(
