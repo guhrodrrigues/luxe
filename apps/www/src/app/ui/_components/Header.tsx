@@ -19,8 +19,8 @@ const ITEMS = [
     slug: "/ui",
   },
   {
-    name: "Changelog",
-    slug: "/changelog",
+    name: "Updates",
+    slug: "/updates",
   },
 ];
 
@@ -50,17 +50,16 @@ export function Header() {
   return (
     <header
       className={cn(
-        "top-0 z-50 h-16 w-full border-b-[.75px] border-transparent transition-colors duration-300 ease-out",
+        "top-0 z-50 h-16 w-full transition-colors duration-300 ease-out",
         isDocsPage ? "sticky bg-background bottom-dotted" : "fixed",
-        !isDocsPage &&
-          isScrolled &&
-          "bg-background border-border dark:border-[#262626]/50",
+        !isDocsPage && isScrolled && "bg-background",
       )}
     >
       <nav
         className={cn(
-          "flex h-full items-center justify-between gap-6 px-6 max-w-7xl mx-auto",
+          "flex h-full border-b-[.75px] border-transparent items-center justify-between gap-6 px-6 max-w-7xl mx-auto",
           isDocsPage && "horizontal-dotted",
+          !isDocsPage && isScrolled && "border-border dark:border-[#262626]/50",
         )}
       >
         <div className="flex items-center gap-6">
