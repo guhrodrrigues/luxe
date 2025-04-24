@@ -10,6 +10,7 @@
 		"dev": "tailwindcss -i ./src/styles/globals.css -o ./dist/styles.css --watch"
 	},
 	"dependencies": {
+		"@radix-ui/react-checkbox": "^1.1.2",
 		"clsx": "^2.1.0",
 		"lucide-react": "^0.330.0",
 		"motion": "^11.15.0",

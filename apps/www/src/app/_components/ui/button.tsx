@@ -37,6 +37,30 @@ const variants: readonly Variant[] = [
     ),
   },
   {
+    variant: "success",
+    component: ({ children, ...props }) => (
+      <button
+        {...props}
+        className="rounded-xl bg-gradient-to-t from-green-600 to-green-500 text-sm font-medium text-white"
+        style={{ padding: "var(--py) var(--px)" }}
+      >
+        {children}
+      </button>
+    ),
+  },
+  {
+    variant: "destructive",
+    component: ({ children, ...props }) => (
+      <button
+        {...props}
+        className="rounded-xl bg-gradient-to-t from-red-600 to-red-500 text-sm font-medium text-white"
+        style={{ padding: "var(--py) var(--px)" }}
+      >
+        {children}
+      </button>
+    ),
+  },
+  {
     variant: "shine",
     component: (props) => (
       <button
@@ -174,30 +198,6 @@ const variants: readonly Variant[] = [
         </button>
       );
     },
-  },
-  {
-    variant: "success",
-    component: ({ children, ...props }) => (
-      <button
-        {...props}
-        className="rounded-xl bg-gradient-to-t from-green-600 to-green-500 text-sm font-medium text-white"
-        style={{ padding: "var(--py) var(--px)" }}
-      >
-        {children}
-      </button>
-    ),
-  },
-  {
-    variant: "destructive",
-    component: ({ children, ...props }) => (
-      <button
-        {...props}
-        className="rounded-xl bg-gradient-to-t from-red-600 to-red-500 text-sm font-medium text-white"
-        style={{ padding: "var(--py) var(--px)" }}
-      >
-        {children}
-      </button>
-    ),
   },
 ] as const;
 

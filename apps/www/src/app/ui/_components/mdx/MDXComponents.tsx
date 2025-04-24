@@ -19,6 +19,7 @@ import {
 import { AnimatedTabs } from "@/app/_components/ui/animated-tabs";
 import { Button } from "@/app/_components/ui/button";
 import { CodeBlock } from "../CodeBlock";
+import { Card } from "@/app/_components/ui/card";
 
 const components: MDXComponents = {
   ComponentView: ({ children, isReloadAnimation, ...props }) => (
@@ -44,14 +45,6 @@ const components: MDXComponents = {
     <h3 className="text-xl font-bold -tracking-wide text-primary" {...props}>
       {children}
     </h3>
-  ),
-  p: ({ children, ...props }) => (
-    <p
-      className="text-[16px] font-normal leading-relaxed text-black/80 dark:text-white/90"
-      {...props}
-    >
-      {children}
-    </p>
   ),
   CommandBlock: ({
     children,
@@ -124,6 +117,11 @@ const components: MDXComponents = {
     <Button variant={variant} className={cn(props.className)} {...props}>
       {children}
     </Button>
+  ),
+  Card: ({ children, variant, ...props }) => (
+    <Card variant={variant} className={cn(props.className)} {...props}>
+      {children}
+    </Card>
   ),
 };
 
