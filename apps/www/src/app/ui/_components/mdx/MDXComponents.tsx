@@ -36,9 +36,14 @@ const components: MDXComponents = {
     </h1>
   ),
   h2: ({ children, ...props }) => (
-    <h1 className="text-xl font-bold -tracking-wide text-primary" {...props}>
+    <h2 className="text-xl font-bold -tracking-wide text-primary" {...props}>
       {children}
-    </h1>
+    </h2>
+  ),
+  h3: ({ children, ...props }) => (
+    <h3 className="text-xl font-bold -tracking-wide text-primary" {...props}>
+      {children}
+    </h3>
   ),
   p: ({ children, ...props }) => (
     <p

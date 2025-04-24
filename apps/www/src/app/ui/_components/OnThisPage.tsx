@@ -118,9 +118,8 @@ export function OnThisPage() {
                 ? "text-primary !border-primary"
                 : "duration-300 ease-in-out hover:text-primary",
               {
-                "pl-4": level === "h1",
-                "pl-6": level === "h2",
-                "pl-7": level === "h3",
+                "pl-4": level === "h2",
+                "pl-6": level === "h3",
               },
             )}
             data-active={visibleHeadings.has(id) ? "true" : "false"}

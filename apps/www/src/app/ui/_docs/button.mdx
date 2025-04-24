@@ -6,7 +6,19 @@ slug: "button"
 
 <div className="space-y-2">
 
-## Default
+<div className="space-y-3">
+
+## Simple
+
+A minimal, elegant button for seamless interactions.
+
+</div>
+
+<div className="mt-12">
+
+### Default
+
+</div>
 
 <Tabs defaultValue="preview">
 
@@ -63,292 +75,7 @@ export function ButtonExample() {
 
 <div className="space-y-2 pt-4">
 
-## Shine
-
-<Tabs defaultValue="preview">
-
-<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
-
-<TabsList>
-	<TabsTrigger value="preview">Preview</TabsTrigger>
-	<TabsTrigger value="code">Code</TabsTrigger>
-</TabsList>
-
-<CopyCode 
-	code="button-shine"
-	example={true}
-	mode="text"
-/>
-
-</div>
-
-<TabsContent value="preview">
-
-<ComponentView className="h-[223px] flex items-center justify-center">
-
-<Button variant="shine">
-	<span>Button</span>
-</Button>
-
-</ComponentView>
-
-</TabsContent>
-
-<TabsContent value="code">
-
-<CodeBlock contentClassName="h-fit">
-
-```tsx
-import { Button } from "@/components/ui/button"
-
-export function ButtonShineExample() {
-  return (
-    <Button variant="shine">
-      Button
-    </Button>
-  )
-}
-```
-
-</CodeBlock>
-
-</TabsContent>
-
-</Tabs>
-
-</div>
-
-<div className="space-y-2 pt-4">
-
-## Animated Border
-
-<Tabs defaultValue="preview">
-
-<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
-
-<TabsList>
-	<TabsTrigger value="preview">Preview</TabsTrigger>
-	<TabsTrigger value="code">Code</TabsTrigger>
-</TabsList>
-
-<CopyCode 
-	code="animated-border"
-	example={true}
-	mode="text"
-/>
-
-</div>
-
-<TabsContent value="preview">
-
-<ComponentView className="h-[223px] flex items-center justify-center">
-
-<Button variant="animated-border">
-	<span>Button</span>
-</Button>
-
-</ComponentView>
-
-</TabsContent>
-
-<TabsContent value="code">
-
-<CodeBlock contentClassName="h-fit">
-
-```tsx
-import { Button } from "@/components/ui/button"
-
-export function ButtonAnimatedBorderExample() {
-  return (
-    <Button variant="animated-border">
-      Button
-    </Button>
-  )
-}
-```
-
-</CodeBlock>
-
-</TabsContent>
-
-</Tabs>
-
-</div>
-
-<div className="space-y-2 pt-4">
-
-## Rotate Border
-
-<Tabs defaultValue="preview">
-
-<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
-
-<TabsList>
-	<TabsTrigger value="preview">Preview</TabsTrigger>
-	<TabsTrigger value="code">Code</TabsTrigger>
-</TabsList>
-
-<CopyCode 
-	code="rotate-border"
-	example={true}
-	mode="text"
-/>
-
-</div>
-
-<TabsContent value="preview">
-
-<ComponentView className="h-[223px] flex items-center justify-center">
-
-<Button variant="rotate-border">
-	<span>Button</span>
-</Button>
-
-</ComponentView>
-
-</TabsContent>
-
-<TabsContent value="code">
-
-<CodeBlock contentClassName="h-fit">
-
-```tsx
-import { Button } from "@/components/ui/button"
-
-export function ButtonRotateBorderExample() {
-  return (
-    <Button variant="rotate-border">
-      Button
-    </Button>
-  )
-}
-```
-
-</CodeBlock>
-
-</TabsContent>
-
-</Tabs>
-
-</div>
-
-<div className="space-y-2 pt-4">
-
-## Magnetic
-
-<Tabs defaultValue="preview">
-
-<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
-
-<TabsList>
-	<TabsTrigger value="preview">Preview</TabsTrigger>
-	<TabsTrigger value="code">Code</TabsTrigger>
-</TabsList>
-
-<CopyCode 
-	code="magnetic"
-	example={true}
-	mode="text"
-/>
-
-</div>
-
-<TabsContent value="preview">
-
-<ComponentView className="h-[223px] flex items-center justify-center">
-
-<Button variant="magnetic">
-	<span>Button</span>
-</Button>
-
-</ComponentView>
-
-</TabsContent>
-
-<TabsContent value="code">
-
-<CodeBlock contentClassName="h-fit">
-
-```tsx
-import { Button } from "@/components/ui/button"
-
-export function ButtonMagneticExample() {
-  return (
-    <Button variant="magnetic">
-      Button
-    </Button>
-  )
-}
-```
-
-</CodeBlock>
-
-</TabsContent>
-
-</Tabs>
-
-</div>
-
-<div className="space-y-2 pt-4">
-
-## Glitch Brightness
-
-<Tabs defaultValue="preview">
-
-<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
-
-<TabsList>
-	<TabsTrigger value="preview">Preview</TabsTrigger>
-	<TabsTrigger value="code">Code</TabsTrigger>
-</TabsList>
-
-<CopyCode 
-	code="glitch-brightness"
-	example={true}
-	mode="text"
-/>
-
-</div>
-
-<TabsContent value="preview">
-
-<ComponentView className="h-[223px] flex items-center justify-center">
-
-<Button variant="glitch-brightness">
-	<span>Button</span>
-</Button>
-
-</ComponentView>
-
-</TabsContent>
-
-<TabsContent value="code">
-
-<CodeBlock contentClassName="h-fit">
-
-```tsx
-import { Button } from "@/components/ui/button"
-
-export function ButtonGlitchBrightnessExample() {
-  return (
-    <Button variant="glitch-brightness">
-      Button
-    </Button>
-  )
-}
-```
-
-</CodeBlock>
-
-</TabsContent>
-
-</Tabs>
-
-</div>
-
-<div className="space-y-2 pt-4">
-
-## Success
+### Success
 
 <Tabs defaultValue="preview">
 
@@ -405,7 +132,7 @@ export function ButtonSuccessExample() {
 
 <div className="space-y-2 pt-4">
 
-## Destructive
+### Destructive
 
 <Tabs defaultValue="preview">
 
@@ -446,6 +173,305 @@ import { Button } from "@/components/ui/button"
 export function ButtonDestructiveExample() {
   return (
     <Button variant="destructive">
+      Button
+    </Button>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+
+<div className="space-y-2 pt-4">
+
+<div className="space-y-3">
+
+## Animated
+
+A button with smooth, animated transitions.
+
+</div>
+
+
+<div className="mt-12">
+
+### Shine
+
+</div>
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code="button-shine"
+	example={true}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[223px] flex items-center justify-center">
+
+<Button variant="shine">
+	<span>Button</span>
+</Button>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Button } from "@/components/ui/button"
+
+export function ButtonShineExample() {
+  return (
+    <Button variant="shine">
+      Button
+    </Button>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+### Animated Border
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code="animated-border"
+	example={true}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[223px] flex items-center justify-center">
+
+<Button variant="animated-border">
+	<span>Button</span>
+</Button>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Button } from "@/components/ui/button"
+
+export function ButtonAnimatedBorderExample() {
+  return (
+    <Button variant="animated-border">
+      Button
+    </Button>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+### Rotate Border
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code="rotate-border"
+	example={true}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[223px] flex items-center justify-center">
+
+<Button variant="rotate-border">
+	<span>Button</span>
+</Button>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Button } from "@/components/ui/button"
+
+export function ButtonRotateBorderExample() {
+  return (
+    <Button variant="rotate-border">
+      Button
+    </Button>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+### Magnetic
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code="magnetic"
+	example={true}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[223px] flex items-center justify-center">
+
+<Button variant="magnetic">
+	<span>Button</span>
+</Button>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Button } from "@/components/ui/button"
+
+export function ButtonMagneticExample() {
+  return (
+    <Button variant="magnetic">
+      Button
+    </Button>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+### Glitch Brightness
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code="glitch-brightness"
+	example={true}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[223px] flex items-center justify-center">
+
+<Button variant="glitch-brightness">
+	<span>Button</span>
+</Button>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Button } from "@/components/ui/button"
+
+export function ButtonGlitchBrightnessExample() {
+  return (
+    <Button variant="glitch-brightness">
       Button
     </Button>
   )
