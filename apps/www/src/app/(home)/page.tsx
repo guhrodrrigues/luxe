@@ -13,7 +13,6 @@ export default function Home() {
       <div className="mt-20 relative">
         <div className="mx-auto w-full max-w-7xl px-4">
           <HeroSection />
-          <TechsSection />
           <ComponentsSection />
           <FeedbacksSection />
           <SloganSection />

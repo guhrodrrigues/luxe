@@ -1,12 +1,15 @@
-import { Link } from 'next-view-transitions'
+import { Link } from "next-view-transitions";
+import React from "react";
+
+type ButtonGlitchBrightnessProps = {
+  href: string;
+  text: string;
+} & React.ComponentProps<typeof Link>;
 
 export function ButtonGlitchBrightness({
   href,
   text,
-}: {
-  href: string
-  text: string
-}) {
+}: ButtonGlitchBrightnessProps) {
   return (
     <Link
       href={href}
@@ -17,7 +20,7 @@ export function ButtonGlitchBrightness({
         <div className="relative h-full w-8 bg-white/20 blur dark:bg-white/40" />
       </div>
     </Link>
-  )
+  );
 }
 
 function TextGlitch({ text }: { text: string }) {
@@ -31,5 +34,5 @@ function TextGlitch({ text }: { text: string }) {
         {text}
       </span>
     </div>
-  )
+  );
 }

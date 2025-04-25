@@ -13,7 +13,7 @@ export const NAVIGATE = [
   },
   {
     name: "Browse Components",
-    slug: "/ui",
+    slug: "/ui/animated-tabs",
   },
   {
     name: "Updates",

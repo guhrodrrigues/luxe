@@ -16,7 +16,7 @@ const ITEMS = [
   },
   {
     name: "Components",
-    slug: "/ui",
+    slug: "/ui/animated-tabs",
   },
   {
     name: "Updates",
@@ -52,7 +52,7 @@ export function Header() {
       className={cn(
         "top-0 z-50 h-16 w-full transition-colors duration-300 ease-out",
         isDocsPage ? "sticky bg-background bottom-dotted" : "fixed",
-        !isDocsPage && isScrolled && "bg-background",
+        !isDocsPage && isScrolled && "bg-background/40 backdrop-blur-md",
       )}
     >
       <nav

@@ -10,10 +10,6 @@ export const GET_STARTED = [
     slug: "/ui/add-utilities",
   },
   {
-    name: "Browse Components",
-    slug: "/ui",
-  },
-  {
     name: "CLI",
     slug: "/ui/cli",
     isNew: true,
