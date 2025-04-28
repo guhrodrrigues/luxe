@@ -8,7 +8,7 @@ import { ComponentsExample } from "./ComponentsExample";
 
 export function ComponentsSection() {
   return (
-    <section className="mt-56 flex flex-col items-center justify-center gap-20">
+    <section className="mt-14 flex flex-col items-center justify-center gap-20">
       <AnimateEnter className="space-y-6 text-center">
         <h1 className="text-gradient mx-auto max-w-2xl text-4xl font-semibold leading-tight tracking-tight md:text-5xl">
           Elevate your web apps with sophisticated components
@@ -18,7 +18,7 @@ export function ComponentsSection() {
           project. This will give your application an extra shine.
         </p>
       </AnimateEnter>
-      {/* <ComponentsExample /> */}
+      <ComponentsExample />
       <AnimateEnter delay={0.3}>
         <Button />
       </AnimateEnter>

@@ -5,12 +5,14 @@ import React from "react";
 type ButtonGlitchBrightnessProps = {
   href: string;
   text: string;
+  shine?: boolean;
 } & React.ComponentProps<typeof Link>;
 
 export function ButtonGlitchBrightness({
   href,
   text,
   className,
+  shine = true,
 }: ButtonGlitchBrightnessProps) {
   return (
     <Link
@@ -21,9 +23,11 @@ export function ButtonGlitchBrightness({
       )}
     >
       <TextGlitch text={text} />
-      <div className="absolute inset-0 flex h-full w-full animate-brightness justify-center">
-        <div className="relative h-full w-8 bg-white/20 blur dark:bg-white/40" />
-      </div>
+      {shine && (
+        <div className="absolute inset-0 flex h-full w-full animate-brightness justify-center">
+          <div className="relative h-full w-8 bg-white/20 blur dark:bg-white/40" />
+        </div>
+      )}
     </Link>
   );
 }

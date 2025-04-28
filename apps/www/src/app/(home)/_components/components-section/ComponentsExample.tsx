@@ -1,22 +1,19 @@
-'use client'
+"use client";
 
-import { BadgeBackgroundShine } from '@/app/_components/ui/badges'
-import {
-  ButtonBackgroundShine,
-  ButtonLoading,
-} from '@/app/_components/ui/buttons'
-import { CheckboxExample } from '@/app/_components/ui/checkbox/Checkbox'
-import { DropdownMenu } from '@/app/_components/ui/dropdown'
-import { MultiStepModal } from '@/app/_components/ui/modals'
-import { AnimatedTabs } from '@/app/_components/ui/tabs'
-import {
-  TextGenerateEffectExample,
-  TextHoverEnterExample,
-  TextShine,
-} from '@/app/_components/ui/texts'
-import { TooltipExample } from '@/app/_components/ui/tooltip'
-import { ComponentView } from '@/app/ui/_components/ComponentView'
-import { AnimateEnter } from '../AnimateEnter'
+import { BadgeBackgroundShine } from "@/app/_components/ui/badge-background-shine";
+import { ButtonBackgroundShine } from "@/app/_components/ui/button-background-shine";
+import { ButtonLoading } from "@/app/_components/ui/button-loading";
+import { CheckboxExample } from "@/app/_components/ui/checkbox";
+import { DropdownMenu } from "@/app/_components/ui/dropdown-menu";
+import { MultiStepModal } from "@/app/_components/ui/multi-step-modal";
+import { AnimatedTabs } from "@/app/_components/ui/animated-tabs";
+import { TextShine } from "@/app/_components/ui/text-shine";
+import { TextGenerateEffectExample } from "@/app/_components/ui/text-generate-effect";
+
+import { TooltipExample } from "@/app/_components/ui/tooltip";
+import { ComponentView } from "@/app/ui/_components/ComponentView";
+import { AnimateEnter } from "../AnimateEnter";
+import { cn } from "@/utils/cn";
 
 const COMPONENTS_EXAMPLE = [
   { component: <TextGenerateEffectExample />, isReloadAnimation: true },
@@ -24,19 +21,31 @@ const COMPONENTS_EXAMPLE = [
   { component: <TooltipExample /> },
   {
     component: <DropdownMenu />,
-    className: 'md:col-span-1',
-    componentViewClassName: 'min-h-[350px]',
+    className: "md:col-span-1",
+    componentViewClassName: "min-h-[350px]",
   },
   {
     component: <MultiStepModal />,
-    className: 'md:col-span-2',
-    componentViewClassName: 'min-h-[350px]',
+    className: "md:col-span-2",
+    componentViewClassName: "min-h-[350px]",
   },
-  { component: <AnimatedTabs />, className: 'md:col-span-3' },
+  {
+    component: (
+      <AnimatedTabs
+        tabs={[
+          { label: "All Posts" },
+          { label: "Interactions" },
+          { label: "Resources" },
+          { label: "Docs" },
+        ]}
+      />
+    ),
+    className: "md:col-span-3",
+  },
   { component: <CheckboxExample /> },
   { component: <ButtonLoading /> },
   { component: <TextShine /> },
-]
+];
 
 export function ComponentsExample() {
   return (
@@ -49,7 +58,10 @@ export function ComponentsExample() {
           <AnimateEnter key={idx} delay={idx * 0.03} className={className}>
             <ComponentView
               isReloadAnimation={isReloadAnimation}
-              className={componentViewClassName}
+              className={cn(
+                "flex min-h-[250px] items-center justify-center",
+                componentViewClassName,
+              )}
             >
               {component}
             </ComponentView>
@@ -57,5 +69,5 @@ export function ComponentsExample() {
         ),
       )}
     </div>
-  )
+  );
 }

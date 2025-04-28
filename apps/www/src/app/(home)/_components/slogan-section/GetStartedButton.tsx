@@ -1,17 +1,17 @@
-import { Link } from 'next-view-transitions'
+import { Link } from "next-view-transitions";
 
-import { ChevronRightIcon } from 'lucide-react'
+import { ChevronRightIcon } from "lucide-react";
 
 export function GetStartedButton() {
   return (
     <Link
       href="/ui/installation"
-      className="group flex items-center gap-1.5 rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-semibold text-neutral-600 duration-300 hover:bg-neutral-200 dark:border-transparent dark:bg-transparent dark:text-foreground dark:hover:bg-neutral-800 dark:hover:text-primary"
+      className="group flex items-center gap-1.5 rounded-xl bg-background px-4 py-3 text-[15px] font-semibold text-neutral-600 duration-300 hover:bg-neutral-200 dark:border-transparent dark:bg-transparent dark:text-foreground dark:hover:bg-neutral-800 dark:hover:text-primary"
     >
       <span>Get Started</span>
       <ChevronIconGlitch />
     </Link>
-  )
+  );
 }
 
 function ChevronIconGlitch() {
@@ -27,5 +27,5 @@ function ChevronIconGlitch() {
         <ChevronRightIcon size={14} />
       </span>
     </div>
-  )
+  );
 }

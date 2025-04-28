@@ -62,11 +62,11 @@ export function Header() {
           !isDocsPage && isScrolled && "border-border dark:border-[#262626]/50",
         )}
       >
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-8">
           <Link href="/">
             <Icons.logo className="w-[70px]" />
           </Link>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
             {ITEMS.map(({ name, slug }) => (
               <Link
                 key={name}
