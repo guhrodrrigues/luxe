@@ -1,20 +1,72 @@
 "use client"; // @NOTE: Add in case you are using Next.js
 
+import { createContext, useContext, useState } from "react";
+
 import * as RadixDialog from "@radix-ui/react-dialog";
 
 import { cn } from "@/registry/utils/cn";
 
-import { AnimationProps, motion, useReducedMotion } from "motion/react";
+import {
+  AnimatePresence,
+  AnimationProps,
+  motion,
+  useReducedMotion,
+} from "motion/react";
 
-export const Dialog = RadixDialog.Root;
+const DialogContext = createContext(
+  {} as { isOpen: boolean; setIsOpen: (isOpen: boolean) => void },
+);
 
-export const DialogTrigger = RadixDialog.Trigger;
+function DialogProvider({ children }: { children: React.ReactNode }) {
+  const [isOpen, setIsOpen] = useState(false);
 
-export const DialogClose = RadixDialog.Close;
+  const value = {
+    isOpen,
+    setIsOpen,
+  };
 
-export const DialogPortal = RadixDialog.Portal;
+  return (
+    <DialogContext.Provider value={value}>{children}</DialogContext.Provider>
+  );
+}
+
+function useDialog() {
+  const context = useContext(DialogContext);
+
+  return context;
+}
+
+function DialogRoot({ children }: { children: React.ReactNode }) {
+  const { isOpen, setIsOpen } = useDialog();
+
+  return (
+    <RadixDialog.Root open={isOpen} onOpenChange={setIsOpen}>
+      {children}
+    </RadixDialog.Root>
+  );
+}
+
+export function Dialog({ children }: { children: React.ReactNode }) {
+  return (
+    <DialogProvider>
+      <DialogRoot>{children}</DialogRoot>
+    </DialogProvider>
+  );
+}
+
+type DialogPortalProps = React.ComponentProps<typeof RadixDialog.Portal>;
+
+export function DialogPortal({ children, ...props }: DialogPortalProps) {
+  return (
+    <RadixDialog.Portal {...props} forceMount>
+      {children}
+    </RadixDialog.Portal>
+  );
+}
 
 export function DialogOverlay() {
+  const { isOpen } = useDialog();
+
   const shouldReduceMotion = useReducedMotion();
 
   const overlayVariants: AnimationProps = {
@@ -27,9 +79,13 @@ export function DialogOverlay() {
   const Comp = shouldReduceMotion ? "div" : motion.div;
 
   return (
-    <RadixDialog.Overlay className="fixed top-0 left-0 size-full z-[999]">
-      <Comp className="fixed inset-0 bg-black/80" {...overlayVariants} />
-    </RadixDialog.Overlay>
+    <AnimatePresence mode="popLayout">
+      {isOpen && (
+        <RadixDialog.Overlay className="fixed top-0 left-0 size-full z-[999]">
+          <Comp className="fixed inset-0 bg-black/80" {...overlayVariants} />
+        </RadixDialog.Overlay>
+      )}
+    </AnimatePresence>
   );
 }
 
@@ -38,6 +94,8 @@ type DialogContentProps = React.ComponentPropsWithoutRef<
 >;
 
 export function DialogContent({ children, className }: DialogContentProps) {
+  const { isOpen } = useDialog();
+
   const shouldReduceMotion = useReducedMotion();
 
   const contentVariants: AnimationProps = {
@@ -50,22 +108,26 @@ export function DialogContent({ children, className }: DialogContentProps) {
   const Comp = shouldReduceMotion ? "div" : motion.div;
 
   return (
-    <RadixDialog.Content
-      className={cn(
-        "fixed left-1/2 top-1/2 z-[1001] -translate-x-1/2 -translate-y-1/2",
-        "rounded-xl shadow max-h-[85vh] w-[90vw] max-w-[400px] focus:outline-none",
+    <AnimatePresence mode="popLayout">
+      {isOpen && (
+        <RadixDialog.Content
+          className={cn(
+            "fixed left-1/2 top-1/2 z-[1001] -translate-x-1/2 -translate-y-1/2",
+            "rounded-xl shadow max-h-[85vh] w-[90vw] max-w-[400px] focus:outline-none",
+          )}
+        >
+          <Comp
+            className={cn(
+              "border rounded-[inherit] border-[#dddddd] bg-neutral-100 dark:border-[#222222] dark:bg-[#111111]",
+              className,
+            )}
+            {...contentVariants}
+          >
+            {children}
+          </Comp>
+        </RadixDialog.Content>
       )}
-    >
-      <Comp
-        className={cn(
-          "border rounded-[inherit] border-[#dddddd] bg-neutral-100 dark:border-[#222222] dark:bg-[#111111]",
-          className,
-        )}
-        {...contentVariants}
-      >
-        {children}
-      </Comp>
-    </RadixDialog.Content>
+    </AnimatePresence>
   );
 }
 
@@ -127,3 +189,7 @@ export function DialogFooter({
     </div>
   );
 }
+
+export const DialogTrigger = RadixDialog.Trigger;
+
+export const DialogClose = RadixDialog.Close;
