@@ -1,0 +1,445 @@
+---
+title: "Accordion"
+description: "Displays a simple or animated accordion, respecting user motion preferences."
+slug: "accordion"
+---
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code="default"
+	example={true}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[350px] flex items-center justify-center">
+
+<AccordionExample />
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock className="h-[350px]" contentClassName="h-full">
+
+```tsx
+import {
+  Dialog,
+  DialogTrigger,
+  DialogPortal,
+  DialogOverlay,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+} from "@/components/ui/dialog";
+
+import { Button } from "@/components/ui/button";
+
+import { cn } from "@/utils/cn";
+
+export function DialogExample() {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="outline">Open</Button>
+      </DialogTrigger>
+      <DialogPortal>
+        <DialogOverlay />
+        <DialogContent>
+          <DialogTitle className="px-6 pt-5">
+            Change Username
+          </DialogTitle>
+          <DialogDescription className="px-6 py-1">
+            Make changes to your username here.
+          </DialogDescription>
+          <fieldset className="mb-[15px] flex items-center gap-4 px-6 py-4">
+            <input
+              id="name"
+              placeholder="@guhrodrrigues"
+              className={cn(
+                "flex h-[40px] w-full flex-1 items-center justify-center rounded-lg border border-[#dddddd]",
+                "bg-neutral-100 dark:border-[#222222] dark:bg-[#111111] px-2.5 text-[15px] text-base",
+                "leading-none transition-all text-neutral-600 dark:text-neutral-300 placeholder:text-neutral-400 dark:placeholder:text-neutral-500",
+                "focus:outline-none focus:ring focus:ring-neutral-400 dark:focus:ring-neutral-800",
+              )}
+            />
+          </fieldset>
+          <DialogFooter className="flex justify-between gap-4 px-6 py-3">
+            <DialogClose asChild>
+              <Button variant="outline">Cancel</Button>
+            </DialogClose>
+            <DialogClose asChild>
+              <Button>Save Changes</Button>
+            </DialogClose>
+          </DialogFooter>
+        </DialogContent>
+      </DialogPortal>
+    </Dialog>
+  );
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+<div className="space-y-2 pt-4">
+
+<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
+
+## Usage
+
+</div>
+
+<CodeBlock className="mt-6" contentClassName="h-fit">
+
+```tsx
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@/components/ui/accordion";
+```
+</CodeBlock>
+
+<CodeBlock className="mt-6" contentClassName="h-fit">
+
+```tsx
+<Accordion>
+  <AccordionItem>
+    <AccordionTrigger>Accordion Trigger</AccordionTrigger>
+    <AccordionContent>
+      This is a content of the accordion.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+</CodeBlock>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="cli">CLI</TabsTrigger>
+	<TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+</div>
+
+<TabsContent value="cli">
+
+<CommandBlock 
+	npmCommand="npx @luxeui/ui add accordion" 
+	pnpmCommand="pnpm dlx @luxeui/ui add accordion" 
+	yarnCommand="npx @luxeui/ui add accordion" 
+	bunCommand="bunx --bun @luxeui/ui add accordion" 
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">1</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Install the package
+
+</h2>
+
+<CommandBlock 
+	npmCommand="npm install motion @radix-ui/react-accordion lucide-react" 
+	pnpmCommand="pnpm add motion @radix-ui/react-accordion lucide-react" 
+	yarnCommand="yarn add motion @radix-ui/react-accordion lucide-react" 
+	bunCommand="bun add motion @radix-ui/react-accordion lucide-react" 
+/>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">2</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Copy and paste the following code into your project
+
+</h2>
+
+<CodeBlock fileName="dialog.tsx">
+
+```tsx
+"use client"; // @NOTE: Add in case you are using Next.js
+
+import { createContext, useContext, useState } from "react";
+
+import * as RadixDialog from "@radix-ui/react-dialog";
+
+import { cn } from "@/utils/cn";
+
+import {
+  AnimatePresence,
+  AnimationProps,
+  motion,
+  useReducedMotion,
+} from "motion/react";
+
+const DialogContext = createContext(
+  {} as { isOpen: boolean; setIsOpen: (isOpen: boolean) => void },
+);
+
+function DialogProvider({ children }: { children: React.ReactNode }) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const value = {
+    isOpen,
+    setIsOpen,
+  };
+
+  return (
+    <DialogContext.Provider value={value}>{children}</DialogContext.Provider>
+  );
+}
+
+function useDialog() {
+  const context = useContext(DialogContext);
+
+  return context;
+}
+
+function DialogRoot({ children }: { children: React.ReactNode }) {
+  const { isOpen, setIsOpen } = useDialog();
+
+  return (
+    <RadixDialog.Root open={isOpen} onOpenChange={setIsOpen}>
+      {children}
+    </RadixDialog.Root>
+  );
+}
+
+export function Dialog({ children }: { children: React.ReactNode }) {
+  return (
+    <DialogProvider>
+      <DialogRoot>{children}</DialogRoot>
+    </DialogProvider>
+  );
+}
+
+type DialogPortalProps = React.ComponentProps<typeof RadixDialog.Portal>;
+
+export function DialogPortal({ children, ...props }: DialogPortalProps) {
+  return (
+    <RadixDialog.Portal {...props} forceMount>
+      {children}
+    </RadixDialog.Portal>
+  );
+}
+
+export function DialogOverlay() {
+  const { isOpen } = useDialog();
+
+  const shouldReduceMotion = useReducedMotion();
+
+  const overlayVariants: AnimationProps = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1 },
+    exit: { opacity: 0 },
+    transition: { ease: [0.19, 1, 0.22, 1], duration: 0.4 },
+  };
+
+  const Comp = shouldReduceMotion ? "div" : motion.div;
+
+  return (
+    <AnimatePresence mode="popLayout">
+      {isOpen && (
+        <RadixDialog.Overlay className="fixed top-0 left-0 size-full z-[999]">
+          <Comp className="fixed inset-0 bg-black/80" {...overlayVariants} />
+        </RadixDialog.Overlay>
+      )}
+    </AnimatePresence>
+  );
+}
+
+type DialogContentProps = React.ComponentPropsWithoutRef<
+  typeof RadixDialog.Close
+>;
+
+export function DialogContent({ children, className }: DialogContentProps) {
+  const { isOpen } = useDialog();
+
+  const shouldReduceMotion = useReducedMotion();
+
+  const contentVariants: AnimationProps = {
+    initial: { scale: 0.9, opacity: 0 },
+    animate: { scale: 1, opacity: 1 },
+    exit: { scale: 0.9, opacity: 0 },
+    transition: { ease: [0.19, 1, 0.22, 1], duration: 0.4 },
+  };
+
+  const Comp = shouldReduceMotion ? "div" : motion.div;
+
+  return (
+    <AnimatePresence mode="popLayout">
+      {isOpen && (
+        <RadixDialog.Content
+          className={cn(
+            "fixed left-1/2 top-1/2 z-[1001] -translate-x-1/2 -translate-y-1/2",
+            "rounded-xl shadow max-h-[85vh] w-[90vw] max-w-[400px] focus:outline-none",
+          )}
+        >
+          <Comp
+            className={cn(
+              "border rounded-[inherit] border-[#dddddd] bg-neutral-100 dark:border-[#222222] dark:bg-[#111111]",
+              className,
+            )}
+            {...contentVariants}
+          >
+            {children}
+          </Comp>
+        </RadixDialog.Content>
+      )}
+    </AnimatePresence>
+  );
+}
+
+type DialogTitleProps = React.ComponentProps<typeof RadixDialog.Title>;
+
+export function DialogTitle({
+  children,
+  className,
+  ...props
+}: DialogTitleProps) {
+  return (
+    <RadixDialog.Title
+      className={cn("font-semibold text-black dark:text-white", className)}
+      {...props}
+    >
+      {children}
+    </RadixDialog.Title>
+  );
+}
+
+type DialogDescriptionProps = React.ComponentProps<
+  typeof RadixDialog.Description
+>;
+
+export function DialogDescription({
+  children,
+  className,
+  ...props
+}: DialogDescriptionProps) {
+  return (
+    <RadixDialog.Description
+      className={cn(
+        "text-sm text-neutral-500 dark:text-neutral-400",
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </RadixDialog.Description>
+  );
+}
+
+type DialogFooterProps = React.ComponentProps<"div">;
+
+export function DialogFooter({
+  children,
+  className,
+  ...props
+}: DialogFooterProps) {
+  return (
+    <div
+      className={cn(
+        "border-t border-[#dddddd] bg-neutral-100 dark:border-[#222222] dark:bg-[#0f0f0f] rounded-b-[inherit]",
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  );
+}
+
+export const DialogTrigger = RadixDialog.Trigger;
+
+export const DialogClose = RadixDialog.Close;
+```
+
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	
+<span className="font-semibold text-primary">3</span>
+
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+
+<div className="space-y-4 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Update the import paths to match your project setup
+
+</h2>
+
+</div>
+</div>
+</div>
+</div>
+
+</TabsContent>
+
+</Tabs>
+
+</div>

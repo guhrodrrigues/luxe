@@ -22,6 +22,7 @@ import { CodeBlock } from "../CodeBlock";
 import { Card } from "@/app/_components/ui/card";
 import { DialogExample } from "../examples/DialogExample";
 import Link from "next/link";
+import { AccordionExample } from "../examples/AccordionExample";
 
 const components: MDXComponents = {
   ComponentView: ({ children, isReloadAnimation, ...props }) => (
@@ -137,6 +138,7 @@ const components: MDXComponents = {
     </Card>
   ),
   DialogExample: () => <DialogExample />,
+  AccordionExample: () => <AccordionExample />,
 };
 
 export function useMDXComponents(components: MDXComponents) {

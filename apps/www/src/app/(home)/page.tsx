@@ -1,11 +1,9 @@
-import { Footer } from "../_components/Footer";
 import { BlurBackground } from "./_components/BlurBackground";
 import { ComponentsSection } from "./_components/components-section";
 import { FeedbacksSection } from "./_components/feedbacks-section/FeedbacksSection";
 import { HeroSection } from "./_components/hero-section";
-import { Spotlight } from "./_components/hero-section/Spotlight";
 import { SloganSection } from "./_components/slogan-section";
-import { TechsSection } from "./_components/techs-section";
+import { Footer } from "../_components/Footer";
 
 export default function Home() {
   return (
