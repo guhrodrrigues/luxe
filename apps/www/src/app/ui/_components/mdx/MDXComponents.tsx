@@ -21,6 +21,7 @@ import { Button } from "@/app/_components/ui/button";
 import { CodeBlock } from "../CodeBlock";
 import { Card } from "@/app/_components/ui/card";
 import { DialogExample } from "../examples/DialogExample";
+import Link from "next/link";
 
 const components: MDXComponents = {
   ComponentView: ({ children, isReloadAnimation, ...props }) => (
@@ -72,6 +73,17 @@ const components: MDXComponents = {
       contentClassName={contentClassName}
       {...props}
     />
+  ),
+  Link: ({ children, className, ...props }) => (
+    <Link
+      {...props}
+      className={cn(
+        "underline underline-offset-[2.5px] decoration-neutral-300 dark:decoration-neutral-500 duration-200 hover:decoration-neutral-500 dark:hover:decoration-neutral-300 hover:text-black dark:hover:text-white",
+        props.className,
+      )}
+    >
+      {children}
+    </Link>
   ),
   CodeHighlight: ({ children, ...props }) => (
     <span

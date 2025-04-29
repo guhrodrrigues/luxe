@@ -40,7 +40,9 @@ export function DialogExample() {
                 "rounded-xl shadow max-h-[85vh] w-[90vw] max-w-[400px] focus:outline-none",
               )}
             >
-              <DialogTitle className="px-6 pt-5">Change Username</DialogTitle>
+              <DialogTitle asChild>
+                <span className="block px-6 pt-5">Change Username</span>
+              </DialogTitle>
               <DialogDescription className="px-6 py-1">
                 Make changes to your username here.
               </DialogDescription>

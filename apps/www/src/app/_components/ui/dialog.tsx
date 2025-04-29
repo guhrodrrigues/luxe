@@ -1,4 +1,4 @@
-"use client";
+"use client"; // @NOTE: Add in case you are using Next.js
 
 import * as RadixDialog from "@radix-ui/react-dialog";
 
