@@ -16,7 +16,7 @@ const ITEMS = [
   },
   {
     name: "Components",
-    slug: "/ui/animated-tabs",
+    slug: "/ui/accordion",
   },
   {
     name: "Updates",

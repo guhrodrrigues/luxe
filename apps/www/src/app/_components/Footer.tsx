@@ -3,8 +3,6 @@ import { Link } from "next-view-transitions";
 import { ArrowUpRightIcon } from "lucide-react";
 
 import { AnimateEnter } from "@/app/(home)/_components/AnimateEnter";
-import { Icons } from "./Icons";
-import { RequestComponentButton } from "./RequestComponentButton";
 
 export const NAVIGATE = [
   {
@@ -13,7 +11,7 @@ export const NAVIGATE = [
   },
   {
     name: "Browse Components",
-    slug: "/ui/animated-tabs",
+    slug: "/ui/accordion",
   },
   {
     name: "Updates",

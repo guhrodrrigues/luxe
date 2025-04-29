@@ -37,7 +37,7 @@ export async function HeroContent() {
           delay={0.4}
         >
           <ButtonGlitchBrightness
-            href="/ui/animated-tabs"
+            href="/ui/accordion"
             text="Explore components"
             className="py-3 px-4 h-11 text-base"
             shine={false}

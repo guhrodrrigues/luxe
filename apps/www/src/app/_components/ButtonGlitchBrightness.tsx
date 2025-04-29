@@ -36,10 +36,10 @@ function TextGlitch({ text }: { text: string }) {
   return (
     <div className="relative overflow-hidden">
       <span className="invisible">{text}</span>
-      <span className="absolute left-0 top-0 font-semibold transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full">
+      <span className="absolute dark:[text-shadow:0_0.5px_0_rgb(255,255,255,.48)] left-0 top-0 font-semibold transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full">
         {text}
       </span>
-      <span className="absolute left-0 top-0 translate-y-full font-semibold transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0">
+      <span className="absolute dark:[text-shadow:0_0.5px_0_rgb(255,255,255,.48)] left-0 top-0 translate-y-full font-semibold transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0">
         {text}
       </span>
     </div>

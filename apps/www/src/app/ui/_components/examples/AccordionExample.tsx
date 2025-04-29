@@ -8,7 +8,7 @@ import {
 export function AccordionExample() {
   return (
     <Accordion
-      className="w-[400px] rounded-md bg-neutral-950"
+      className="w-[400px]"
       type="single"
       defaultValue="item-1"
       collapsible

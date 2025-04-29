@@ -2,7 +2,7 @@ import * as RadixAccordion from "@radix-ui/react-accordion";
 
 import { PlusIcon } from "lucide-react";
 
-import { cn } from "@/utils/cn";
+import { cn } from "@/registry/utils/cn";
 
 export const Accordion = RadixAccordion.Root;
 
