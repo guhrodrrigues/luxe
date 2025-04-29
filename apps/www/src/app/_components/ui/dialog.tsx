@@ -1,95 +1,26 @@
-"use client"; // @NOTE: Add in case you are using Next.js
-
-import { createContext, useContext, useState } from "react";
-
 import * as RadixDialog from "@radix-ui/react-dialog";
 
 import { cn } from "@/utils/cn";
 
-import {
-  AnimatePresence,
-  AnimationProps,
-  motion,
-  useReducedMotion,
-} from "motion/react";
-
-const DialogContext = createContext(
-  {} as { isOpen: boolean; setIsOpen: (isOpen: boolean) => void },
-);
-
-function DialogProvider({ children }: { children: React.ReactNode }) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const value = {
-    isOpen,
-    setIsOpen,
-  };
-
-  return (
-    <DialogContext.Provider value={value}>{children}</DialogContext.Provider>
-  );
-}
-
-function useDialog() {
-  const context = useContext(DialogContext);
-
-  if (!context) {
-    throw new Error("useDialog must be used within DialogProvider");
-  }
-
-  return context;
-}
-
-function DialogRoot({ children }: { children: React.ReactNode }) {
-  const { isOpen, setIsOpen } = useDialog();
-
-  return (
-    <RadixDialog.Root open={isOpen} onOpenChange={setIsOpen}>
-      {children}
-    </RadixDialog.Root>
-  );
-}
-
-export function Dialog({ children }: { children: React.ReactNode }) {
-  return (
-    <DialogProvider>
-      <DialogRoot>{children}</DialogRoot>
-    </DialogProvider>
-  );
-}
+export const Dialog = RadixDialog.Root;
 
 type DialogPortalProps = React.ComponentProps<typeof RadixDialog.Portal>;
 
-export function DialogPortal({ children, ...props }: DialogPortalProps) {
-  return (
-    <RadixDialog.Portal {...props} forceMount>
-      {children}
-    </RadixDialog.Portal>
-  );
+function DialogPortal({ children, ...props }: DialogPortalProps) {
+  return <RadixDialog.Portal {...props}>{children}</RadixDialog.Portal>;
 }
 
-export function DialogOverlay() {
-  const { isOpen } = useDialog();
-
-  const shouldReduceMotion = useReducedMotion();
-
-  const overlayVariants: AnimationProps = {
-    initial: { opacity: 0 },
-    animate: { opacity: 1 },
-    exit: { opacity: 0 },
-    transition: { ease: [0.19, 1, 0.22, 1], duration: 0.4 },
-  };
-
-  const Comp = shouldReduceMotion ? "div" : motion.div;
-
+function DialogOverlay() {
   return (
-    <AnimatePresence mode="popLayout">
-      {isOpen && (
-        <RadixDialog.Overlay className="fixed top-0 left-0 size-full z-[999]">
-          <Comp className="fixed inset-0 bg-black/80" {...overlayVariants} />
-        </RadixDialog.Overlay>
-      )}
-    </AnimatePresence>
+    <RadixDialog.Overlay className="fixed top-0 left-0 size-full z-[999]">
+      <div
+        className={cn(
+          "fixed inset-0 bg-black/80 ease-out-quad",
+          "data-[state=open]:animate-in data-[state=open]:fade-in",
+          "data-[state=closed]:animate-out data-[state=closed]:fade-out",
+        )}
+      />
+    </RadixDialog.Overlay>
   );
 }
 
@@ -98,40 +29,27 @@ type DialogContentProps = React.ComponentPropsWithoutRef<
 >;
 
 export function DialogContent({ children, className }: DialogContentProps) {
-  const { isOpen } = useDialog();
-
-  const shouldReduceMotion = useReducedMotion();
-
-  const contentVariants: AnimationProps = {
-    initial: { scale: 0.9, opacity: 0 },
-    animate: { scale: 1, opacity: 1 },
-    exit: { scale: 0.9, opacity: 0 },
-    transition: { ease: [0.19, 1, 0.22, 1], duration: 0.4 },
-  };
-
-  const Comp = shouldReduceMotion ? "div" : motion.div;
-
   return (
-    <AnimatePresence mode="popLayout">
-      {isOpen && (
-        <RadixDialog.Content
+    <DialogPortal>
+      <DialogOverlay />
+      <RadixDialog.Content
+        className={cn(
+          "fixed left-1/2 top-1/2 z-[1001] -translate-x-1/2 -translate-y-1/2",
+          "rounded-xl shadow max-h-[85vh] w-[90vw] max-w-[400px] ease-out-quad focus:outline-none",
+          "data-[state=open]:animate-in data-[state=open]:zoom-in-90 data-[state=open]:fade-in",
+          "data-[state=closed]:animate-out data-[state=closed]:zoom-out-90 data-[state=closed]:fade-out",
+        )}
+      >
+        <div
           className={cn(
-            "fixed left-1/2 top-1/2 z-[1001] -translate-x-1/2 -translate-y-1/2",
-            "rounded-xl shadow max-h-[85vh] w-[90vw] max-w-[400px] focus:outline-none",
+            "border rounded-[inherit] border-[#dddddd] bg-neutral-100 dark:border-[#222222] dark:bg-[#111111]",
+            className,
           )}
         >
-          <Comp
-            className={cn(
-              "border rounded-[inherit] border-[#dddddd] bg-neutral-100 dark:border-[#222222] dark:bg-[#111111]",
-              className,
-            )}
-            {...contentVariants}
-          >
-            {children}
-          </Comp>
-        </RadixDialog.Content>
-      )}
-    </AnimatePresence>
+          {children}
+        </div>
+      </RadixDialog.Content>
+    </DialogPortal>
   );
 }
 
