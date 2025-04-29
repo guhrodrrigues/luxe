@@ -20,7 +20,7 @@ const variants: readonly Variant[] = [
         {...props}
         className={cn(
           "group relative overflow-hidden w-fit rounded-xl font-medium text-neutral-200",
-          "bg-[#161616] text-sm shadow-inner shadow-neutral-400",
+          "bg-[#161616] text-sm shadow-inner shadow-neutral-400 border border-transparent",
           "dark:to-neutral-500/60 transition-all duration-200 dark:shadow-neutral-800/80",
         )}
         style={{ padding: "var(--py) var(--px)" }}
@@ -33,6 +33,22 @@ const variants: readonly Variant[] = [
             "dark:from-neutral-900/40 dark:to-neutral-800/60 opacity-0 group-hover:opacity-100",
           )}
         />
+      </button>
+    ),
+  },
+  {
+    variant: "outline",
+    component: ({ children, ...props }) => (
+      <button
+        {...props}
+        className={cn(
+          "group relative overflow-hidden w-fit rounded-xl font-medium",
+          "text-sm text-neutral-700 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-800",
+          "hover:bg-neutral-200 dark:hover:bg-neutral-900 transition-all duration-200",
+        )}
+        style={{ padding: "var(--py) var(--px)" }}
+      >
+        <span className="relative z-10">{children}</span>
       </button>
     ),
   },

@@ -11,6 +11,7 @@
 	},
 	"dependencies": {
 		"@radix-ui/react-checkbox": "^1.1.2",
+		"@radix-ui/react-dialog": "^1.1.6",
 		"clsx": "^2.1.0",
 		"lucide-react": "^0.330.0",
 		"motion": "^11.15.0",

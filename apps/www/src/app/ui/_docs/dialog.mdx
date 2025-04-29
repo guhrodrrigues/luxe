@@ -1,3 +1,246 @@
+---
+title: "Dialog"
+description: "Displays an simple or animated Dialog."
+slug: "dialog"
+---
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code="default"
+	example={true}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[350px] flex items-center justify-center">
+
+<DialogExample />
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock className="h-[350px]" contentClassName="h-full">
+
+```tsx
+"use client"; // @NOTE: Add in case you are using Next.js
+
+import { useState } from "react";
+
+import {
+  Dialog,
+  DialogTrigger,
+  DialogPortal,
+  DialogOverlay,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+} from "@/components/ui/dialog";
+
+import { AnimatePresence } from "motion/react";
+
+import { Button } from "@/components/ui/button";
+
+import { cn } from "@/utils/cn";
+
+export function DialogExample() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+      <DialogTrigger asChild>
+        <Button variant="outline">Open</Button>
+      </DialogTrigger>
+      <DialogPortal forceMount>
+        <AnimatePresence mode="popLayout">
+          {isOpen && <DialogOverlay />}
+        </AnimatePresence>
+        <AnimatePresence mode="popLayout">
+          {isOpen && (
+            <DialogContent
+              className={cn(
+                "fixed left-1/2 top-1/2 z-[1001] -translate-x-1/2 -translate-y-1/2",
+                "rounded-xl shadow max-h-[85vh] w-[90vw] max-w-[400px] focus:outline-none",
+              )}
+            >
+              <DialogTitle className="px-6 pt-5">Change Username</DialogTitle>
+              <DialogDescription className="px-6 py-1">
+                Make changes to your username here.
+              </DialogDescription>
+              <fieldset className="mb-[15px] flex items-center gap-4 px-6 py-4">
+                <input
+                  id="name"
+                  placeholder="@guhrodrrigues"
+                  className={cn(
+                    "flex h-[40px] w-full flex-1 items-center justify-center rounded-lg border border-[#dddddd]",
+                    "bg-neutral-100 dark:border-[#222222] dark:bg-[#111111] px-2.5 text-[15px] text-base",
+                    "leading-none transition-all text-neutral-600 dark:text-neutral-300 placeholder:text-neutral-400 dark:placeholder:text-neutral-500",
+                    "focus:outline-none focus:ring focus:ring-neutral-400 dark:focus:ring-neutral-800",
+                  )}
+                />
+              </fieldset>
+              <DialogFooter className="flex justify-between gap-4 px-6 py-3">
+                <DialogClose asChild>
+                  <Button variant="outline">Cancel</Button>
+                </DialogClose>
+                <DialogClose asChild>
+                  <Button>Save Changes</Button>
+                </DialogClose>
+              </DialogFooter>
+            </DialogContent>
+          )}
+        </AnimatePresence>
+      </DialogPortal>
+    </Dialog>
+  );
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+<div className="space-y-2 pt-4">
+
+<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
+
+## Usage
+
+</div>
+
+<CodeBlock className="mt-6" contentClassName="h-fit">
+
+```tsx
+import {
+  Dialog,
+  DialogTrigger,
+  DialogPortal,
+  DialogOverlay,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+} from "@/app/_components/ui/dialog";
+```
+</CodeBlock>
+
+<CodeBlock className="mt-6" contentClassName="h-fit">
+
+```tsx
+<Dialog>
+  <DialogTrigger>Open</DialogTrigger>
+  <DialogPortal>
+    <DialogOverlay />
+    <DialogContent>
+      <DialogTitle>Dialog Title</DialogTitle>
+      <DialogDescription>
+        This is a description of the dialog.
+      </DialogDescription>
+      <DialogFooter>
+        <DialogClose />
+      </DialogFooter>
+    </DialogContent>
+  </DialogPortal>
+</Dialog>
+```
+</CodeBlock>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="cli">CLI</TabsTrigger>
+	<TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+</div>
+
+<TabsContent value="cli">
+
+<CommandBlock 
+	npmCommand="npx @luxeui/ui add dialog" 
+	pnpmCommand="pnpm dlx @luxeui/ui add dialog" 
+	yarnCommand="npx @luxeui/ui add dialog" 
+	bunCommand="bunx --bun @luxeui/ui add dialog" 
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">1</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Install the package
+
+</h2>
+
+<CommandBlock 
+	npmCommand="npm install @radix-ui/react-slot" 
+	pnpmCommand="pnpm add @radix-ui/react-slot" 
+	yarnCommand="yarn add @radix-ui/react-slot" 
+	bunCommand="bun add @radix-ui/react-slot" 
+/>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">2</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Copy and paste the following code into your project
+
+</h2>
+
+<CodeBlock fileName="button.tsx">
+
+```tsx
 "use client"; // @NOTE: Add in case you are using Next.js
 
 import { useRef, useState } from "react";
@@ -20,7 +263,7 @@ const variants: readonly Variant[] = [
         {...props}
         className={cn(
           "group relative overflow-hidden w-fit rounded-xl font-medium text-neutral-200",
-          "bg-[#161616] text-sm shadow-inner shadow-neutral-400 border border-transparent",
+          "bg-[#161616] text-sm shadow-inner shadow-neutral-400",
           "dark:to-neutral-500/60 transition-all duration-200 dark:shadow-neutral-800/80",
         )}
         style={{ padding: "var(--py) var(--px)" }}
@@ -33,46 +276,6 @@ const variants: readonly Variant[] = [
             "dark:from-neutral-900/40 dark:to-neutral-800/60 opacity-0 group-hover:opacity-100",
           )}
         />
-      </button>
-    ),
-  },
-  {
-    variant: "outline",
-    component: ({ children, ...props }) => (
-      <button
-        {...props}
-        className={cn(
-          "group relative overflow-hidden w-fit rounded-xl font-medium",
-          "text-sm text-neutral-700 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-800",
-          "hover:bg-neutral-200 dark:hover:bg-neutral-900 transition-all duration-200",
-        )}
-        style={{ padding: "var(--py) var(--px)" }}
-      >
-        <span className="relative z-10">{children}</span>
-      </button>
-    ),
-  },
-  {
-    variant: "success",
-    component: ({ children, ...props }) => (
-      <button
-        {...props}
-        className="rounded-xl bg-gradient-to-t from-green-600 to-green-500 text-sm font-medium text-white"
-        style={{ padding: "var(--py) var(--px)" }}
-      >
-        {children}
-      </button>
-    ),
-  },
-  {
-    variant: "destructive",
-    component: ({ children, ...props }) => (
-      <button
-        {...props}
-        className="rounded-xl bg-gradient-to-t from-red-600 to-red-500 text-sm font-medium text-white"
-        style={{ padding: "var(--py) var(--px)" }}
-      >
-        {children}
       </button>
     ),
   },
@@ -215,6 +418,30 @@ const variants: readonly Variant[] = [
       );
     },
   },
+  {
+    variant: "success",
+    component: ({ children, ...props }) => (
+      <button
+        {...props}
+        className="rounded-xl bg-gradient-to-t from-green-600 to-green-500 text-sm font-medium text-white"
+        style={{ padding: "var(--py) var(--px)" }}
+      >
+        {children}
+      </button>
+    ),
+  },
+  {
+    variant: "destructive",
+    component: ({ children, ...props }) => (
+      <button
+        {...props}
+        className="rounded-xl bg-gradient-to-t from-red-600 to-red-500 text-sm font-medium text-white"
+        style={{ padding: "var(--py) var(--px)" }}
+      >
+        {children}
+      </button>
+    ),
+  },
 ] as const;
 
 export type ButtonProps = {
@@ -273,3 +500,39 @@ function useMagnetic() {
 
   return { ref, handleMouseMove, handleMouseLeave, x, y };
 }
+```
+
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	
+<span className="font-semibold text-primary">3</span>
+
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+
+<div className="space-y-4 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Update the import paths to match your project setup
+
+</h2>
+
+</div>
+</div>
+</div>
+</div>
+
+</TabsContent>
+
+</Tabs>
+
+</div>

@@ -20,6 +20,7 @@ import { AnimatedTabs } from "@/app/_components/ui/animated-tabs";
 import { Button } from "@/app/_components/ui/button";
 import { CodeBlock } from "../CodeBlock";
 import { Card } from "@/app/_components/ui/card";
+import { DialogExample } from "../examples/DialogExample";
 
 const components: MDXComponents = {
   ComponentView: ({ children, isReloadAnimation, ...props }) => (
@@ -123,6 +124,7 @@ const components: MDXComponents = {
       {children}
     </Card>
   ),
+  DialogExample: () => <DialogExample />,
 };
 
 export function useMDXComponents(components: MDXComponents) {
