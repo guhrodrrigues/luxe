@@ -17,7 +17,7 @@ export function AnimatedBadge() {
         )}
       >
         <motion.div
-          className="absolute aspect-square bg-zinc-400 dark:bg-zinc-600"
+          className="absolute aspect-square bg-gradient-to-r from-neutral-300 to-neutral-400 dark:from-neutral-600 dark:to-neutral-400"
           animate={{
             offsetDistance: ["0%", "100%"],
           }}
