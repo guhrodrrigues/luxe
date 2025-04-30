@@ -12,10 +12,10 @@ export async function HeroContent() {
     <div className="z-[3] flex flex-col items-center gap-28 text-center">
       <div className="space-y-9">
         <div className="space-y-6">
-          <AnimateEnter delay={0.1} className="w-fit mx-auto">
+          <AnimateEnter delay={0.1} duration={2} className="w-fit mx-auto">
             <AnimatedBadge />
           </AnimateEnter>
-          <AnimateEnter delay={0.2}>
+          <AnimateEnter delay={0.3} duration={2}>
             <h1
               className={cn(
                 "mx-auto max-w-3xl font-semibold text-4xl text-gradient tracking-tight",
@@ -26,7 +26,7 @@ export async function HeroContent() {
             </h1>
           </AnimateEnter>
         </div>
-        <AnimateEnter delay={0.3}>
+        <AnimateEnter delay={0.5} duration={2}>
           <p className={cn("mx-auto max-w-lg text-xl text-foreground")}>
             Library of copy and paste components to illuminate your applications
             with elegance and sophistication.
@@ -34,7 +34,8 @@ export async function HeroContent() {
         </AnimateEnter>
         <AnimateEnter
           className={cn("flex flex-wrap items-center justify-center gap-3")}
-          delay={0.4}
+          delay={0.7}
+          duration={2}
         >
           <ButtonGlitchBrightness
             href="/ui/accordion"
@@ -45,7 +46,7 @@ export async function HeroContent() {
           <GetStartedButton />
         </AnimateEnter>
       </div>
-      <AnimateEnter delay={0.5} className="space-y-4">
+      <AnimateEnter delay={0.9} duration={2} className="space-y-4">
         <h1 className="text-sm text-foreground/60 dark:text-foreground/80">
           Build with
         </h1>

@@ -32,7 +32,9 @@ function Button() {
       href="/ui"
       className="group relative inline-flex items-center gap-1 overflow-hidden rounded-xl bg-black/80 px-4 py-2.5 text-sm font-semibold text-white duration-300 hover:bg-black dark:bg-white/80 dark:text-black dark:hover:bg-white"
     >
-      <span>Explore All Components</span>
+      <span className="[text-shadow:0_0.5px_0_rgb(255,255,255,.48)]">
+        Explore All Components
+      </span>
       <ChevronIconGlitch />
       <div className="absolute inset-0 flex h-full w-full animate-brightness justify-center">
         <div className="relative h-full w-8 bg-white/20 blur dark:bg-white/40" />

@@ -2,12 +2,15 @@
 
 import Link from "next/link";
 
+import { useEffect, useState } from "react";
+
 import { Icons } from "@/app/_components/Icons";
 import { ToggleTheme } from "./sidebar/ToggleTheme";
 import { usePathname } from "next/navigation";
-import { cn } from "@/utils/cn";
+
 import { CommandIcon, SearchIcon } from "lucide-react";
-import { useEffect, useState } from "react";
+
+import { cn } from "@/utils/cn";
 
 const ITEMS = [
   {
