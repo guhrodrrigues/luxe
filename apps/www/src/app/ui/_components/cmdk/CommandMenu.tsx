@@ -1,8 +1,19 @@
-import React, { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 
-import { CommandIcon, SearchIcon } from "lucide-react";
+import { useEffect, useState } from "react";
+
+import {
+  CommandIcon,
+  SearchIcon,
+  SparklesIcon,
+  TerminalIcon,
+  CodeIcon,
+  FileIcon,
+  SquareStackIcon,
+} from "lucide-react";
 
 import { cn } from "@/utils/cn";
+
 import {
   CommandDialog,
   CommandEmpty,
@@ -11,72 +22,119 @@ import {
   CommandItem,
   CommandList,
 } from "./CommandMenuPrimitives";
-import { usePathname, useRouter } from "next/navigation";
 
 type ItemProps = {
   heading: string;
   group: {
     title: string;
+    icon: React.ReactNode;
     slug: string;
     shortcut?: string;
   }[];
 };
+
+const HomeIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="17"
+    height="17"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
+    <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+    <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+  </svg>
+);
 
 const ITEMS: ItemProps[] = [
   {
     heading: "Suggestions",
     group: [
       {
-        title: "Get Started",
-        slug: "/ui/installation",
-        shortcut: "g",
-      },
-      {
-        title: "Components",
-        slug: "/ui/accordion",
-        shortcut: "c",
+        title: "Home",
+        icon: <HomeIcon />,
+        slug: "/",
+        shortcut: "h",
       },
       {
         title: "Updates",
+        icon: <SparklesIcon size={17} />,
         slug: "/updates",
         shortcut: "u",
       },
     ],
   },
   {
-    heading: "Docs",
+    heading: "Get Started",
+    group: [
+      {
+        title: "Installation",
+        icon: <CodeIcon size={17} />,
+        slug: "/ui/installation",
+        shortcut: "i",
+      },
+      {
+        title: "Add Utilities",
+        icon: <FileIcon size={17} />,
+        slug: "/add-utilities",
+        shortcut: "j",
+      },
+      {
+        title: "CLI",
+        icon: <TerminalIcon size={17} />,
+        slug: "/cli",
+        shortcut: "l",
+      },
+    ],
+  },
+  {
+    heading: "Components",
     group: [
       {
         title: "Accordion",
         slug: "/ui/accordion",
+        icon: <SquareStackIcon size={17} />,
       },
       {
-        title: "Alert",
-        slug: "/ui/alert",
-      },
-      {
-        title: "Avatar",
-        slug: "/ui/avatar",
+        title: "Animated Tabs",
+        slug: "/ui/animated-tabs",
+        icon: <SquareStackIcon size={17} />,
       },
       {
         title: "Badge",
         slug: "/ui/badge",
+        icon: <SquareStackIcon size={17} />,
       },
       {
         title: "Button",
         slug: "/ui/button",
+        icon: <SquareStackIcon size={17} />,
       },
       {
         title: "Card",
         slug: "/ui/card",
+        icon: <SquareStackIcon size={17} />,
       },
       {
         title: "Checkbox",
         slug: "/ui/checkbox",
+        icon: <SquareStackIcon size={17} />,
       },
       {
-        title: "Collapsible",
-        slug: "/ui/collapsible",
+        title: "Dialog",
+        slug: "/ui/dialog",
+        icon: <SquareStackIcon size={17} />,
+      },
+      {
+        title: "Tooltip",
+        slug: "/ui/tooltip",
+        icon: <SquareStackIcon size={17} />,
       },
     ],
   },
@@ -84,13 +142,16 @@ const ITEMS: ItemProps[] = [
 
 type CommandMenuItemProps = {
   shortcut?: string;
+  icon: React.ReactNode;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   onAction: () => void;
 } & React.ComponentProps<typeof CommandItem>;
 
 function CommandMenuItem({
   children,
+  icon,
   shortcut,
+  className,
   setIsOpen,
   onAction,
 }: CommandMenuItemProps) {
@@ -116,14 +177,17 @@ function CommandMenuItem({
   }, []);
 
   return (
-    <CommandItem className="cursor-pointer">
-      {children}
+    <CommandItem className={cn("cursor-pointer", className)}>
+      <div className="flex items-center gap-2">
+        <span className="opacity-70">{icon}</span>
+        {children}
+      </div>
       {shortcut && (
         <div className="flex gap-1 ml-auto">
-          <div className="flex h-6 w-6 uppercase items-center text-xs font-semibold justify-center rounded-md bg-neutral-900 text-neutral-400">
+          <div className="flex h-6 w-6 uppercase items-center text-xs font-semibold justify-center rounded-md bg-neutral-200 dark:bg-[#141414] text-neutral-400">
             <CommandIcon size={12} />
           </div>
-          <div className="flex h-6 w-6 uppercase items-center text-xs font-semibold justify-center rounded-md bg-neutral-900 text-neutral-400">
+          <div className="flex h-6 w-6 uppercase items-center text-xs font-semibold justify-center rounded-md bg-neutral-200 dark:bg-[#141414] text-neutral-400">
             {shortcut}
           </div>
         </div>
@@ -138,8 +202,8 @@ export function CommandMenu() {
   const router = useRouter();
   const pathname = usePathname();
 
-  const currentPath = pathname.split("/").join("/");
-  const currentPage = currentPath === "/" ? "Home" : currentPath;
+  const homePage = pathname === "/";
+  const currentPage = homePage ? "Home" : pathname.split("/")[2];
 
   return (
     <>
@@ -164,30 +228,33 @@ export function CommandMenu() {
         </span>
       </button>
       <CommandDialog open={isOpen} onOpenChange={setIsOpen}>
-        <div className="pt-3 px-3">
-          <div className="bg-neutral-900 px-2 h-6 w-fit flex items-center justify-center rounded-md">
-            <span className="text-[13px] font-[460] text-foreground">
+        <div className="pt-3 pl-4">
+          <div className="bg-neutral-200 dark:bg-neutral-900 px-2 h-6 w-fit flex items-center justify-center rounded-md">
+            <span className="text-[13px] font-[460] text-foreground capitalize">
               {currentPage}
             </span>
           </div>
         </div>
-        <CommandInput placeholder="Type a command or search..." />
+        <CommandInput placeholder="What do you need?" />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
-          {ITEMS.map(({ heading, group }) => (
-            <CommandGroup key={heading} heading={heading}>
-              {group.map(({ title, slug, shortcut }) => (
-                <CommandMenuItem
-                  key={title}
-                  setIsOpen={setIsOpen}
-                  onAction={() => router.push(slug)}
-                  shortcut={shortcut}
-                >
-                  {title}
-                </CommandMenuItem>
-              ))}
-            </CommandGroup>
-          ))}
+          <div className="space-y-1.5 pb-1.5 pt-1">
+            {ITEMS.map(({ heading, group }) => (
+              <CommandGroup key={heading} heading={heading}>
+                {group.map(({ title, slug, icon, shortcut }) => (
+                  <CommandMenuItem
+                    key={title}
+                    icon={icon}
+                    setIsOpen={setIsOpen}
+                    onAction={() => router.push(slug)}
+                    shortcut={shortcut}
+                  >
+                    {title}
+                  </CommandMenuItem>
+                ))}
+              </CommandGroup>
+            ))}
+          </div>
         </CommandList>
       </CommandDialog>
     </>
