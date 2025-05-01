@@ -26,7 +26,7 @@ export function Footer() {
 
   return (
     <footer className="relative z-10">
-      <div className="relative mx-auto w-full max-w-7xl px-8 pb-6">
+      <div className="relative mx-auto w-full max-w-7xl px-8 pb-5">
         <div className="flex gap-10 max-md:flex-col items-center md:justify-between">
           <AnimateEnter className="flex flex-col gap-1">
             <p className="text-[13px] text-foreground">
@@ -65,7 +65,7 @@ export function Footer() {
                 <ArrowIconGlitch />
               </a>
               <a
-                href="https://twitter.com/guhrodrrigues"
+                href="https://x.com/guhrodrrigues"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group flex w-fit items-center gap-1 text-[13px] text-foreground duration-200 hover:text-primary"

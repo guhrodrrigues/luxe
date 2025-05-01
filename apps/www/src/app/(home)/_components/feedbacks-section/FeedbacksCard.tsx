@@ -1,9 +1,9 @@
-import Image from 'next/image'
+import Image from "next/image";
 
 export function FeedbacksCard() {
   return (
-    <div className="relative flex w-full max-w-lg flex-col gap-8">
-      <p className="text-center text-base font-medium leading-[1.5] text-neutral-600 dark:text-neutral-300">
+    <div className="relative flex w-full max-w-lg flex-col gap-10">
+      <p className="text-center text-xl font-medium leading-[1.5] text-gradient">
         “Luxe is an ultra-aesthetic user interface library. I think it's
         promising when built as an abstract layer on top of your existing design
         system.”
@@ -31,5 +31,5 @@ export function FeedbacksCard() {
         </div>
       </div>
     </div>
-  )
+  );
 }

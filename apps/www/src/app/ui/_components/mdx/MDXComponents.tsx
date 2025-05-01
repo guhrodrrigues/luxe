@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import type { MDXComponents } from "mdx/types";
 import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc";
 import type { PluggableList } from "unified";
@@ -6,10 +8,10 @@ import rehypeSlug from "rehype-slug";
 import rehypePrettyCode from "rehype-pretty-code";
 
 import { cn } from "@/utils/cn";
+
 import { ComponentView } from "../ComponentView";
 import { CommandBlock } from "../CommandBlock";
 import { CopyCode } from "../CopyCode";
-
 import {
   Tabs,
   TabsContent,
@@ -21,8 +23,8 @@ import { Button } from "@/app/_components/ui/button";
 import { CodeBlock } from "../CodeBlock";
 import { Card } from "@/app/_components/ui/card";
 import { DialogExample } from "../examples/DialogExample";
-import Link from "next/link";
 import { AccordionExample } from "../examples/AccordionExample";
+import { TooltipExample } from "../examples/TooltipExample";
 
 const components: MDXComponents = {
   ComponentView: ({ children, isReloadAnimation, ...props }) => (
@@ -139,6 +141,7 @@ const components: MDXComponents = {
   ),
   DialogExample: () => <DialogExample />,
   AccordionExample: () => <AccordionExample />,
+  TooltipExample: () => <TooltipExample />,
 };
 
 export function useMDXComponents(components: MDXComponents) {

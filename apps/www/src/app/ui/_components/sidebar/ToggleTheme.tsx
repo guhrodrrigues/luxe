@@ -32,9 +32,9 @@ export function ToggleTheme() {
           >
             {icon}
           </div>
-          {theme === itemTheme && (
+          {/* {theme === itemTheme && (
             <div className="absolute inset-0 rounded-[inherit] bg-[#dddddd] dark:bg-[#222222]" />
-          )}
+          )} */}
         </button>
       ))}
     </div>

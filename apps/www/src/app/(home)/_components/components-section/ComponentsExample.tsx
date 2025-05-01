@@ -6,16 +6,18 @@ import { MultiStepModal } from "@/app/_components/ui/multi-step-modal";
 import { AnimatedTabs } from "@/app/_components/ui/animated-tabs";
 import { TextShine } from "@/app/_components/ui/text-shine";
 import { TextGenerateEffectExample } from "@/app/_components/ui/text-generate-effect";
-
-import { TooltipExample } from "@/app/_components/ui/tooltip";
+import { TooltipExample } from "@/app/ui/_components/examples/TooltipExample";
 import { ComponentView } from "@/app/ui/_components/ComponentView";
+
 import { AnimateEnter } from "../AnimateEnter";
 
 import { cn } from "@/utils/cn";
+import { AccordionExample } from "@/app/ui/_components/examples/AccordionExample";
+import { Button } from "@/app/_components/ui/button";
 
 const COMPONENTS_EXAMPLE = [
   { component: <TextGenerateEffectExample />, isReloadAnimation: true },
-  { component: <ButtonBackgroundShine /> },
+  { component: <Button variant="shine">Button</Button> },
   { component: <TooltipExample /> },
   {
     component: <DropdownMenu />,
@@ -28,6 +30,16 @@ const COMPONENTS_EXAMPLE = [
     componentViewClassName: "min-h-[350px]",
   },
   {
+    component: <AccordionExample />,
+    className: "md:col-span-2",
+    componentViewClassName: "min-h-[300px]",
+  },
+  { component: <TextShine />, componentViewClassName: "min-h-[300px]" },
+  {
+    component: <Button variant="rotate-border">Button</Button>,
+    componentViewClassName: "min-h-[300px]",
+  },
+  {
     component: (
       <AnimatedTabs
         tabs={[
@@ -38,16 +50,14 @@ const COMPONENTS_EXAMPLE = [
         ]}
       />
     ),
-    className: "md:col-span-3",
+    className: "md:col-span-2",
+    componentViewClassName: "min-h-[300px]",
   },
-  { component: <CheckboxExample /> },
-  { component: <ButtonLoading /> },
-  { component: <TextShine /> },
 ];
 
 export function ComponentsExample() {
   return (
-    <div className="grid gap-5 md:grid-cols-3">
+    <div className="grid gap-5 md:grid-cols-3 w-full">
       {COMPONENTS_EXAMPLE.map(
         (
           { isReloadAnimation, component, className, componentViewClassName },

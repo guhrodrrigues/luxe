@@ -1,0 +1,271 @@
+---
+title: "Tooltip"
+description: "Displays a simple or animated tooltip, respecting user motion preferences."
+slug: "tooltip"
+---
+
+<div className="space-y-3">
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code="default"
+	example={true}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[350px] flex items-center justify-center">
+
+<TooltipExample />
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock className="h-[350px]" contentClassName="h-full">
+
+```tsx
+import {
+  TooltipProvider,
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
+import { Button } from "@/components/ui/button";
+
+export function TooltipExample() {
+  return (
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button variant="outline">Hover</Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <span>Add to library</span>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  );
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+<div className="flex items-center justify-center">
+
+<span className="block text-xs text-neutral-500">This example uses the <Link href="/ui/button">Button</Link>.</span>
+
+</div>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
+
+## Usage
+
+</div>
+
+<CodeBlock className="mt-6" contentClassName="h-fit">
+
+```tsx
+import {
+  TooltipProvider,
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+```
+</CodeBlock>
+
+<CodeBlock className="mt-6" contentClassName="h-fit">
+
+```tsx
+<TooltipProvider>
+  <Tooltip>
+    <TooltipTrigger>Hover</TooltipTrigger>
+    <TooltipContent>
+      <span>Add to library</span>
+    </TooltipContent>
+  </Tooltip>
+</TooltipProvider>
+```
+</CodeBlock>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="cli">CLI</TabsTrigger>
+	<TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+</div>
+
+<TabsContent value="cli">
+
+<CommandBlock 
+	npmCommand="npx @luxeui/ui add tooltip" 
+	pnpmCommand="pnpm dlx @luxeui/ui add tooltip" 
+	yarnCommand="npx @luxeui/ui add tooltip" 
+	bunCommand="bunx --bun @luxeui/ui add tooltip" 
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">1</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Install the package
+
+</h2>
+
+<CommandBlock 
+	npmCommand="npm install @radix-ui/react-tooltip" 
+	pnpmCommand="pnpm add @radix-ui/react-tooltip" 
+	yarnCommand="yarn add @radix-ui/react-tooltip" 
+	bunCommand="bun add @radix-ui/react-tooltip" 
+/>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">2</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Copy and paste the following code into your project
+
+</h2>
+
+<CodeBlock fileName="tooltip.tsx">
+
+```tsx
+import * as RadixTooltip from "@radix-ui/react-tooltip";
+
+import { cn } from "@/utils/cn";
+
+export const Tooltip = RadixTooltip.Root;
+
+export const TooltipTrigger = RadixTooltip.Trigger;
+
+type TooltipProviderProps = React.ComponentProps<typeof RadixTooltip.Provider>;
+
+export function TooltipProvider({ children, ...props }: TooltipProviderProps) {
+  return (
+    <RadixTooltip.Provider delayDuration={0} {...props}>
+      {children}
+    </RadixTooltip.Provider>
+  );
+}
+
+type TooltipContentProps = React.ComponentProps<typeof RadixTooltip.Content>;
+
+export function TooltipContent({
+  children,
+  className,
+  sideOffset = 3,
+  ...props
+}: TooltipContentProps) {
+  return (
+    <RadixTooltip.Portal>
+      <RadixTooltip.Content
+        sideOffset={sideOffset}
+        className={cn(
+          "px-3 py-1.5 z-50 overflow-hidden rounded-lg border border-[#dddddd] dark:border-[#222222]",
+          "text-xs text-neutral-500 dark:text-neutral-300 bg-neutral-100 dark:bg-[#111111]",
+          "animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2",
+          "data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2",
+          className,
+        )}
+        {...props}
+      >
+        {children}
+      </RadixTooltip.Content>
+    </RadixTooltip.Portal>
+  );
+}
+```
+
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	
+<span className="font-semibold text-primary">3</span>
+
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+
+<div className="space-y-4 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Update the import paths to match your project setup
+
+</h2>
+
+</div>
+</div>
+</div>
+</div>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
