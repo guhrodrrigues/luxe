@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { CheckboxExample } from '@/registry/components/checkbox'
+import { Checkbox } from '@/registry/components/checkbox'
 
 const meta: Meta = {
   title: 'components/Checkbox',
-  component: CheckboxExample,
+  component: Checkbox,
   parameters: {
     layout: 'centered',
   },
