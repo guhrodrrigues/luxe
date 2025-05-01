@@ -25,6 +25,7 @@ import { Card } from "@/app/_components/ui/card";
 import { DialogExample } from "../examples/DialogExample";
 import { AccordionExample } from "../examples/AccordionExample";
 import { TooltipExample } from "../examples/TooltipExample";
+import { CheckboxExample } from "../examples/CheckboxExample";
 
 const components: MDXComponents = {
   ComponentView: ({ children, isReloadAnimation, ...props }) => (
@@ -142,6 +143,7 @@ const components: MDXComponents = {
   DialogExample: () => <DialogExample />,
   AccordionExample: () => <AccordionExample />,
   TooltipExample: () => <TooltipExample />,
+  CheckboxExample: () => <CheckboxExample />,
 };
 
 export function useMDXComponents(components: MDXComponents) {

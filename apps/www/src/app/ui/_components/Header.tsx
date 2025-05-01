@@ -11,6 +11,7 @@ import { usePathname } from "next/navigation";
 import { CommandIcon, SearchIcon } from "lucide-react";
 
 import { cn } from "@/utils/cn";
+import { CommandMenu } from "./cmdk";
 
 const ITEMS = [
   {
@@ -87,25 +88,7 @@ export function Header() {
           </div>
         </div>
         <div className="flex items-center gap-3">
-          <button
-            className={cn(
-              "w-64 flex items-center justify-between gap-2 pl-3 pr-2 py-[6px] rounded-lg border text-[13px] leading-none border-border bg-[#eeeeee]",
-              "dark:bg-[#101010] shadow-inner shadow-neutral-300 transition-all duration-200 dark:shadow-neutral-800/60 dark:to-neutral-500/60",
-            )}
-          >
-            <span className="flex items-center gap-2 text-neutral-500">
-              <SearchIcon size={12} />
-              Search documentation
-            </span>
-            <span
-              className={cn(
-                "text-neutral-500 border border-border bg-[#eeeeee] dark:bg-[#101010] shadow-inner dark:text-neutral-400",
-                "shadow-neutral-300 dark:shadow-neutral-800/60 px-1.5 py-1 rounded-md text-[10px] flex items-center gap-0.5",
-              )}
-            >
-              <CommandIcon size={10} />K
-            </span>
-          </button>
+          <CommandMenu />
           <ToggleTheme />
           <a
             href="https://github.com/guhrodrrigues/luxe"

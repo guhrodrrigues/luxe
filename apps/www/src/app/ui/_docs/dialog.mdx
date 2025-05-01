@@ -266,16 +266,11 @@ export function DialogContent({ children, className }: DialogContentProps) {
           "rounded-xl shadow max-h-[85vh] w-[90vw] max-w-[400px] ease-out-quad focus:outline-none",
           "data-[state=open]:animate-in data-[state=open]:zoom-in-90 data-[state=open]:fade-in",
           "data-[state=closed]:animate-out data-[state=closed]:zoom-out-90 data-[state=closed]:fade-out",
+          "border rounded-[inherit] border-[#dddddd] bg-neutral-100 dark:border-[#222222] dark:bg-[#111111]",
+          className,
         )}
       >
-        <div
-          className={cn(
-            "border rounded-[inherit] border-[#dddddd] bg-neutral-100 dark:border-[#222222] dark:bg-[#111111]",
-            className,
-          )}
-        >
-          {children}
-        </div>
+        {children}
       </RadixDialog.Content>
     </DialogPortal>
   );
