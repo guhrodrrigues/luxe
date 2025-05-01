@@ -21,7 +21,7 @@ type TooltipContentProps = React.ComponentProps<typeof RadixTooltip.Content>;
 export function TooltipContent({
   children,
   className,
-  sideOffset = 3,
+  sideOffset = 6,
   ...props
 }: TooltipContentProps) {
   return (

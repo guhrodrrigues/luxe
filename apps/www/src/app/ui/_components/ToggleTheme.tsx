@@ -12,7 +12,7 @@ const ITEMS = [
 ];
 
 export function ToggleTheme() {
-  const { setTheme, theme } = useTheme();
+  const { setTheme, resolvedTheme: theme } = useTheme();
 
   return (
     <div className="flex items-center gap-px rounded-lg border border-neutral-300/80 bg-[#eeeeee] p-px dark:border-neutral-800/40 dark:bg-[#111111]">
@@ -32,9 +32,9 @@ export function ToggleTheme() {
           >
             {icon}
           </div>
-          {/* {theme === itemTheme && (
+          {theme === itemTheme && (
             <div className="absolute inset-0 rounded-[inherit] bg-[#dddddd] dark:bg-[#222222]" />
-          )} */}
+          )}
         </button>
       ))}
     </div>

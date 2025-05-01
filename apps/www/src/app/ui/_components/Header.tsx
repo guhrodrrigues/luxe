@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { Icons } from "@/app/_components/Icons";
-import { ToggleTheme } from "./sidebar/ToggleTheme";
+import { ToggleTheme } from "./ToggleTheme";
 import { usePathname } from "next/navigation";
 
 import { CommandIcon, SearchIcon } from "lucide-react";
