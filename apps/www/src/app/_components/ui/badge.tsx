@@ -1,25 +1,23 @@
 "use client"; // @NOTE: Add in case you are using Next.js
 
-import { useRef, useState } from "react";
-
 import { motion } from "motion/react";
 import * as Slot from "@radix-ui/react-slot";
 
-import { cn } from "@/registry/utils/cn";
+import { cn } from "@/utils/cn";
 
 type Variant = {
   variant: string;
-  component: React.FC<React.ComponentProps<"button">>;
+  component: React.FC<React.ComponentProps<"div">>;
 };
 
 const variants: readonly Variant[] = [
   {
     variant: "default",
     component: ({ children, ...props }) => (
-      <button
+      <div
         {...props}
         className={cn(
-          "group relative overflow-hidden w-fit rounded-xl font-medium text-neutral-200",
+          "group relative overflow-hidden w-fit rounded-full font-medium text-neutral-200",
           "bg-[#161616] shadow-inner shadow-neutral-400 border border-transparent",
           "dark:to-neutral-500/60 transition-all duration-200 dark:shadow-neutral-800/80",
         )}
@@ -33,56 +31,56 @@ const variants: readonly Variant[] = [
             "dark:from-neutral-900/40 dark:to-neutral-800/60 opacity-0 group-hover:opacity-100",
           )}
         />
-      </button>
+      </div>
     ),
   },
   {
     variant: "outline",
     component: ({ children, ...props }) => (
-      <button
+      <div
         {...props}
         className={cn(
-          "group relative overflow-hidden w-fit rounded-xl font-medium",
+          "group relative overflow-hidden w-fit rounded-full font-medium",
           "text-neutral-700 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-800",
           "hover:bg-neutral-200 dark:hover:bg-neutral-900 transition-all duration-200",
         )}
         style={{ padding: "var(--py) var(--px)" }}
       >
         <span className="relative z-10">{children}</span>
-      </button>
+      </div>
     ),
   },
   {
     variant: "success",
     component: ({ children, ...props }) => (
-      <button
+      <div
         {...props}
-        className="rounded-xl bg-gradient-to-t from-green-600 to-green-500 font-medium text-white"
+        className="rounded-full bg-gradient-to-t from-green-600 to-green-500 font-medium text-white"
         style={{ padding: "var(--py) var(--px)" }}
       >
         {children}
-      </button>
+      </div>
     ),
   },
   {
     variant: "destructive",
     component: ({ children, ...props }) => (
-      <button
+      <div
         {...props}
-        className="rounded-xl bg-gradient-to-t from-red-600 to-red-500 font-medium text-white"
+        className="rounded-full bg-gradient-to-t from-red-600 to-red-500 font-medium text-white"
         style={{ padding: "var(--py) var(--px)" }}
       >
         {children}
-      </button>
+      </div>
     ),
   },
   {
     variant: "shine",
     component: (props) => (
-      <button
+      <div
         {...props}
         className={cn(
-          "animate-shine items-center justify-center rounded-xl border border-white/10 bg-[linear-gradient(110deg,#000000,45%,#303030,55%,#000000)]",
+          "animate-shine items-center justify-center rounded-full border border-white/10 bg-[linear-gradient(110deg,#000000,45%,#303030,55%,#000000)]",
           "bg-[length:400%_100%] text-neutral-200 transition-colors dark:border-neutral-800",
           "dark:bg-[linear-gradient(110deg,#000103,45%,#303030,55%,#000103)] dark:text-neutral-400",
           props.className,
@@ -94,10 +92,10 @@ const variants: readonly Variant[] = [
   {
     variant: "animated-border",
     component: ({ children, ...props }) => (
-      <button
+      <div
         {...props}
         className={cn(
-          "relative rounded-xl border border-black/10 dark:border-white/10 duration-200 hover:bg-neutral-200 dark:hover:bg-neutral-900",
+          "relative rounded-full border border-black/10 dark:border-white/10 duration-200 hover:bg-neutral-200 dark:hover:bg-neutral-900",
           props.className,
         )}
         style={{ padding: "var(--py) var(--px)" }}
@@ -126,16 +124,16 @@ const variants: readonly Variant[] = [
         <span className="relative z-10 text-neutral-500 dark:text-neutral-400">
           {children}
         </span>
-      </button>
+      </div>
     ),
   },
   {
     variant: "rotate-border",
     component: ({ children, className, ...props }) => (
-      <button
+      <div
         {...props}
         className={cn(
-          "relative inline-flex overflow-hidden rounded-xl p-px",
+          "relative inline-flex overflow-hidden rounded-full p-px",
           className,
         )}
       >
@@ -147,90 +145,22 @@ const variants: readonly Variant[] = [
         />
         <span
           className={cn(
-            "inline-flex h-full w-full cursor-pointer items-center justify-center rounded-[11px] bg-neutral-100 text-neutral-500 backdrop-blur-3xl dark:bg-neutral-950 dark:text-neutral-100",
+            "inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-neutral-100 text-neutral-500 backdrop-blur-3xl dark:bg-neutral-950 dark:text-neutral-100",
           )}
           style={{ padding: "var(--py) var(--px)" }}
         >
           {children}
         </span>
-      </button>
+      </div>
     ),
-  },
-  {
-    variant: "magnetic",
-    component: ({ children, ...props }) => {
-      const { ref, handleMouseLeave, handleMouseMove, x, y } = useMagnetic();
-
-      return (
-        <motion.button
-          ref={ref}
-          className={cn(
-            "relative rounded-xl bg-black text-white dark:bg-white dark:text-black",
-            props.className,
-          )}
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-          animate={{ x, y }}
-          transition={{
-            type: "spring",
-            damping: 15,
-            stiffness: 150,
-            mass: 0.1,
-          }}
-          style={{ padding: "var(--py) var(--px)" }}
-        >
-          {children}
-        </motion.button>
-      );
-    },
-  },
-  {
-    variant: "glitch-brightness",
-    component: ({ children, ...props }) => {
-      function TextGlitch({ children }: { children: React.ReactNode }) {
-        return (
-          <div className="relative overflow-hidden">
-            <span className="invisible">{children}</span>
-            <span className="absolute left-0 top-0 font-medium transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full">
-              {children}
-            </span>
-            <span className="absolute left-0 top-0 translate-y-full font-medium transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0">
-              {children}
-            </span>
-          </div>
-        );
-      }
-
-      function Brightness() {
-        return (
-          <div
-            aria-hidden
-            className="absolute inset-0 flex h-full w-full animate-brightness justify-center"
-          >
-            <div className="relative h-full w-8 bg-white/20 blur dark:bg-white/40" />
-          </div>
-        );
-      }
-
-      return (
-        <button
-          {...props}
-          className="group relative inline-flex items-center gap-1 overflow-hidden rounded-xl bg-black/80 font-medium text-white duration-300 hover:bg-black dark:bg-white/80 dark:text-black dark:hover:bg-white"
-          style={{ padding: "var(--py) var(--px)" }}
-        >
-          <TextGlitch>{children}</TextGlitch>
-          <Brightness />
-        </button>
-      );
-    },
   },
 ] as const;
 
-export type ButtonProps = {
+export type BadgeProps = {
   variant?: (typeof variants)[number]["variant"];
-} & React.ComponentProps<"button">;
+} & React.ComponentProps<"div">;
 
-export function Button({ variant = "default", ...props }: ButtonProps) {
+export function Badge({ variant = "default", ...props }: BadgeProps) {
   const FALLBACK_INDEX = 0;
 
   const variantComponent = variants.find(
@@ -243,11 +173,11 @@ export function Button({ variant = "default", ...props }: ButtonProps) {
 
   return (
     <Slot.Root
-      className="text-sm font-medium"
+      className="text-xs font-medium"
       style={
         {
-          "--px": "1rem",
-          "--py": "0.5rem",
+          "--px": "0.75rem",
+          "--py": "0.25rem",
         } as React.CSSProperties
       }
     >
@@ -256,29 +186,4 @@ export function Button({ variant = "default", ...props }: ButtonProps) {
         : variants[FALLBACK_INDEX].component(props)}
     </Slot.Root>
   );
-}
-
-// HOOKS ↴
-
-function useMagnetic() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const ref = useRef<any>(null);
-
-  function handleMouseMove(e: React.MouseEvent) {
-    const { clientX, clientY } = e;
-    const { height, width, left, top } = ref.current.getBoundingClientRect();
-
-    const middleX = clientX - (left + width / 2);
-    const middleY = clientY - (top + height / 2);
-
-    setPosition({ x: middleX, y: middleY });
-  }
-
-  function handleMouseLeave() {
-    setPosition({ x: 0, y: 0 });
-  }
-
-  const { x, y } = position;
-
-  return { ref, handleMouseMove, handleMouseLeave, x, y };
 }

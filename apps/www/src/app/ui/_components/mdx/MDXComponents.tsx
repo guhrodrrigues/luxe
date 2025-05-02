@@ -26,6 +26,7 @@ import { DialogExample } from "../examples/DialogExample";
 import { AccordionExample } from "../examples/AccordionExample";
 import { TooltipExample } from "../examples/TooltipExample";
 import { CheckboxExample } from "../examples/CheckboxExample";
+import { Badge } from "@/app/_components/ui/badge";
 
 const components: MDXComponents = {
   ComponentView: ({ children, isReloadAnimation, ...props }) => (
@@ -134,6 +135,11 @@ const components: MDXComponents = {
     <Button variant={variant} className={cn(props.className)} {...props}>
       {children}
     </Button>
+  ),
+  Badge: ({ children, variant, ...props }) => (
+    <Badge variant={variant} className={cn(props.className)} {...props}>
+      {children}
+    </Badge>
   ),
   Card: ({ children, variant, ...props }) => (
     <Card variant={variant} className={cn(props.className)} {...props}>

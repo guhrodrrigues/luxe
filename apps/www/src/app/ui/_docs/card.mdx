@@ -41,10 +41,10 @@ slug: "card"
 
 <Card>
 	<div className="flex flex-col gap-2">
-		<span className="text-xl font-semibold text-neutral-100 dark:text-neutral-200">
+		<span className="text-xl font-semibold text-black dark:text-neutral-200">
 			Luxe
 		</span>
-		<span className="text-sm leading-[1.5] text-neutral-200 dark:text-neutral-400">
+		<span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">
 			Explore the new website that simplifies the creation of sophisticated
 			dark mode components.
 		</span>
@@ -66,10 +66,10 @@ export function CardExample() {
   return (
     <Card>
       <div className="flex flex-col gap-2">
-        <span className="text-xl font-semibold text-neutral-100 dark:text-neutral-200">
+        <span className="text-xl font-semibold text-black dark:text-neutral-200">
           Luxe
         </span>
-        <span className="text-sm leading-[1.5] text-neutral-200 dark:text-neutral-400">
+        <span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">
           Explore the new website that simplifies the creation of sophisticated
           dark mode components.
         </span>
@@ -197,7 +197,7 @@ export function CardAnimatedBorderExample() {
 
 <Card variant="animated-border">
 	<div className="flex flex-col gap-2">
-		<span className="text-xl font-semibold text-neutral-600 dark:text-neutral-200">
+		<span className="text-xl font-semibold text-black dark:text-neutral-200">
 			Luxe
 		</span>
 		<span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">
@@ -222,7 +222,7 @@ export function CardAnimatedBorderExample() {
   return (
     <Card variant="animated-border">
       <div className="flex flex-col gap-2">
-        <span className="text-xl font-semibold text-neutral-600 dark:text-neutral-200">
+        <span className="text-xl font-semibold text-black dark:text-neutral-200">
           Luxe
         </span>
         <span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">
@@ -270,10 +270,10 @@ export function CardAnimatedBorderExample() {
 
 <Card variant="revealed-pointer">
 	<div className="flex flex-col gap-2">
-		<span className="text-xl font-semibold text-neutral-100 dark:text-neutral-200">
+		<span className="text-xl font-semibold text-black dark:text-neutral-200">
 			Luxe
 		</span>
-		<span className="text-sm leading-[1.5] text-neutral-200 dark:text-neutral-400">
+		<span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">
 			Explore the new website that simplifies the creation of sophisticated
 			dark mode components.
 		</span>
@@ -295,10 +295,10 @@ export function CardRevealedPointerExample() {
   return (
     <Card variant="revealed-pointer">
       <div className="flex flex-col gap-2">
-        <span className="text-xl font-semibold text-neutral-100 dark:text-neutral-200">
+        <span className="text-xl font-semibold text-black dark:text-neutral-200">
           Luxe
         </span>
-        <span className="text-sm leading-[1.5] text-neutral-200 dark:text-neutral-400">
+        <span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">
           Explore the new website that simplifies the creation of sophisticated
           dark mode components.
         </span>
@@ -412,7 +412,7 @@ const variants: readonly Variant[] = [
       <div
         {...props}
         className={cn(
-          "relative bg-[#161616] rounded-xl shadow-inner shadow-neutral-400 dark:to-neutral-500/60 dark:shadow-neutral-800/80",
+          "relative bg-neutral-100 dark:bg-neutral-950 rounded-xl border border-black/10 dark:border-white/10",
           className,
         )}
         style={{ padding: "var(--py) var(--px)" }}
@@ -425,28 +425,37 @@ const variants: readonly Variant[] = [
     variant: "animated-border",
     component: ({ children, className, ...props }) => (
       <div
+        {...props}
         className={cn(
-          "group relative grid overflow-hidden rounded-xl shadow-[0_1000px_0_0_hsl(0_0%_85%)_inset]",
-          "transition-colors duration-200 dark:shadow-[0_1000px_0_0_hsl(0_0%_20%)_inset]",
+          "relative rounded-xl border border-black/10 dark:border-white/10",
+          className,
         )}
         style={{ padding: "var(--py) var(--px)" }}
       >
-        <span
-          aria-hidden
+        <div
           className={cn(
-            "spark mask-gradient absolute inset-0 h-[100%] w-[100%] animate-flip overflow-hidden rounded-xl",
-            "[mask:linear-gradient(black,_transparent_50%)] before:absolute before:aspect-square before:w-[200%]",
-            "before:bg-[conic-gradient(from_0deg,transparent_0_340deg,black_360deg)] dark:[mask:linear-gradient(white,_transparent_50%)]",
-            "before:rotate-[-90deg] before:animate-rotate dark:before:bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)]",
-            "before:content-[''] before:[inset:0_auto_auto_50%] before:[translate:-50%_-15%]",
+            "absolute -inset-px rounded-[inherit] border border-transparent [mask-clip:padding-box,border-box] pointer-events-none",
+            "[mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]",
           )}
-        />
-        <span className="backdrop absolute inset-px rounded-[11px] bg-neutral-100 transition-colors duration-200 dark:bg-neutral-950" />
-        <div className="relative z-10">
-          <div {...props} className={cn(className)}>
-            {children}
-          </div>
+        >
+          <motion.div
+            className={cn(
+              "absolute aspect-square bg-gradient-to-r from-transparent via-neutral-300 to-neutral-400",
+              "dark:from-transparent dark:via-neutral-600 dark:to-neutral-400",
+            )}
+            animate={{
+              offsetDistance: ["0%", "100%"],
+            }}
+            style={{
+              width: 42,
+              offsetPath: `rect(0 auto auto 0 round ${18}px)`,
+            }}
+            transition={{ repeat: Infinity, duration: 5, ease: "linear" }}
+          />
         </div>
+        <span className="relative z-10 text-neutral-500 dark:text-neutral-400">
+          {children}
+        </span>
       </div>
     ),
   },
@@ -473,8 +482,6 @@ const variants: readonly Variant[] = [
       const mouseX = useMotionValue(0);
       const mouseY = useMotionValue(0);
 
-      const background = useMotionTemplate`radial-gradient(200px circle at ${mouseX}px ${mouseY}px, rgba(255, 255, 255, 0.15), transparent 80%)`;
-
       return (
         <div
           onMouseMove={(e) => {
@@ -483,19 +490,21 @@ const variants: readonly Variant[] = [
             mouseX.set(e.clientX - left);
             mouseY.set(e.clientY - top);
           }}
-          className="group relative overflow-hidden rounded-xl bg-neutral-950"
+          className="group relative overflow-hidden rounded-xl p-px bg-neutral-200 dark:bg-neutral-900"
         >
-          <div className="absolute right-5 top-0 h-px w-80 bg-gradient-to-l from-transparent via-white/30 via-10% to-transparent" />
           <motion.div
-            className="pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-100"
+            className={cn(
+              "pointer-events-none absolute -inset-px rounded-xl opacity-0 transition duration-300 group-hover:opacity-20",
+              "[--color:var(--color-black)] dark:[--color:var(--color-white)]",
+            )}
             style={{
-              background: background,
+              background: useMotionTemplate`radial-gradient(200px circle at ${mouseX}px ${mouseY}px, var(--color), transparent 80%)`,
             }}
           />
           <div
             {...props}
             className={cn(
-              "relative rounded-xl border border-white/10 select-none",
+              "relative rounded-xl bg-neutral-100 dark:bg-neutral-950 select-none",
               className,
             )}
             style={{ padding: "var(--py) var(--px)" }}

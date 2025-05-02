@@ -20,7 +20,7 @@ const variants: readonly Variant[] = [
         {...props}
         className={cn(
           "group relative overflow-hidden w-fit rounded-xl font-medium text-neutral-200",
-          "bg-[#161616] text-sm shadow-inner shadow-neutral-400 border border-transparent",
+          "bg-[#161616] shadow-inner shadow-neutral-400 border border-transparent",
           "dark:to-neutral-500/60 transition-all duration-200 dark:shadow-neutral-800/80",
         )}
         style={{ padding: "var(--py) var(--px)" }}
@@ -43,7 +43,7 @@ const variants: readonly Variant[] = [
         {...props}
         className={cn(
           "group relative overflow-hidden w-fit rounded-xl font-medium",
-          "text-sm text-neutral-700 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-800",
+          "text-neutral-700 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-800",
           "hover:bg-neutral-200 dark:hover:bg-neutral-900 transition-all duration-200",
         )}
         style={{ padding: "var(--py) var(--px)" }}
@@ -57,7 +57,7 @@ const variants: readonly Variant[] = [
     component: ({ children, ...props }) => (
       <button
         {...props}
-        className="rounded-xl bg-gradient-to-t from-green-600 to-green-500 text-sm font-medium text-white"
+        className="rounded-xl bg-gradient-to-t from-green-600 to-green-500 font-medium text-white"
         style={{ padding: "var(--py) var(--px)" }}
       >
         {children}
@@ -69,7 +69,7 @@ const variants: readonly Variant[] = [
     component: ({ children, ...props }) => (
       <button
         {...props}
-        className="rounded-xl bg-gradient-to-t from-red-600 to-red-500 text-sm font-medium text-white"
+        className="rounded-xl bg-gradient-to-t from-red-600 to-red-500 font-medium text-white"
         style={{ padding: "var(--py) var(--px)" }}
       >
         {children}
@@ -97,24 +97,33 @@ const variants: readonly Variant[] = [
       <button
         {...props}
         className={cn(
-          "group relative grid overflow-hidden rounded-xl shadow-[0_1000px_0_0_hsl(0_0%_85%)_inset]",
-          "transition-colors duration-200 dark:shadow-[0_1000px_0_0_hsl(0_0%_20%)_inset]",
+          "relative rounded-xl border border-black/10 dark:border-white/10 duration-200 hover:bg-neutral-200 dark:hover:bg-neutral-900",
+          props.className,
         )}
         style={{ padding: "var(--py) var(--px)" }}
       >
-        <span>
-          <span
+        <div
+          className={cn(
+            "absolute -inset-px rounded-[inherit] border border-transparent [mask-clip:padding-box,border-box] pointer-events-none",
+            "[mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]",
+          )}
+        >
+          <motion.div
             className={cn(
-              "spark mask-gradient absolute inset-0 h-[100%] w-[100%] animate-flip overflow-hidden rounded-xl",
-              "[mask:linear-gradient(black,_transparent_50%)] before:absolute before:aspect-square before:w-[200%] before:bg-[conic-gradient(from_0deg,transparent_0_340deg,black_360deg)]",
-              "before:rotate-[-90deg] before:animate-rotate dark:before:bg-[conic-gradient(from_0deg,transparent_0_340deg,white_360deg)]",
-              "before:content-[''] before:[inset:0_auto_auto_50%] before:[translate:-50%_-15%] dark:[mask:linear-gradient(white,_transparent_50%)]",
-              props.className,
+              "absolute aspect-square bg-gradient-to-r from-transparent via-neutral-300 to-neutral-400",
+              "dark:from-transparent dark:via-neutral-600 dark:to-neutral-400",
             )}
+            animate={{
+              offsetDistance: ["0%", "100%"],
+            }}
+            style={{
+              width: 18,
+              offsetPath: `rect(0 auto auto 0 round ${18}px)`,
+            }}
+            transition={{ repeat: Infinity, duration: 5, ease: "linear" }}
           />
-        </span>
-        <span className="backdrop absolute inset-px rounded-[11px] bg-neutral-100 transition-colors duration-200 group-hover:bg-neutral-200 dark:bg-neutral-950 dark:group-hover:bg-neutral-900" />
-        <span className="z-10 text-neutral-500 dark:text-neutral-400">
+        </div>
+        <span className="relative z-10 text-neutral-500 dark:text-neutral-400">
           {children}
         </span>
       </button>
@@ -206,7 +215,7 @@ const variants: readonly Variant[] = [
       return (
         <button
           {...props}
-          className="group relative inline-flex items-center gap-1 overflow-hidden rounded-xl bg-black/80 text-sm font-medium text-white duration-300 hover:bg-black dark:bg-white/80 dark:text-black dark:hover:bg-white"
+          className="group relative inline-flex items-center gap-1 overflow-hidden rounded-xl bg-black/80 font-medium text-white duration-300 hover:bg-black dark:bg-white/80 dark:text-black dark:hover:bg-white"
           style={{ padding: "var(--py) var(--px)" }}
         >
           <TextGlitch>{children}</TextGlitch>
