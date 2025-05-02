@@ -30,9 +30,7 @@ export function ComponentView({
         className,
       )}
     >
-      <div className="p-5">
-        {isReloadAnimation ? <div key={reloadKey}>{children}</div> : children}
-      </div>
+      {isReloadAnimation ? <div key={reloadKey}>{children}</div> : children}
       {isReloadAnimation && (
         <div className="absolute right-4 top-3 z-[5]">
           <motion.button

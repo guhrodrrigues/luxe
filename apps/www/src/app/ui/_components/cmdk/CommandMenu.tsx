@@ -41,9 +41,9 @@ const HomeIcon = () => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
   >
     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
@@ -82,13 +82,13 @@ const ITEMS: ItemProps[] = [
       {
         title: "Add Utilities",
         icon: <FileIcon size={17} />,
-        slug: "/add-utilities",
+        slug: "/ui/add-utilities",
         shortcut: "j",
       },
       {
         title: "CLI",
         icon: <TerminalIcon size={17} />,
-        slug: "/cli",
+        slug: "/ui/cli",
         shortcut: "l",
       },
     ],
@@ -154,16 +154,12 @@ function CommandMenuItem({
   className,
   setIsOpen,
   onAction,
+  ...props
 }: CommandMenuItemProps) {
   useEffect(() => {
+    if (!shortcut) return;
+
     function handleKeyDown(e: KeyboardEvent) {
-      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault();
-        setIsOpen((prev) => !prev);
-      }
-
-      if (!shortcut) return;
-
       if (e.key === shortcut && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
         setIsOpen(false);
@@ -174,10 +170,10 @@ function CommandMenuItem({
     document.addEventListener("keydown", handleKeyDown);
 
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, []);
+  }, [setIsOpen]);
 
   return (
-    <CommandItem className={cn("cursor-pointer", className)}>
+    <CommandItem {...props} className={cn("cursor-pointer", className)}>
       <div className="flex items-center gap-2">
         <span className="opacity-70">{icon}</span>
         {children}
@@ -204,6 +200,19 @@ export function CommandMenu() {
 
   const homePage = pathname === "/";
   const currentPage = homePage ? "Home" : pathname.split("/")[2];
+
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setIsOpen((prev) => !prev);
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [setIsOpen]);
 
   return (
     <>
@@ -246,6 +255,10 @@ export function CommandMenu() {
                     key={title}
                     icon={icon}
                     setIsOpen={setIsOpen}
+                    onSelect={() => {
+                      router.push(slug);
+                      setIsOpen(false);
+                    }}
                     onAction={() => router.push(slug)}
                     shortcut={shortcut}
                   >
