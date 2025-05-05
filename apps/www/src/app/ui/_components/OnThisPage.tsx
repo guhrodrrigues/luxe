@@ -112,6 +112,7 @@ export function OnThisPage() {
           <button
             key={id}
             onClick={() => handleScroll(id)}
+            data-active={visibleHeadings.has(id) ? "true" : "false"}
             className={cn(
               "mt-0 ml-2 font-medium text-sm border-l border-neutral-300 dark:border-neutral-800 py-1 text-left text-neutral-500",
               visibleHeadings.has(id)
@@ -122,7 +123,6 @@ export function OnThisPage() {
                 "pl-6": level === "h3",
               },
             )}
-            data-active={visibleHeadings.has(id) ? "true" : "false"}
           >
             {text}
           </button>

@@ -1,6 +1,6 @@
 ---
 title: "Animated Tabs"
-description: "Dynamic and engaging navigation."
+description: "Display an smooth and clean tabs."
 slug: "animated-tabs"
 ---
 
@@ -23,7 +23,7 @@ slug: "animated-tabs"
 
 <TabsContent value="preview">
 
-<ComponentView className="h-[340px] flex items-center justify-center">
+<ComponentView className="h-[223px] flex items-center justify-center">
 
 <AnimatedTabs />
 
@@ -33,17 +33,12 @@ slug: "animated-tabs"
 
 <TabsContent value="code">
 
-<CodeBlock contentClassName="h-[340px]">
+<CodeBlock contentClassName="h-fit">
 
 ```tsx
 import { AnimatedTabs } from "@/components/ui/animated-tabs";
 
-const TABS = [
-  { label: "All Posts" },
-  { label: "Interactions" },
-  { label: "Resources" },
-  { label: "Docs" },
-];
+const TABS = ["First Tab", "Second Tab", "Third Tab", "Fourth Tab"];
 
 export function AnimatedTabsExample() {
   return (
@@ -57,6 +52,32 @@ export function AnimatedTabsExample() {
 </TabsContent>
 
 </Tabs>
+
+<div className="space-y-2 pt-4">
+
+<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
+
+## Usage
+
+</div>
+
+<CodeBlock className="mt-6" contentClassName="h-fit">
+
+```tsx
+import { AnimatedTabs } from "@/components/ui/animated-tabs"
+```
+</CodeBlock>
+
+<CodeBlock className="mt-4" contentClassName="h-fit">
+
+```tsx
+const TABS = ["All Posts", "Interactions", "Resources", "Docs"]
+
+<AnimatedTabs tabs={TABS} />
+```
+</CodeBlock>
+
+</div>
 
 <div className="space-y-2 pt-6">
 
@@ -107,37 +128,35 @@ Copy and paste the following code into your project
 <CodeBlock fileName="animated-tabs.tsx">
 ```tsx
 "use client"; // @NOTE: Add in case you are using Next.js
- 
+
 import { useEffect, useRef, useState } from "react";
- 
+
 type AnimatedTabsProps = {
-  tabs: Array<{
-    label: string;
-  }>;
+  tabs: Array<string>;
 };
- 
+
 export function AnimatedTabs({ tabs }: AnimatedTabsProps) {
-  const [activeTab, setActiveTab] = useState(tabs[0].label);
+  const [activeTab, setActiveTab] = useState(tabs[0]);
   const containerRef = useRef<HTMLDivElement>(null);
   const activeTabRef = useRef<HTMLButtonElement>(null);
- 
+
   useEffect(() => {
     const container = containerRef.current;
- 
+
     if (container && activeTab) {
       const activeTabElement = activeTabRef.current;
- 
+
       if (activeTabElement) {
         const { offsetLeft, offsetWidth } = activeTabElement;
- 
+
         const clipLeft = offsetLeft;
         const clipRight = offsetLeft + offsetWidth;
- 
+
         container.style.clipPath = `inset(0 ${Number(100 - (clipRight / container.offsetWidth) * 100).toFixed()}% 0 ${Number((clipLeft / container.offsetWidth) * 100).toFixed()}% round 17px)`;
       }
     }
   }, [activeTab, activeTabRef, containerRef]);
- 
+
   return (
     <div className="relative mx-auto flex w-fit flex-col items-center rounded-full">
       <div
@@ -148,27 +167,27 @@ export function AnimatedTabs({ tabs }: AnimatedTabsProps) {
           {tabs.map((tab, index) => (
             <button
               key={index}
-              onClick={() => setActiveTab(tab.label)}
+              onClick={() => setActiveTab(tab)}
               className="flex h-8 items-center rounded-full p-3 text-sm font-medium text-white dark:text-black"
               tabIndex={-1}
             >
-              {tab.label}
+              {tab}
             </button>
           ))}
         </div>
       </div>
       <div className="relative flex w-full justify-center">
-        {tabs.map(({ label }, index) => {
-          const isActive = activeTab === label;
- 
+        {tabs.map((tab, index) => {
+          const isActive = activeTab === tab;
+
           return (
             <button
               key={index}
               ref={isActive ? activeTabRef : null}
-              onClick={() => setActiveTab(label)}
+              onClick={() => setActiveTab(tab)}
               className="flex h-8 items-center rounded-full p-3 text-sm font-medium text-neutral-500 dark:text-neutral-300"
             >
-              {label}
+              {tab}
             </button>
           );
         })}

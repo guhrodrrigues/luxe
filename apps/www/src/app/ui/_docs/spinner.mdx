@@ -1,0 +1,196 @@
+---
+title: "Spinner"
+description: "Display a animated spinner."
+slug: "spinner"
+---
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code="spinner"
+	example={true}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[181px] flex items-center justify-center">
+
+<Spinner />
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Spinner } from "@/components/ui/spinner";
+
+export function SpinnerExample() {
+  return (
+    <Spinner size="size-6" />
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+<div className="space-y-2 pt-4">
+
+<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
+
+## Usage
+
+</div>
+
+<CodeBlock className="mt-6" contentClassName="h-fit">
+
+```tsx
+import { Spinner } from "@/components/ui/spinner"
+```
+</CodeBlock>
+
+<CodeBlock className="mt-4" contentClassName="h-fit">
+
+```tsx
+<Spinner />
+```
+</CodeBlock>
+
+</div>
+
+<div className="space-y-2 pt-6">
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="cli">CLI</TabsTrigger>
+	<TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+</div>
+
+<TabsContent value="cli">
+
+<CommandBlock 
+	npmCommand="npx @luxeui/ui add spinner" 
+	pnpmCommand="pnpm dlx @luxeui/ui add spinner" 
+	yarnCommand="npx @luxeui/ui add spinner" 
+	bunCommand="bunx --bun @luxeui/ui add spinner" 
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">1</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Copy and paste the following code into your project
+
+</h2>
+
+<CodeBlock fileName="spinner.tsx">
+```tsx
+import { cn } from "@/utils/cn";
+
+type SpinnerProps = {
+  size?: string;
+} & React.ComponentProps<"div">;
+
+export function Spinner({
+  size = "size-6",
+  className,
+  ...props
+}: SpinnerProps) {
+  const bars = Array(12).fill(0);
+
+  return (
+    <div className={cn(size)}>
+      <div className="relative left-1/2 top-1/2 h-[inherit] w-[inherit]">
+        {bars.map((_, i) => (
+          <div
+            key={`spinner-bar-${i}`}
+            aria-label={`spinner-bar-${i + 1}`}
+            className={cn(
+              "absolute -left-[10%] -top-[3.9%] h-[8%] w-[24%] animate-spinner rounded-md bg-black dark:bg-white",
+              `bar:nth-child(${i + 1})`,
+              className,
+            )}
+            style={{
+              animationDelay: `-${1.3 - i * 0.1}s`,
+              transform: `rotate(${30 * i}deg) translate(146%)`,
+            }}
+            {...props}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+```
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	
+<span className="font-semibold text-primary">2</span>
+
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+
+<div className="space-y-4 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Update the import paths to match your project setup
+
+</h2>
+
+</div>
+</div>
+</div>
+</div>
+
+</TabsContent>
+
+</Tabs>
+
+</div>

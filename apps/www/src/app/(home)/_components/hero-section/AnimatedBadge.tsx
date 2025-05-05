@@ -29,7 +29,12 @@ export function AnimatedBadge() {
         />
       </div>
       <div className="relative z-10 flex items-center justify-between">
-        <div className="w-[30px] h-4 font-medium bg-yellow-300/30 dark:bg-[rgb(234,236,138,0.16)] rounded-full text-[10px] leading-[150%] text-center mr-2.5 text-yellow-500 dark:text-[rgb(234,236,138)]">
+        <div
+          className={cn(
+            "w-[30px] h-4 font-medium bg-yellow-300/30 dark:bg-[rgb(234,236,138,0.16)] rounded-full text-[10px]",
+            "leading-[150%] text-center mr-2.5 text-yellow-500 dark:text-[rgb(234,236,138)] [text-shadow:0_1px_1.5px_rgb(0,0,0,0.16)]",
+          )}
+        >
           New
         </div>
         <span className="relative text-[12px] leading-none font-medium">

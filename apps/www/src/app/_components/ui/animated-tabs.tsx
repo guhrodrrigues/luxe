@@ -3,13 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 
 type AnimatedTabsProps = {
-  tabs: Array<{
-    label: string;
-  }>;
+  tabs: Array<string>;
 };
 
 export function AnimatedTabs({ tabs }: AnimatedTabsProps) {
-  const [activeTab, setActiveTab] = useState(tabs[0].label);
+  const [activeTab, setActiveTab] = useState(tabs[0]);
   const containerRef = useRef<HTMLDivElement>(null);
   const activeTabRef = useRef<HTMLButtonElement>(null);
 
@@ -40,27 +38,27 @@ export function AnimatedTabs({ tabs }: AnimatedTabsProps) {
           {tabs.map((tab, index) => (
             <button
               key={index}
-              onClick={() => setActiveTab(tab.label)}
+              onClick={() => setActiveTab(tab)}
               className="flex h-8 items-center rounded-full p-3 text-sm font-medium text-white dark:text-black"
               tabIndex={-1}
             >
-              {tab.label}
+              {tab}
             </button>
           ))}
         </div>
       </div>
       <div className="relative flex w-full justify-center">
-        {tabs.map(({ label }, index) => {
-          const isActive = activeTab === label;
+        {tabs.map((tab, index) => {
+          const isActive = activeTab === tab;
 
           return (
             <button
               key={index}
               ref={isActive ? activeTabRef : null}
-              onClick={() => setActiveTab(label)}
+              onClick={() => setActiveTab(tab)}
               className="flex h-8 items-center rounded-full p-3 text-sm font-medium text-neutral-500 dark:text-neutral-300"
             >
-              {label}
+              {tab}
             </button>
           );
         })}

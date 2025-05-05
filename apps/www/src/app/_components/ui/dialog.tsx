@@ -4,20 +4,14 @@ import { cn } from "@/utils/cn";
 
 export const Dialog = RadixDialog.Root;
 
-type DialogPortalProps = React.ComponentProps<typeof RadixDialog.Portal>;
-
-function DialogPortal({ children, ...props }: DialogPortalProps) {
-  return <RadixDialog.Portal {...props}>{children}</RadixDialog.Portal>;
-}
-
 function DialogOverlay() {
   return (
     <RadixDialog.Overlay className="fixed top-0 left-0 size-full z-[999]">
       <div
         className={cn(
           "fixed inset-0 bg-black/80 ease-out-quad",
-          "data-[state=open]:animate-in data-[state=open]:fade-in",
-          "data-[state=closed]:animate-out data-[state=closed]:fade-out",
+          "motion-safe:data-[state=open]:animate-in motion-safe:data-[state=open]:fade-in",
+          "motion-safe:data-[state=closed]:animate-out motion-safe:data-[state=closed]:fade-out",
         )}
       />
     </RadixDialog.Overlay>
@@ -30,21 +24,21 @@ type DialogContentProps = React.ComponentPropsWithoutRef<
 
 export function DialogContent({ children, className }: DialogContentProps) {
   return (
-    <DialogPortal>
+    <RadixDialog.Portal>
       <DialogOverlay />
       <RadixDialog.Content
         className={cn(
           "fixed left-1/2 top-1/2 z-[1001] -translate-x-1/2 -translate-y-1/2",
-          "rounded-xl shadow max-h-[85vh] w-[90vw] max-w-[400px] ease-out-quad focus:outline-none",
-          "data-[state=open]:animate-in data-[state=open]:zoom-in-90 data-[state=open]:fade-in",
-          "data-[state=closed]:animate-out data-[state=closed]:zoom-out-90 data-[state=closed]:fade-out",
-          "border rounded-[inherit] border-[#dddddd] bg-neutral-100 dark:border-[#222222] dark:bg-[#111111]",
+          "rounded-xl shadow max-h-[85vh] w-[90vw] max-w-[400px] motion-safe:ease-out-quad focus:outline-none",
+          "border border-[#dddddd] bg-neutral-100 dark:border-[#222222] dark:bg-[#111111]",
+          "motion-safe:data-[state=open]:animate-in motion-safe:data-[state=open]:zoom-in-95 motion-safe:data-[state=open]:fade-in",
+          "motion-safe:data-[state=closed]:animate-out motion-safe:data-[state=closed]:zoom-out-95 motion-safe:data-[state=closed]:fade-out",
           className,
         )}
       >
         {children}
       </RadixDialog.Content>
-    </DialogPortal>
+    </RadixDialog.Portal>
   );
 }
 

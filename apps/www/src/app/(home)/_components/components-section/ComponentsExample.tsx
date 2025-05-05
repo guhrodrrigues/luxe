@@ -1,11 +1,6 @@
-import { ButtonBackgroundShine } from "@/app/_components/ui/button-background-shine";
-import { ButtonLoading } from "@/app/_components/ui/button-loading";
-import { CheckboxExample } from "@/app/_components/ui/checkbox";
 import { DropdownMenu } from "@/app/_components/ui/dropdown-menu";
 import { MultiStepModal } from "@/app/_components/ui/multi-step-modal";
 import { AnimatedTabs } from "@/app/_components/ui/animated-tabs";
-import { TextShine } from "@/app/_components/ui/text-shine";
-import { TextGenerateEffectExample } from "@/app/_components/ui/text-generate-effect";
 import { TooltipExample } from "@/app/ui/_components/examples/TooltipExample";
 import { ComponentView } from "@/app/ui/_components/ComponentView";
 
@@ -14,9 +9,15 @@ import { AnimateEnter } from "../AnimateEnter";
 import { cn } from "@/utils/cn";
 import { AccordionExample } from "@/app/ui/_components/examples/AccordionExample";
 import { Button } from "@/app/_components/ui/button";
+import { Text } from "@/app/_components/ui/text";
 
 const COMPONENTS_EXAMPLE = [
-  { component: <TextGenerateEffectExample />, isReloadAnimation: true },
+  {
+    component: (
+      <Text variant="generate-effect">This is a text generation effect.</Text>
+    ),
+    isReloadAnimation: true,
+  },
   { component: <Button variant="shine">Button</Button> },
   { component: <TooltipExample /> },
   {
@@ -34,21 +35,17 @@ const COMPONENTS_EXAMPLE = [
     className: "md:col-span-2",
     componentViewClassName: "min-h-[300px]",
   },
-  { component: <TextShine />, componentViewClassName: "min-h-[300px]" },
+  {
+    component: <Text variant="shine">Generating code...</Text>,
+    componentViewClassName: "min-h-[300px]",
+  },
   {
     component: <Button variant="rotate-border">Button</Button>,
     componentViewClassName: "min-h-[300px]",
   },
   {
     component: (
-      <AnimatedTabs
-        tabs={[
-          { label: "All Posts" },
-          { label: "Interactions" },
-          { label: "Resources" },
-          { label: "Docs" },
-        ]}
-      />
+      <AnimatedTabs tabs={["All Posts", "Interactions", "Resources", "Docs"]} />
     ),
     className: "md:col-span-2",
     componentViewClassName: "min-h-[300px]",

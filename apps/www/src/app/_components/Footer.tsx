@@ -6,7 +6,7 @@ import { AnimateEnter } from "@/app/(home)/_components/AnimateEnter";
 
 export const NAVIGATE = [
   {
-    name: "Documentation",
+    name: "Docs",
     slug: "/ui/installation",
   },
   {

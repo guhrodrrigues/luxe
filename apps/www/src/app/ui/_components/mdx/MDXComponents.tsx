@@ -27,6 +27,9 @@ import { AccordionExample } from "../examples/AccordionExample";
 import { TooltipExample } from "../examples/TooltipExample";
 import { CheckboxExample } from "../examples/CheckboxExample";
 import { Badge } from "@/app/_components/ui/badge";
+import { Text } from "@/app/_components/ui/text";
+import { Spinner } from "@/app/_components/ui/spinner";
+import { DropdownMenuExample } from "../examples/DropdownMenuExample";
 
 const components: MDXComponents = {
   ComponentView: ({ children, isReloadAnimation, ...props }) => (
@@ -122,14 +125,7 @@ const components: MDXComponents = {
     </kbd>
   ),
   AnimatedTabs: () => (
-    <AnimatedTabs
-      tabs={[
-        { label: "All Posts" },
-        { label: "Interactions" },
-        { label: "Resources" },
-        { label: "Docs" },
-      ]}
-    />
+    <AnimatedTabs tabs={["All Posts", "Interactions", "Resources", "Docs"]} />
   ),
   Button: ({ children, variant, ...props }) => (
     <Button variant={variant} className={cn(props.className)} {...props}>
@@ -150,6 +146,15 @@ const components: MDXComponents = {
   AccordionExample: () => <AccordionExample />,
   TooltipExample: () => <TooltipExample />,
   CheckboxExample: () => <CheckboxExample />,
+  Text: ({ children, variant, ...props }) => (
+    <Text variant={variant} className={cn(props.className)} {...props}>
+      {children}
+    </Text>
+  ),
+  Spinner: ({ size, ...props }) => (
+    <Spinner size={size} className={cn(props.className)} {...props} />
+  ),
+  DropdownMenuExample: () => <DropdownMenuExample />,
 };
 
 export function useMDXComponents(components: MDXComponents) {
