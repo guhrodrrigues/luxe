@@ -10,6 +10,8 @@ type CodeBlockProps = {
   fileName?: string;
   copyCode?: boolean;
   contentClassName?: string;
+  customFilePath?: string;
+  simpleCode?: string;
 } & React.ComponentProps<"div">;
 
 export function CodeBlock({
@@ -17,6 +19,8 @@ export function CodeBlock({
   className,
   children,
   contentClassName,
+  simpleCode,
+  customFilePath,
   copyCode = true,
 }: CodeBlockProps) {
   return (
@@ -44,7 +48,15 @@ export function CodeBlock({
               {fileName}
             </span>
           </div>
-          <CopyCode code={getFileContent("_components/ui", fileName)} />
+          <CopyCode
+            code={
+              customFilePath
+                ? getFileContent(customFilePath, "")
+                : simpleCode
+                  ? simpleCode
+                  : getFileContent("app/_components/ui", fileName)
+            }
+          />
         </div>
       )}
       <div className={cn("relative h-[350px] overflow-auto", contentClassName)}>

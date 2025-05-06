@@ -16,38 +16,27 @@ export function Card({ slug, icon, name }: CardProps) {
   return (
     <Link
       href={`/ui/installation/${slug}`}
-      className="group relative min-h-[300px] w-full max-w-[500px] rounded-xl border border-black/10 bg-background px-7 pb-7 pt-10 duration-200 hover:bg-neutral-200 dark:border-white/10 dark:hover:bg-neutral-900"
+      className="group relative min-h-[200px] w-full max-w-[500px] rounded-xl border border-black/10 bg-background px-7 pb-7 pt-10 duration-200 hover:bg-neutral-200 dark:border-white/10 dark:hover:bg-neutral-900"
     >
-      <GradientLine />
       <div
         aria-hidden
-        className="absolute inset-0 -top-1.5 -z-[1] mx-auto h-full w-[97%] rounded-[inherit] border border-black/10 bg-background duration-200 group-hover:bg-neutral-200 dark:border-white/10 dark:group-hover:bg-neutral-900"
-      >
-        <GradientLine />
-      </div>
+        className="absolute overflow-hidden inset-0 -top-1.5 -z-[1] mx-auto h-full w-[97%] rounded-[inherit] border border-black/10 bg-background duration-200 group-hover:bg-neutral-200 dark:border-white/10 dark:group-hover:bg-neutral-900"
+      />
       <div
         aria-hidden
-        className="absolute inset-0 -top-3 -z-[2] mx-auto h-full w-[94%] rounded-[inherit] border border-black/10 bg-background duration-200 group-hover:bg-neutral-200 dark:border-white/10 dark:group-hover:bg-neutral-900"
-      >
-        <GradientLine />
-      </div>
+        className="absolute overflow-hidden inset-0 -top-3 -z-[2] mx-auto h-full w-[90%] rounded-[inherit] border border-black/10 bg-background duration-200 group-hover:bg-neutral-200 dark:border-white/10 dark:group-hover:bg-neutral-900"
+      />
       <div className="relative space-y-4">
         <div className="relative flex items-center justify-center">
           <Illustration icon={icon} />
         </div>
         <div className="space-y-1.5">
-          <h1 className="text-3xl font-bold -tracking-wide text-primary">
+          <h1 className="text-2xl font-bold -tracking-wide text-primary">
             {name}
           </h1>
         </div>
       </div>
     </Link>
-  );
-}
-
-function GradientLine() {
-  return (
-    <div className="absolute -top-px right-5 z-[2] h-px w-80 bg-gradient-to-l from-transparent via-black/10 via-10% to-transparent dark:via-white/20" />
   );
 }
 

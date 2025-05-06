@@ -77,6 +77,10 @@
   button {
     @apply cursor-pointer;
   }
+
+  .no-scrollbar {
+    @apply [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
+  }
 }
 
 * {

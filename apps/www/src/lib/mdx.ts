@@ -37,8 +37,8 @@ export function getDocs(directory?: string): Docs[] {
     path.join(
       process.cwd(),
       "src/app/ui",
-      ...(directory ? [directory] : []),
       "_docs",
+      ...(directory ? [directory] : []),
     ),
   );
 
@@ -48,8 +48,8 @@ export function getDocs(directory?: string): Docs[] {
         path.join(
           process.cwd(),
           "src/app/ui",
-          ...(directory ? [directory] : []),
           "_docs",
+          ...(directory ? [directory] : []),
           file,
         ),
       ),

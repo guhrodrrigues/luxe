@@ -10,7 +10,7 @@ export function Sidebar() {
 
   return (
     <aside className="sticky w-full block shrink-0 top-16 h-[calc(100vh-3.5rem)] max-lg:hidden right-dotted">
-      <nav className="flex flex-col h-full gap-6 overflow-y-auto py-8 px-6 [scrollbar-width:none]">
+      <nav className="flex flex-col h-full gap-6 overflow-y-auto py-8 px-6 no-scrollbar">
         <div className="flex flex-col gap-1">
           <span className="-ml-0.5 text-sm font-[460] text-foreground">
             Get Started

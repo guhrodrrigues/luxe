@@ -30,6 +30,7 @@ import { Badge } from "@/app/_components/ui/badge";
 import { Text } from "@/app/_components/ui/text";
 import { Spinner } from "@/app/_components/ui/spinner";
 import { DropdownMenuExample } from "../examples/DropdownMenuExample";
+import { SwitchExample } from "../examples/SwitchExample";
 
 const components: MDXComponents = {
   ComponentView: ({ children, isReloadAnimation, ...props }) => (
@@ -73,12 +74,19 @@ const components: MDXComponents = {
       {...props}
     />
   ),
-  CodeBlock: ({ fileName, contentClassName, copyCode = true, ...props }) => (
+  CodeBlock: ({
+    fileName,
+    contentClassName,
+    copyCode = true,
+    customFilePath,
+    ...props
+  }) => (
     <CodeBlock
       fileName={fileName}
       copyCode={copyCode}
       className={cn(props.className)}
       contentClassName={contentClassName}
+      customFilePath={customFilePath}
       {...props}
     />
   ),
@@ -95,7 +103,7 @@ const components: MDXComponents = {
   ),
   CodeHighlight: ({ children, ...props }) => (
     <span
-      className="rounded-[.375rem] border border-neutral-200 bg-neutral-100 px-1 py-px font-mono text-[13px] text-foreground dark:border-neutral-800 dark:bg-[#191918]"
+      className="rounded-[.375rem] border border-neutral-200 bg-neutral-100 px-1 py-px font-mono text-sm text-foreground dark:border-neutral-800 dark:bg-[#191918]"
       {...props}
     >
       {children}
@@ -115,14 +123,6 @@ const components: MDXComponents = {
   ),
   CopyCode: ({ code, mode, example, ...props }) => (
     <CopyCode mode={mode} code={code} example={example} {...props} />
-  ),
-  kbd: ({ children, ...props }) => (
-    <kbd
-      className="rounded bg-neutral-300/80 px-1 py-1 font-mono text-sm text-foreground dark:bg-neutral-800/80"
-      {...props}
-    >
-      {children}
-    </kbd>
   ),
   AnimatedTabs: () => (
     <AnimatedTabs tabs={["All Posts", "Interactions", "Resources", "Docs"]} />
@@ -155,6 +155,7 @@ const components: MDXComponents = {
     <Spinner size={size} className={cn(props.className)} {...props} />
   ),
   DropdownMenuExample: () => <DropdownMenuExample />,
+  SwitchExample: () => <SwitchExample />,
 };
 
 export function useMDXComponents(components: MDXComponents) {

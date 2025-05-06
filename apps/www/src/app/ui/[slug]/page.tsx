@@ -1,16 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import fs from "fs";
-import path from "path";
-import { promisify } from "util";
-
-import { COMPONENTS } from "@/data/components";
-
-import { cn } from "@/utils/cn";
-
 import { Breadcrumbs } from "../_components/Breadcrumbs";
-import { ComponentView } from "../_components/ComponentView";
 import { Pagination } from "../_components/Pagination";
 import { getDocs } from "@/lib/mdx";
 import { MDX } from "../_components/mdx";
@@ -78,9 +69,7 @@ export default async function ComponentPage({
 }) {
   const docs = Docs.find((docs) => docs.slug === params.slug);
 
-  if (!docs) {
-    notFound();
-  }
+  if (!docs) notFound();
 
   const currentComponent = Docs.indexOf(docs);
   const previousComponent = Docs[currentComponent - 1];
