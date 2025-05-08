@@ -8,7 +8,7 @@ import { notFound } from "next/navigation";
 import { MDX } from "../_components/mdx";
 
 export const metadata: Metadata = {
-  title: "Add Utilities",
+  title: "CLI",
   description:
     "This code is widely used in Luxe, it is responsible for merging classes when they have conditionals.",
   openGraph: {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
       {
         width: 1920,
         height: 1080,
-        url: "https://luxeui.com/open-graphs/og-add-utilities.png",
+        url: "https://luxeui.com/open-graphs/og-cli.png",
         alt: "Luxe's website cover",
       },
     ],
@@ -26,14 +26,14 @@ export const metadata: Metadata = {
     description:
       "This code is widely used in Luxe, it is responsible for merging classes when they have conditionals.",
     type: "website",
-    url: "https://luxeui.com/ui/add-utilities",
+    url: "https://luxeui.com/ui/cli",
   },
   twitter: {
     images: [
       {
         width: 1920,
         height: 1080,
-        url: "https://luxeui.com/open-graphs/og-add-utilities.png",
+        url: "https://luxeui.com/open-graphs/og-cli.png",
         alt: "Luxe's website cover",
       },
     ],
@@ -48,8 +48,8 @@ export const metadata: Metadata = {
 
 const Docs = getDocs("get-started");
 
-export default async function AddUtilitiesPage() {
-  const docs = Docs.find((docs) => docs.slug === "add-utilities");
+export default async function CLIPage() {
+  const docs = Docs.find((docs) => docs.slug === "cli");
 
   if (!docs) return notFound();
 
@@ -63,7 +63,7 @@ export default async function AddUtilitiesPage() {
           <h1 className="text-3xl font-bold -tracking-wide text-primary">
             {title}
           </h1>
-          <p className="max-w-lg text-[16px] font-normal leading-relaxed text-black/80 dark:text-white/90">
+          <p className="max-w-xl text-[16px] font-normal leading-relaxed text-black/80 dark:text-white/90">
             {description}
           </p>
         </div>
@@ -71,12 +71,8 @@ export default async function AddUtilitiesPage() {
       <MDX source={content} />
       <Pagination
         back={{
-          href: "/ui/installation",
-          title: "Installation",
-        }}
-        next={{
-          href: "/ui/cli",
-          title: "CLI",
+          href: "/ui/add-utilities",
+          title: "Add Utilities",
         }}
       />
     </main>

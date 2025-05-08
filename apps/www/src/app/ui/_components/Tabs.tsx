@@ -3,7 +3,7 @@
 import * as React from "react";
 import * as TabsPrimitive from "@radix-ui/react-tabs";
 
-import { motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 
 import { cn } from "@/utils/cn";
 
@@ -74,24 +74,25 @@ const TabsTrigger = React.forwardRef<
       )}
       {...props}
     >
-      {isActive && (
-        <motion.div
-          layout
-          className={cn(
-            "absolute -bottom-[3.5px] flex h-0.5 w-full justify-center",
-            classNameIndicator,
-          )}
-          transition={{
-            type: "spring",
-            stiffness: 255,
-            damping: 20,
-            mass: 0.2,
-          }}
-          layoutId={`underline-${tabsId}`}
-        >
-          <div className="h-0.5 w-full rounded-full bg-primary/90" />
-        </motion.div>
-      )}
+      <AnimatePresence initial={false}>
+        {isActive && (
+          <motion.div
+            layoutId={`underline-${tabsId}`}
+            className={cn(
+              "absolute -bottom-[3.5px] flex h-0.5 w-full justify-center",
+              classNameIndicator,
+            )}
+            transition={{
+              type: "spring",
+              stiffness: 255,
+              damping: 20,
+              mass: 0.2,
+            }}
+          >
+            <div className="h-0.5 w-full rounded-full bg-primary/90" />
+          </motion.div>
+        )}
+      </AnimatePresence>
       {children}
     </TabsPrimitive.Trigger>
   );

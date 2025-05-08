@@ -26,7 +26,9 @@ export const CommandDialog = ({ children, ...props }: DialogProps) => {
   return (
     <Dialog {...props}>
       <DialogContent className="overflow-hidden p-0 shadow-lg max-w-[570px] rounded-xl !bg-background">
-        <DialogTitle className="sr-only">Search Command</DialogTitle>
+        <DialogTitle asChild>
+          <span className="sr-only">Search Command</span>
+        </DialogTitle>
         <Command className="rounded-xl [&_[cmdk-group-heading]]:px-2.5 [&_[cmdk-group-heading]]:font-medium [&_[cmdk-group-heading]]:text-muted-foreground [&_[cmdk-group]:not([hidden])_~[cmdk-group]]:pt-0 [&_[cmdk-group]]:px-2.5 [&_[cmdk-input-wrapper]_svg]:h-5 [&_[cmdk-input-wrapper]_svg]:w-5 [&_[cmdk-input]]:h-12 [&_[cmdk-item]]:px-2.5 [&_[cmdk-item]]:py-3">
           {children}
         </Command>

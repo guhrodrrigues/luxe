@@ -1,4 +1,3 @@
-import { DropdownMenu } from "@/app/_components/ui/dropdown-menu";
 import { MultiStepModal } from "@/app/_components/ui/multi-step-modal";
 import { AnimatedTabs } from "@/app/_components/ui/animated-tabs";
 import { TooltipExample } from "@/app/ui/_components/examples/TooltipExample";
@@ -10,6 +9,7 @@ import { cn } from "@/utils/cn";
 import { AccordionExample } from "@/app/ui/_components/examples/AccordionExample";
 import { Button } from "@/app/_components/ui/button";
 import { Text } from "@/app/_components/ui/text";
+import { DropdownMenuExample } from "@/app/ui/_components/examples/DropdownMenuExample";
 
 const COMPONENTS_EXAMPLE = [
   {
@@ -21,7 +21,7 @@ const COMPONENTS_EXAMPLE = [
   { component: <Button variant="shine">Button</Button> },
   { component: <TooltipExample /> },
   {
-    component: <DropdownMenu />,
+    component: <DropdownMenuExample />,
     className: "md:col-span-1",
     componentViewClassName: "min-h-[350px]",
   },

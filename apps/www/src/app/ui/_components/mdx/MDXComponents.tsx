@@ -42,6 +42,14 @@ const components: MDXComponents = {
       {children}
     </ComponentView>
   ),
+  p: ({ children, ...props }) => (
+    <p
+      className="font-normal leading-relaxed text-black/80 dark:text-white/90"
+      {...props}
+    >
+      {children}
+    </p>
+  ),
   h1: ({ children, ...props }) => (
     <h1 className="text-3xl font-bold -tracking-wide text-primary" {...props}>
       {children}
@@ -103,7 +111,7 @@ const components: MDXComponents = {
   ),
   CodeHighlight: ({ children, ...props }) => (
     <span
-      className="rounded-[.375rem] border border-neutral-200 bg-neutral-100 px-1 py-px font-mono text-sm text-foreground dark:border-neutral-800 dark:bg-[#191918]"
+      className="rounded-md bg-neutral-300/70 px-1 py-0.5 font-mono text-sm text-foreground dark:bg-neutral-800/70"
       {...props}
     >
       {children}

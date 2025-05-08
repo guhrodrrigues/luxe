@@ -19,9 +19,9 @@ slug: "next"
 		</h2>
 		<CommandBlock
 			npmCommand="npx create-next-app@latest my-app" 
-			pnpmCommand="pnpm create next-app" 
-			yarnCommand="yarn create next-app" 
-			bunCommand="bunx create-next-app" 
+			pnpmCommand="pnpm create next-app my-app" 
+			yarnCommand="yarn create next-app my-app" 
+			bunCommand="bunx create-next-app my-app" 
 		/>
 	</div>
 </div>
@@ -39,7 +39,7 @@ slug: "next"
 
 <CodeBlock contentClassName="h-fit">
 			
-```md
+```shell
 Would you like to use TypeScript? Yes
 Would you like to use Tailwind CSS? Yes
 Would you like to customize the default import alias (@/*)? Yes
