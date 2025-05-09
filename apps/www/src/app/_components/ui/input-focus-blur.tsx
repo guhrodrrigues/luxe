@@ -1,128 +1,81 @@
-"use client"; // @NOTE: Add in case you are using Next.js
+// "use client"; // @NOTE: Add in case you are using Next.js
 
-import { forwardRef, useState, useCallback } from "react";
+import * as React from 'react'
 
-import { motion, type AnimationProps } from "motion/react";
+import { AnimatePresence, motion, type Variants } from 'motion/react'
 
-import { tv } from "tailwind-variants";
+import { cn } from '@/utils/cn'
 
-import { AlertCircle } from "lucide-react";
+type InputFocusBlurProps = React.ComponentPropsWithRef<'input'>
+type FieldState = 'idle' | 'filled'
 
-interface InputFocusBlurProps extends React.ComponentProps<"input"> {
-  feedbackError?: string;
-}
+function InputFocusBlur({
+  placeholder,
+  onChange,
+  ...props
+}: InputFocusBlurProps) {
+  const [fieldState, setFieldState] = React.useState<FieldState>('idle')
 
-const EIXO_X_PLACEHOLDER = 24;
-const STANDARD_DURATION = 0.3;
-
-const inputFocusBlurStyles = tv({
-  slots: {
-    baseStyle: `w-full h-[42px] px-3 flex items-center rounded-xl border border-neutral-200 dark:border-neutral-800 focus-within:border-neutral-300 dark:focus-within:border-neutral-200 
-    bg-neutral-50 dark:bg-neutral-900 transition-all duration-200 relative data-[filled=true]:border-neutral-300 dark:data-[filled=true]:border-neutral-200`,
-    inputStyle: `flex-1 h-full py-2 outline-none text-sm text-neutral-500 dark:text-neutral-300 bg-transparent relative z-[9999] placeholder:sr-only 
-    disabled:cursor-not-allowed`,
-    placeholderStyle: `text-sm text-neutral-500 absolute left-3`,
-    feedbackErrorStyle: `flex items-center gap-1 text-xs text-red-300 mt-1`,
-  },
-  variants: {
-    error: {
-      true: {
-        baseStyle: `border-red-300`,
-      },
+  const animatedPlaceholderVariants: Variants = {
+    show: {
+      x: 0,
+      opacity: 1,
+      filter: 'blur(var(--blur-none))',
     },
-    disabled: {
-      true: {
-        baseStyle: `bg-neutral-200 dark:bg-neutral-800 cursor-not-allowed`,
-      },
+    hidden: {
+      x: 28,
+      opacity: 0,
+      filter: 'blur(var(--blur-xs))',
     },
-  },
-});
+  }
 
-const { baseStyle, inputStyle, placeholderStyle, feedbackErrorStyle } =
-  inputFocusBlurStyles();
+  return (
+    <div
+      className={cn(
+        'relative inline-flex h-11 w-64 items-center overflow-hidden rounded-xl border border-neutral-200/90 bg-neutral-50 shadow-xs transition-colors ease-out-quad focus-within:border-primary data-[filled=true]:border-neutral-300/90',
+        'dark:border-neutral-800/90 dark:bg-neutral-900 dark:data-[filled=true]:border-neutral-200/90',
+        'has-disabled:opacity-80 has-disabled:*:cursor-not-allowed',
+      )}
+      data-filled={fieldState === 'filled'}
+    >
+      <input
+        {...props}
+        className={cn(
+          'peer h-full flex-1 bg-transparent px-3 py-2 caret-primary outline-none placeholder:sr-only',
+          'font-normal font-sans text-base text-neutral-500',
+          'dark:text-neutral-300',
+        )}
+        placeholder={placeholder}
+        onChange={event => {
+          setFieldState(event.target.value.length > 0 ? 'filled' : 'idle')
+          onChange?.(event)
+        }}
+      />
 
-export const InputFocusBlur = forwardRef<HTMLInputElement, InputFocusBlurProps>(
-  ({ placeholder, feedbackError = "", disabled, value, ...props }, ref) => {
-    const [isFocus, setIsFocus] = useState(false);
-    const [internalValue, setInternalValue] = useState("");
-
-    const handle = useCallback((type: "focus" | "blur") => {
-      setIsFocus(type === "focus");
-    }, []);
-
-    function observeFieldChange(event: React.ChangeEvent<HTMLInputElement>) {
-      setInternalValue(event.target.value);
-    }
-
-    const isFilled = internalValue.length > 0 || !!value;
-    const isFocusOrFilled = isFocus || isFilled;
-
-    const isError = feedbackError.length > 0 && !disabled;
-
-    const placeholderAnimation: AnimationProps["animate"] = isFocusOrFilled
-      ? {
-          x: EIXO_X_PLACEHOLDER,
-          filter: "blur(4px)",
-          opacity: 0,
-        }
-      : {
-          x: 0,
-        };
-
-    return (
-      <div className="w-full max-w-[300px]">
-        <div
-          className={baseStyle({ error: isError, disabled })}
-          data-filled={isFilled}
-        >
-          <input
-            ref={ref}
-            type="text"
-            className={inputStyle()}
-            placeholder={placeholder}
-            onFocus={() => handle("focus")}
-            onBlur={() => handle("blur")}
-            onChange={observeFieldChange}
-            disabled={disabled}
-            value={value}
-            {...props}
-          />
-
+      <AnimatePresence mode="popLayout" initial={false}>
+        {fieldState !== 'filled' && (
           <motion.span
-            className={placeholderStyle()}
-            initial={{
-              x: 0,
-            }}
-            animate={placeholderAnimation}
+            className={cn(
+              'pointer-events-none absolute left-3',
+              'font-normal font-sans text-base text-neutral-500',
+            )}
+            variants={animatedPlaceholderVariants}
+            initial="hidden"
+            animate="show"
+            exit="hidden"
             transition={{
-              easings: ["easeOut"],
-              duration: STANDARD_DURATION,
+              type: 'spring',
+              duration: 0.6,
+              bounce: 0,
             }}
           >
             {placeholder}
           </motion.span>
-        </div>
-
-        {isError && (
-          <motion.span
-            className={feedbackErrorStyle()}
-            initial={{
-              opacity: 0,
-            }}
-            animate={{
-              opacity: 1,
-            }}
-            transition={{
-              duration: STANDARD_DURATION,
-            }}
-          >
-            <AlertCircle size={12} />
-            {feedbackError}
-          </motion.span>
         )}
-      </div>
-    );
-  },
-);
+      </AnimatePresence>
+    </div>
+  )
+}
 
-InputFocusBlur.displayName = "InputFocusBlur";
+export { InputFocusBlur }
+export type { InputFocusBlurProps }
