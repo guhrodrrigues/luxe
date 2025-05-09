@@ -8,10 +8,10 @@ import { Icons } from "@/app/_components/Icons";
 import { ToggleTheme } from "./ToggleTheme";
 import { usePathname } from "next/navigation";
 
-import { CommandIcon, SearchIcon } from "lucide-react";
-
 import { cn } from "@/utils/cn";
 import { CommandMenu } from "./cmdk";
+import Drawer from "./Drawer";
+import { MenuIcon } from "lucide-react";
 
 const ITEMS = [
   {
@@ -70,7 +70,7 @@ export function Header() {
           <Link href="/">
             <Icons.logo className="w-[70px]" />
           </Link>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-6 [@media(max-width:785px)]:hidden">
             {ITEMS.map(({ name, slug }) => (
               <Link
                 key={name}
@@ -87,7 +87,7 @@ export function Header() {
             ))}
           </div>
         </div>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 max-sm:hidden">
           <CommandMenu />
           <ToggleTheme />
           <a
@@ -98,6 +98,16 @@ export function Header() {
           >
             <Icons.github className="size-4 text-neutral-400 duration-150 group-hover:!text-primary dark:text-neutral-600" />
           </a>
+        </div>
+        <div className="sm:hidden">
+          <Drawer>
+            <button className="flex items-center justify-center lg:hidden">
+              <MenuIcon
+                size={24}
+                className="stroke-1 text-neutral-600 dark:text-neutral-400"
+              />
+            </button>
+          </Drawer>
         </div>
       </nav>
     </header>

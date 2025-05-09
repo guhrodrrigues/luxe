@@ -4,13 +4,14 @@ import { cn } from "@/registry/utils/cn";
 
 export type SwitchProps = React.ComponentProps<typeof RadixSwitch.Root>;
 
-export function Switch(props: SwitchProps) {
+export function Switch({ className, ...props }: SwitchProps) {
   return (
     <RadixSwitch.Root
       {...props}
       className={cn(
         "group inline-flex h-6 w-10.5 shrink-0 touch-none items-center rounded-full border border-border bg-neutral-200 p-0.5 outline-none transition-colors ease-out dark:bg-neutral-900",
         "data-[state=checked]:border-transparent data-[state=checked]:bg-primary",
+        className,
       )}
     >
       <RadixSwitch.Thumb

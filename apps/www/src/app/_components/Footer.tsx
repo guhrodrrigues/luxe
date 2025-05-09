@@ -28,7 +28,7 @@ export function Footer() {
     <footer className="relative z-10">
       <div className="relative mx-auto w-full max-w-7xl px-8 pb-5">
         <div className="flex gap-10 max-md:flex-col items-center md:justify-between">
-          <AnimateEnter className="flex flex-col gap-1">
+          <AnimateEnter className="flex flex-col gap-1 max-md:order-2">
             <p className="text-[13px] text-foreground">
               &#169; {getFullYear()},{" "}
               <a
@@ -41,7 +41,7 @@ export function Footer() {
               </a>
             </p>
           </AnimateEnter>
-          <div className="flex items-start gap-6 max-sm:flex-col">
+          <div className="flex items-start gap-6 [@media(max-width:534px)]:items-center [@media(max-width:534px)]:flex-col">
             <AnimateEnter delay={0.1} className="flex gap-6">
               {NAVIGATE.map(({ name, slug }, idx) => (
                 <Link
@@ -53,7 +53,12 @@ export function Footer() {
                 </Link>
               ))}
             </AnimateEnter>
-            <Divider />
+            <AnimateEnter
+              delay={0.2}
+              className="[@media(max-width:534px)]:hidden"
+            >
+              <Divider />
+            </AnimateEnter>
             <AnimateEnter delay={0.2} className="flex gap-6">
               <a
                 href="https://github.com/guhrodrrigues/luxe"

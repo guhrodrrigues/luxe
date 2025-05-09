@@ -9,8 +9,8 @@ type SidebarButton = {
   slug: string;
   name: string;
   isNew?: boolean;
-  onClick?: () => void;
   isUpdated?: boolean;
+  onClick?: () => void;
 };
 
 export function SidebarButton({
@@ -19,6 +19,7 @@ export function SidebarButton({
   isNew = false,
   isUpdated = false,
   onClick,
+  ...props
 }: SidebarButton) {
   const pathname = usePathname();
 
@@ -26,9 +27,10 @@ export function SidebarButton({
 
   return (
     <Link
+      {...props}
       href={slug}
-      onClick={onClick}
       data-active={isActive}
+      onClick={onClick}
       className={cn(
         "relative -mx-2.5 mt-1 select-none rounded-lg border border-transparent px-2 py-1.5 font-medium outline-none focus-visible:border-neutral-200 dark:focus-visible:border-neutral-800",
         isActive
@@ -37,11 +39,16 @@ export function SidebarButton({
       )}
     >
       {isNew ? (
-        <div className="relative z-[1] flex items-center gap-2">
+        <div className="relative z-[1] flex items-center gap-1.5">
           <span className="relative z-[1] block text-sm">{name}</span>
-          <span className="rounded-md bg-gradient-to-b from-emerald-300 to-emerald-500 px-1.5 py-[0.5px] text-[10px] font-semibold leading-4 text-black [text-shadow:0_0.5px_0_rgb(255,255,255,.48)]">
-            Beta
-          </span>
+          <div
+            className={cn(
+              "w-[30px] h-4 font-medium bg-yellow-400/30 dark:bg-[#eaec8a]/16 rounded-full text-[10px]",
+              "leading-[150%] text-center mr-2.5 text-yellow-600 dark:text-[#eaec8a] [text-shadow:0_1px_1.5px_rgb(0,0,0,0.16)]",
+            )}
+          >
+            New
+          </div>
         </div>
       ) : isUpdated ? (
         <div className="relative z-[1] flex items-center gap-2">

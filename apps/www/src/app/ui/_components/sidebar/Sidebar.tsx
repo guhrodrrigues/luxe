@@ -1,15 +1,12 @@
-import { GET_STARTED } from "@/data/get-started";
-
+import { cn } from "@/utils/cn";
 import { SidebarButton } from "./SidebarButton";
-import { getDocs } from "@/lib/mdx";
+
+import { GET_STARTED } from "@/data/get-started";
+import { getComponents } from "@/utils/get-components";
 
 export function Sidebar() {
-  const orderedComponents = getDocs().sort((a, b) =>
-    a.title.localeCompare(b.title),
-  );
-
   return (
-    <aside className="sticky w-full block shrink-0 top-16 h-[calc(100vh-3.5rem)] max-lg:hidden right-dotted">
+    <aside className="sticky w-full block shrink-0 top-16 h-[calc(100vh-3.5rem)] max-md:hidden right-dotted">
       <nav className="flex flex-col h-full gap-6 overflow-y-auto py-8 px-6 no-scrollbar">
         <div className="flex flex-col gap-1">
           <span className="-ml-0.5 text-sm font-[460] text-foreground">
@@ -27,11 +24,21 @@ export function Sidebar() {
           </div>
         </div>
         <div className="flex flex-col gap-1">
-          <span className="relative z-[1] -ml-0.5 text-sm font-[460] text-foreground">
-            Components
-          </span>
+          <div className="flex items-center gap-1.5">
+            <span className="relative z-[1] -ml-0.5 text-sm font-[460] text-foreground">
+              Components
+            </span>
+            <div
+              className={cn(
+                "w-[30px] h-4 font-medium bg-yellow-400/30 dark:bg-[#eaec8a]/16 rounded-full text-[10px]",
+                "leading-[150%] text-center mr-2.5 text-yellow-600 dark:text-[#eaec8a] [text-shadow:0_1px_1.5px_rgb(0,0,0,0.16)]",
+              )}
+            >
+              New
+            </div>
+          </div>
           <div className="flex flex-col pb-8">
-            {orderedComponents.map((component) => (
+            {getComponents.map((component) => (
               <SidebarButton
                 key={component.title}
                 name={component.title}

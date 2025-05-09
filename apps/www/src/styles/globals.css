@@ -55,19 +55,15 @@
     @apply bg-neutral-400/20;
   }
 
-  .top-dotted {
-    @apply [background-image:linear-gradient(90deg,var(--dotted)_25%,transparent_25%)] [background-repeat:repeat-x] [background-size:4px_1px];
-  }
-
   .bottom-dotted {
     @apply [background-image:linear-gradient(90deg,var(--dotted)_25%,transparent_25%)] [background-repeat:repeat-x] [background-size:4px_1px] [background-position:bottom];
   }
 
   .horizontal-dotted {
-    @apply [background-image:linear-gradient(0deg,var(--dotted)_25%,transparent_25%),linear-gradient(0deg,var(--dotted)_25%,transparent_25%)]
-			[background-position:left,right]
-			[background-repeat:repeat-y,repeat-y]
-			[background-size:1px_4px,1px_4px];
+    @apply [@media(min-width:1313px)]:[background-image:linear-gradient(0deg,var(--dotted)_25%,transparent_25%),linear-gradient(0deg,var(--dotted)_25%,transparent_25%)]
+		[@media(min-width:1313px)]:[background-position:left,right]
+		[@media(min-width:1313px)]:[background-repeat:repeat-y,repeat-y]
+		[@media(min-width:1313px)]:[background-size:1px_4px,1px_4px];
   }
 
   .right-dotted {

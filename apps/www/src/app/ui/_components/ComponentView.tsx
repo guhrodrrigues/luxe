@@ -26,7 +26,7 @@ export function ComponentView({
   return (
     <div
       className={cn(
-        "relative overflow-y-auto overflow-x-auto border-neutral-300/50 bg-background dark:border-neutral-800/40 max-sm:-mx-6 max-sm:border-y sm:rounded-xl sm:border",
+        "relative border-neutral-300/50 bg-background dark:border-neutral-800/40 rounded-xl border px-4",
         className,
       )}
     >

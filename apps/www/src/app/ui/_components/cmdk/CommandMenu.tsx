@@ -29,6 +29,7 @@ type ItemProps = {
     title: string;
     icon: React.ReactNode;
     slug: string;
+    isNew?: boolean;
     shortcut?: string;
   }[];
 };
@@ -100,6 +101,7 @@ const ITEMS: ItemProps[] = [
         title: "Accordion",
         slug: "/ui/accordion",
         icon: <SquareStackIcon size={17} />,
+        isNew: true,
       },
       {
         title: "Animated Tabs",
@@ -110,16 +112,19 @@ const ITEMS: ItemProps[] = [
         title: "Badge",
         slug: "/ui/badge",
         icon: <SquareStackIcon size={17} />,
+        isNew: true,
       },
       {
         title: "Button",
         slug: "/ui/button",
         icon: <SquareStackIcon size={17} />,
+        isNew: true,
       },
       {
         title: "Card",
         slug: "/ui/card",
         icon: <SquareStackIcon size={17} />,
+        isNew: true,
       },
       {
         title: "Checkbox",
@@ -130,11 +135,35 @@ const ITEMS: ItemProps[] = [
         title: "Dialog",
         slug: "/ui/dialog",
         icon: <SquareStackIcon size={17} />,
+        isNew: true,
+      },
+      {
+        title: "Dropdown Menu",
+        slug: "/ui/dropdown-menu",
+        icon: <SquareStackIcon size={17} />,
+      },
+      {
+        title: "Spinner",
+        slug: "/ui/spinner",
+        icon: <SquareStackIcon size={17} />,
+      },
+      {
+        title: "Switch",
+        slug: "/ui/switch",
+        icon: <SquareStackIcon size={17} />,
+        isNew: true,
+      },
+      {
+        title: "Text",
+        slug: "/ui/text",
+        icon: <SquareStackIcon size={17} />,
+        isNew: true,
       },
       {
         title: "Tooltip",
         slug: "/ui/tooltip",
         icon: <SquareStackIcon size={17} />,
+        isNew: true,
       },
     ],
   },
@@ -143,6 +172,7 @@ const ITEMS: ItemProps[] = [
 type CommandMenuItemProps = {
   shortcut?: string;
   icon: React.ReactNode;
+  isNew?: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   onAction: () => void;
 } & React.ComponentProps<typeof CommandItem>;
@@ -151,6 +181,7 @@ function CommandMenuItem({
   children,
   icon,
   shortcut,
+  isNew = false,
   className,
   setIsOpen,
   onAction,
@@ -186,6 +217,16 @@ function CommandMenuItem({
           <div className="flex h-6 w-6 uppercase items-center text-xs font-semibold justify-center rounded-md bg-neutral-200 dark:bg-[#141414] text-neutral-400">
             {shortcut}
           </div>
+        </div>
+      )}
+      {isNew && (
+        <div
+          className={cn(
+            "ml-auto px-1.5 py-[0.5px] font-medium bg-yellow-400/30 dark:bg-[#eaec8a]/16 rounded-full text-[11px]",
+            "text-center leading-4 text-yellow-600 dark:text-[#eaec8a] [text-shadow:0_1px_1.5px_rgb(0,0,0,0.16)]",
+          )}
+        >
+          New
         </div>
       )}
     </CommandItem>
@@ -250,7 +291,7 @@ export function CommandMenu() {
           <div className="space-y-1.5 pb-1.5 pt-1">
             {ITEMS.map(({ heading, group }) => (
               <CommandGroup key={heading} heading={heading}>
-                {group.map(({ title, slug, icon, shortcut }) => (
+                {group.map(({ title, slug, icon, shortcut, isNew }) => (
                   <CommandMenuItem
                     key={title}
                     icon={icon}
@@ -259,6 +300,7 @@ export function CommandMenu() {
                       router.push(slug);
                       setIsOpen(false);
                     }}
+                    isNew={isNew}
                     onAction={() => router.push(slug)}
                     shortcut={shortcut}
                   >

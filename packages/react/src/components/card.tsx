@@ -18,10 +18,9 @@ const variants: readonly Variant[] = [
       <div
         {...props}
         className={cn(
-          "relative bg-neutral-100 dark:bg-neutral-950 rounded-xl border border-black/10 dark:border-white/10",
+          "relative px-4 py-5 bg-neutral-100 dark:bg-neutral-950 rounded-xl border border-black/10 dark:border-white/10",
           className,
         )}
-        style={{ padding: "var(--py) var(--px)" }}
       >
         {children}
       </div>
@@ -33,10 +32,9 @@ const variants: readonly Variant[] = [
       <div
         {...props}
         className={cn(
-          "relative rounded-xl border border-black/10 dark:border-white/10",
+          "relative px-4 py-5 rounded-xl border border-black/10 dark:border-white/10",
           className,
         )}
-        style={{ padding: "var(--py) var(--px)" }}
       >
         <div
           className={cn(
@@ -46,7 +44,7 @@ const variants: readonly Variant[] = [
         >
           <motion.div
             className={cn(
-              "absolute aspect-square bg-gradient-to-r from-transparent via-neutral-300 to-neutral-400",
+              "absolute aspect-square bg-gradient-to-r from-transparent via-neutral-400 to-neutral-500",
               "dark:from-transparent dark:via-neutral-600 dark:to-neutral-400",
             )}
             animate={{
@@ -71,12 +69,11 @@ const variants: readonly Variant[] = [
       <div
         {...props}
         className={cn(
-          "inline-flex animate-shine items-center justify-center rounded-xl border",
+          "inline-flex animate-shine items-center justify-center rounded-xl border px-4 py-5",
           "border-white/10 bg-[linear-gradient(110deg,#000000,45%,#303030,55%,#000000)] bg-[length:400%_100%]",
           "text-sm transition-colors dark:bg-[linear-gradient(110deg,#000103,45%,#303030,55%,#000103)]",
           className,
         )}
-        style={{ padding: "var(--py) var(--px)" }}
       >
         {children}
       </div>
@@ -110,10 +107,9 @@ const variants: readonly Variant[] = [
           <div
             {...props}
             className={cn(
-              "relative rounded-xl bg-neutral-100 dark:bg-neutral-950 select-none",
+              "relative px-4 py-5 rounded-xl bg-neutral-100 dark:bg-neutral-950 select-none",
               className,
             )}
-            style={{ padding: "var(--py) var(--px)" }}
           >
             {children}
           </div>
@@ -127,7 +123,7 @@ export type CardProps = {
   variant?: (typeof variants)[number]["variant"];
 } & React.ComponentProps<"div">;
 
-export function Card({ variant = "default", ...props }: CardProps) {
+export function Card({ variant = "default", className, ...props }: CardProps) {
   const FALLBACK_INDEX = 0;
 
   const variantComponent = variants.find(
@@ -139,18 +135,10 @@ export function Card({ variant = "default", ...props }: CardProps) {
   }
 
   return (
-    <Slot.Root
-      className="w-full max-w-[350px]"
-      style={
-        {
-          "--px": "1rem",
-          "--py": "1.25rem",
-        } as React.CSSProperties
-      }
-    >
+    <Slot.Root className="w-full max-w-[350px]">
       {variantComponent
-        ? variantComponent(props)
-        : variants[FALLBACK_INDEX].component(props)}
+        ? variantComponent({ ...props, className })
+        : variants[FALLBACK_INDEX].component({ ...props, className })}
     </Slot.Root>
   );
 }

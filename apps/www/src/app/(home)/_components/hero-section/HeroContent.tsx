@@ -16,19 +16,19 @@ export async function HeroContent() {
             <AnimatedBadge />
           </AnimateEnter>
           <AnimateEnter delay={0.3} duration={2}>
-            <h1 className="mx-auto max-w-3xl font-semibold text-4xl text-gradient tracking-tight md:text-7xl">
+            <h1 className="mx-auto max-w-3xl max-sm:max-w-xs font-semibold text-6xl text-gradient tracking-tight md:text-7xl">
               Illuminate your apps
             </h1>
           </AnimateEnter>
         </div>
         <AnimateEnter delay={0.5} duration={2}>
-          <p className="mx-auto max-w-lg text-xl text-foreground">
+          <p className="mx-auto max-w-lg text-[17px] sm:text-xl text-foreground">
             Library of copy and paste components to illuminate your applications
             with elegance and sophistication.
           </p>
         </AnimateEnter>
         <AnimateEnter
-          className="flex flex-wrap items-center justify-center gap-3"
+          className="flex items-center justify-center gap-4 sm:gap-3"
           delay={0.7}
           duration={2}
         >

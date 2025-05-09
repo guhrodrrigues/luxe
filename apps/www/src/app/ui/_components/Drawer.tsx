@@ -1,25 +1,81 @@
-"use client";
-
 import { useState } from "react";
+
 import { Drawer as VaulDrawer } from "vaul";
 
 import { SidebarButton } from "./sidebar/SidebarButton";
-
-import { COMPONENTS } from "@/data/components";
 
 import { Icons } from "@/app/_components/Icons";
 import { ToggleTheme } from "./ToggleTheme";
 
 import { GET_STARTED } from "@/data/get-started";
+import { cn } from "@/utils/cn";
+
+const SUGGESTIONS = [
+  {
+    title: "Home",
+    slug: "/",
+  },
+  {
+    title: "Updates",
+    slug: "/updates",
+  },
+];
+
+const COMPONENTS = [
+  {
+    title: "Accordion",
+    slug: "/ui/accordion",
+  },
+  {
+    title: "Animated Tabs",
+    slug: "/ui/animated-tabs",
+  },
+  {
+    title: "Badge",
+    slug: "/ui/badge",
+  },
+  {
+    title: "Button",
+    slug: "/ui/button",
+  },
+  {
+    title: "Card",
+    slug: "/ui/card",
+  },
+  {
+    title: "Checkbox",
+    slug: "/ui/checkbox",
+  },
+  {
+    title: "Dialog",
+    slug: "/ui/dialog",
+  },
+  {
+    title: "Dropdown Menu",
+    slug: "/ui/dropdown-menu",
+  },
+  {
+    title: "Spinner",
+    slug: "/ui/spinner",
+  },
+  {
+    title: "Switch",
+    slug: "/ui/switch",
+  },
+  {
+    title: "Text",
+    slug: "/ui/text",
+  },
+  {
+    title: "Tooltip",
+    slug: "/ui/tooltip",
+  },
+];
 
 export default function Drawer({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const orderedComponents = COMPONENTS.sort((a, b) =>
-    a.name.localeCompare(b.name),
-  );
-
-  function handleCloseDrawer() {
+  function handleClose() {
     setIsOpen(false);
   }
 
@@ -34,6 +90,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
             { "--initial-transform": "calc(100% + 8px)" } as React.CSSProperties
           }
         >
+          <VaulDrawer.Title className="sr-only">Drawer Title</VaulDrawer.Title>
           <div className="relative flex h-full w-full grow flex-col rounded-[16px] bg-main px-3 pb-5">
             <div className="flex items-center justify-between gap-2 px-2 py-3">
               <a
@@ -42,11 +99,26 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
                 rel="noopener noreferrer"
                 className="group"
               >
-                <Icons.github className="h-3.5 w-3.5 text-neutral-400 duration-150 group-hover:text-primary dark:text-neutral-600" />
+                <Icons.github className="h-3.5 w-3.5 text-neutral-400 duration-150 group-hover:!text-primary dark:text-neutral-600" />
               </a>
               <ToggleTheme />
             </div>
             <div className="flex h-full flex-col gap-6 overflow-y-auto px-3 pt-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              <div className="flex flex-col gap-1">
+                <span className="-ml-[2.5px] text-xs font-medium text-foreground">
+                  Suggestions
+                </span>
+                <div className="flex flex-col">
+                  {SUGGESTIONS.map((component) => (
+                    <SidebarButton
+                      key={component.slug}
+                      name={component.title}
+                      slug={component.slug}
+                      onClick={handleClose}
+                    />
+                  ))}
+                </div>
+              </div>
               <div className="flex flex-col gap-1">
                 <span className="-ml-[2.5px] text-xs font-medium text-foreground">
                   Get Started
@@ -57,24 +129,33 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
                       key={component.slug}
                       name={component.name}
                       slug={component.slug}
-                      onClick={handleCloseDrawer}
+                      isNew={component.isNew}
+                      onClick={handleClose}
                     />
                   ))}
                 </div>
               </div>
               <div className="flex flex-col gap-1">
-                <span className="relative z-[1] -ml-[2.5px] text-xs font-medium text-foreground">
-                  Components
-                </span>
+                <div className="flex items-center gap-1.5">
+                  <span className="relative z-[1] -ml-[2.5px] text-xs font-medium text-foreground">
+                    Components
+                  </span>
+                  <div
+                    className={cn(
+                      "w-[30px] h-4 font-medium bg-yellow-400/30 dark:bg-[#eaec8a]/16 rounded-full text-[10px]",
+                      "leading-[150%] text-center mr-2.5 text-yellow-600 dark:text-[#eaec8a] [text-shadow:0_1px_1.5px_rgb(0,0,0,0.16)]",
+                    )}
+                  >
+                    New
+                  </div>
+                </div>
                 <div className="flex flex-col pb-3">
-                  {orderedComponents.map((component) => (
+                  {COMPONENTS.map((component) => (
                     <SidebarButton
-                      key={component.name}
-                      name={component.name}
-                      slug={`/ui/${component.slug}`}
-                      isNew={component.isNew}
-                      isUpdated={component.isUpdated}
-                      onClick={handleCloseDrawer}
+                      key={component.slug}
+                      name={component.title}
+                      slug={component.slug}
+                      onClick={handleClose}
                     />
                   ))}
                 </div>

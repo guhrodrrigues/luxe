@@ -96,17 +96,12 @@ export function OnThisPage() {
 
   return (
     <motion.aside
-      className="top-20 hidden xl:block sticky h-fit space-y-3 pt-4"
+      className="top-20 hidden xl:block sticky h-fit space-y-3 pt-3"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.25 }}
     >
-      {headings.length > 0 && (
-        <span className="block text-sm pb-1 text-neutral-500 dark:text-neutral-300 dark:text font-[460]">
-          On This Page
-        </span>
-      )}
       <div className="flex flex-col">
         {headings.map(({ id, text, level }) => (
           <button

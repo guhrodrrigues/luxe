@@ -77,7 +77,7 @@ export default async function InstallationSlugPage({
   const previousPage = Docs[currentPage - 1];
 
   return (
-    <main className="my-2 space-y-10 xl:mb-24">
+    <main className="my-2 space-y-10">
       <div className="space-y-4">
         <Breadcrumbs
           category="Get Started"

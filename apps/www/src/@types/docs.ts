@@ -3,4 +3,6 @@ export type Docs = {
   description: string;
   slug: string;
   content: string;
+  externalDocs?: string;
+  externalApi?: string;
 };

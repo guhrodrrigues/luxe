@@ -1,5 +1,3 @@
-import { LayoutDashboard, Settings, Sparkles } from "lucide-react";
-
 export const GET_STARTED = [
   {
     name: "Installation",

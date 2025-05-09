@@ -71,7 +71,7 @@ export function MultiStepModal() {
   };
 
   return (
-    <div className="w-[370px] overflow-hidden rounded-xl border border-[#dddddd] bg-neutral-100 dark:border-[#222222] dark:bg-[#111111]">
+    <div className="w-full mx-auto max-w-[370px] overflow-hidden rounded-xl border border-[#dddddd] bg-neutral-100 dark:border-[#222222] dark:bg-[#111111]">
       <div className="relative">
         <AnimatePresence initial={false} mode="popLayout" custom={direction}>
           <motion.div

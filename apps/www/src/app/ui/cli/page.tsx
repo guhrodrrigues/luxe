@@ -56,7 +56,7 @@ export default async function CLIPage() {
   const { content, title, description } = docs;
 
   return (
-    <main className="my-2 space-y-10 xl:mb-24">
+    <main className="my-2 space-y-10">
       <div className="space-y-4">
         <Breadcrumbs groupName="Get Started" currentPage="Add Utilities" />
         <div className="space-y-3.5">
