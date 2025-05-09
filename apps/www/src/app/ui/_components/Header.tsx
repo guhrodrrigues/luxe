@@ -46,24 +46,23 @@ export function Header() {
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <header
       className={cn(
-        "top-0 z-50 h-16 w-full transition-colors duration-300 ease-out",
+        "top-0 z-50 h-16 w-full transition-colors duration-300 ease-out border-b-[.75px] border-transparent",
         isDocsPage ? "sticky bg-background bottom-dotted" : "fixed",
-        !isDocsPage && isScrolled && "bg-background/40 backdrop-blur-md",
+        !isDocsPage &&
+          isScrolled &&
+          "bg-background/40 backdrop-blur-md border-border dark:border-[#262626]/50",
       )}
     >
       <nav
         className={cn(
-          "flex h-full border-b-[.75px] border-transparent items-center justify-between gap-6 px-6 max-w-7xl mx-auto",
+          "flex h-full items-center justify-between gap-6 px-6 max-w-7xl mx-auto",
           isDocsPage && "horizontal-dotted",
-          !isDocsPage && isScrolled && "border-border dark:border-[#262626]/50",
         )}
       >
         <div className="flex items-center gap-6">

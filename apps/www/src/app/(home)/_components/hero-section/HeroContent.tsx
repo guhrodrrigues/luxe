@@ -16,7 +16,7 @@ export async function HeroContent() {
             <AnimatedBadge />
           </AnimateEnter>
           <AnimateEnter delay={0.3} duration={2}>
-            <h1 className="mx-auto max-w-3xl max-sm:max-w-xs font-semibold text-6xl text-gradient tracking-tight md:text-7xl">
+            <h1 className="mx-auto max-w-3xl max-sm:max-w-xs font-medium text-6xl text-gradient tracking-tight md:text-7xl">
               Illuminate your apps
             </h1>
           </AnimateEnter>

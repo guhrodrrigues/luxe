@@ -240,7 +240,12 @@ export function CommandMenu() {
   const pathname = usePathname();
 
   const homePage = pathname === "/";
-  const currentPage = homePage ? "Home" : pathname.split("/")[2];
+  const uiPage = pathname.startsWith("/ui");
+  const currentPage = homePage
+    ? "Home"
+    : uiPage
+      ? pathname.split("/")[2]
+      : pathname.split("/")[1];
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
