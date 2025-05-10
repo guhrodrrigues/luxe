@@ -27,7 +27,7 @@ export async function generateMetadata({
     return;
   }
 
-  const { title, description, slug } = docs;
+  const { title, description, slug, banner } = docs;
 
   return {
     title,
@@ -36,13 +36,13 @@ export async function generateMetadata({
       title: `Luxe — ${title}`,
       description,
       type: "website",
-      url: `https://luxeui.com/ui/${slug}`,
+      url: `https://luxeui.com/updates/${slug}`,
       images: [
         {
           width: 1920,
           height: 1080,
-          url: "https://luxeui.com/open-graphs/og-browse-components.png",
-          alt: "Luxe's website cover",
+          url: `https://luxeui.com${banner}`,
+          alt: `${title} cover`,
         },
       ],
     },
@@ -54,8 +54,8 @@ export async function generateMetadata({
         {
           width: 1920,
           height: 1080,
-          url: "https://luxeui.com/open-graphs/og-browse-components.png",
-          alt: "Luxe's website cover",
+          url: `https://luxeui.com${banner}`,
+          alt: `${title} cover`,
         },
       ],
     },
