@@ -9,9 +9,9 @@ import rehypePrettyCode from "rehype-pretty-code";
 
 import { cn } from "@/utils/cn";
 
-import { ComponentView } from "../ComponentView";
-import { CommandBlock } from "../CommandBlock";
-import { CopyCode } from "../CopyCode";
+import { ComponentView } from "../../ui/_components/ComponentView";
+import { CommandBlock } from "../../ui/_components/CommandBlock";
+import { CopyCode } from "../../ui/_components/CopyCode";
 import {
   Tabs,
   TabsContent,
@@ -20,17 +20,18 @@ import {
 } from "@/app/ui/_components/Tabs";
 import { AnimatedTabs } from "@/app/_components/ui/animated-tabs";
 import { Button } from "@/app/_components/ui/button";
-import { CodeBlock } from "../CodeBlock";
+import { CodeBlock } from "../../ui/_components/CodeBlock";
 import { Card } from "@/app/_components/ui/card";
-import { DialogExample } from "../examples/DialogExample";
-import { AccordionExample } from "../examples/AccordionExample";
-import { TooltipExample } from "../examples/TooltipExample";
-import { CheckboxExample } from "../examples/CheckboxExample";
+import { DialogExample } from "../../ui/_components/examples/DialogExample";
+import { AccordionExample } from "../../ui/_components/examples/AccordionExample";
+import { TooltipExample } from "../../ui/_components/examples/TooltipExample";
+import { CheckboxExample } from "../../ui/_components/examples/CheckboxExample";
 import { Badge } from "@/app/_components/ui/badge";
 import { Text } from "@/app/_components/ui/text";
 import { Spinner } from "@/app/_components/ui/spinner";
-import { DropdownMenuExample } from "../examples/DropdownMenuExample";
-import { SwitchExample } from "../examples/SwitchExample";
+import { DropdownMenuExample } from "../../ui/_components/examples/DropdownMenuExample";
+import { SwitchExample } from "../../ui/_components/examples/SwitchExample";
+import { Input } from "../ui/input";
 
 const components: MDXComponents = {
   ComponentView: ({ children, isReloadAnimation, ...props }) => (
@@ -64,6 +65,11 @@ const components: MDXComponents = {
     <h3 className="text-xl font-bold -tracking-wide text-primary" {...props}>
       {children}
     </h3>
+  ),
+  h4: ({ children, ...props }) => (
+    <h4 className="font-medium text-primary tracking-tight text-lg" {...props}>
+      {children}
+    </h4>
   ),
   CommandBlock: ({
     children,
@@ -164,6 +170,7 @@ const components: MDXComponents = {
   ),
   DropdownMenuExample: () => <DropdownMenuExample />,
   SwitchExample: () => <SwitchExample />,
+  Input: ({ ...props }) => <Input {...props} />,
 };
 
 export function useMDXComponents(components: MDXComponents) {

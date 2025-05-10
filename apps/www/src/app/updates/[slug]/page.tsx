@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import { Breadcrumbs } from "../_components/Breadcrumbs";
-import { Pagination } from "../_components/Pagination";
 import { getDocs } from "@/lib/mdx";
 import { MDX } from "@/app/_components/mdx";
-
 import { ArrowUpRightIcon } from "lucide-react";
+import { BlurImage } from "@/app/_components/BlurImage";
 
-const Docs = getDocs().sort((a, b) => a.title.localeCompare(b.title));
+const Docs = getDocs("updates").sort((a, b) => a.title.localeCompare(b.title));
 
 export async function generateStaticParams() {
   return Docs.map((docs) => ({
@@ -73,61 +71,46 @@ export default async function ComponentPage({
 
   if (!docs) notFound();
 
-  const currentComponent = Docs.indexOf(docs);
-  const previousComponent = Docs[currentComponent - 1];
-  const nextComponent = Docs[currentComponent + 1];
-
-  const { title, description, content, externalDocs, externalApi } = docs;
+  const { title, content, date, author, author_image, author_twitter, banner } =
+    docs;
 
   return (
-    <main className="my-2">
-      <div className="space-y-20">
-        <div className="space-y-4">
-          <Breadcrumbs
-            backLink="/ui"
-            groupName="Components"
-            currentPage={title}
-          />
-          <h1 className="text-3xl font-bold -tracking-wide text-primary">
-            {title}
-          </h1>
-          <p className="text-[16px] font-normal leading-relaxed text-black/80 dark:text-white/90">
-            {description}
-          </p>
-          {externalDocs && externalApi && (
-            <div className="flex items-center gap-2">
+    <main className="flex flex-col gap-10 w-full max-w-5xl mx-auto px-6 py-32">
+      <div className="space-y-14">
+        <div className="flex flex-col items-center justify-center gap-10">
+          <div className="flex flex-col items-center justify-center gap-4">
+            <div className="flex items-center gap-4">
               <a
-                href={externalDocs}
+                href={author_twitter!}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group text-xs text-neutral-700 dark:text-neutral-200 transition-all duration-200 border border-neutral-300 dark:border-neutral-800 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-neutral-200/40 hover:bg-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-800/60"
+                className="flex items-center gap-2.5"
               >
-                Docs
-                <ArrowIconGlitch />
+                <div className="rounded-full overflow-hidden">
+                  <BlurImage
+                    src={author_image!}
+                    alt={`${author!.split(" ")[0]}'s profile picture`}
+                    className="rounded-full"
+                    width={32}
+                    height={32}
+                  />
+                </div>
+                <span className="text-gradient text-sm font-[460]">
+                  {author}
+                </span>
               </a>
-              <a
-                href={externalApi}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group text-xs text-neutral-700 dark:text-neutral-200 transition-all duration-200 border border-neutral-300 dark:border-neutral-800 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-neutral-200/40 hover:bg-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-800/60"
-              >
-                Component API
-                <ArrowIconGlitch />
-              </a>
+              <Divider />
+              <span className="text-gradient text-sm font-[460]">{date}</span>
             </div>
-          )}
+            <h1 className="font-normal text-4xl text-gradient tracking-tight md:text-5xl">
+              {title}
+            </h1>
+          </div>
+          <div className="overflow-hidden border border-transparent dark:border-neutral-900 rounded-2xl">
+            <BlurImage src={banner!} alt="Luxe 2.0" />
+          </div>
         </div>
         <MDX source={content} />
-        <Pagination
-          back={{
-            href: previousComponent ? `/ui/${previousComponent.slug}` : "",
-            title: previousComponent ? previousComponent.title : "",
-          }}
-          next={{
-            href: nextComponent ? `/ui/${nextComponent.slug}` : "",
-            title: nextComponent ? nextComponent.title : "",
-          }}
-        />
       </div>
     </main>
   );
@@ -147,4 +130,8 @@ function ArrowIconGlitch() {
       </span>
     </div>
   );
+}
+
+function Divider() {
+  return <div aria-hidden className="h-[21px] w-px bg-border" />;
 }

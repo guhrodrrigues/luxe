@@ -166,10 +166,10 @@ Install the package
 </h2>
 
 <CommandBlock 
-	npmCommand="npm install @radix-ui/react-accordion lucide-react" 
-	pnpmCommand="pnpm add @radix-ui/react-accordion lucide-react" 
-	yarnCommand="yarn add @radix-ui/react-accordion lucide-react" 
-	bunCommand="bun add @radix-ui/react-accordion lucide-react" 
+	npmCommand="npm install @radix-ui/react-accordion clsx tailwind-merge" 
+	pnpmCommand="pnpm add @radix-ui/react-accordion clsx tailwind-merge" 
+	yarnCommand="yarn add @radix-ui/react-accordion clsx tailwind-merge" 
+	bunCommand="bun add @radix-ui/react-accordion clsx tailwind-merge" 
 />
 
 </div>
@@ -293,8 +293,39 @@ export function AccordionContent({
 <div className="relative">
 
 <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">3</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
 	
-<span className="font-semibold text-primary">3</span>
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Create a file with the path <CodeHighlight>utils/cn.ts</CodeHighlight>
+
+</h2>
+
+<CodeBlock fileName="utils/cn.ts" customFilePath="utils/cn.ts" contentClassName="h-fit">
+```tsx
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	
+<span className="font-semibold text-primary">4</span>
 
 </div>
 

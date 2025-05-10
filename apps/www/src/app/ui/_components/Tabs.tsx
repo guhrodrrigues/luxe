@@ -84,9 +84,8 @@ const TabsTrigger = React.forwardRef<
             )}
             transition={{
               type: "spring",
-              stiffness: 255,
-              damping: 20,
-              mass: 0.2,
+              duration: 0.3,
+              bounce: 0,
             }}
           >
             <div className="h-0.5 w-full rounded-full bg-primary/90" />

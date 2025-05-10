@@ -46,12 +46,6 @@ export const metadata: Metadata = {
 };
 
 export default function UpdatesPage() {
-  // const container = useRef(null);
-  // const { scrollYProgress } = useScroll({
-  //   target: container,
-  //   offset: ["start start", "end end"],
-  // });
-
   return (
     <main className="flex flex-col gap-10 w-full max-w-7xl mx-auto px-6 py-32">
       <AnimateEnter delay={0.1}>
@@ -76,7 +70,7 @@ export default function UpdatesPage() {
                 className="grid grid-cols-1 lg:grid-cols-3 gap-y-8 gap-x-12 xl:gap-x-20"
               >
                 <div className="lg:col-span-2 lg:w-[650px] xl:w-full">
-                  <div className="overflow-hidden border border-neutral-900 rounded-xl">
+                  <div className="overflow-hidden border border-transparent dark:border-neutral-900 rounded-2xl">
                     <BlurImage src={banner} alt="Luxe 2.0" />
                   </div>
                 </div>
@@ -98,13 +92,15 @@ export default function UpdatesPage() {
                   </div>
                   <div className="flex items-center gap-4 mt-auto">
                     <div className="flex items-center gap-2.5">
-                      <BlurImage
-                        src={author_image}
-                        alt={`${author.split(" ")[0]}'s profile picture`}
-                        className="rounded-full"
-                        width={32}
-                        height={32}
-                      />
+                      <div className="rounded-full overflow-hidden">
+                        <BlurImage
+                          src={author_image}
+                          alt={`${author.split(" ")[0]}'s profile picture`}
+                          className="rounded-full"
+                          width={32}
+                          height={32}
+                        />
+                      </div>
                       <span className="text-gradient text-sm font-[460]">
                         {author}
                       </span>
@@ -144,7 +140,7 @@ export default function UpdatesPage() {
                     delay={0.4 + index * 0.05}
                     className="flex flex-col gap-4"
                   >
-                    <div className="overflow-hidden border border-neutral-900 rounded-xl">
+                    <div className="overflow-hidden border border-transparent dark:border-neutral-900 rounded-xl">
                       <BlurImage src={banner} alt="Luxe 2.0" />
                     </div>
                     <div className="flex flex-col gap-6 py-3">
@@ -158,13 +154,15 @@ export default function UpdatesPage() {
                       </div>
                       <div className="flex items-center gap-4">
                         <div className="flex items-center gap-2.5">
-                          <BlurImage
-                            src={author_image}
-                            alt={`${author.split(" ")[0]}'s profile picture`}
-                            className="rounded-full"
-                            width={32}
-                            height={32}
-                          />
+                          <div className="rounded-full overflow-hidden">
+                            <BlurImage
+                              src={author_image}
+                              alt={`${author.split(" ")[0]}'s profile picture`}
+                              className="rounded-full"
+                              width={32}
+                              height={32}
+                            />
+                          </div>
                           <span className="text-gradient text-sm font-[460]">
                             {author}
                           </span>

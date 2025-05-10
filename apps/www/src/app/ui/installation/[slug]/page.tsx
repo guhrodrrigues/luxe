@@ -1,15 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-import fs from "fs";
-import path from "path";
-import { promisify } from "util";
-
 import { Breadcrumbs } from "../../_components/Breadcrumbs";
 import { Pagination } from "../../_components/Pagination";
-import { INSTALLATION } from "../_data/installation";
 import { getDocs } from "@/lib/mdx";
-import { MDX } from "../../_components/mdx";
+import { MDX } from "@/app/_components/mdx";
 
 const Docs = getDocs("get-started").filter(
   (docs) => docs.slug !== "add-utilities",

@@ -27,6 +27,8 @@ export function BlurImage({
       alt={alt}
       loading={lazy ? "lazy" : undefined}
       priority={!lazy}
+      width={1920}
+      height={1080}
       quality={100}
       onLoad={() => setIsLoading(false)}
       {...props}

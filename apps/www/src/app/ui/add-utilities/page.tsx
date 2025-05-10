@@ -5,7 +5,7 @@ import { Pagination } from "../_components/Pagination";
 
 import { getDocs } from "@/lib/mdx";
 import { notFound } from "next/navigation";
-import { MDX } from "../_components/mdx";
+import { MDX } from "@/app/_components/mdx";
 
 export const metadata: Metadata = {
   title: "Add Utilities",
