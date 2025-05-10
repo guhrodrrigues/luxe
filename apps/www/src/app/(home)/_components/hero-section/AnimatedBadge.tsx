@@ -7,7 +7,7 @@ import { motion } from "motion/react";
 export function AnimatedBadge() {
   return (
     <a
-      href="/updates/luxe-v2"
+      href="/updates/v2.0"
       className="group relative block rounded-full py-[5px] pr-3 pl-1.5 bg-[#eeeeee] dark:bg-[#161616] dark:shadow-inner dark:shadow-neutral-800/80 border border-neutral-400/20 dark:border-neutral-700/70"
     >
       <div

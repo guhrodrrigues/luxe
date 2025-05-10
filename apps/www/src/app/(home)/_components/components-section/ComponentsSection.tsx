@@ -28,7 +28,7 @@ export function ComponentsSection() {
 function Button() {
   return (
     <Link
-      href="/ui"
+      href="/ui/accordion"
       className="group relative inline-flex items-center gap-1 overflow-hidden rounded-xl bg-black/80 px-4 py-2.5 text-sm font-semibold text-white duration-300 hover:bg-black dark:bg-white/80 dark:text-black dark:hover:bg-white"
     >
       <span className="[text-shadow:0_0.5px_0_rgb(255,255,255,.48)]">
