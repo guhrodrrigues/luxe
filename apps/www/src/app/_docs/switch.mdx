@@ -16,8 +16,21 @@ externalApi: "https://radix-ui.com/primitives/docs/components/switch#api-referen
 </TabsList>
 
 <CopyCode 
-	code="animated-tabs"
-	example={true}
+	code={`import { Switch } from "@/components/ui/switch"
+
+export function SwitchExample() {
+  return (
+    <div className="flex items-center gap-2">
+      <Switch id="airplane-mode" />
+      <label
+        htmlFor="airplane-mode"
+        className="text-sm text-black dark:text-white"
+      >
+        Airplane Mode
+      </label>
+    </div>
+  )
+}`}
 	mode="text"
 />
 

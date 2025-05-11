@@ -64,7 +64,7 @@ const variants: readonly Variant[] = [
     ),
   },
   {
-    variant: "background-shine",
+    variant: "shine",
     component: ({ children, className, ...props }) => (
       <div
         {...props}

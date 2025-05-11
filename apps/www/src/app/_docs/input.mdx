@@ -14,8 +14,15 @@ slug: "input"
 </TabsList>
 
 <CopyCode 
-	code="input"
-	example={true}
+	code={`import { Input } from "@/components/ui/input";
+
+export function InputExample() {
+  return (
+    <Input 
+      placeholder="Placeholder"
+    />
+  );
+}`}
 	mode="text"
 />
 
@@ -71,7 +78,7 @@ import { Input } from "@/components/ui/input"
 <CodeBlock className="mt-4" contentClassName="h-fit">
 
 ```tsx
-<Input placeholder="Placeholder" />
+<Input />
 ```
 </CodeBlock>
 

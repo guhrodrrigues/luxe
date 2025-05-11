@@ -18,8 +18,29 @@ externalApi: "https://radix-ui.com/primitives/docs/components/tooltip#api-refere
 </TabsList>
 
 <CopyCode 
-	code="default"
-	example={true}
+	code={`import {
+  TooltipProvider,
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+
+import { Button } from "@/components/ui/button";
+
+export function TooltipExample() {
+  return (
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button variant="outline">Hover</Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <span>Add to library</span>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  );
+}`}
 	mode="text"
 />
 

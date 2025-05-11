@@ -14,8 +14,15 @@ slug: "animated-tabs"
 </TabsList>
 
 <CopyCode 
-	code="animated-tabs"
-	example={true}
+	code={`import { AnimatedTabs } from "@/components/ui/animated-tabs";
+
+const TABS = ["All Posts", "Interactions", "Resources", "Docs"];
+
+export function AnimatedTabsExample() {
+  return (
+    <AnimatedTabs tabs={TABS} />
+  );
+}`}
 	mode="text"
 />
 

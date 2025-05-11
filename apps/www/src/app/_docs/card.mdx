@@ -28,8 +28,22 @@ slug: "card"
 </TabsList>
 
 <CopyCode 
-	code="default"
-	example={true}
+	code={`import { Card } from "@/components/ui/card"
+
+export function CardExample() {
+  return (
+    <Card>
+      <div className="flex flex-col gap-2">
+        <span className="text-xl font-semibold text-black dark:text-neutral-200">
+          Luxe
+        </span>
+        <span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">
+          Explore the new website that simplifies the creation of sophisticated components.
+        </span>
+      </div>
+    </Card>
+  )
+}`}
 	mode="text"
 />
 
@@ -91,7 +105,7 @@ export function CardExample() {
 
 <div className="mt-12">
 
-### Background Shine
+### Shine
 
 </div>
 
@@ -105,8 +119,22 @@ export function CardExample() {
 </TabsList>
 
 <CopyCode 
-	code="background-shine"
-	example={true}
+	code={`import { Card } from "@/components/ui/card"
+
+export function CardAnimatedBorderExample() {
+  return (
+    <Card variant="shine">
+      <div className="flex flex-col gap-2">
+        <span className="text-xl font-semibold text-neutral-100 dark:text-neutral-200">
+          Luxe
+        </span>
+        <span className="text-sm leading-[1.5] text-neutral-200 dark:text-neutral-400">
+          Explore the new website that simplifies the creation of sophisticated components.
+        </span>
+      </div>
+    </Card>
+  )
+}`}
 	mode="text"
 />
 
@@ -116,7 +144,7 @@ export function CardExample() {
 
 <ComponentView className="h-[380px] flex items-center justify-center">
 
-<Card variant="background-shine">
+<Card variant="shine">
 	<div className="flex flex-col gap-2">
 		<span className="text-xl font-semibold text-neutral-100 dark:text-neutral-200">Luxe</span>
 		<span className="text-sm leading-[1.5] text-neutral-200 dark:text-neutral-400">Explore the new website that simplifies the creation of sophisticated components.</span>
@@ -136,7 +164,7 @@ import { Card } from "@/components/ui/card"
 
 export function CardAnimatedBorderExample() {
   return (
-    <Card variant="background-shine">
+    <Card variant="shine">
       <div className="flex flex-col gap-2">
         <span className="text-xl font-semibold text-neutral-100 dark:text-neutral-200">
           Luxe
@@ -172,8 +200,22 @@ export function CardAnimatedBorderExample() {
 </TabsList>
 
 <CopyCode 
-	code="animated-border"
-	example={true}
+	code={`import { Card } from "@/components/ui/card"
+
+export function CardAnimatedBorderExample() {
+  return (
+    <Card variant="animated-border">
+      <div className="flex flex-col gap-2">
+        <span className="text-xl font-semibold text-black dark:text-neutral-200">
+          Luxe
+        </span>
+        <span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">
+          Explore the new website that simplifies the creation of sophisticated components.
+        </span>
+      </div>
+    </Card>
+  )
+}`}
 	mode="text"
 />
 
@@ -239,8 +281,22 @@ export function CardAnimatedBorderExample() {
 </TabsList>
 
 <CopyCode 
-	code="revealed-pointer"
-	example={true}
+	code={`import { Card } from "@/components/ui/card"
+
+export function CardRevealedPointerExample() {
+  return (
+    <Card variant="revealed-pointer">
+      <div className="flex flex-col gap-2">
+        <span className="text-xl font-semibold text-black dark:text-neutral-200">
+          Luxe
+        </span>
+        <span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">
+          Explore the new website that simplifies the creation of sophisticated components.
+        </span>
+      </div>
+    </Card>
+  )
+}`}
 	mode="text"
 />
 

@@ -28,8 +28,15 @@ slug: "button"
 </TabsList>
 
 <CopyCode 
-	code="default"
-	example={true}
+	code={`import { Button } from "@/components/ui/button"
+
+export function ButtonExample() {
+  return (
+    <Button>
+      Button
+    </Button>
+  )
+}`}
 	mode="text"
 />
 
@@ -85,8 +92,15 @@ export function ButtonExample() {
 </TabsList>
 
 <CopyCode 
-	code="outline"
-	example={true}
+	code={`import { Button } from "@/components/ui/button"
+
+export function ButtonOutlineExample() {
+  return (
+    <Button variant="outline">
+      Button
+    </Button>
+  )
+}`}
 	mode="text"
 />
 
@@ -142,8 +156,15 @@ export function ButtonOutlineExample() {
 </TabsList>
 
 <CopyCode 
-	code="success"
-	example={true}
+	code={`import { Button } from "@/components/ui/button"
+
+export function ButtonSuccessExample() {
+  return (
+    <Button variant="success">
+      Button
+    </Button>
+  )
+}`}
 	mode="text"
 />
 
@@ -199,8 +220,15 @@ export function ButtonSuccessExample() {
 </TabsList>
 
 <CopyCode 
-	code="destructive"
-	example={true}
+	code={`import { Button } from "@/components/ui/button"
+
+export function ButtonDestructiveExample() {
+  return (
+    <Button variant="destructive">
+      Button
+    </Button>
+  )
+}`}
 	mode="text"
 />
 
@@ -267,8 +295,15 @@ export function ButtonDestructiveExample() {
 </TabsList>
 
 <CopyCode 
-	code="button-shine"
-	example={true}
+	code={`import { Button } from "@/components/ui/button"
+
+export function ButtonShineExample() {
+  return (
+    <Button variant="shine">
+      Button
+    </Button>
+  )
+}`}
 	mode="text"
 />
 
@@ -324,8 +359,15 @@ export function ButtonShineExample() {
 </TabsList>
 
 <CopyCode 
-	code="animated-border"
-	example={true}
+	code={`import { Button } from "@/components/ui/button"
+
+export function ButtonAnimatedBorderExample() {
+  return (
+    <Button variant="animated-border">
+      Button
+    </Button>
+  )
+}`}
 	mode="text"
 />
 
@@ -381,8 +423,15 @@ export function ButtonAnimatedBorderExample() {
 </TabsList>
 
 <CopyCode 
-	code="rotate-border"
-	example={true}
+	code={`import { Button } from "@/components/ui/button"
+
+export function ButtonRotateBorderExample() {
+  return (
+    <Button variant="rotate-border">
+      Button
+    </Button>
+  )
+}`}
 	mode="text"
 />
 
@@ -438,8 +487,15 @@ export function ButtonRotateBorderExample() {
 </TabsList>
 
 <CopyCode 
-	code="magnetic"
-	example={true}
+	code={`import { Button } from "@/components/ui/button"
+
+export function ButtonMagneticExample() {
+  return (
+    <Button variant="magnetic">
+      Button
+    </Button>
+  )
+}`}
 	mode="text"
 />
 
@@ -495,8 +551,15 @@ export function ButtonMagneticExample() {
 </TabsList>
 
 <CopyCode 
-	code="glitch-brightness"
-	example={true}
+	code={`import { Button } from "@/components/ui/button"
+
+export function ButtonGlitchBrightnessExample() {
+  return (
+    <Button variant="glitch-brightness">
+      Button
+    </Button>
+  )
+}`}
 	mode="text"
 />
 
@@ -929,7 +992,11 @@ Create a file with the path <CodeHighlight>utils/cn.ts</CodeHighlight>
 
 </h2>
 
-<CodeBlock fileName="utils/cn.ts" customFilePath="utils/cn.ts" contentClassName="h-fit">
+<CodeBlock 
+	fileName="utils/cn.ts" 
+	customFilePath="utils/cn.ts" 
+	contentClassName="h-fit"
+>
 ```tsx
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";

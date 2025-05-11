@@ -18,29 +18,7 @@ externalApi: "https://radix-ui.com/primitives/docs/components/dialog#api-referen
 </TabsList>
 
 <CopyCode 
-	code="default"
-	example={true}
-	mode="text"
-/>
-
-</div>
-
-<TabsContent value="preview">
-
-<ComponentView className="h-[350px] flex items-center justify-center">
-
-<DialogExample />
-
-</ComponentView>
-
-</TabsContent>
-
-<TabsContent value="code">
-
-<CodeBlock className="h-[350px]" contentClassName="h-full">
-
-```tsx
-import {
+	code={`import {
   Dialog,
   DialogTrigger,
   DialogContent,
@@ -90,9 +68,39 @@ export function DialogExample() {
       </DialogContent>
     </Dialog>
   );
-}
-```
+}`}
+	mode="text"
+/>
 
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[350px] flex items-center justify-center">
+
+<DialogExample />
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock className="h-[350px]" contentClassName="h-full">
+
+```tsx
+import {
+  Dialog,
+  DialogTrigger,
+  DialogPortal,
+  DialogOverlay,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+} from "@/components/ui/dialog"
+```
 </CodeBlock>
 
 </TabsContent>
