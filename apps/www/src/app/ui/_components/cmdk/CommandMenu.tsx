@@ -143,6 +143,11 @@ const ITEMS: ItemProps[] = [
         icon: <SquareStackIcon size={17} />,
       },
       {
+        title: "Input",
+        slug: "/ui/input",
+        icon: <SquareStackIcon size={17} />,
+      },
+      {
         title: "Spinner",
         slug: "/ui/spinner",
         icon: <SquareStackIcon size={17} />,

@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { getDocs } from "@/lib/mdx";
+
 import { MDX } from "@/app/_components/mdx";
-import { ArrowUpRightIcon } from "lucide-react";
 import { BlurImage } from "@/app/_components/BlurImage";
+import { Divider } from "@/app/_components/Divider";
 
 const Docs = getDocs("updates").sort((a, b) => a.title.localeCompare(b.title));
 
@@ -107,31 +108,15 @@ export default async function ComponentPage({
             </h1>
           </div>
           <div className="overflow-hidden border border-transparent dark:border-neutral-900 rounded-2xl">
-            <BlurImage src={banner!} alt="Luxe 2.0" />
+            <BlurImage
+              src={banner!}
+              alt={`${title} cover`}
+              className="object-cover"
+            />
           </div>
         </div>
         <MDX source={content} />
       </div>
     </main>
   );
-}
-
-function ArrowIconGlitch() {
-  return (
-    <div className="group relative overflow-hidden font-medium">
-      <span className="invisible">
-        <ArrowUpRightIcon size={10} />
-      </span>
-      <span className="absolute left-0 top-0 text-neutral-500 dark:text-neutral-400 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full group-hover:translate-x-full">
-        <ArrowUpRightIcon size={10} />
-      </span>
-      <span className="absolute left-0 top-0 -translate-x-full translate-y-full text-primary transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-x-0 group-hover:translate-y-0">
-        <ArrowUpRightIcon size={10} />
-      </span>
-    </div>
-  );
-}
-
-function Divider() {
-  return <div aria-hidden className="h-[21px] w-px bg-border" />;
 }

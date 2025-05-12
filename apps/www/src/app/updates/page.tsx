@@ -3,6 +3,7 @@ import { Metadata } from "next";
 
 import { AnimateEnter } from "../(home)/_components/AnimateEnter";
 import { BlurImage } from "../_components/BlurImage";
+import { Divider } from "../_components/Divider";
 
 import { UPDATES } from "@/data/updates";
 
@@ -72,7 +73,7 @@ export default function UpdatesPage() {
                   <h1 className="font-normal text-4xl sm:text-5xl text-gradient tracking-tight md:text-6xl">
                     {title}
                   </h1>
-                  <span className="text-foreground max-lg:max-w-lg max-lg:w-full max-lg:mx-auto">
+                  <span className="text-foreground max-lg:max-w-lg max-lg:w-full max-lg:mx-auto lg:w-[320px]">
                     {description}
                   </span>
                 </div>
@@ -159,8 +160,4 @@ export default function UpdatesPage() {
       </div>
     </main>
   );
-}
-
-function Divider() {
-  return <div aria-hidden className="h-[21px] w-px bg-border" />;
 }

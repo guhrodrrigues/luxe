@@ -32,6 +32,7 @@ import { Spinner } from "@/app/_components/ui/spinner";
 import { DropdownMenuExample } from "../../ui/_components/examples/DropdownMenuExample";
 import { SwitchExample } from "../../ui/_components/examples/SwitchExample";
 import { Input } from "../ui/input";
+import { BlurImage } from "../BlurImage";
 
 const components: MDXComponents = {
   ComponentView: ({ children, isReloadAnimation, ...props }) => (
@@ -104,17 +105,35 @@ const components: MDXComponents = {
       {...props}
     />
   ),
-  Link: ({ children, className, ...props }) => (
-    <Link
-      {...props}
-      className={cn(
-        "underline underline-offset-[2.5px] decoration-neutral-300 dark:decoration-neutral-500 duration-200 hover:decoration-neutral-500 dark:hover:decoration-neutral-300 hover:text-black dark:hover:text-white",
-        props.className,
-      )}
-    >
-      {children}
-    </Link>
-  ),
+  Link: ({ children, className, isExternal = false, ...props }) => {
+    if (isExternal) {
+      return (
+        <a
+          {...props}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={cn(
+            "underline underline-offset-[2.5px] decoration-neutral-300 dark:decoration-neutral-500 duration-200 hover:decoration-neutral-500 dark:hover:decoration-neutral-300 hover:text-black dark:hover:text-white",
+            props.className,
+          )}
+        >
+          {children}
+        </a>
+      );
+    }
+
+    return (
+      <Link
+        {...props}
+        className={cn(
+          "underline underline-offset-[2.5px] decoration-neutral-300 dark:decoration-neutral-500 duration-200 hover:decoration-neutral-500 dark:hover:decoration-neutral-300 hover:text-black dark:hover:text-white",
+          props.className,
+        )}
+      >
+        {children}
+      </Link>
+    );
+  },
   CodeHighlight: ({ children, ...props }) => (
     <span
       className="rounded-md bg-neutral-300/70 px-1 py-0.5 font-mono text-sm text-foreground dark:bg-neutral-800/70"
@@ -122,6 +141,9 @@ const components: MDXComponents = {
     >
       {children}
     </span>
+  ),
+  Image: ({ src, alt, ...props }) => (
+    <BlurImage src={src} alt={alt} {...props} />
   ),
   Tabs: ({ ...props }) => (
     <Tabs className={cn("relative w-full", props.className)} {...props} />

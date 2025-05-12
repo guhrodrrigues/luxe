@@ -4,6 +4,10 @@ import { cn } from "@/registry/utils/cn";
 
 export const Dialog = RadixDialog.Root;
 
+export const DialogTrigger = RadixDialog.Trigger;
+
+export const DialogClose = RadixDialog.Close;
+
 function DialogOverlay() {
   return (
     <RadixDialog.Overlay className="fixed top-0 left-0 size-full z-[999]">
@@ -18,11 +22,13 @@ function DialogOverlay() {
   );
 }
 
-type DialogContentProps = React.ComponentPropsWithoutRef<
-  typeof RadixDialog.Close
->;
+type DialogContentProps = React.ComponentProps<typeof RadixDialog.Content>;
 
-export function DialogContent({ children, className }: DialogContentProps) {
+export function DialogContent({
+  children,
+  className,
+  ...props
+}: DialogContentProps) {
   return (
     <RadixDialog.Portal>
       <DialogOverlay />
@@ -35,6 +41,7 @@ export function DialogContent({ children, className }: DialogContentProps) {
           "motion-safe:data-[state=closed]:animate-out motion-safe:data-[state=closed]:zoom-out-95 motion-safe:data-[state=closed]:fade-out",
           className,
         )}
+        {...props}
       >
         {children}
       </RadixDialog.Content>
@@ -100,7 +107,3 @@ export function DialogFooter({
     </div>
   );
 }
-
-export const DialogTrigger = RadixDialog.Trigger;
-
-export const DialogClose = RadixDialog.Close;

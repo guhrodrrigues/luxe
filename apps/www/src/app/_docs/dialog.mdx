@@ -92,14 +92,54 @@ export function DialogExample() {
 import {
   Dialog,
   DialogTrigger,
-  DialogPortal,
-  DialogOverlay,
   DialogContent,
   DialogTitle,
   DialogDescription,
   DialogFooter,
   DialogClose,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
+
+import { Button } from "@/components/ui/button";
+
+import { cn } from "@/utils/cn";
+
+export function DialogExample() {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="outline">Open</Button>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogTitle asChild>
+          <span className="block px-6 pt-5">Change Username</span>
+        </DialogTitle>
+        <DialogDescription className="px-6 py-1">
+          Make changes to your username here.
+        </DialogDescription>
+        <fieldset className="mb-[15px] flex items-center gap-4 px-6 py-4">
+          <input
+            id="name"
+            placeholder="@guhrodrrigues"
+            className={cn(
+              "flex h-[40px] w-full flex-1 items-center justify-center rounded-lg border border-[#dddddd]",
+              "bg-neutral-100 dark:border-[#222222] dark:bg-[#111111] px-2.5 text-[15px] text-base",
+              "leading-none transition-all text-neutral-600 dark:text-neutral-300 placeholder:text-neutral-400 dark:placeholder:text-neutral-500",
+              "focus:outline-none focus:ring focus:ring-neutral-400 dark:focus:ring-neutral-800",
+            )}
+          />
+        </fieldset>
+        <DialogFooter className="flex justify-between gap-4 px-6 py-3">
+          <DialogClose asChild>
+            <Button variant="outline">Cancel</Button>
+          </DialogClose>
+          <DialogClose asChild>
+            <Button>Save Changes</Button>
+          </DialogClose>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+}
 ```
 </CodeBlock>
 
@@ -242,11 +282,9 @@ import { cn } from "@/utils/cn";
 
 export const Dialog = RadixDialog.Root;
 
-type DialogPortalProps = React.ComponentProps<typeof RadixDialog.Portal>;
+export const DialogTrigger = RadixDialog.Trigger;
 
-function DialogPortal({ children, ...props }: DialogPortalProps) {
-  return <RadixDialog.Portal {...props}>{children}</RadixDialog.Portal>;
-}
+export const DialogClose = RadixDialog.Close;
 
 function DialogOverlay() {
   return (
@@ -254,35 +292,38 @@ function DialogOverlay() {
       <div
         className={cn(
           "fixed inset-0 bg-black/80 ease-out-quad",
-          "data-[state=open]:animate-in data-[state=open]:fade-in",
-          "data-[state=closed]:animate-out data-[state=closed]:fade-out",
+          "motion-safe:data-[state=open]:animate-in motion-safe:data-[state=open]:fade-in",
+          "motion-safe:data-[state=closed]:animate-out motion-safe:data-[state=closed]:fade-out",
         )}
       />
     </RadixDialog.Overlay>
   );
 }
 
-type DialogContentProps = React.ComponentPropsWithoutRef<
-  typeof RadixDialog.Close
->;
+type DialogContentProps = React.ComponentProps<typeof RadixDialog.Content>;
 
-export function DialogContent({ children, className }: DialogContentProps) {
+export function DialogContent({
+  children,
+  className,
+  ...props
+}: DialogContentProps) {
   return (
-    <DialogPortal>
+    <RadixDialog.Portal>
       <DialogOverlay />
       <RadixDialog.Content
         className={cn(
           "fixed left-1/2 top-1/2 z-[1001] -translate-x-1/2 -translate-y-1/2",
-          "rounded-xl shadow max-h-[85vh] w-[90vw] max-w-[400px] ease-out-quad focus:outline-none",
+          "rounded-xl shadow max-h-[85vh] w-[90vw] max-w-[400px] motion-safe:ease-out-quad focus:outline-none",
           "border border-[#dddddd] bg-neutral-100 dark:border-[#222222] dark:bg-[#111111]",
-          "data-[state=open]:animate-in data-[state=open]:zoom-in-95 data-[state=open]:fade-in",
-          "data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=closed]:fade-out",
+          "motion-safe:data-[state=open]:animate-in motion-safe:data-[state=open]:zoom-in-95 motion-safe:data-[state=open]:fade-in",
+          "motion-safe:data-[state=closed]:animate-out motion-safe:data-[state=closed]:zoom-out-95 motion-safe:data-[state=closed]:fade-out",
           className,
         )}
+        {...props}
       >
         {children}
       </RadixDialog.Content>
-    </DialogPortal>
+    </RadixDialog.Portal>
   );
 }
 
@@ -344,10 +385,6 @@ export function DialogFooter({
     </div>
   );
 }
-
-export const DialogTrigger = RadixDialog.Trigger;
-
-export const DialogClose = RadixDialog.Close;
 ```
 
 </CodeBlock>

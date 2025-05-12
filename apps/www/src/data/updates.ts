@@ -13,7 +13,7 @@ export const UPDATES: Update[] = [
     href: "v2.0",
     title: "Introducing Luxe 2.0",
     description:
-      "One of the biggest Luxe launches yet is here. This new version introduces powerful new components, a new CLI, and a complete redesign of everything.",
+      "One of Luxe's biggest launches yet is here. This new version introduces powerful components with variant props, a new CLI, and a complete redesign.",
     author: "Gustavo Rodrigues",
     banner: "/open-graphs/updates/v2.0.webp",
     author_image: "https://github.com/guhrodrrigues.png",

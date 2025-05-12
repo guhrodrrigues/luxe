@@ -62,7 +62,7 @@ slug: "vite"
 
 <div className="space-y-4 pb-10 pl-8 pt-1">
 
-<h2 className="font-medium text-primary">Install Tailwind CSS</h2>
+<h2 className="font-medium text-primary">Install Tailwind v4</h2>
 
 <CommandBlock
 	npmCommand="npm install tailwindcss @tailwindcss/vite" 
@@ -242,7 +242,18 @@ npm i -D @types/node
 
 <CodeBlock
 	fileName="vite.config.ts"
-	customFilePath="app/ui/installation/_data/_prompts/vite.txt"
+	simpleCode={`import { defineConfig } from "vite"
+import react from "@vitejs/plugin-react"
+import path from "path"
+ 
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+})`}
 	contentClassName="h-fit"
 >
 

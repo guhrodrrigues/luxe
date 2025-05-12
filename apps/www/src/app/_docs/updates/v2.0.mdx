@@ -1,6 +1,6 @@
 ---
 title: "Introducing Luxe 2.0"
-description: "One of the biggest Luxe launches yet is here. This new version introduces powerful new components, a new CLI, and a complete redesign of everything."
+description: "One of Luxe's biggest launches yet is here. This new version introduces powerful components with variant props, a new CLI, and a complete redesign."
 date: "May 19, 2025"
 author_image: "https://github.com/guhrodrrigues.png"
 author_twitter: "https://x.com/guhrodrrigues"
@@ -13,15 +13,83 @@ slug: "v2.0"
 
 <div className="space-y-4">
 
-One of the biggest Luxe launches yet is here. This new version introduces powerful new components, a new CLI, and a complete redesign of everything.
+One of Luxe's biggest launches yet is here. This new version introduces powerful components with variant props, a new CLI, and a complete redesign.
 
-My goal is to make building apps in the easiest way possible, using intuitive, beautiful, and functional components. This new version is a big step in that direction. I believe that what we want most is _“Build fast, ship with style”_.
+My goal is to make building apps in the easiest way possible, using intuitive, beautiful, and functional components. This new version is a big step in that direction. I believe that what we want most is _"Build fast, ship with style"_.
 
 </div>
 
 <div className="space-y-4">
 
-#### New Components
+#### Variant Props
+
+In the previous version, customizing components wasn't as straightforward. Now, you can easily customize components using the <CodeHighlight>variant</CodeHighlight> props.
+
+<div className="w-full h-[400px] rounded-xl border border-border dark:border-neutral-900 mt-6 mb-8" />
+
+As shown in the video above, it's now much simpler to apply styles. Previously, using <CodeHighlight>ButtonAnimatedBorder</CodeHighlight> required importing a separate component. Now, you can achieve the same effect by simply using the <CodeHighlight>Button variant="animated-border"</CodeHighlight>.
+
+The <CodeHighlight>Button</CodeHighlight> now supports nine variants: <CodeHighlight>shine</CodeHighlight>, <CodeHighlight>animated-border</CodeHighlight>, <CodeHighlight>rotate-border</CodeHighlight>, <CodeHighlight>magnetic</CodeHighlight>, <CodeHighlight>glitch-brightness</CodeHighlight>, <CodeHighlight>default</CodeHighlight>, <CodeHighlight>outline</CodeHighlight>, <CodeHighlight>success</CodeHighlight>, and <CodeHighlight>destructive</CodeHighlight>.
+
+You can also use the <CodeHighlight>variant</CodeHighlight> props with <Link href="/ui/badge">Badge</Link>, <Link href="/ui/card">Card</Link>, and <Link href="/ui/text">Text</Link>.
+
+To be honest, this feature is one of my favorites ones. It's a game changer for customizing components.
+
+</div>
+
+<div className="space-y-4">
+
+#### New Components 
+
+<div className="relative w-full h-[400px] rounded-xl border border-transparent dark:border-neutral-900 mt-6 mb-8 overflow-hidden">
+
+<video src="/videos/v2.0/new-components.mp4" className="absolute inset-0 size-full object-cover rounded-[inherit]" autoPlay muted loop playsInline />
+
+</div>
+
+All components were entirely reengineered from the ground up, including <Link href="/ui/accordion">Accordion</Link>, <Link href="/ui/checkbox">Checkbox</Link>, <Link href="/ui/switch">Switch</Link>, and <Link href="/ui/tooltip">Tooltip</Link>. Using <Link href="https://radix-ui.com/primitives" isExternal>Radix UI</Link> and <Link href="https://tailwindcss.com" isExternal>Tailwind v4</Link>, respecting user motion preferences.
+
+Luxe is now much cleaner and simpler to use. The sidebar has been redesigned into a single component per category, making the docs far more organized. In v1.0, the sidebar had 34+ components, now it's down to just 13, powered by <CodeHighlight>variant</CodeHighlight> props.
+
+<div className="overflow-hidden border border-transparent dark:border-neutral-900 rounded-2xl mt-8 mb-10">
+
+<Image src="/images/v2.0/sidebar.png" alt="Old/New components sidebar" width={1920} height={1000} />
+
+</div>
+
+</div>
+
+<div className="space-y-4 pt-1.5">
+
+#### New CLI
+
+One of the most requested features was the ability to copy and paste components into your project with a single command. Now, you can do exactly that using the CLI.
+
+<div className="w-full h-[400px] rounded-xl border border-border dark:border-neutral-900 my-8" />
+
+You can learn more in the <Link href="/ui/cli">CLI docs</Link>. Get started by running <CodeHighlight>npx @luxeui/ui init</CodeHighlight>, then use <CodeHighlight>npx @luxeui/ui add</CodeHighlight> to add components to your project.
+
+This marks a major step toward making Luxe more developer friendly and efficient. It's currently in beta, and we're actively refining it based on real world feedback. While it's already powerful, some commands and components may still evolve as we stabilize features and improve the developer experience.
+
+This CLI was built in collaboration with <Link href="https://x.com/lucasaugustsof" isExternal>Lucas Augusto</Link>, a Design Systems Specialist and Creator of <Link href="https://github.com/lucasaugustsof/hynix" isExternal>Hynix</Link>. His expertise in building CLI was fundamental, making his contribution essential to Luxe's future.
+
+</div>
+
+<div className="space-y-4">
+
+#### Redesign
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. 
+
+<div className="w-full h-[400px] rounded-xl border border-border dark:border-neutral-900 my-8" />
+
+</div>
+
+<div className="space-y-4">
+
+#### Next Steps
+
+Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. 
 
 </div>
 
