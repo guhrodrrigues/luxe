@@ -62,10 +62,10 @@ export default function UpdatesPage() {
                 </div>
               </div>
               <div className="flex flex-col gap-6 py-3 max-lg:justify-center max-lg:items-center">
-                <div className="group w-fit relative block rounded-full py-[5px] px-3 bg-[#eeeeee] dark:bg-[#161616] dark:shadow-inner dark:shadow-neutral-800/80 border border-neutral-400/20 dark:border-neutral-700/70">
+                <div className="group w-fit relative block rounded-full py-1 px-2.5 bg-[#eeeeee] dark:bg-[#161616] dark:shadow-inner dark:shadow-neutral-800/80 border border-neutral-400/20 dark:border-neutral-700/70">
                   <div className="relative z-10 flex items-center justify-between">
-                    <span className="font-normal text-gradient tracking-tight text-sm">
-                      Featured
+                    <span className="font-medium text-gradient tracking-tight text-sm">
+                      Latest
                     </span>
                   </div>
                 </div>
