@@ -1,5 +1,3 @@
-import { cn } from "@/utils/cn";
-
 import { ButtonGlitchBrightness } from "@/app/_components/ButtonGlitchBrightness";
 import { AnimateEnter } from "../AnimateEnter";
 import { GridBackground } from "../GridBackground";
@@ -43,7 +41,7 @@ export async function HeroContent() {
       </div>
       <AnimateEnter delay={0.9} duration={2} className="space-y-4">
         <h1 className="text-sm text-foreground/60 dark:text-foreground/80">
-          Build with
+          Using
         </h1>
         <Techs />
       </AnimateEnter>

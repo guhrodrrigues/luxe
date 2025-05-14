@@ -10,7 +10,7 @@ export function Techs() {
             className="flex items-center gap-1.5 pointer-events-none select-none"
           >
             <span>{icon}</span>
-            <span className="flex-shrink-0 text-lg font-semibold -tracking-wide text-primary">
+            <span className="flex-shrink-0 text-lg font-semibold -tracking-wide text-neutral-400">
               {name}
             </span>
           </div>
@@ -23,7 +23,7 @@ export function Techs() {
             className="flex items-center gap-1.5 pointer-events-none select-none"
           >
             <span>{icon}</span>
-            <span className="flex-shrink-0 text-lg font-semibold -tracking-wide text-primary">
+            <span className="flex-shrink-0 text-lg font-semibold -tracking-wide text-neutral-400">
               {name}
             </span>
           </div>

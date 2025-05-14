@@ -19,7 +19,7 @@ export const Icons = {
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       className={cn(
-        "mr-1 h-[28px] w-[28px] text-neutral-600 dark:text-neutral-300",
+        "mr-1 h-[28px] w-[28px] text-neutral-400 dark:text-neutral-400",
         props.className,
       )}
       fill="currentColor"
@@ -34,7 +34,7 @@ export const Icons = {
       fill="currentColor"
       strokeWidth="0"
       viewBox="0 0 24 24"
-      className="flex-shrink-0 text-neutral-600 dark:text-neutral-300"
+      className="flex-shrink-0 text-neutral-400 dark:text-neutral-400"
       width="34"
       height="34"
       xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +49,7 @@ export const Icons = {
       width="42"
       height="14"
       viewBox="0 0 1400 454"
-      className={cn("fill-neutral-600 dark:fill-neutral-300", props.className)}
+      className={cn("fill-neutral-400 dark:fill-neutral-400", props.className)}
       {...props}
     >
       <path
@@ -193,7 +193,7 @@ export const Icons = {
       height="24"
       fill="none"
       viewBox="4 0 17 25"
-      className={cn("fill-neutral-600 dark:fill-neutral-300", props.className)}
+      className={cn("fill-neutral-400 dark:fill-neutral-400", props.className)}
       {...props}
     >
       <path
