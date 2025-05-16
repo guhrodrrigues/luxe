@@ -88,8 +88,6 @@ function MultiStepModalContent({
             'max-w-96 overflow-hidden rounded-xl border border-border bg-neutral-100 focus:outline-none',
             '-translate-x-1/2 fixed top-1/3 left-1/2',
             '[--dark-bg:#111111] dark:bg-(--dark-bg)',
-
-            // Animations
             'motion-safe:ease-out-quad',
             'motion-safe:data-[state=open]:fade-in motion-safe:data-[state=open]:zoom-in-95 motion-safe:data-[state=open]:animate-in',
             'motion-safe:data-[state=closed]:fade-out motion-safe:data-[state=open]:zoom-out-95 motion-safe:data-[state=closed]:animate-out',
@@ -103,6 +101,7 @@ function MultiStepModalContent({
               initial="initial"
               animate="active"
               exit="exit"
+              custom={direction}
             >
               <RadixDialog.Title
                 className={cn(
@@ -126,8 +125,6 @@ function MultiStepModalContent({
             className={cn(
               'mt-2 flex items-center justify-between border-border border-t bg-neutral-100 px-4 py-2',
               '[--dark-bg:#0f0f0f] dark:bg-(--dark-bg)',
-
-              // buttons
               '*:h-8 *:w-24 *:rounded-full *:border *:border-border *:bg-neutral-100 *:px-3 *:font-medium *:text-black *:text-sm/5.5',
               '[--dark-btn-bg:#171717] dark:*:bg-(--dark-btn-bg) dark:*:text-white',
               '*:disabled:cursor-not-allowed *:disabled:opacity-50',
