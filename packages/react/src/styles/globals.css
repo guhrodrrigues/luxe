@@ -4,121 +4,131 @@
 @import "./luxe.css";
 
 :root {
-	--background: #f5f5f5;
-	--main: #f3f3f3;
-	--dotted: #b8b8b8;
-	--primary: #000000;
-	--foreground: #4a4c52;
-	--border: #d9d9d9;
-	--shiki-theme: var(--shiki--light);
-	--shiki--light: var(--shiki-theme,);
-	--shiki--dark: var(--shiki-theme,);
-	--scrollbar: #a7a7a7;
-	--shiki-theme: var(--shiki--light);
+  --background: #f5f5f5;
+  --main: #f3f3f3;
+  --dotted: #b8b8b8;
+  --primary: #000000;
+  --foreground: #4a4c52;
+  --shiki-theme: var(--shiki--light);
+  --shiki--light: var(--shiki-theme,);
+  --shiki--dark: var(--shiki-theme,);
+  --scrollbar: #a7a7a7;
+  --shiki-theme: var(--shiki--light);
 }
 
 .dark {
-	--background: #0a0a0a;
-	--main: #0c0c0c;
-	--dotted: #292929;
-	--primary: #ffffff;
-	--foreground: #b5b3ad;
-	--border: #262626;
-	--shiki-theme: var(--shiki--dark);
-	--shiki--light: var(--shiki-theme,);
-	--shiki--dark: var(--shiki-theme,);
-	--scrollbar: #262626;
-	--shiki-theme: var(--shiki--dark);
+  --background: #0a0a0a;
+  --main: #0c0c0c;
+  --dotted: #292929;
+  --primary: #ffffff;
+  --foreground: #b5b3ad;
+  --shiki-theme: var(--shiki--dark);
+  --shiki--light: var(--shiki-theme,);
+  --shiki--dark: var(--shiki-theme,);
+  --scrollbar: #262626;
+  --shiki-theme: var(--shiki--dark);
 }
 
 @theme inline {
-	--color-background: var(--background);
-	--color-background-muted: #0d0d0d;
-	--color-main: var(--main);
-	--color-secondary: #c2c2c2;
-	--color-primary: var(--primary);
-	--color-foreground: var(--foreground);
-	--color-muted: #0a0a0a;
-	--color-border: var(--border);
+  --color-background: var(--background);
+  --color-background-muted: #0d0d0d;
+  --color-main: var(--main);
+  --color-secondary: #c2c2c2;
+  --color-primary: var(--primary);
+  --color-foreground: var(--foreground);
+  --color-muted: #0a0a0a;
 
-	--font-sans: var(--font-geist-sans);
-	--font-mono:
-		"__GeistMono_c1e5c9", ui-monospace, SFMono-Regular, Roboto Mono, Menlo,
-		Monaco, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
+  --font-sans: var(--font-geist-sans);
+  --font-mono:
+    "__GeistMono_c1e5c9", ui-monospace, SFMono-Regular, Roboto Mono, Menlo,
+    Monaco, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
+
+  --animate-spotlight: spotlight 2s ease 1 forwards;
+
+  @keyframes spotlight {
+    0% {
+      opacity: 0;
+      transform: translate(-72%, -62%) scale(0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -40%) scale(1);
+    }
+  }
 }
 
 @layer base {
-	img,
-	button {
-		@apply select-none;
-	}
+  img,
+  button {
+    @apply select-none;
+  }
 
-	::selection {
-		@apply bg-neutral-400/20;
-	}
+  ::selection {
+    @apply bg-neutral-400/20;
+  }
 
-	.top-dotted {
-		@apply [background-image:linear-gradient(90deg,var(--dotted)_25%,transparent_25%)] [background-repeat:repeat-x] [background-size:4px_1px];
-	}
+  .top-dotted {
+    @apply [background-image:linear-gradient(90deg,var(--dotted)_25%,transparent_25%)] [background-repeat:repeat-x] [background-size:4px_1px];
+  }
 
-	.bottom-dotted {
-		@apply [background-image:linear-gradient(90deg,var(--dotted)_25%,transparent_25%)] [background-repeat:repeat-x] [background-size:4px_1px] [background-position:bottom];
-	}
+  .bottom-dotted {
+    @apply [background-image:linear-gradient(90deg,var(--dotted)_25%,transparent_25%)] [background-repeat:repeat-x] [background-size:4px_1px] [background-position:bottom];
+  }
 
-	.right-dotted {
-		@apply [background-image:linear-gradient(0deg,var(--dotted)_25%,transparent_25%)] [background-position:100%] [background-repeat:repeat-y] [background-size:1px_4px];
-	}
+  .right-dotted {
+    @apply [background-image:linear-gradient(0deg,var(--dotted)_25%,transparent_25%)] [background-position:100%] [background-repeat:repeat-y] [background-size:1px_4px];
+  }
 }
 
 * {
-	font-variant-ligatures: none;
-	-webkit-tap-highlight-color: transparent;
-	scrollbar-width: thin;
-	scrollbar-color: var(--scrollbar) transparent;
+  font-variant-ligatures: none;
+  -webkit-tap-highlight-color: transparent;
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar) transparent;
 }
 
 html {
-	-webkit-text-size-adjust: 100%;
-	-moz-tab-size: 4;
-	-o-tab-size: 4;
-	tab-size: 4;
-	font-feature-settings: normal;
-	font-variation-settings: normal;
+  -webkit-text-size-adjust: 100%;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
 }
 
 .shiki {
-	background-color: transparent !important;
-	font-size: 14px;
-	border: 1px solid transparent;
-	font-family: var(--font-mono);
+  background-color: transparent !important;
+  font-size: 14px;
+  border: 1px solid transparent;
+  font-family: var(--font-mono);
 
-	&:focus-visible {
-		border-color: var(--border);
-		outline: none;
-	}
+  &:focus-visible {
+    border-color: var(--border);
+    outline: none;
+  }
 
-	& span {
-		color: var(--shiki--light, var(--_s-light))
-			var(--shiki--dark, var(--_s-dark));
-	}
+  & span {
+    color: var(--shiki--light, var(--_s-light))
+      var(--shiki--dark, var(--_s-dark));
+  }
 }
 
 button {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .text-gradient {
-	background: linear-gradient(
-		to right bottom,
-		var(--primary) 30%,
-		color-mix(in srgb, var(--primary) 50%, transparent)
-	);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
-	color: unset;
+  background: linear-gradient(
+    to right bottom,
+    var(--primary) 30%,
+    color-mix(in srgb, var(--primary) 50%, transparent)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: unset;
 }
 
 body {
-	@apply bg-background;
+  @apply bg-background;
 }
