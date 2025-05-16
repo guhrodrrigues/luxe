@@ -1,4 +1,4 @@
-import { MultiStepModal } from "@/app/_components/ui/multi-step-modal";
+import { MultiStepModal } from "@/app/_components/OldMultiStepModal";
 import { AnimatedTabs } from "@/app/_components/ui/animated-tabs";
 import { TooltipExample } from "@/app/ui/_components/examples/TooltipExample";
 import { ComponentView } from "@/app/ui/_components/ComponentView";

@@ -9,13 +9,14 @@ import {
   type Variants,
   MotionConfig,
 } from 'motion/react'
-// import useMeasure from 'react-use-measure'
+
+import useMeasure from 'react-use-measure'
 
 import { cn } from '@/registry/utils/cn'
 
-const MultiStepModal = RadixDialog.Root
-const MultiStepModalTrigger = RadixDialog.Trigger
-const MultiStepModalClose = RadixDialog.Close
+export const MultiStepModal = RadixDialog.Root
+export const MultiStepModalTrigger = RadixDialog.Trigger
+export const MultiStepModalClose = RadixDialog.Close
 
 type MultiStepModalSteps = {
   title: string
@@ -28,7 +29,7 @@ type MultiStepModalContentProps = React.CustomComponentPropsWithRef<
   steps: MultiStepModalSteps[]
 }
 
-function MultiStepModalContent({
+export function MultiStepModalContent({
   steps,
   ...props
 }: MultiStepModalContentProps) {
@@ -38,7 +39,7 @@ function MultiStepModalContent({
   const [activeContentIndex, setActiveContentIndex] = useState(MIN_STEP)
   const [direction, setDirection] = useState<number>(1)
 
-  // const [ref, { height }] = useMeasure()
+  const [ref, { height: heightContent }] = useMeasure()
 
   const { title, description } = steps[activeContentIndex]
 
@@ -57,11 +58,13 @@ function MultiStepModalContent({
       return {
         x: `${110 * dir}%`,
         opacity: 0,
+				height: heightContent > 0 ? heightContent : "auto",
       }
     },
     active: {
       x: '0%',
       opacity: 1,
+			height: heightContent > 0 ? heightContent : "auto",
     },
     exit: (dir: number) => {
       return {
@@ -81,52 +84,41 @@ function MultiStepModalContent({
             'motion-safe:data-[state=closed]:fade-out motion-safe:data-[state=closed]:animate-out',
           )}
         />
-
         <RadixDialog.Content
           {...props}
           className={cn(
-            'max-w-96 overflow-hidden rounded-xl border border-border bg-neutral-100 focus:outline-none',
-            '-translate-x-1/2 fixed top-1/3 left-1/2',
-            '[--dark-bg:#111111] dark:bg-(--dark-bg)',
-            'motion-safe:ease-out-quad',
+            'max-w-96 overflow-hidden rounded-xl border border-border bg-main focus:outline-none',
+            '-translate-x-1/2 fixed top-1/3 left-1/2 motion-safe:ease-out-quad',
             'motion-safe:data-[state=open]:fade-in motion-safe:data-[state=open]:zoom-in-95 motion-safe:data-[state=open]:animate-in',
             'motion-safe:data-[state=closed]:fade-out motion-safe:data-[state=open]:zoom-out-95 motion-safe:data-[state=closed]:animate-out',
           )}
         >
-          <AnimatePresence initial={false} mode="popLayout" custom={direction}>
-            <motion.main
-              className={cn('px-4 py-3')}
-              key={activeContentIndex}
-              variants={slideMotionVariants}
-              initial="initial"
-              animate="active"
-              exit="exit"
-              custom={direction}
-            >
-              <RadixDialog.Title
-                className={cn(
-                  'mb-2 font-medium text-base text-neutral-700 dark:text-neutral-100',
-                )}
-              >
-                {title}
-              </RadixDialog.Title>
-
-              <RadixDialog.Description
-                className={cn(
-                  'font-normal text-neutral-500 text-sm/5.5 dark:text-neutral-400',
-                )}
-              >
-                {description}
-              </RadixDialog.Description>
-            </motion.main>
-          </AnimatePresence>
-
+					<div className='px-4 pt-4 pb-3'>
+						<AnimatePresence initial={false} mode="popLayout" custom={direction}>
+							<motion.div
+								key={activeContentIndex}
+								variants={slideMotionVariants}
+								initial="initial"
+								animate="active"
+								exit="exit"
+								custom={direction}
+							>
+								<div ref={ref}>
+									<RadixDialog.Title className='mb-2 font-medium text-base text-primary-foreground'>
+										{title}
+									</RadixDialog.Title>
+									<RadixDialog.Description className='font-normal text-primary-muted text-sm/5.5'>
+										{description}
+									</RadixDialog.Description>
+								</div>
+							</motion.div>
+						</AnimatePresence>
+					</div>
           <footer
             className={cn(
-              'mt-2 flex items-center justify-between border-border border-t bg-neutral-100 px-4 py-2',
-              '[--dark-bg:#0f0f0f] dark:bg-(--dark-bg)',
-              '*:h-8 *:w-24 *:rounded-full *:border *:border-border *:bg-neutral-100 *:px-3 *:font-medium *:text-black *:text-sm/5.5',
-              '[--dark-btn-bg:#171717] dark:*:bg-(--dark-btn-bg) dark:*:text-white',
+              'mt-2 flex items-center justify-between border-border border-t px-4 py-2',
+              'bg-main-muted *:rounded-full *:border *:border-border *:bg-main-foreground *:text-primary',
+              '*:h-8 *:w-24 *:px-3 *:font-medium *:text-[13px]/5.5',
               '*:disabled:cursor-not-allowed *:disabled:opacity-50',
             )}
           >
@@ -137,7 +129,6 @@ function MultiStepModalContent({
             >
               Back
             </button>
-
             <button
               type="button"
               onClick={() => handleControlsNavigation('next')}
@@ -150,11 +141,4 @@ function MultiStepModalContent({
       </RadixDialog.Portal>
     </MotionConfig>
   )
-}
-
-export {
-  MultiStepModal,
-  MultiStepModalTrigger,
-  MultiStepModalClose,
-  MultiStepModalContent,
 }

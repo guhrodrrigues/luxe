@@ -2,29 +2,33 @@
 @import "tw-animate-css";
 
 :root {
-  --bg: oklch(0.97 0 0);
-  --bg-muted: oklch(0.96 0 0);
+  --main: oklch(0.97 0 0);
+  --main-muted: oklch(0.96 0 0);
+  --main-foreground: oklch(97% 0 0);
   --primary: oklch(0 0 0);
   --primary-foreground: oklch(37.1% 0 0);
-  --muted: oklch(0.205 0 0);
+	--primary-muted: oklch(0.556 0 0);
   --border: oklch(0.97 0 0);
 }
 
 .dark {
-  --bg: oklch(0.178 0 0);
-  --bg-muted: oklch(0.168 0 0);
+  --main: oklch(0.178 0 0);
+  --main-muted: oklch(0.168 0 0);
+  --main-foreground: oklch(0.205 0 0);
   --primary: oklch(1 0 0);
   --primary-foreground: oklch(0.97 0 0);
-  --muted: oklch(0.205 0 0);
+	--primary-muted: oklch(0.708 0 0);
   --border: oklch(0.26 0 0);
 }
 
 @theme inline {
-  --color-bg: var(--bg);
-  --color-bg-muted: var(--bg-muted);
+  --color-main: var(--main);
+  --color-main-muted: var(--main-muted);
+  --color-main-foreground: var(--main-foreground);
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
-  --color-muted: var(--muted);
+  --color-primary-muted: var(--primary-muted);
+  --color-border: var(--border);
 
   --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
@@ -86,7 +90,7 @@
       width: 10px;
       opacity: 0;
     }
-    to: {
+    to {
       width: 100px;
       opacity: 1;
     }

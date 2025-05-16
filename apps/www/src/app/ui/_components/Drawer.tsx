@@ -91,7 +91,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
           }
         >
           <VaulDrawer.Title className="sr-only">Drawer Title</VaulDrawer.Title>
-          <div className="relative flex h-full w-full grow flex-col rounded-[16px] bg-main px-3 pb-5">
+          <div className="relative flex h-full w-full grow flex-col rounded-[16px] bg-drawer px-3 pb-5">
             <div className="flex items-center justify-between gap-2 px-2 py-3">
               <a
                 href="https://github.com/guhrodrrigues/luxe"

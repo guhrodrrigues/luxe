@@ -1,11 +1,11 @@
 @import "tailwindcss";
-@custom-variant dark (&:is(.dark *));
-
 @import "./luxe.css";
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
   --background: #f5f5f5;
-  --main: #f3f3f3;
+  --drawer: #f3f3f3;
   --dotted: #b8b8b8;
   --primary: #000000;
   --foreground: #4a4c52;
@@ -19,7 +19,7 @@
 
 .dark {
   --background: #0a0a0a;
-  --main: #0c0c0c;
+  --drawer: #0c0c0c;
   --dotted: #292929;
   --primary: #ffffff;
   --foreground: #b5b3ad;
@@ -34,7 +34,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-background-muted: #0d0d0d;
-  --color-main: var(--main);
+  --color-drawer: var(--drawer);
   --color-secondary: #c2c2c2;
   --color-primary: var(--primary);
   --color-foreground: var(--foreground);
@@ -43,6 +43,19 @@
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+	--animate-spotlight: spotlight 2s ease 1 forwards;
+
+	@keyframes spotlight {
+    0% {
+      opacity: 0;
+      transform: translate(-72%, -62%) scale(0.5);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(-50%, -40%) scale(1);
+    }
+  }
 }
 
 @layer base {

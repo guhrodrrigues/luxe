@@ -270,8 +270,8 @@ export function CommandMenu() {
       <button
         onClick={() => setIsOpen((prev) => !prev)}
         className={cn(
-          "w-64 flex items-center justify-between gap-2 pl-3 pr-2 py-[6px] rounded-lg border text-[13px] leading-none border-border bg-[#eeeeee]",
-          "dark:bg-[#101010] shadow-inner shadow-neutral-300 transition-all duration-200 dark:shadow-neutral-800/60 dark:to-neutral-500/60",
+          "relative w-64 flex items-center justify-between gap-2 pl-3 pr-2 py-[6px] rounded-lg border text-[13px] leading-none border-border/80",
+          "bg-[#eeeeee] dark:bg-[#101010] transition-all duration-200",
         )}
       >
         <span className="flex items-center gap-2 text-neutral-500">
@@ -280,12 +280,16 @@ export function CommandMenu() {
         </span>
         <span
           className={cn(
-            "text-neutral-500 border border-border bg-[#eeeeee] dark:bg-[#101010] shadow-inner dark:text-neutral-400",
-            "shadow-neutral-300 dark:shadow-neutral-800/60 px-1.5 py-1 rounded-md text-[10px] flex items-center gap-0.5",
+            "text-neutral-500 border border-border bg-[#eeeeee] dark:bg-[#101010] dark:shadow-inner dark:text-neutral-400",
+            "dark:shadow-neutral-800/60 px-1.5 py-1 rounded-md text-[10px] flex items-center gap-0.5",
           )}
         >
           <CommandIcon size={10} />K
         </span>
+				<div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 -top-px h-px w-1/2 max-w-[1000px] -translate-x-1/4 -translate-y-1/2 bg-gradient-to-l from-transparent via-white/30 via-30% to-transparent"
+        />
       </button>
       <CommandDialog open={isOpen} onOpenChange={setIsOpen}>
         <div className="pt-3 pl-4">

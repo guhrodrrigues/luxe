@@ -7,7 +7,7 @@ import { Icons } from "@/app/_components/Icons";
 import { cn } from "@/utils/cn";
 
 const ITEMS = [
-  { icon: <Icons.sun />, theme: "light" },
+	{ icon: <Icons.sun />, theme: "light" },
   { icon: <Icons.moon />, theme: "dark" },
 ];
 

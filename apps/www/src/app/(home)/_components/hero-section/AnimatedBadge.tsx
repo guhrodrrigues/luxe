@@ -70,7 +70,7 @@ export function AnimatedBadge() {
         aria-hidden
         className={cn(
           "absolute inset-0 size-full bg-black/40 dark:bg-white/25 blur-[6px] -z-[1] rounded-full",
-          isHover && "delay-150 animate-pulse",
+          isHover && "animate-pulse",
         )}
         animate={{ opacity: isHover ? 0.5 : 0 }}
         transition={{ duration: 0.7 }}
