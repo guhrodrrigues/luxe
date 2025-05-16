@@ -1,15 +1,15 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react'
 
 import {
   TooltipProvider,
   Tooltip,
   TooltipTrigger,
   TooltipContent,
-} from "@/registry/components/tooltip";
-import { Button } from "@/registry/components/button";
+} from '@/registry/components/tooltip'
+import { Button } from '@/registry/components/button'
 
 const meta: Meta = {
-  title: "components/Tooltip",
+  title: 'components/Tooltip',
   component: () => (
     <TooltipProvider>
       <Tooltip>
@@ -23,10 +23,10 @@ const meta: Meta = {
     </TooltipProvider>
   ),
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-};
+}
 
-export default meta;
+export default meta
 
-export const Basic: StoryObj = {};
+export const Basic: StoryObj = {}

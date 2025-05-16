@@ -1,22 +1,22 @@
-import * as RadixTooltip from "@radix-ui/react-tooltip";
+import * as RadixTooltip from '@radix-ui/react-tooltip'
 
-import { cn } from "@/registry/utils/cn";
+import { cn } from '@/registry/utils/cn'
 
-export const Tooltip = RadixTooltip.Root;
+export const Tooltip = RadixTooltip.Root
 
-export const TooltipTrigger = RadixTooltip.Trigger;
+export const TooltipTrigger = RadixTooltip.Trigger
 
-type TooltipProviderProps = React.ComponentProps<typeof RadixTooltip.Provider>;
+type TooltipProviderProps = React.ComponentProps<typeof RadixTooltip.Provider>
 
 export function TooltipProvider({ children, ...props }: TooltipProviderProps) {
   return (
     <RadixTooltip.Provider delayDuration={0} {...props}>
       {children}
     </RadixTooltip.Provider>
-  );
+  )
 }
 
-type TooltipContentProps = React.ComponentProps<typeof RadixTooltip.Content>;
+type TooltipContentProps = React.ComponentProps<typeof RadixTooltip.Content>
 
 export function TooltipContent({
   children,
@@ -29,11 +29,11 @@ export function TooltipContent({
       <RadixTooltip.Content
         sideOffset={sideOffset}
         className={cn(
-          "px-3 py-1.5 z-50 overflow-hidden rounded-lg border border-[#dddddd] dark:border-[#222222]",
-          "text-xs text-neutral-500 dark:text-neutral-300 bg-neutral-100 dark:bg-[#111111]",
-          "motion-safe:animate-in motion-safe:fade-in-0 motion-safe:zoom-in-95 motion-safe:data-[state=closed]:animate-out motion-safe:data-[state=closed]:fade-out-0",
-          "motion-safe:data-[state=closed]:zoom-out-95 motion-safe:data-[side=bottom]:slide-in-from-top-2 motion-safe:data-[side=left]:slide-in-from-right-2",
-          "motion-safe:data-[side=right]:slide-in-from-left-2 motion-safe:data-[side=top]:slide-in-from-bottom-2",
+          'z-50 overflow-hidden rounded-lg border border-[#dddddd] bg-neutral-100 px-3 py-1.5 text-neutral-500 text-xs dark:border-[#222222]',
+          'dark:bg-[#111111] dark:text-neutral-300',
+          'motion-safe:fade-in-0 motion-safe:zoom-in-95 motion-safe:data-[state=closed]:fade-out-0 motion-safe:animate-in motion-safe:data-[state=closed]:animate-out',
+          'motion-safe:data-[state=closed]:zoom-out-95 motion-safe:data-[side=bottom]:slide-in-from-top-2 motion-safe:data-[side=left]:slide-in-from-right-2',
+          'motion-safe:data-[side=right]:slide-in-from-left-2 motion-safe:data-[side=top]:slide-in-from-bottom-2',
           className,
         )}
         {...props}
@@ -41,5 +41,5 @@ export function TooltipContent({
         {children}
       </RadixTooltip.Content>
     </RadixTooltip.Portal>
-  );
+  )
 }

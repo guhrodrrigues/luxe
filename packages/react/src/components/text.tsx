@@ -1,31 +1,31 @@
-"use client"; // @NOTE: Add in case you are using Next.js
+'use client' // @NOTE: Add in case you are using Next.js
 
-import { motion, MotionProps } from "motion/react";
-import * as Slot from "@radix-ui/react-slot";
+import { motion, type MotionProps } from 'motion/react'
+import * as Slot from '@radix-ui/react-slot'
 
-import { cn } from "@/registry/utils/cn";
+import { cn } from '@/registry/utils/cn'
 
 type Variant = {
-  variant: string;
-  component: React.FC<React.ComponentProps<"span"> & Partial<MotionProps>>;
-};
+  variant: string
+  component: React.FC<React.ComponentProps<'span'> & Partial<MotionProps>>
+}
 
 const variants: readonly Variant[] = [
   {
-    variant: "shine",
+    variant: 'shine',
     component: ({ children, className, ...props }) => (
       <motion.span
         {...props}
         className={cn(
-          "bg-[linear-gradient(110deg,#bfbfbf,35%,#000,50%,#bfbfbf,75%,#bfbfbf)] dark:bg-[linear-gradient(110deg,#404040,35%,#fff,50%,#404040,75%,#404040)]",
-          "bg-[length:200%_100%] bg-clip-text text-transparent",
+          'bg-[linear-gradient(110deg,#bfbfbf,35%,#000,50%,#bfbfbf,75%,#bfbfbf)] dark:bg-[linear-gradient(110deg,#404040,35%,#fff,50%,#404040,75%,#404040)]',
+          'bg-[length:200%_100%] bg-clip-text text-transparent',
         )}
-        initial={{ backgroundPosition: "200% 0" }}
-        animate={{ backgroundPosition: "-200% 0" }}
+        initial={{ backgroundPosition: '200% 0' }}
+        animate={{ backgroundPosition: '-200% 0' }}
         transition={{
-          repeat: Infinity,
+          repeat: Number.POSITIVE_INFINITY,
           duration: 2,
-          ease: "linear",
+          ease: 'linear',
         }}
       >
         {children}
@@ -33,29 +33,29 @@ const variants: readonly Variant[] = [
     ),
   },
   {
-    variant: "generate-effect",
+    variant: 'generate-effect',
     component: ({ children, className, ...props }) => {
-      if (typeof children !== "string") return null;
+      if (typeof children !== 'string') return null
 
       return (
         <div className="inline-block whitespace-pre">
-          {children.split("").map((char, index) => (
+          {children.split('').map((char, index) => (
             <motion.span
               {...props}
-              key={char + index}
+              key={char + String(index)}
               className={cn(
-                "inline-block whitespace-pre text-neutral-500 dark:text-neutral-200",
+                'inline-block whitespace-pre text-neutral-500 dark:text-neutral-200',
                 className,
               )}
-              initial={{ opacity: 0, filter: "blur(4px)", rotateX: 90, y: 5 }}
+              initial={{ opacity: 0, filter: 'blur(4px)', rotateX: 90, y: 5 }}
               whileInView={{
                 opacity: 1,
-                filter: "blur(0px)",
+                filter: 'blur(0px)',
                 rotateX: 0,
                 y: 0,
               }}
               transition={{
-                ease: "easeOut",
+                ease: 'easeOut',
                 duration: 0.3,
                 delay: index * 0.015,
               }}
@@ -65,21 +65,21 @@ const variants: readonly Variant[] = [
             </motion.span>
           ))}
         </div>
-      );
+      )
     },
   },
   {
-    variant: "glitch",
+    variant: 'glitch',
     component: ({ children, className, ...props }) => (
       <div className="group relative overflow-hidden font-medium">
-        <span {...props} className={cn("invisible", className)}>
+        <span {...props} className={cn('invisible', className)}>
           {children}
         </span>
         <span
           {...props}
           className={cn(
-            "absolute left-0 top-0 text-neutral-500 transition-transform duration-500 ease-in-out",
-            "hover:duration-300 group-hover:-translate-y-full dark:text-neutral-400",
+            'absolute top-0 left-0 text-neutral-500 transition-transform duration-500 ease-in-out',
+            'group-hover:-translate-y-full hover:duration-300 dark:text-neutral-400',
             className,
           )}
         >
@@ -88,8 +88,8 @@ const variants: readonly Variant[] = [
         <span
           {...props}
           className={cn(
-            "absolute left-0 top-0 translate-y-full text-neutral-500 transition-transform duration-500",
-            "ease-in-out hover:duration-300 group-hover:translate-y-0 dark:text-neutral-400",
+            'absolute top-0 left-0 translate-y-full text-neutral-500 transition-transform duration-500',
+            'ease-in-out hover:duration-300 group-hover:translate-y-0 dark:text-neutral-400',
             className,
           )}
         >
@@ -99,22 +99,22 @@ const variants: readonly Variant[] = [
     ),
   },
   {
-    variant: "hover-enter",
+    variant: 'hover-enter',
     component: ({ children, className, ...props }) => {
-      if (typeof children !== "string") return null;
+      if (typeof children !== 'string') return null
 
-      const DURATION = 0.25;
-      const STAGGER = 0.025;
+      const DURATION = 0.25
+      const STAGGER = 0.025
 
       const letters = children
-        .split("")
-        .map((letter) => (letter === " " ? "\u00A0" : letter));
+        .split('')
+        .map(letter => (letter === ' ' ? '\u00A0' : letter))
 
       return (
         <motion.span
           {...props}
           className={cn(
-            "relative block select-none overflow-hidden whitespace-nowrap text-neutral-500 dark:text-neutral-400",
+            'relative block select-none overflow-hidden whitespace-nowrap text-neutral-500 dark:text-neutral-400',
             className,
           )}
           initial="initial"
@@ -124,15 +124,15 @@ const variants: readonly Variant[] = [
           <div>
             {letters.map((letter, i) => (
               <motion.span
-                key={i}
+                key={String(i)}
                 className="inline-block"
                 variants={{
                   initial: { y: 0 },
-                  hovered: { y: "-100%" },
+                  hovered: { y: '-100%' },
                 }}
                 transition={{
                   duration: DURATION,
-                  ease: "easeInOut",
+                  ease: 'easeInOut',
                   delay: STAGGER * i,
                 }}
               >
@@ -140,18 +140,18 @@ const variants: readonly Variant[] = [
               </motion.span>
             ))}
           </div>
-          <div className="absolute inset-0">
+          <div className={cn('absolute inset-0')}>
             {letters.map((letter, i) => (
               <motion.span
-                key={i}
+                key={String(i)}
                 className="inline-block"
                 variants={{
-                  initial: { y: "100%" },
+                  initial: { y: '100%' },
                   hovered: { y: 0 },
                 }}
                 transition={{
                   duration: DURATION,
-                  ease: "easeInOut",
+                  ease: 'easeInOut',
                   delay: STAGGER * i,
                 }}
               >
@@ -160,16 +160,16 @@ const variants: readonly Variant[] = [
             ))}
           </div>
         </motion.span>
-      );
+      )
     },
   },
   {
-    variant: "shake",
+    variant: 'shake',
     component: ({ children, className, ...props }) => (
       <span
         {...props}
         className={cn(
-          "text-neutral-500 hover:animate-text-shake dark:text-neutral-400",
+          'text-neutral-500 hover:animate-text-shake dark:text-neutral-400',
           className,
         )}
       >
@@ -177,29 +177,27 @@ const variants: readonly Variant[] = [
       </span>
     ),
   },
-] as const;
+] as const
 
 export type TextProps = {
-  variant?: (typeof variants)[number]["variant"];
-} & React.ComponentProps<"span"> &
-  Partial<MotionProps>;
+  variant?: (typeof variants)[number]['variant']
+} & React.ComponentProps<'span'> &
+  Partial<MotionProps>
 
-export function Text({ variant = "glitch", ...props }: TextProps) {
-  const FALLBACK_INDEX = 0;
+export function Text({ variant = 'glitch', ...props }: TextProps) {
+  const FALLBACK_INDEX = 0
 
-  const variantComponent = variants.find(
-    (v) => v.variant === variant,
-  )?.component;
+  const variantComponent = variants.find(v => v.variant === variant)?.component
 
   if (!variantComponent) {
-    return variants[FALLBACK_INDEX].component(props);
+    return variants[FALLBACK_INDEX].component(props)
   }
 
   return (
-    <Slot.Root className="text-sm font-medium">
+    <Slot.Root className={cn('font-medium text-sm')}>
       {variantComponent
         ? variantComponent(props)
         : variants[FALLBACK_INDEX].component(props)}
     </Slot.Root>
-  );
+  )
 }

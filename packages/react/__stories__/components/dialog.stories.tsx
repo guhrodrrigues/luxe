@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react'
 
 import {
   Dialog,
@@ -6,39 +6,48 @@ import {
   DialogContent,
   DialogDescription,
   DialogFooter,
-  DialogOverlay,
-  DialogPortal,
   DialogTitle,
   DialogTrigger,
-} from "@/registry/components/dialog";
+} from '@/registry/components/dialog'
+import { Button } from '@/registry/components/button'
+import { Input } from '@/registry/components/input'
 
 const meta: Meta = {
-  title: "components/Dialog",
+  title: 'components/Dialog',
   component: Dialog,
   args: {
     children: (
       <Dialog>
-        <DialogTrigger>Open</DialogTrigger>
-        <DialogPortal>
-          <DialogOverlay />
-          <DialogContent>
-            <DialogTitle>Dialog Title</DialogTitle>
-            <DialogDescription>
-              This is a description of the dialog.
-            </DialogDescription>
-            <DialogFooter>
-              <DialogClose />
-            </DialogFooter>
-          </DialogContent>
-        </DialogPortal>
+        <DialogTrigger asChild>
+          <Button variant="outline">Open</Button>
+        </DialogTrigger>
+        <DialogContent>
+          <DialogTitle asChild>
+            <span className="block px-6 pt-5">Change Username</span>
+          </DialogTitle>
+          <DialogDescription className="px-6 py-1">
+            Make changes to your username here.
+          </DialogDescription>
+          <fieldset className="mb-[15px] flex items-center gap-4 px-6 py-4">
+            <Input placeholder="@guhrodrrigues" className="w-full" />
+          </fieldset>
+          <DialogFooter className="flex justify-between gap-4 px-6 py-3">
+            <DialogClose asChild>
+              <Button variant="outline">Cancel</Button>
+            </DialogClose>
+            <DialogClose asChild>
+              <Button>Save Changes</Button>
+            </DialogClose>
+          </DialogFooter>
+        </DialogContent>
       </Dialog>
     ),
   },
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-};
+}
 
-export default meta;
+export default meta
 
-export const Basic: StoryObj = {};
+export const Basic: StoryObj = {}
