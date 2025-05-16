@@ -1,39 +1,45 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
+import { useState } from "react";
 
-import { CheckIcon, ClipboardIcon } from 'lucide-react'
+import { AnimatePresence, motion } from "motion/react";
 
-import { AnimatePresence, motion } from 'motion/react'
+import { CheckIcon } from "lucide-react";
+
+import { TextMorph } from "@/app/_components/TextMorph";
 
 type CopyCode = {
-  code: string
-}
+  code: string;
+  example?: boolean;
+  mode?: "text" | "icon";
+};
 
-export function CopyCode({ code }: CopyCode) {
-  const [copied, setCopied] = useState(false)
+export function CopyCode({ code, example = false, mode = "icon" }: CopyCode) {
+  const [copied, setCopied] = useState(false);
 
   function handleCopy() {
-    navigator.clipboard.writeText(code)
-    setCopied(true)
+    navigator.clipboard.writeText(code);
 
-    setTimeout(() => setCopied(false), 1200)
+    setCopied(true);
+
+    setTimeout(() => setCopied(false), 1500);
   }
 
-  return (
+  return mode === "icon" ? (
     <button
       onClick={handleCopy}
-      className="relative flex h-7 w-7 items-center justify-center rounded-md text-foreground outline-none focus-visible:ring-1 focus-visible:ring-neutral-300/80 dark:text-neutral-500 dark:focus-visible:ring-neutral-800"
+      className="relative flex gap-0.5 size-7 items-center justify-center rounded-md text-foreground outline-none dark:text-neutral-500 dark:focus-visible:ring-neutral-800"
     >
       <AnimatePresence mode="wait" initial={false}>
         {copied ? (
           <motion.span
             key="copied"
+            className="ml-px"
             initial={{ scale: 0.5 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0.5 }}
             transition={{
-              ease: 'easeOut',
+              ease: "easeOut",
               duration: 0.15,
             }}
           >
@@ -42,11 +48,12 @@ export function CopyCode({ code }: CopyCode) {
         ) : (
           <motion.span
             key="copy"
+            className="ml-px"
             initial={{ scale: 0.5 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0.5 }}
             transition={{
-              ease: 'easeOut',
+              ease: "easeOut",
               duration: 0.15,
             }}
           >
@@ -55,7 +62,14 @@ export function CopyCode({ code }: CopyCode) {
         )}
       </AnimatePresence>
     </button>
-  )
+  ) : (
+    <button
+      onClick={handleCopy}
+      className="flex items-center whitespace-nowrap gap-0.5 text-xs font-medium"
+    >
+      <TextMorph>{copied ? "Copied" : "Copy"}</TextMorph> Code
+    </button>
+  );
 }
 
 function Icon() {
@@ -67,13 +81,13 @@ function Icon() {
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     >
       <path stroke="none" d="M0 0h24v24H0z" fill="none" />
       <path d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
       <path d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
     </svg>
-  )
+  );
 }

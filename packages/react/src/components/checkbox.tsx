@@ -1,75 +1,85 @@
 "use client"; // @NOTE: Add in case you are using Next.js
 
-import { motion } from "motion/react";
-
 import * as RadixCheckbox from "@radix-ui/react-checkbox";
 
-export function CheckboxExample() {
-  return (
-    <form className="flex items-start gap-3">
-      <Checkbox />
-      <div className="grid gap-1.5">
-        <label
-          htmlFor="terms"
-          className="text-sm font-medium leading-none text-black peer-disabled:cursor-not-allowed peer-disabled:opacity-70 dark:text-white"
-        >
-          Accept terms and conditions
-        </label>
-        <span className="text-sm text-neutral-500 dark:text-neutral-400">
-          You agree to our Terms of Service and Privacy Policy.
-        </span>
-      </div>
-    </form>
-  );
-}
+import { AnimatePresence, motion } from "motion/react";
 
-function Checkbox() {
+import { cn } from "@/registry/utils/cn";
+
+type CheckboxProps = React.CustomComponentPropsWithRef<
+  typeof RadixCheckbox.Root
+>;
+
+export function Checkbox(props: CheckboxProps) {
+  const { checked } = props;
+
   return (
     <RadixCheckbox.Root
-      className="flex h-5 w-5 flex-shrink-0 appearance-none items-center justify-center rounded border border-neutral-300 bg-neutral-100 outline-none dark:border-neutral-800 dark:bg-neutral-900"
-      id="terms"
+      {...props}
+      className={cn(
+        "relative inset-ring-1 inset-ring-border inline-block size-5 appearance-none rounded bg-neutral-100 dark:bg-neutral-900",
+      )}
     >
-      <RadixCheckbox.Indicator>
-        <motion.div
-          className="h-[inherit] w-[inherit] rounded bg-black dark:bg-white"
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ type: "spring", stiffness: 400, damping: 30 }}
+      <AnimatePresence mode="popLayout">
+        <RadixCheckbox.Indicator
+          className={cn(
+            "absolute inset-0 flex items-center justify-center rounded-[inherit] bg-primary",
+          )}
+          asChild
         >
-          <CheckIcon />
-        </motion.div>
-      </RadixCheckbox.Indicator>
+          <motion.div
+            initial={{
+              opacity: 0,
+              scale: 0.5,
+            }}
+            animate={{
+              opacity: 1,
+              scale: 1,
+            }}
+            transition={{
+              duration: 0.3,
+              ease: [0.175, 0.885, 0.32, 1.1],
+            }}
+          >
+            <CheckIcon checkedState={checked} />
+          </motion.div>
+        </RadixCheckbox.Indicator>
+      </AnimatePresence>
     </RadixCheckbox.Root>
   );
 }
 
-function CheckIcon() {
+type CheckIconProps = {
+  checkedState: CheckboxProps["checked"];
+};
+
+function CheckIcon({ checkedState }: CheckIconProps) {
+  const CHECK_PATH = "M5 13 L10 18 L20 6";
+  const INDETERMINATE_PATH = "M6 12 H18";
+
   return (
     <svg
-      width="20"
-      height="20"
-      viewBox="0 0 15 15"
+      viewBox="0 0 24 24"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={cn(
+        "shrink-0 scale-65 stroke-4 stroke-white dark:stroke-black",
+      )}
     >
+      <title>Check</title>
+
       <motion.path
-        d="M5 7.5L7 9.5L7.40859 8.81902C8.13346 7.6109 9.00376 6.49624 10 5.5V5.5"
-        className="stroke-white dark:stroke-black"
-        strokeWidth={1.5}
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d={checkedState === "indeterminate" ? INDETERMINATE_PATH : CHECK_PATH}
         initial={{
           pathLength: 0,
         }}
         animate={{
           pathLength: 1,
         }}
-        exit={{
-          pathLength: 0,
-        }}
         transition={{
-          delay: 0.025,
-          duration: 0.35,
+          duration: 0.3,
+          ease: [0.645, 0.045, 0.355, 1],
         }}
       />
     </svg>

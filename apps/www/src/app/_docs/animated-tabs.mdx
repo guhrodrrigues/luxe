@@ -1,0 +1,239 @@
+---
+title: "Animated Tabs"
+description: "Display an smooth and clean tabs."
+slug: "animated-tabs"
+---
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code={`import { AnimatedTabs } from "@/components/ui/animated-tabs";
+
+const TABS = ["All Posts", "Interactions", "Resources", "Docs"];
+
+export function AnimatedTabsExample() {
+  return (
+    <AnimatedTabs tabs={TABS} />
+  );
+}`}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[223px] flex items-center justify-center">
+
+<AnimatedTabs />
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { AnimatedTabs } from "@/components/ui/animated-tabs";
+
+const TABS = ["All Posts", "Interactions", "Resources", "Docs"];
+
+export function AnimatedTabsExample() {
+  return (
+    <AnimatedTabs tabs={TABS} />
+  );
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+<div className="space-y-2 pt-4">
+
+<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
+
+## Usage
+
+</div>
+
+<CodeBlock className="mt-6" contentClassName="h-fit">
+
+```tsx
+import { AnimatedTabs } from "@/components/ui/animated-tabs"
+```
+</CodeBlock>
+
+<CodeBlock className="mt-4" contentClassName="h-fit">
+
+```tsx
+const TABS = ["First Tab", "Second Tab", "Third Tab", "Fourth Tab"]
+
+<AnimatedTabs tabs={TABS} />
+```
+</CodeBlock>
+
+</div>
+
+<div className="space-y-2 pt-6">
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="cli">CLI</TabsTrigger>
+	<TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+</div>
+
+<TabsContent value="cli">
+
+<CommandBlock 
+	npmCommand="npx @luxeui/ui add animated-tabs" 
+	pnpmCommand="pnpm dlx @luxeui/ui add animated-tabs" 
+	yarnCommand="npx @luxeui/ui add animated-tabs" 
+	bunCommand="bunx --bun @luxeui/ui add animated-tabs" 
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">1</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Copy and paste the following code into your project
+
+</h2>
+
+<CodeBlock fileName="animated-tabs.tsx">
+```tsx
+"use client"; // @NOTE: Add in case you are using Next.js
+
+import { useEffect, useRef, useState } from "react";
+
+type AnimatedTabsProps = {
+  tabs: Array<string>;
+};
+
+export function AnimatedTabs({ tabs }: AnimatedTabsProps) {
+  const [activeTab, setActiveTab] = useState(tabs[0]);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const activeTabRef = useRef<HTMLButtonElement>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+
+    if (container && activeTab) {
+      const activeTabElement = activeTabRef.current;
+
+      if (activeTabElement) {
+        const { offsetLeft, offsetWidth } = activeTabElement;
+
+        const clipLeft = offsetLeft;
+        const clipRight = offsetLeft + offsetWidth;
+
+        container.style.clipPath = `inset(0 ${Number(100 - (clipRight / container.offsetWidth) * 100).toFixed()}% 0 ${Number((clipLeft / container.offsetWidth) * 100).toFixed()}% round 17px)`;
+      }
+    }
+  }, [activeTab, activeTabRef, containerRef]);
+
+  return (
+    <div className="relative mx-auto flex w-fit flex-col items-center rounded-full">
+      <div
+        ref={containerRef}
+        className="absolute z-10 w-full overflow-hidden [clip-path:inset(0px_75%_0px_0%_round_17px)] [transition:clip-path_0.25s_ease]"
+      >
+        <div className="relative flex w-full justify-center bg-black dark:bg-white">
+          {tabs.map((tab, index) => (
+            <button
+              key={index}
+              onClick={() => setActiveTab(tab)}
+              className="flex h-8 items-center rounded-full p-3 text-sm font-medium text-white dark:text-black"
+              tabIndex={-1}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="relative flex w-full justify-center">
+        {tabs.map((tab, index) => {
+          const isActive = activeTab === tab;
+
+          return (
+            <button
+              key={index}
+              ref={isActive ? activeTabRef : null}
+              onClick={() => setActiveTab(tab)}
+              className="flex h-8 items-center rounded-full p-3 text-sm font-medium text-neutral-500 dark:text-neutral-300"
+            >
+              {tab}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+```
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	
+<span className="font-semibold text-primary">2</span>
+
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+
+<div className="space-y-4 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Update the import paths to match your project setup
+
+</h2>
+
+</div>
+</div>
+</div>
+</div>
+
+</TabsContent>
+
+</Tabs>
+
+</div>

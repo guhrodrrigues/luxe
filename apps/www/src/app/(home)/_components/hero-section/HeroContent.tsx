@@ -1,52 +1,51 @@
-import { ButtonGlitchBrightness } from '@/app/_components/ButtonGlitchBrightness'
-import { Icons } from '@/app/_components/Icons'
-import { TextAnimateEnter } from '@/app/_components/TextAnimateEnter'
-import { AnimateEnter } from '../AnimateEnter'
-import { GridBackground } from '../GridBackground'
-import { AnimatedNumber } from './AnimatedNumber'
-
-async function getRepoStarCount() {
-  const res = await fetch('https://api.github.com/repos/guhrodrrigues/luxe')
-  const data = await res.json()
-  const starCount = data.stargazers_count
-
-  if (starCount > 999) {
-    return (starCount / 1000).toFixed(1) + 'K'
-  }
-
-  return starCount
-}
+import { ButtonGlitchBrightness } from "@/app/_components/ButtonGlitchBrightness";
+import { AnimateEnter } from "../AnimateEnter";
+import { GridBackground } from "../GridBackground";
+import { Techs } from "../techs-section/Techs";
+import { GetStartedButton } from "../slogan-section/GetStartedButton";
+import { AnimatedBadge } from "./AnimatedBadge";
 
 export async function HeroContent() {
-  const starCount = await getRepoStarCount()
-
   return (
-    <div className="z-[3] flex flex-col items-center gap-6 text-center">
-      <AnimateEnter delay={0.1}>
-        <Icons.slogan />
-      </AnimateEnter>
-      <AnimateEnter delay={0.2}>
-        <p className="mx-auto max-w-md text-neutral-600 dark:text-neutral-300">
-          Library of components copy and paste to illuminate your applications
-          with elegance and sophistication.
-        </p>
-      </AnimateEnter>
-      <AnimateEnter
-        className="flex flex-wrap items-center justify-center gap-2"
-        delay={0.3}
-      >
-        <ButtonGlitchBrightness href="/ui/installation" text="Get Started" />
-        <a
-          href="https://github.com/guhrodrrigues/luxe"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 rounded-xl border border-border bg-background px-4 py-2 text-sm font-semibold text-neutral-600 duration-300 hover:bg-neutral-200 dark:text-secondary dark:hover:bg-neutral-900"
+    <div className="z-[3] flex flex-col items-center gap-28 text-center">
+      <div className="space-y-8">
+        <div className="space-y-6">
+          <AnimateEnter delay={0.1} duration={2} className="w-fit mx-auto">
+            <AnimatedBadge />
+          </AnimateEnter>
+          <AnimateEnter delay={0.3} duration={2}>
+            <h1 className="mx-auto max-w-3xl max-sm:max-w-xs font-medium text-6xl text-gradient tracking-tight md:text-7xl">
+              Illuminate your apps
+            </h1>
+          </AnimateEnter>
+        </div>
+        <AnimateEnter delay={0.5} duration={2}>
+          <p className="mx-auto max-w-lg text-[17px] sm:text-xl text-foreground">
+            Library of copy and paste components to illuminate your applications
+            with elegance and sophistication.
+          </p>
+        </AnimateEnter>
+        <AnimateEnter
+          className="flex items-center justify-center gap-4 sm:gap-3"
+          delay={0.7}
+          duration={2}
         >
-          <Icons.github className="h-3.5 w-3.5" />
-          <AnimatedNumber value={starCount} />
-        </a>
+          <ButtonGlitchBrightness
+            href="/ui/accordion"
+            text="Explore components"
+            className="py-3 px-4 h-11 text-base"
+            shine={false}
+          />
+          <GetStartedButton />
+        </AnimateEnter>
+      </div>
+      <AnimateEnter delay={0.9} duration={2} className="space-y-4">
+        <h1 className="text-sm text-foreground/60 dark:text-foreground/80">
+          Using
+        </h1>
+        <Techs />
       </AnimateEnter>
       <GridBackground />
     </div>
-  )
+  );
 }

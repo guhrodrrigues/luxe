@@ -1,71 +1,87 @@
-"use client"; // @NOTE: Add in case you are using Next.js
+'use client' // @NOTE: Add in case you are using Next.js
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react'
 
-const TABS = [
-  { label: "All Posts" },
-  { label: "Interactions" },
-  { label: "Resources" },
-  { label: "Docs" },
-];
+import { cn } from '@/registry/utils/cn'
 
-export function AnimatedTabs() {
-  const [activeTab, setActiveTab] = useState(TABS[0].label);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const activeTabRef = useRef<HTMLButtonElement>(null);
+type AnimatedTabsProps = {
+  tabs: Array<string>
+}
+
+export function AnimatedTabs({ tabs }: AnimatedTabsProps) {
+  const [activeTab, setActiveTab] = useState(tabs[0])
+
+  const containerRef = useRef<HTMLDivElement>(null)
+  const activeTabRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
-    const container = containerRef.current;
+    const container = containerRef.current
 
     if (container && activeTab) {
-      const activeTabElement = activeTabRef.current;
+      const activeTabElement = activeTabRef.current
 
       if (activeTabElement) {
-        const { offsetLeft, offsetWidth } = activeTabElement;
+        const { offsetLeft, offsetWidth } = activeTabElement
 
-        const clipLeft = offsetLeft;
-        const clipRight = offsetLeft + offsetWidth;
+        const clipLeft = offsetLeft
+        const clipRight = offsetLeft + offsetWidth
 
-        container.style.clipPath = `inset(0 ${Number(100 - (clipRight / container.offsetWidth) * 100).toFixed()}% 0 ${Number((clipLeft / container.offsetWidth) * 100).toFixed()}% round 17px)`;
+        container.style.clipPath = `inset(0 ${Number(100 - (clipRight / container.offsetWidth) * 100).toFixed()}% 0 ${Number((clipLeft / container.offsetWidth) * 100).toFixed()}% round 17px)`
       }
     }
-  }, [activeTab, activeTabRef, containerRef]);
+  }, [activeTab])
 
   return (
-    <div className="relative mx-auto flex w-fit flex-col items-center rounded-full">
+    <div
+      className={cn(
+        'relative mx-auto flex w-fit flex-col items-center rounded-full',
+      )}
+    >
       <div
         ref={containerRef}
-        className="absolute z-10 w-full overflow-hidden [clip-path:inset(0px_75%_0px_0%_round_17px)] [transition:clip-path_0.25s_ease]"
+        className={cn(
+          'absolute z-10 w-full overflow-hidden [clip-path:inset(0px_75%_0px_0%_round_17px)] [transition:clip-path_0.25s_ease]',
+        )}
       >
-        <div className="relative flex w-full justify-center bg-black dark:bg-white">
-          {TABS.map((tab, index) => (
+        <div
+          className={cn(
+            'relative flex w-full justify-center bg-black dark:bg-white',
+          )}
+        >
+          {tabs.map((tab, index) => (
             <button
-              key={index}
-              onClick={() => setActiveTab(tab.label)}
-              className="flex h-8 items-center rounded-full p-3 text-sm font-medium text-white dark:text-black"
+              key={index.toString()}
+              type="button"
+              onClick={() => setActiveTab(tab)}
+              className={cn(
+                'flex h-8 items-center rounded-full p-3 font-medium text-sm/5.5 text-white dark:text-black',
+              )}
               tabIndex={-1}
             >
-              {tab.label}
+              {tab}
             </button>
           ))}
         </div>
       </div>
       <div className="relative flex w-full justify-center">
-        {TABS.map(({ label }, index) => {
-          const isActive = activeTab === label;
+        {tabs.map((tab, index) => {
+          const isActive = activeTab === tab
 
           return (
             <button
-              key={index}
+              key={index.toString()}
+              type="button"
               ref={isActive ? activeTabRef : null}
-              onClick={() => setActiveTab(label)}
-              className="flex h-8 items-center rounded-full p-3 text-sm font-medium text-neutral-500 dark:text-neutral-300"
+              onClick={() => setActiveTab(tab)}
+              className={cn(
+                'flex h-8 items-center rounded-full p-3 font-medium text-neutral-500 text-sm/5.5 dark:text-neutral-300',
+              )}
             >
-              {label}
+              {tab}
             </button>
-          );
+          )
         })}
       </div>
     </div>
-  );
+  )
 }

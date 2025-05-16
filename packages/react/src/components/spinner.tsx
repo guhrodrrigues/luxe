@@ -1,26 +1,36 @@
-import { cn } from "@/registry/utils/cn";
+import { cn } from '@/registry/utils/cn'
 
-export function Spinner() {
-  const bars = Array(12).fill(0);
+type SpinnerProps = {
+  size?: string
+} & React.ComponentProps<'div'>
+
+export function Spinner({
+  size = 'size-6',
+  className,
+  ...props
+}: SpinnerProps) {
+  const bars = Array(12).fill(0)
 
   return (
-    <div className="h-[24px] w-[24px]">
-      <div className="relative left-1/2 top-1/2 h-[inherit] w-[inherit]">
+    <div className={cn(size)}>
+      <div className={cn('relative top-1/2 left-1/2 h-[inherit] w-[inherit]')}>
         {bars.map((_, i) => (
           <div
-            key={`spinner-bar-${i}`}
+            key={`spinner-bar-${String(i)}`}
             aria-label={`spinner-bar-${i + 1}`}
             className={cn(
-              "absolute -left-[10%] -top-[3.9%] h-[8%] w-[24%] animate-spinner rounded-md bg-black dark:bg-white",
+              '-left-[10%] -top-[3.9%] absolute h-[8%] w-[24%] animate-spinner rounded-md bg-black dark:bg-white',
               `bar:nth-child(${i + 1})`,
+              className,
             )}
             style={{
               animationDelay: `-${1.3 - i * 0.1}s`,
               transform: `rotate(${30 * i}deg) translate(146%)`,
             }}
+            {...props}
           />
         ))}
       </div>
     </div>
-  );
+  )
 }

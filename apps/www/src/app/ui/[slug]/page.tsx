@@ -1,159 +1,150 @@
-import type { Metadata } from 'next'
-import { notFound } from 'next/navigation'
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 
-import fs from 'fs'
-import path from 'path'
-import { promisify } from 'util'
+import { Breadcrumbs } from "../_components/Breadcrumbs";
+import { Pagination } from "../_components/Pagination";
+import { getDocs } from "@/lib/mdx";
+import { MDX } from "@/app/_components/mdx";
 
-import { COMPONENTS } from '@/data/components'
+import { ArrowUpRightIcon } from "lucide-react";
 
-import { cn } from '@/utils/cn'
-
-import { Breadcrumbs } from '../_components/Breadcrumbs'
-import { CodeBlock } from '../_components/CodeBlock'
-import { ComponentView } from '../_components/ComponentView'
-import { Pagination } from '../_components/Pagination'
+const Docs = getDocs().sort((a, b) => a.title.localeCompare(b.title));
 
 export async function generateStaticParams() {
-  const component = COMPONENTS.map(component => ({
-    slug: component.slug,
-  }))
-
-  return component
+  return Docs.map((docs) => ({
+    slug: docs.slug,
+  }));
 }
 
-export const dynamicParams = false
+export const dynamicParams = false;
 
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string }
+  params: { slug: string };
 }): Promise<Metadata | undefined> {
-  const component = COMPONENTS.find(component => component.slug === params.slug)
+  const docs = Docs.find((docs) => docs.slug === params.slug);
 
-  if (!component) {
-    return
+  if (!docs) {
+    return;
   }
 
-  const { name, slug } = component
+  const { title, description, slug } = docs;
 
   return {
-    title: name,
-    description: `Navigate to ${name} component, which will make your application sophisticated and luxurious.`,
+    title,
+    description,
     openGraph: {
-      title: `Luxe — ${name}`,
-      description: `Navigate to ${name} component, which will make your application sophisticated and luxurious.`,
-      type: 'website',
+      title: `Luxe — ${title}`,
+      description,
+      type: "website",
       url: `https://luxeui.com/ui/${slug}`,
       images: [
         {
           width: 1920,
           height: 1080,
-          url: 'https://luxeui.com/open-graphs/og-browse-components.png',
+          url: "https://luxeui.com/open-graphs/og-browse-components.png",
           alt: "Luxe's website cover",
         },
       ],
     },
     twitter: {
-      title: `Luxe — ${name}`,
-      description: `Navigate to ${name} component, which will make your application sophisticated and luxurious.`,
-      card: 'summary_large_image',
+      title: `Luxe — ${title}`,
+      description,
+      card: "summary_large_image",
       images: [
         {
           width: 1920,
           height: 1080,
-          url: 'https://luxeui.com/open-graphs/og-browse-components.png',
+          url: "https://luxeui.com/open-graphs/og-browse-components.png",
           alt: "Luxe's website cover",
         },
       ],
     },
-  }
-}
-
-async function readFilePath(filePath: string) {
-  const readFile = promisify(fs.readFile)
-
-  const fileContent = await readFile(path.join(process.cwd(), filePath), 'utf8')
-
-  return fileContent
+  };
 }
 
 export default async function ComponentPage({
   params,
 }: {
-  params: { slug: string }
+  params: { slug: string };
 }) {
-  const component = COMPONENTS.find(component => component.slug === params.slug)
+  const docs = Docs.find((docs) => docs.slug === params.slug);
 
-  if (!component) {
-    notFound()
-  }
+  if (!docs) notFound();
 
-  const filePath = `./src/app/_components/ui/${
-    component.type
-  }/${component.name.replace(/\s+/g, '')}.tsx`
+  const currentComponent = Docs.indexOf(docs);
+  const previousComponent = Docs[currentComponent - 1];
+  const nextComponent = Docs[currentComponent + 1];
 
-  const code = await readFilePath(filePath)
-
-  const cnPath = `./src/utils/cn.ts`
-  const cnCode = await readFilePath(cnPath)
-
-  const twConfig = JSON.stringify(component.twConfig, null, 2)
-
-  const currentComponent = COMPONENTS.indexOf(component)
-  const previousComponent = COMPONENTS[currentComponent - 1]
-  const nextComponent = COMPONENTS[currentComponent + 1]
+  const { title, description, content, externalDocs, externalApi } = docs;
 
   return (
-    <main className="my-2 xl:mb-24">
-      <div className="space-y-10">
+    <main className="my-2">
+      <div className="space-y-20">
         <div className="space-y-4">
           <Breadcrumbs
             backLink="/ui"
             groupName="Components"
-            currentPage={component.name}
+            currentPage={title}
           />
           <h1 className="text-3xl font-bold -tracking-wide text-primary">
-            {component.name}
+            {title}
           </h1>
+          <p className="text-[16px] font-normal leading-relaxed text-black/80 dark:text-white/90">
+            {description}
+          </p>
+          {externalDocs && externalApi && (
+            <div className="flex items-center gap-2">
+              <a
+                href={externalDocs}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group text-xs text-neutral-700 dark:text-neutral-200 transition-all duration-200 border border-neutral-300 dark:border-neutral-800 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-neutral-200/40 hover:bg-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-800/60"
+              >
+                Docs
+                <ArrowIconGlitch />
+              </a>
+              <a
+                href={externalApi}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group text-xs text-neutral-700 dark:text-neutral-200 transition-all duration-200 border border-neutral-300 dark:border-neutral-800 flex items-center gap-1 px-2.5 py-1 rounded-lg bg-neutral-200/40 hover:bg-neutral-200 dark:bg-neutral-900 dark:hover:bg-neutral-800/60"
+              >
+                Component API
+                <ArrowIconGlitch />
+              </a>
+            </div>
+          )}
         </div>
-        <div className="space-y-6">
-          <ComponentView
-            isReloadAnimation={component.isReloadAnimation}
-            className={cn(component.className)}
-          >
-            {component.component}
-          </ComponentView>
-          {component.download && (
-            <CodeBlock
-              code={component.download}
-              fileName="Terminal"
-              lang="shellscript"
-            />
-          )}
-          {component.cnFunction && (
-            <CodeBlock code={cnCode} fileName="utils/cn.ts" />
-          )}
-          <CodeBlock
-            code={code}
-            fileName={`${component.name.replace(/\s+/g, '')}.tsx`}
-          />
-          {twConfig && (
-            <CodeBlock code={twConfig} fileName="tailwind.config.ts" />
-          )}
-        </div>
-
+        <MDX source={content} />
         <Pagination
           back={{
-            href: previousComponent ? `/ui/${previousComponent.slug}` : '',
-            name: previousComponent ? previousComponent.name : '',
+            href: previousComponent ? `/ui/${previousComponent.slug}` : "",
+            title: previousComponent ? previousComponent.title : "",
           }}
           next={{
-            href: nextComponent ? `/ui/${nextComponent.slug}` : '',
-            name: nextComponent ? nextComponent.name : '',
+            href: nextComponent ? `/ui/${nextComponent.slug}` : "",
+            title: nextComponent ? nextComponent.title : "",
           }}
         />
       </div>
     </main>
-  )
+  );
+}
+
+function ArrowIconGlitch() {
+  return (
+    <div className="group relative overflow-hidden font-medium">
+      <span className="invisible">
+        <ArrowUpRightIcon size={10} />
+      </span>
+      <span className="absolute left-0 top-0 text-neutral-500 dark:text-neutral-400 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full group-hover:translate-x-full">
+        <ArrowUpRightIcon size={10} />
+      </span>
+      <span className="absolute left-0 top-0 -translate-x-full translate-y-full text-primary transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-x-0 group-hover:translate-y-0">
+        <ArrowUpRightIcon size={10} />
+      </span>
+    </div>
+  );
 }

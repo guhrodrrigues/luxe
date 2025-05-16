@@ -1,130 +1,144 @@
-"use client";
+'use client'
 
-import { useCallback, useState } from "react";
+import { useState } from 'react'
 
-import { AnimatePresence, type Variants, motion } from "motion/react";
-import useMeasure from "react-use-measure";
+import * as RadixDialog from '@radix-ui/react-dialog'
+import {
+  AnimatePresence,
+  motion,
+  type Variants,
+  MotionConfig,
+} from 'motion/react'
 
-import { cn } from "@/registry/utils/cn";
+import useMeasure from 'react-use-measure'
 
-const STEPS = [
-  {
-    title: "Luxe",
-    description:
-      "A library of components ready for you to copy and paste, designed to illuminate your apps with elegance, sophistication and a unique touch of style.",
-  },
-  {
-    title: "How to use?",
-    description:
-      "Simply click on a component, copy the code and paste it into your project. This will give your app an extra shine.",
-  },
-  {
-    title: "Results",
-    description:
-      "Luxe will add extra shine to your application, with smooth components.",
-  },
-  {
-    title: "Copy now",
-    description:
-      "Elevate your project with sophisticated, ready to use components. Illuminate up your app quickly, easily and effortlessly!",
-  },
-];
+import { cn } from '@/registry/utils/cn'
 
-export function MultiStepModal() {
-  const [activeIdx, setActiveIdx] = useState(0);
-  const [direction, setDirection] = useState(1);
-  const [ref, { height: heightContent }] = useMeasure();
+export const MultiStepModal = RadixDialog.Root
+export const MultiStepModalTrigger = RadixDialog.Trigger
+export const MultiStepModalClose = RadixDialog.Close
 
-  const handleSetActiveIdx = useCallback(
-    (idx: number) => {
-      if (activeIdx < 0) setActiveIdx(0);
-      if (activeIdx >= STEPS.length) setActiveIdx(STEPS.length - 1);
+type MultiStepModalSteps = {
+  title: string
+  description: string
+}
 
-      const direction = idx > activeIdx ? 1 : -1;
-      setDirection(direction);
-      setActiveIdx(idx);
+type MultiStepModalContentProps = React.CustomComponentPropsWithRef<
+  typeof RadixDialog.Content
+> & {
+  steps: MultiStepModalSteps[]
+}
+
+export function MultiStepModalContent({
+  steps,
+  ...props
+}: MultiStepModalContentProps) {
+  const TOTAL_STEPS = steps.length
+  const MIN_STEP = 0
+
+  const [activeContentIndex, setActiveContentIndex] = useState(MIN_STEP)
+  const [direction, setDirection] = useState<number>(1)
+
+  const [ref, { height: heightContent }] = useMeasure()
+
+  const { title, description } = steps[activeContentIndex]
+
+  function handleControlsNavigation(control: 'previous' | 'next') {
+    const newDirection = control === 'next' ? 1 : -1
+    setDirection(newDirection)
+
+    setActiveContentIndex(prev => {
+      const nextIndex = prev + newDirection
+      return Math.min(TOTAL_STEPS - 1, Math.max(MIN_STEP, nextIndex))
+    })
+  }
+
+  const slideMotionVariants: Variants = {
+    initial: (dir: number) => {
+      return {
+        x: `${110 * dir}%`,
+        opacity: 0,
+				height: heightContent > 0 ? heightContent : "auto",
+      }
     },
-    [activeIdx],
-  );
-
-  const variants: Variants = {
-    initial: (direction: number) => ({
-      opacity: 0,
-      height: heightContent > 0 ? heightContent : "auto",
-      position: "absolute",
-      x: direction > 0 ? 370 : -370,
-    }),
-    animate: {
+    active: {
+      x: '0%',
       opacity: 1,
-      height: heightContent > 0 ? heightContent : "auto",
-      position: "relative",
-      x: 0,
-      zIndex: 1,
+			height: heightContent > 0 ? heightContent : "auto",
     },
-    exit: (direction: number) => ({
-      zIndex: 0,
-      opacity: 0,
-      x: direction < 0 ? 370 : -370,
-      top: 0,
-      width: "100%",
-    }),
-  };
+    exit: (dir: number) => {
+      return {
+        x: `${-110 * dir}%`,
+        opacity: 0,
+      }
+    },
+  }
 
   return (
-    <div className="w-[370px] overflow-hidden rounded-xl border border-[#dddddd] bg-neutral-100 dark:border-[#222222] dark:bg-[#111111]">
-      <div className="relative">
-        <AnimatePresence initial={false} mode="popLayout" custom={direction}>
-          <motion.div
-            key={activeIdx}
-            custom={direction}
-            variants={variants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-            transition={{
-              x: { type: "spring", stiffness: 300, damping: 30 },
-              opacity: { duration: 0.2 },
-            }}
+    <MotionConfig transition={{ type: 'spring', duration: 0.6, bounce: 0 }}>
+      <RadixDialog.Portal>
+        <RadixDialog.Overlay
+          className={cn(
+            'fixed inset-0 bg-black/40 ease-out-quad',
+            'motion-safe:data-[state=open]:fade-in motion-safe:data-[state=open]:animate-in',
+            'motion-safe:data-[state=closed]:fade-out motion-safe:data-[state=closed]:animate-out',
+          )}
+        />
+        <RadixDialog.Content
+          {...props}
+          className={cn(
+            'max-w-96 overflow-hidden rounded-xl border border-border bg-main focus:outline-none',
+            '-translate-x-1/2 fixed top-1/3 left-1/2 motion-safe:ease-out-quad',
+            'motion-safe:data-[state=open]:fade-in motion-safe:data-[state=open]:zoom-in-95 motion-safe:data-[state=open]:animate-in',
+            'motion-safe:data-[state=closed]:fade-out motion-safe:data-[state=open]:zoom-out-95 motion-safe:data-[state=closed]:animate-out',
+          )}
+        >
+					<div className='px-4 pt-4 pb-3'>
+						<AnimatePresence initial={false} mode="popLayout" custom={direction}>
+							<motion.div
+								key={activeContentIndex}
+								variants={slideMotionVariants}
+								initial="initial"
+								animate="active"
+								exit="exit"
+								custom={direction}
+							>
+								<div ref={ref}>
+									<RadixDialog.Title className='mb-2 font-medium text-base text-primary-foreground'>
+										{title}
+									</RadixDialog.Title>
+									<RadixDialog.Description className='font-normal text-primary-muted text-sm/5.5'>
+										{description}
+									</RadixDialog.Description>
+								</div>
+							</motion.div>
+						</AnimatePresence>
+					</div>
+          <footer
+            className={cn(
+              'mt-2 flex items-center justify-between border-border border-t px-4 py-2',
+              'bg-main-muted *:rounded-full *:border *:border-border *:bg-main-foreground *:text-primary',
+              '*:h-8 *:w-24 *:px-3 *:font-medium *:text-[13px]/5.5',
+              '*:disabled:cursor-not-allowed *:disabled:opacity-50',
+            )}
           >
-            <div ref={ref} className="px-4 py-5">
-              <h3 className="mb-2 font-medium text-neutral-700 dark:text-neutral-100">
-                {STEPS[activeIdx].title}
-              </h3>
-              <p className="text-[15px] text-neutral-500 dark:text-neutral-400">
-                {STEPS[activeIdx].description}
-              </p>
-            </div>
-          </motion.div>
-        </AnimatePresence>
-        <div className="relative z-10 border-t border-[#dddddd] bg-neutral-100 dark:border-[#222222] dark:bg-[#0f0f0f]">
-          <div className="flex items-center justify-between px-4 py-2">
             <button
-              disabled={activeIdx === 0}
-              onClick={() => handleSetActiveIdx(activeIdx - 1)}
-              className={cn(
-                "h-8 w-24 rounded-full border border-neutral-300 bg-neutral-100 px-3 text-[13px] font-medium text-black dark:text-white",
-                "disabled:cursor-not-allowed disabled:opacity-50 dark:border-neutral-800 dark:bg-[#171717]",
-              )}
+              type="button"
+              onClick={() => handleControlsNavigation('previous')}
+              disabled={activeContentIndex === MIN_STEP}
             >
               Back
             </button>
             <button
-              disabled={activeIdx === STEPS.length - 1}
-              onClick={() => {
-                if (activeIdx === STEPS.length - 1) return;
-
-                handleSetActiveIdx(activeIdx + 1);
-              }}
-              className={cn(
-                "h-8 w-24 rounded-full border border-neutral-300 bg-neutral-100 px-3 text-[13px] font-medium text-black dark:text-white",
-                "disabled:cursor-not-allowed disabled:opacity-50 dark:border-neutral-800 dark:bg-[#171717]",
-              )}
+              type="button"
+              onClick={() => handleControlsNavigation('next')}
+              disabled={activeContentIndex === TOTAL_STEPS - 1}
             >
               Continue
             </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+          </footer>
+        </RadixDialog.Content>
+      </RadixDialog.Portal>
+    </MotionConfig>
+  )
 }

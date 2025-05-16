@@ -1,26 +1,114 @@
-import Link from 'next/link'
+"use client";
 
-import { MenuIcon } from 'lucide-react'
+import Link from "next/link";
 
-import { Icons } from '@/app/_components/Icons'
-import Drawer from './Drawer'
+import { useEffect, useState } from "react";
+
+import { Icons } from "@/app/_components/Icons";
+import { ToggleTheme } from "./ToggleTheme";
+import { usePathname } from "next/navigation";
+
+import { cn } from "@/utils/cn";
+import { CommandMenu } from "./cmdk";
+import Drawer from "./Drawer";
+import { MenuIcon } from "lucide-react";
+
+const ITEMS = [
+  {
+    name: "Get Started",
+    slug: "/ui/installation",
+  },
+  {
+    name: "Components",
+    slug: "/ui/accordion",
+  },
+  {
+    name: "Updates",
+    slug: "/updates",
+  },
+];
 
 export function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  const pathname = usePathname();
+
+  const isDocsPage = pathname.startsWith("/ui");
+
+  function handleScroll() {
+    if (window.scrollY > 0) {
+      setIsScrolled(true);
+    } else {
+      setIsScrolled(false);
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 h-[3.5rem] w-full bg-background [@media(min-width:1023px)]:hidden">
-      <nav className="bottom-dotted mx-auto flex h-full items-center justify-between gap-6 px-6 xl:border-x">
-        <Link href="/">
-          <Icons.logo className="w-16" />
-        </Link>
-        <Drawer>
-          <button className="flex items-center justify-center lg:hidden">
-            <MenuIcon
-              size={24}
-              className="stroke-1 text-neutral-600 dark:text-neutral-500"
-            />
-          </button>
-        </Drawer>
+    <header
+      className={cn(
+        "top-0 z-50 h-16 w-full transition-colors duration-300 ease-out border-b-[.75px] border-transparent",
+        isDocsPage ? "sticky bg-background bottom-dotted" : "fixed",
+        !isDocsPage &&
+          isScrolled &&
+          "bg-background/40 backdrop-blur-md border-border dark:border-[#262626]/50",
+      )}
+    >
+      <nav
+        className={cn(
+          "flex h-full items-center justify-between gap-6 px-6 max-w-7xl mx-auto",
+          isDocsPage && "horizontal-dotted",
+        )}
+      >
+        <div className="flex items-center gap-6">
+          <Link href="/">
+            <Icons.logo className="w-[70px]" />
+          </Link>
+          <div className="flex items-center gap-6 [@media(max-width:785px)]:hidden">
+            {ITEMS.map(({ name, slug }) => (
+              <Link
+                key={name}
+                href={slug}
+                className={cn(
+                  "text-sm font-[460] leading-none mt-[2.5px]",
+                  pathname === slug
+                    ? "text-primary"
+                    : "duration-200 text-foreground hover:text-primary",
+                )}
+              >
+                {name}
+              </Link>
+            ))}
+          </div>
+        </div>
+        <div className="flex items-center gap-3 max-sm:hidden">
+          <CommandMenu />
+          <ToggleTheme />
+          <a
+            href="https://github.com/guhrodrrigues/luxe"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group rounded-md p-0.5 outline-none focus-visible:ring-1 focus-visible:ring-neutral-300/80 dark:focus-visible:ring-neutral-800"
+          >
+            <Icons.github className="size-4 text-neutral-400 duration-150 group-hover:!text-primary dark:text-neutral-600" />
+          </a>
+        </div>
+        <div className="sm:hidden">
+          <Drawer>
+            <button className="flex items-center justify-center lg:hidden">
+              <MenuIcon
+                size={24}
+                className="stroke-1 text-neutral-600 dark:text-neutral-400"
+              />
+            </button>
+          </Drawer>
+        </div>
       </nav>
     </header>
-  )
+  );
 }

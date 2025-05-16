@@ -20,8 +20,8 @@ const addCommandSchema = z.array(z.string())
 
 export const add = new Command()
   .name('add')
-  .summary('run this command to add Luxe components to your app.')
-  .argument('[components...]', 'select the components you want.')
+  .summary('select and add the components you need.')
+  .argument('[components...]', 'enter the component name(s)')
   .action(async components => {
     try {
       const eta = new Eta()

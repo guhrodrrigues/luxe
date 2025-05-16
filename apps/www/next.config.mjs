@@ -1,8 +1,14 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  images: {
-    domains: ['github.com'],
-  },
-}
+import nextMDX from "@next/mdx";
 
-export default nextConfig
+const nextConfig = {
+  pageExtensions: ["md", "mdx", "tsx", "ts", "jsx", "js"],
+  images: {
+    domains: ["github.com"],
+  },
+};
+
+const withMDX = nextMDX({
+  extension: /\.mdx?$/,
+});
+
+export default withMDX(nextConfig);

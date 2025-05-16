@@ -1,53 +1,45 @@
-"use client";
+import * as RadixTooltip from '@radix-ui/react-tooltip'
 
-import { useState } from "react";
+import { cn } from '@/registry/utils/cn'
 
-import { motion } from "motion/react";
+export const Tooltip = RadixTooltip.Root
 
-import { cn } from "@/registry/utils/cn";
+export const TooltipTrigger = RadixTooltip.Trigger
 
-export function TooltipExample() {
+type TooltipProviderProps = React.ComponentProps<typeof RadixTooltip.Provider>
+
+export function TooltipProvider({ children, ...props }: TooltipProviderProps) {
   return (
-    <Tooltip text="Add to library">
-      <button className="rounded-xl border border-neutral-300 bg-neutral-100 px-4 py-2 text-sm font-medium text-neutral-500 dark:border-neutral-900 dark:bg-neutral-950 dark:text-neutral-400">
-        Hover Me
-      </button>
-    </Tooltip>
-  );
+    <RadixTooltip.Provider delayDuration={0} {...props}>
+      {children}
+    </RadixTooltip.Provider>
+  )
 }
 
-type TooltipProps = {
-  text: string;
-} & React.ComponentProps<"div">;
+type TooltipContentProps = React.ComponentProps<typeof RadixTooltip.Content>
 
-function Tooltip({ text, children, className }: TooltipProps) {
-  const [isToastVisible, setIsToastVisible] = useState(false);
-
+export function TooltipContent({
+  children,
+  className,
+  sideOffset = 6,
+  ...props
+}: TooltipContentProps) {
   return (
-    <div
-      onMouseEnter={() => setIsToastVisible(true)}
-      onMouseLeave={() => setIsToastVisible(false)}
-      className="relative inline-block"
-    >
-      <motion.div
+    <RadixTooltip.Portal>
+      <RadixTooltip.Content
+        sideOffset={sideOffset}
         className={cn(
-          "absolute -top-4 left-1/2 whitespace-nowrap rounded-md border border-neutral-300 bg-neutral-100 [translate:-50%_-50%]",
-          "px-2 py-1 text-xs text-black dark:border-[#262626] dark:bg-neutral-900 dark:text-white",
+          'z-50 overflow-hidden rounded-lg border border-[#dddddd] bg-neutral-100 px-3 py-1.5 text-neutral-500 text-xs dark:border-[#222222]',
+          'dark:bg-[#111111] dark:text-neutral-300',
+          'motion-safe:fade-in-0 motion-safe:zoom-in-95 motion-safe:data-[state=closed]:fade-out-0 motion-safe:animate-in motion-safe:data-[state=closed]:animate-out',
+          'motion-safe:data-[state=closed]:zoom-out-95 motion-safe:data-[side=bottom]:slide-in-from-top-2 motion-safe:data-[side=left]:slide-in-from-right-2',
+          'motion-safe:data-[side=right]:slide-in-from-left-2 motion-safe:data-[side=top]:slide-in-from-bottom-2',
           className,
         )}
-        initial={{ opacity: 0, y: 5, filter: "blur(4px)", scale: 0.9 }}
-        animate={{
-          opacity: isToastVisible ? 1 : 0,
-          y: isToastVisible ? 0 : 5,
-          filter: isToastVisible ? "blur(0px)" : "blur(4px)",
-          scale: isToastVisible ? 1 : 0.9,
-        }}
-        transition={{ ease: "easeInOut", duration: 0.15 }}
+        {...props}
       >
-        <span>{text}</span>
-      </motion.div>
-
-      {children}
-    </div>
-  );
+        {children}
+      </RadixTooltip.Content>
+    </RadixTooltip.Portal>
+  )
 }
