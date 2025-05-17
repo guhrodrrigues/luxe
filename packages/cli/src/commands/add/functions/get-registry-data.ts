@@ -8,7 +8,7 @@ export async function getRegistryData(
   registryType: RegistryType,
 ): Promise<string[]> {
   const response = await fetch(
-    `${apiConfig.baseURL}/registry/${registryType}.json`,
+    `${apiConfig.baseURL}/registry/${registryType}/index.json`,
     {
       method: 'GET',
       headers: {

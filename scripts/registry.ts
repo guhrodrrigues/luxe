@@ -98,7 +98,7 @@ async function main() {
 
     await saveRegistryFile(
       'components',
-      'components',
+      'index',
       JSON.stringify(
         {
           components: registryMap.get('components')?.map(({ name }) => name),
