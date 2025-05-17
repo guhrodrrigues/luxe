@@ -4,18 +4,10 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  luxe: 'link:'
-  '@luxe/cli': 'link:'
-  dist: link:dist
-
 importers:
 
   .:
     dependencies:
-      '@luxe/cli':
-        specifier: 'link:'
-        version: 'link:'
       '@luxe/react':
         specifier: workspace:*
         version: link:packages/react
@@ -25,12 +17,6 @@ importers:
       '@tailwindcss/postcss':
         specifier: ^4.0.14
         version: 4.0.14
-      dist:
-        specifier: link:dist
-        version: link:dist
-      luxe:
-        specifier: 'link:'
-        version: 'link:'
       postcss:
         specifier: ^8
         version: 8.5.2

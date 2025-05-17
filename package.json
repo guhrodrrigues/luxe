@@ -8,12 +8,9 @@
 		"node": ">=20"
 	},
 	"dependencies": {
-		"@luxe/cli": "link:",
 		"@luxe/react": "workspace:*",
 		"@radix-ui/react-slot": "^1.2.0",
 		"@tailwindcss/postcss": "^4.0.14",
-		"dist": "link:dist",
-		"luxe": "link:",
 		"postcss": "^8"
 	},
 	"devDependencies": {
@@ -58,10 +55,6 @@
 		"registry": "tsx scripts/registry.ts"
 	},
 	"pnpm": {
-		"overrides": {
-			"luxe": "link:",
-			"@luxe/cli": "link:",
-			"dist": "link:dist"
-		}
+		"overrides": {}
 	}
 }

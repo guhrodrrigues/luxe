@@ -4,5 +4,5 @@ export const REQUIRED_EXTERNAL_DEPENDENCIES = [
   'clsx',
   'tailwind-merge',
   'tailwind-variants',
-  'tw-animate',
+  'tw-animate-css',
 ]
