@@ -5,7 +5,7 @@ import { useRef, useState } from 'react'
 import { motion } from 'motion/react'
 import * as Slot from '@radix-ui/react-slot'
 
-import { cn } from '@/registry/utils/cn'
+import { cn } from '@/utils/cn'
 
 type Variant = {
   variant: string
@@ -33,7 +33,7 @@ const variants: readonly Variant[] = [
         {...props}
         className={cn(
           'relative rounded-xl border border-border px-4 py-2 transition-all duration-200',
-          'text-primary-foreground hover:bg-main-foreground/50',
+          'text-primary-foreground hover:bg-main-foreground/40',
           className,
         )}
       />

@@ -52,7 +52,7 @@ export function Header() {
   return (
     <header
       className={cn(
-        "top-0 z-50 h-16 w-full transition-colors duration-300 ease-out border-b-[.75px] border-transparent",
+        "top-0 z-50 h-17 w-full transition-colors duration-300 ease-out border-b-[.75px] border-transparent",
         isDocsPage ? "sticky bg-background bottom-dotted" : "fixed",
         !isDocsPage &&
           isScrolled &&
@@ -65,17 +65,17 @@ export function Header() {
           isDocsPage && "horizontal-dotted",
         )}
       >
-        <div className="flex items-center gap-6">
-          <Link href="/">
-            <Icons.logo className="w-[70px]" />
-          </Link>
-          <div className="flex items-center gap-6 [@media(max-width:785px)]:hidden">
+        <Link href="/">
+          <Icons.logo className="w-[70px]" />
+        </Link>
+        <div className="flex items-center gap-5 max-sm:hidden">
+          <div className="flex items-center gap-6">
             {ITEMS.map(({ name, slug }) => (
               <Link
                 key={name}
                 href={slug}
                 className={cn(
-                  "text-sm font-[460] leading-none mt-[2.5px]",
+                  "text-sm font-[460] leading-none",
                   pathname === slug
                     ? "text-primary"
                     : "duration-200 text-foreground hover:text-primary",
@@ -85,18 +85,18 @@ export function Header() {
               </Link>
             ))}
           </div>
-        </div>
-        <div className="flex items-center gap-3 max-sm:hidden">
-          <CommandMenu />
-          <ToggleTheme />
-          <a
-            href="https://github.com/guhrodrrigues/luxe"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group rounded-md p-0.5 outline-none focus-visible:ring-1 focus-visible:ring-neutral-300/80 dark:focus-visible:ring-neutral-800"
-          >
-            <Icons.github className="size-4 text-neutral-400 duration-150 group-hover:!text-primary dark:text-neutral-600" />
-          </a>
+          <div className="flex items-center gap-3">
+            <CommandMenu />
+            <ToggleTheme />
+            <a
+              href="https://github.com/guhrodrrigues/luxe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-md p-0.5 outline-none focus-visible:ring-1 focus-visible:ring-neutral-300/80 dark:focus-visible:ring-neutral-800"
+            >
+              <Icons.github className="size-4 text-neutral-400 duration-150 group-hover:!text-primary dark:text-neutral-600" />
+            </a>
+          </div>
         </div>
         <div className="sm:hidden">
           <Drawer>

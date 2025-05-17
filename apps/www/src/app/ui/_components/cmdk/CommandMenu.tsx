@@ -101,7 +101,6 @@ const ITEMS: ItemProps[] = [
         title: "Accordion",
         slug: "/ui/accordion",
         icon: <SquareStackIcon size={17} />,
-        isNew: true,
       },
       {
         title: "Animated Tabs",
@@ -112,19 +111,16 @@ const ITEMS: ItemProps[] = [
         title: "Badge",
         slug: "/ui/badge",
         icon: <SquareStackIcon size={17} />,
-        isNew: true,
       },
       {
         title: "Button",
         slug: "/ui/button",
         icon: <SquareStackIcon size={17} />,
-        isNew: true,
       },
       {
         title: "Card",
         slug: "/ui/card",
         icon: <SquareStackIcon size={17} />,
-        isNew: true,
       },
       {
         title: "Checkbox",
@@ -135,7 +131,6 @@ const ITEMS: ItemProps[] = [
         title: "Dialog",
         slug: "/ui/dialog",
         icon: <SquareStackIcon size={17} />,
-        isNew: true,
       },
       {
         title: "Dropdown Menu",
@@ -148,6 +143,11 @@ const ITEMS: ItemProps[] = [
         icon: <SquareStackIcon size={17} />,
       },
       {
+        title: "Multi Step Modal",
+        slug: "/ui/multi-step-modal",
+        icon: <SquareStackIcon size={17} />,
+      },
+      {
         title: "Spinner",
         slug: "/ui/spinner",
         icon: <SquareStackIcon size={17} />,
@@ -156,19 +156,16 @@ const ITEMS: ItemProps[] = [
         title: "Switch",
         slug: "/ui/switch",
         icon: <SquareStackIcon size={17} />,
-        isNew: true,
       },
       {
         title: "Text",
         slug: "/ui/text",
         icon: <SquareStackIcon size={17} />,
-        isNew: true,
       },
       {
         title: "Tooltip",
         slug: "/ui/tooltip",
         icon: <SquareStackIcon size={17} />,
-        isNew: true,
       },
     ],
   },
@@ -177,7 +174,6 @@ const ITEMS: ItemProps[] = [
 type CommandMenuItemProps = {
   shortcut?: string;
   icon: React.ReactNode;
-  isNew?: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   onAction: () => void;
 } & React.ComponentProps<typeof CommandItem>;
@@ -186,7 +182,6 @@ function CommandMenuItem({
   children,
   icon,
   shortcut,
-  isNew = false,
   className,
   setIsOpen,
   onAction,
@@ -222,16 +217,6 @@ function CommandMenuItem({
           <div className="flex h-6 w-6 uppercase items-center text-xs font-semibold justify-center rounded-md bg-neutral-200 dark:bg-[#141414] text-neutral-400">
             {shortcut}
           </div>
-        </div>
-      )}
-      {isNew && (
-        <div
-          className={cn(
-            "ml-auto px-1.5 py-[0.5px] font-medium bg-yellow-400/30 dark:bg-[#eaec8a]/16 rounded-full text-[11px]",
-            "text-center leading-4 text-yellow-600 dark:text-[#eaec8a] [text-shadow:0_1px_1.5px_rgb(0,0,0,0.16)]",
-          )}
-        >
-          New
         </div>
       )}
     </CommandItem>
@@ -270,25 +255,17 @@ export function CommandMenu() {
       <button
         onClick={() => setIsOpen((prev) => !prev)}
         className={cn(
-          "relative w-64 flex items-center justify-between gap-2 pl-3 pr-2 py-[6px] rounded-lg border text-[13px] leading-none border-border/80",
-          "bg-[#eeeeee] dark:bg-[#101010] transition-all duration-200",
+          "relative flex items-center justify-between gap-1.5 px-2.5 py-1.5 border rounded-full text-[13px] leading-none border-border/60",
+          "bg-background transition-all duration-200 hover:bg-main-foreground/30 dark:hover:border-white/10",
         )}
       >
-        <span className="flex items-center gap-2 text-neutral-500">
+        <span className="flex items-center gap-2 font-[460] text-neutral-500">
           <SearchIcon size={12} />
-          Search documentation
+          Search
         </span>
-        <span
-          className={cn(
-            "text-neutral-500 border border-border bg-[#eeeeee] dark:bg-[#101010] dark:shadow-inner dark:text-neutral-400",
-            "dark:shadow-neutral-800/60 px-1.5 py-1 rounded-md text-[10px] flex items-center gap-0.5",
-          )}
-        >
-          <CommandIcon size={10} />K
-        </span>
-				<div
+        <div
           aria-hidden
-          className="pointer-events-none absolute left-1/2 -top-px h-px w-1/2 max-w-[1000px] -translate-x-1/4 -translate-y-1/2 bg-gradient-to-l from-transparent via-white/30 via-30% to-transparent"
+          className="pointer-events-none absolute left-1/2 -top-px h-[.75px] w-1/2 max-w-[1000px] -translate-x-1/4 -translate-y-1/2 bg-gradient-to-l from-transparent via-white/30 via-30% to-transparent"
         />
       </button>
       <CommandDialog open={isOpen} onOpenChange={setIsOpen}>
@@ -314,7 +291,6 @@ export function CommandMenu() {
                       router.push(slug);
                       setIsOpen(false);
                     }}
-                    isNew={isNew}
                     onAction={() => router.push(slug)}
                     shortcut={shortcut}
                   >

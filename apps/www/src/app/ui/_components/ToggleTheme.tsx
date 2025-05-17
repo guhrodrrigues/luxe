@@ -7,7 +7,7 @@ import { Icons } from "@/app/_components/Icons";
 import { cn } from "@/utils/cn";
 
 const ITEMS = [
-	{ icon: <Icons.sun />, theme: "light" },
+  { icon: <Icons.sun />, theme: "light" },
   { icon: <Icons.moon />, theme: "dark" },
 ];
 
@@ -15,7 +15,7 @@ export function ToggleTheme() {
   const { setTheme, resolvedTheme: theme } = useTheme();
 
   return (
-    <div className="flex items-center gap-px rounded-lg border border-neutral-300/80 bg-[#eeeeee] p-px dark:border-neutral-800/40 dark:bg-[#111111]">
+    <div className="relative flex items-center gap-px rounded-lg border border-neutral-300/80 bg-[#eeeeee] p-px dark:border-neutral-800/40 dark:bg-background">
       {ITEMS.map(({ icon, theme: itemTheme }, idx) => (
         <button
           key={idx}
