@@ -23,7 +23,7 @@ const meta: Meta<CardProps> = {
       options: [
         "default",
         "animated-border",
-        "background-shine",
+        "shine",
         "revealed-pointer",
       ],
       control: "radio",

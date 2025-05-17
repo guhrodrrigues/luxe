@@ -4,6 +4,7 @@ import { useCallback, useEffect, useState } from "react";
 
 import { motion } from "motion/react";
 import { cn } from "@/utils/cn";
+import { usePathname } from "next/navigation";
 
 type Heading = {
   id: string;
@@ -16,6 +17,8 @@ export function OnThisPage() {
   const [visibleHeadings, setVisibleHeadings] = useState<Set<string>>(
     new Set(),
   );
+
+	const pathname = usePathname()
 
   const getHeadings = useCallback(() => {
     const headingElement = document.querySelectorAll("h1, h2, h3");
@@ -69,7 +72,7 @@ export function OnThisPage() {
     return () => {
       observer.disconnect();
     };
-  }, [getHeadings, visibleHeadings]);
+  }, [getHeadings, visibleHeadings, pathname]);
 
   function handleScroll(id: string) {
     for (const heading of Array.from(document.querySelectorAll("h1,h2,h3"))) {

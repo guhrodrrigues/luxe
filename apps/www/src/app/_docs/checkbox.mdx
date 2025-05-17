@@ -155,7 +155,7 @@ Install the package
 </h2>
 
 <CommandBlock 
-	npmCommand="npm install motion @radix-ui/react-checkbox clsx tailwind-merge" 
+	npmCommand="npm i motion @radix-ui/react-checkbox clsx tailwind-merge" 
 	pnpmCommand="pnpm add motion @radix-ui/react-checkbox clsx tailwind-merge" 
 	yarnCommand="yarn add motion @radix-ui/react-checkbox clsx tailwind-merge" 
 	bunCommand="bun add motion @radix-ui/react-checkbox clsx tailwind-merge" 
@@ -190,8 +190,6 @@ import * as RadixCheckbox from "@radix-ui/react-checkbox";
 
 import { AnimatePresence, motion } from "motion/react";
 
-import { cn } from "@/utils/cn";
-
 type CheckboxProps = React.CustomComponentPropsWithRef<
   typeof RadixCheckbox.Root
 >;
@@ -202,15 +200,11 @@ export function Checkbox(props: CheckboxProps) {
   return (
     <RadixCheckbox.Root
       {...props}
-      className={cn(
-        "relative inset-ring-1 inset-ring-border inline-block size-5 appearance-none rounded bg-neutral-100 dark:bg-neutral-900",
-      )}
+      className='relative inset-ring-1 inset-ring-border inline-block size-5 appearance-none rounded bg-main-muted'
     >
       <AnimatePresence mode="popLayout">
         <RadixCheckbox.Indicator
-          className={cn(
-            "absolute inset-0 flex items-center justify-center rounded-[inherit] bg-primary",
-          )}
+          className='absolute inset-0 flex items-center justify-center rounded-[inherit] bg-primary'
           asChild
         >
           <motion.div
@@ -249,9 +243,7 @@ function CheckIcon({ checkedState }: CheckIconProps) {
       fill="none"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className={cn(
-        "shrink-0 scale-65 stroke-4 stroke-white dark:stroke-black",
-      )}
+      className='shrink-0 scale-65 stroke-4 stroke-primary-invert'
     >
       <title>Check</title>
 
@@ -313,8 +305,53 @@ export function cn(...inputs: ClassValue[]) {
 <div className="relative">
 
 <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">4</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
 	
-<span className="font-semibold text-primary">4</span>
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Add variable colors in your CSS File
+
+</h2>
+
+<CodeBlock fileName="css" customFilePath="styles/globals.css">
+```css
+:root {
+  --main-muted: oklch(0.96 0 0);
+  --primary: oklch(0 0 0);
+  --primary-invert: oklch(1 0 0);
+  --border: oklch(0.885 0 0);
+}
+
+.dark {
+  --main: oklch(0.178 0 0);
+  --primary: oklch(1 0 0);
+  --primary-invert: oklch(0 0 0);
+  --border: oklch(0.26 0 0);
+}
+
+@theme inline {
+  --color-main-muted: var(--main-muted);
+  --color-primary: var(--primary);
+  --color-primary-invert: var(--primary-invert);
+  --color-border: var(--border);
+}
+```
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	
+<span className="font-semibold text-primary">5</span>
 
 </div>
 

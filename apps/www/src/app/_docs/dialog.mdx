@@ -26,11 +26,10 @@ externalApi: "https://radix-ui.com/primitives/docs/components/dialog#api-referen
   DialogDescription,
   DialogFooter,
   DialogClose,
-} from "@/components/ui/dialog";
+} from "@/app/_components/ui/dialog";
 
-import { Button } from "@/components/ui/button";
-
-import { cn } from "@/utils/cn";
+import { Button } from "@/app/_components/ui/button";
+import { Input } from "@/app/_components/ui/input";
 
 export function DialogExample() {
   return (
@@ -46,16 +45,7 @@ export function DialogExample() {
           Make changes to your username here.
         </DialogDescription>
         <fieldset className="mb-[15px] flex items-center gap-4 px-6 py-4">
-          <input
-            id="name"
-            placeholder="@guhrodrrigues"
-            className={cn(
-              "flex h-[40px] w-full flex-1 items-center justify-center rounded-lg border border-[#dddddd]",
-              "bg-neutral-100 dark:border-[#222222] dark:bg-[#111111] px-2.5 text-[15px] text-base",
-              "leading-none transition-all text-neutral-600 dark:text-neutral-300 placeholder:text-neutral-400 dark:placeholder:text-neutral-500",
-              "focus:outline-none focus:ring focus:ring-neutral-400 dark:focus:ring-neutral-800",
-            )}
-          />
+          <Input id="name" placeholder="@guhrodrrigues" className="w-full" />
         </fieldset>
         <DialogFooter className="flex justify-between gap-4 px-6 py-3">
           <DialogClose asChild>
@@ -100,8 +90,7 @@ import {
 } from "@/components/ui/dialog";
 
 import { Button } from "@/components/ui/button";
-
-import { cn } from "@/utils/cn";
+import { Input } from "@/components/ui/input";
 
 export function DialogExample() {
   return (
@@ -117,16 +106,7 @@ export function DialogExample() {
           Make changes to your username here.
         </DialogDescription>
         <fieldset className="mb-[15px] flex items-center gap-4 px-6 py-4">
-          <input
-            id="name"
-            placeholder="@guhrodrrigues"
-            className={cn(
-              "flex h-[40px] w-full flex-1 items-center justify-center rounded-lg border border-[#dddddd]",
-              "bg-neutral-100 dark:border-[#222222] dark:bg-[#111111] px-2.5 text-[15px] text-base",
-              "leading-none transition-all text-neutral-600 dark:text-neutral-300 placeholder:text-neutral-400 dark:placeholder:text-neutral-500",
-              "focus:outline-none focus:ring focus:ring-neutral-400 dark:focus:ring-neutral-800",
-            )}
-          />
+          <Input id="name" placeholder="@guhrodrrigues" className="w-full" />
         </fieldset>
         <DialogFooter className="flex justify-between gap-4 px-6 py-3">
           <DialogClose asChild>
@@ -149,7 +129,7 @@ export function DialogExample() {
 
 <div className="flex items-center justify-center">
 
-<span className="block text-xs text-neutral-500">This example uses the <Link href="/ui/button">Button</Link>.</span>
+<span className="block text-xs text-neutral-500">This example uses the <Link href="/ui/button">Button</Link> and <Link href="/ui/input">Input</Link>.</span>
 
 </div>
 
@@ -247,10 +227,10 @@ Install the package
 </h2>
 
 <CommandBlock 
-	npmCommand="npm install @radix-ui/react-dialog clsx tailwind-merge" 
-	pnpmCommand="pnpm add @radix-ui/react-dialog clsx tailwind-merge" 
-	yarnCommand="yarn add @radix-ui/react-dialog clsx tailwind-merge" 
-	bunCommand="bun add @radix-ui/react-dialog clsx tailwind-merge" 
+	npmCommand="npm i @radix-ui/react-dialog clsx tailwind-merge tw-animate-css" 
+	pnpmCommand="pnpm add @radix-ui/react-dialog clsx tailwind-merge tw-animate-css" 
+	yarnCommand="yarn add @radix-ui/react-dialog clsx tailwind-merge tw-animate-css" 
+	bunCommand="bun add @radix-ui/react-dialog clsx tailwind-merge tw-animate-css" 
 />
 
 </div>
@@ -276,31 +256,31 @@ Copy and paste the following code into your project
 <CodeBlock fileName="dialog.tsx">
 
 ```tsx
-import * as RadixDialog from "@radix-ui/react-dialog";
+import * as RadixDialog from '@radix-ui/react-dialog'
 
-import { cn } from "@/utils/cn";
+import { cn } from '@/utils/cn'
 
-export const Dialog = RadixDialog.Root;
+export const Dialog = RadixDialog.Root
 
-export const DialogTrigger = RadixDialog.Trigger;
+export const DialogTrigger = RadixDialog.Trigger
 
-export const DialogClose = RadixDialog.Close;
+export const DialogClose = RadixDialog.Close
 
 function DialogOverlay() {
   return (
-    <RadixDialog.Overlay className="fixed top-0 left-0 size-full z-[999]">
+    <RadixDialog.Overlay className='fixed top-0 left-0 z-[999] size-full'>
       <div
         className={cn(
-          "fixed inset-0 bg-black/80 ease-out-quad",
-          "motion-safe:data-[state=open]:animate-in motion-safe:data-[state=open]:fade-in",
-          "motion-safe:data-[state=closed]:animate-out motion-safe:data-[state=closed]:fade-out",
+          'fixed inset-0 bg-black/80 ease-out',
+          'motion-safe:data-[state=open]:fade-in motion-safe:data-[state=open]:animate-in',
+          'motion-safe:data-[state=closed]:fade-out motion-safe:data-[state=closed]:animate-out',
         )}
       />
     </RadixDialog.Overlay>
-  );
+  )
 }
 
-type DialogContentProps = React.ComponentProps<typeof RadixDialog.Content>;
+type DialogContentProps = React.ComponentProps<typeof RadixDialog.Content>
 
 export function DialogContent({
   children,
@@ -312,11 +292,10 @@ export function DialogContent({
       <DialogOverlay />
       <RadixDialog.Content
         className={cn(
-          "fixed left-1/2 top-1/2 z-[1001] -translate-x-1/2 -translate-y-1/2",
-          "rounded-xl shadow max-h-[85vh] w-[90vw] max-w-[400px] motion-safe:ease-out-quad focus:outline-none",
-          "border border-[#dddddd] bg-neutral-100 dark:border-[#222222] dark:bg-[#111111]",
-          "motion-safe:data-[state=open]:animate-in motion-safe:data-[state=open]:zoom-in-95 motion-safe:data-[state=open]:fade-in",
-          "motion-safe:data-[state=closed]:animate-out motion-safe:data-[state=closed]:zoom-out-95 motion-safe:data-[state=closed]:fade-out",
+          '-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-[1001] max-h-[85vh] w-[90vw] max-w-[400px]',
+          'rounded-xl border border-border bg-main focus:outline-none motion-safe:ease-out',
+          'motion-safe:data-[state=open]:zoom-in-95 motion-safe:data-[state=open]:fade-in motion-safe:data-[state=open]:animate-in',
+          'motion-safe:data-[state=closed]:zoom-out-95 motion-safe:data-[state=closed]:fade-out motion-safe:data-[state=closed]:animate-out',
           className,
         )}
         {...props}
@@ -324,10 +303,10 @@ export function DialogContent({
         {children}
       </RadixDialog.Content>
     </RadixDialog.Portal>
-  );
+  )
 }
 
-type DialogTitleProps = React.ComponentProps<typeof RadixDialog.Title>;
+type DialogTitleProps = React.ComponentProps<typeof RadixDialog.Title>
 
 export function DialogTitle({
   children,
@@ -336,17 +315,17 @@ export function DialogTitle({
 }: DialogTitleProps) {
   return (
     <RadixDialog.Title
-      className={cn("font-semibold text-black dark:text-white", className)}
+      className={cn('font-semibold text-primary', className)}
       {...props}
     >
       {children}
     </RadixDialog.Title>
-  );
+  )
 }
 
 type DialogDescriptionProps = React.ComponentProps<
   typeof RadixDialog.Description
->;
+>
 
 export function DialogDescription({
   children,
@@ -356,17 +335,17 @@ export function DialogDescription({
   return (
     <RadixDialog.Description
       className={cn(
-        "text-sm text-neutral-500 dark:text-neutral-400",
+        'text-primary-muted text-sm',
         className,
       )}
       {...props}
     >
       {children}
     </RadixDialog.Description>
-  );
+  )
 }
 
-type DialogFooterProps = React.ComponentProps<"div">;
+type DialogFooterProps = React.ComponentProps<'div'>
 
 export function DialogFooter({
   children,
@@ -376,14 +355,14 @@ export function DialogFooter({
   return (
     <div
       className={cn(
-        "border-t border-[#dddddd] bg-neutral-100 dark:border-[#222222] dark:bg-[#0f0f0f] rounded-b-[inherit]",
+        'rounded-b-[inherit] border-border border-t bg-main-muted',
         className,
       )}
       {...props}
     >
       {children}
     </div>
-  );
+  )
 }
 ```
 
@@ -427,8 +406,64 @@ export function cn(...inputs: ClassValue[]) {
 <div className="relative">
 
 <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">4</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
 	
-<span className="font-semibold text-primary">4</span>
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Add <CodeHighlight>tw-animate-css</CodeHighlight> and variable colors in your CSS File
+
+</h2>
+
+<CodeBlock fileName="css" customFilePath="styles/globals.css">
+```css
+@import "tw-animate-css";
+
+:root {
+  --main: oklch(0.97 0 0);
+  --main-muted: oklch(0.96 0 0);
+
+  --primary: oklch(0 0 0);
+  --primary-muted: oklch(0.556 0 0);
+
+  --border: oklch(0.885 0 0);
+}
+
+.dark {
+  --main: oklch(0.178 0 0);
+  --main-muted: oklch(0.168 0 0);
+
+  --primary: oklch(1 0 0);
+  --primary-muted: oklch(0.708 0 0);
+
+  --border: oklch(0.26 0 0);
+}
+
+@theme inline {
+  --color-main: var(--main);
+  --color-main-muted: var(--main-muted);
+
+  --color-primary: var(--primary);
+  --color-primary-muted: var(--primary-muted);
+  
+  --color-border: var(--border);
+}
+```
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	
+<span className="font-semibold text-primary">5</span>
 
 </div>
 

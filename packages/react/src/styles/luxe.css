@@ -3,37 +3,51 @@
 
 :root {
   --main: oklch(0.97 0 0);
+  --main-secondary: oklch(97% 0 0);
+  --main-foreground: oklch(0.925 0 0);
   --main-muted: oklch(0.96 0 0);
-  --main-foreground: oklch(97% 0 0);
+  --main-background: oklch(0.97 0 0);
+  --main-invert: oklch(0.205 0 0);
+
   --primary: oklch(0 0 0);
+  --primary-invert: oklch(1 0 0);
   --primary-foreground: oklch(37.1% 0 0);
-	--primary-muted: oklch(0.556 0 0);
-  --border: oklch(0.97 0 0);
+  --primary-muted: oklch(0.556 0 0);
+
+  --border: oklch(0.885 0 0);
 }
 
 .dark {
   --main: oklch(0.178 0 0);
+  --main-secondary: oklch(0.205 0 0);
+  --main-foreground: oklch(0.269 0 0);
   --main-muted: oklch(0.168 0 0);
-  --main-foreground: oklch(0.205 0 0);
+  --main-background: oklch(0.145 0 0);
+  --main-invert: oklch(0.8 0 0);
+
   --primary: oklch(1 0 0);
+  --primary-invert: oklch(0 0 0);
   --primary-foreground: oklch(0.97 0 0);
-	--primary-muted: oklch(0.708 0 0);
+  --primary-muted: oklch(0.708 0 0);
+
   --border: oklch(0.26 0 0);
 }
 
 @theme inline {
   --color-main: var(--main);
-  --color-main-muted: var(--main-muted);
+  --color-main-secondary: var(--main-secondary);
   --color-main-foreground: var(--main-foreground);
+  --color-main-muted: var(--main-muted);
+  --color-main-background: var(--main-background);
+  --color-main-invert: var(--main-invert);
+
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary-muted: var(--primary-muted);
+  --color-primary-invert: var(--primary-invert);
+
   --color-border: var(--border);
 
-  --ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
-  --animate-flip: flip 6s infinite steps(2, end);
-  --animate-rotate: rotate 3s linear infinite both;
   --animate-shine: shine 6s linear infinite;
   --animate-border-width: border-width 3s infinite alternate;
   --animate-text-gradient: text-gradient 2s linear infinite;
@@ -61,18 +75,6 @@
     }
     to {
       height: 0;
-    }
-  }
-
-  @keyframes flip {
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  @keyframes rotate {
-    to {
-      transform: rotate(90deg);
     }
   }
 

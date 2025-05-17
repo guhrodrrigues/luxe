@@ -73,8 +73,8 @@ export function DrodpownMenuTrigger({
   return (
     <Comp
       className={cn(
-        'flex w-full max-w-[300px] items-center justify-between rounded-xl border border-neutral-200 bg-neutral-50 px-3.5 py-2.5 ease-out-quad active:scale-[0.97]',
-        'focus-visible:border-neutral-300 focus-visible:outline-none dark:border-neutral-800 dark:bg-neutral-900 dark:focus-visible:border-neutral-700',
+        'flex w-full max-w-[300px] items-center justify-between rounded-xl border border-border bg-main-secondary px-3.5 py-2.5 ease-out active:scale-[0.97]',
+        'focus-visible:border-border focus-visible:outline-none',
       )}
       onClick={() => setIsOpen(prev => !prev)}
       {...props}
@@ -85,7 +85,7 @@ export function DrodpownMenuTrigger({
         height="15"
         viewBox="0 0 24 24"
         className={cn(
-          'text-neutral-400 duration-300 ease-out-quad',
+          'text-neutral-400 duration-300 ease-out',
           isOpen && 'rotate-180',
         )}
         fill="none"
@@ -118,7 +118,7 @@ export function DropdownMenuContent({
     <motion.ul
       className={cn(
         'z-[1] mx-auto flex w-full max-w-[200px] flex-col gap-1.5 rounded-xl px-1.5 py-2.5',
-        'border border-neutral-200 bg-neutral-50 dark:border-neutral-800 dark:bg-neutral-900',
+        'border border-border bg-main-secondary',
         isOpen ? 'pointer-events-auto' : 'pointer-events-none',
         floating ? 'absolute' : 'relative',
         className,
@@ -151,10 +151,9 @@ export function DropdownMenuItem({
     <motion.li variants={item} transition={{ duration: 0.2 }}>
       <Comp
         className={cn(
-          'flex w-full items-center gap-2 rounded-lg border border-transparent py-1 text-neutral-500 transition-colors',
-          'hover:text-neutral-600 focus-visible:border-neutral-200 focus-visible:text-neutral-600 focus-visible:outline-none',
-          'dark:text-neutral-400 dark:focus-visible:border-neutral-800 dark:focus-visible:text-neutral-300 dark:hover:text-neutral-300',
-          'select-none px-1.5 hover:bg-neutral-200/40 focus-visible:bg-neutral-200/40 dark:focus-visible:bg-neutral-800/60 dark:hover:bg-neutral-800/60',
+          'flex w-full items-center gap-2 rounded-lg border border-transparent py-1 text-primary-muted transition-colors',
+          'hover:text-primary-foreground focus-visible:border-border focus-visible:text-primary-foreground focus-visible:outline-none',
+          'select-none px-1.5 hover:bg-main-foreground/60 focus-visible:bg-main-foreground/60',
           className,
         )}
         {...props}

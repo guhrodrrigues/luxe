@@ -37,7 +37,7 @@ const meta: Meta = {
     return (
       <MultiStepModal>
         <MultiStepModalTrigger asChild>
-          <Button variant="default">Open</Button>
+          <Button variant="outline">Open</Button>
         </MultiStepModalTrigger>
 
         <MultiStepModalContent steps={steps} />

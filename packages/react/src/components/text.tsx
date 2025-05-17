@@ -44,7 +44,7 @@ const variants: readonly Variant[] = [
               {...props}
               key={char + String(index)}
               className={cn(
-                'inline-block whitespace-pre text-neutral-500 dark:text-neutral-200',
+                'inline-block whitespace-pre text-primary-foreground',
                 className,
               )}
               initial={{ opacity: 0, filter: 'blur(4px)', rotateX: 90, y: 5 }}
@@ -78,8 +78,8 @@ const variants: readonly Variant[] = [
         <span
           {...props}
           className={cn(
-            'absolute top-0 left-0 text-neutral-500 transition-transform duration-500 ease-in-out',
-            'group-hover:-translate-y-full hover:duration-300 dark:text-neutral-400',
+            'absolute top-0 left-0 text-primary-muted transition-transform duration-500 ease-in-out',
+            'group-hover:-translate-y-full hover:duration-300',
             className,
           )}
         >
@@ -88,8 +88,8 @@ const variants: readonly Variant[] = [
         <span
           {...props}
           className={cn(
-            'absolute top-0 left-0 translate-y-full text-neutral-500 transition-transform duration-500',
-            'ease-in-out hover:duration-300 group-hover:translate-y-0 dark:text-neutral-400',
+            'absolute top-0 left-0 translate-y-full text-primary-muted transition-transform duration-500',
+            'ease-in-out hover:duration-300 group-hover:translate-y-0',
             className,
           )}
         >
@@ -114,7 +114,7 @@ const variants: readonly Variant[] = [
         <motion.span
           {...props}
           className={cn(
-            'relative block select-none overflow-hidden whitespace-nowrap text-neutral-500 dark:text-neutral-400',
+            'relative block select-none overflow-hidden whitespace-nowrap text-primary-muted',
             className,
           )}
           initial="initial"
@@ -169,7 +169,7 @@ const variants: readonly Variant[] = [
       <span
         {...props}
         className={cn(
-          'text-neutral-500 hover:animate-text-shake dark:text-neutral-400',
+          'text-primary-muted hover:animate-text-shake',
           className,
         )}
       >
@@ -184,7 +184,7 @@ export type TextProps = {
 } & React.ComponentProps<'span'> &
   Partial<MotionProps>
 
-export function Text({ variant = 'glitch', ...props }: TextProps) {
+export function Text({ variant = 'shine', ...props }: TextProps) {
   const FALLBACK_INDEX = 0
 
   const variantComponent = variants.find(v => v.variant === variant)?.component

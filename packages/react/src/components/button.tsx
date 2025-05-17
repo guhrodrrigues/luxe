@@ -19,11 +19,8 @@ const variants: readonly Variant[] = [
       <button
         {...props}
         className={cn(
-          'group relative w-fit overflow-hidden rounded-xl border border-transparent px-4 py-2 text-neutral-200',
-          'bg-[#161616] shadow-inner shadow-neutral-400',
-          'shadow-neutral-400 hover:bg-neutral-900/90',
-          'dark:shadow-neutral-800/80 dark:hover:bg-neutral-800/50',
-          'transition-all duration-200',
+          'relative overflow-hidden rounded-xl border border-transparent bg-neutral-900 px-4 py-2 text-neutral-200 shadow-inner transition-all duration-200',
+          'shadow-main-foreground/70 hover:bg-main-invert/90 dark:shadow-main-foreground/80 dark:hover:bg-main-foreground/56',
           className,
         )}
       />
@@ -35,8 +32,8 @@ const variants: readonly Variant[] = [
       <button
         {...props}
         className={cn(
-          'group relative rounded-xl border border-neutral-300 px-4 py-2 text-neutral-700 transition-all duration-200',
-          'hover:bg-neutral-200 dark:border-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-900',
+          'relative rounded-xl border border-border px-4 py-2 transition-all duration-200',
+          'text-primary-foreground hover:bg-main-foreground/50',
           className,
         )}
       />
@@ -72,9 +69,10 @@ const variants: readonly Variant[] = [
       <button
         {...props}
         className={cn(
-          'animate-shine items-center justify-center rounded-xl border border-white/10 bg-[linear-gradient(110deg,#000000,45%,#303030,55%,#000000)] px-4 py-2',
-          'bg-[length:400%_100%] text-neutral-200 transition-colors dark:border-neutral-800',
-          'dark:bg-[linear-gradient(110deg,#000103,45%,#303030,55%,#000103)] dark:text-neutral-400',
+          'animate-shine items-center justify-center rounded-xl border border-border bg-[length:400%_100%]',
+          'px-4 py-2 text-primary-invert/90 transition-colors dark:text-primary-muted',
+					"bg-[linear-gradient(110deg,#000000,45%,#303030,55%,#000000)]",
+          'dark:bg-[linear-gradient(110deg,#000103,45%,#303030,55%,#000103)]',
           className,
         )}
       />
@@ -86,8 +84,7 @@ const variants: readonly Variant[] = [
       <button
         {...props}
         className={cn(
-          'relative rounded-xl border border-black/10 px-4 py-2 duration-200',
-          'hover:bg-neutral-200 dark:border-white/10 dark:hover:bg-neutral-900',
+          'relative rounded-xl border border-primary/10 px-4 py-2 duration-200 hover:bg-main-foreground/40',
           className,
         )}
       >
@@ -106,8 +103,8 @@ const variants: readonly Variant[] = [
               offsetDistance: ['0%', '100%'],
             }}
             style={{
-              width: 18,
-              offsetPath: `rect(0 auto auto 0 round ${18}px)`,
+              width: 20,
+              offsetPath: `rect(0 auto auto 0 round ${20}px)`,
             }}
             transition={{
               repeat: Number.POSITIVE_INFINITY,
@@ -116,7 +113,7 @@ const variants: readonly Variant[] = [
             }}
           />
         </div>
-        <span className="relative z-10 text-neutral-500 dark:text-neutral-400">
+        <span className="relative z-10 text-primary-muted">
           {children}
         </span>
       </button>
@@ -137,8 +134,7 @@ const variants: readonly Variant[] = [
         />
         <span
           className={cn(
-            'inline-flex size-full items-center justify-center rounded-xl bg-neutral-100 px-4 py-2 text-neutral-500 backdrop-blur-3xl',
-            'dark:bg-neutral-950 dark:text-neutral-100',
+            'inline-flex size-full items-center justify-center rounded-[11px] bg-main-background px-4 py-2 text-primary-foreground backdrop-blur-3xl',
             className,
           )}
         >
@@ -148,41 +144,14 @@ const variants: readonly Variant[] = [
     ),
   },
   {
-    variant: 'magnetic',
-    component: ({ children, ...props }) => {
-      const { ref, handleMouseLeave, handleMouseMove, x, y } = useMagnetic()
-
-      return (
-        <motion.button
-          ref={ref}
-          className={cn(
-            'relative rounded-xl bg-black px-4 py-2 text-white dark:bg-white dark:text-black',
-            props.className,
-          )}
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-          animate={{ x, y }}
-          transition={{
-            type: 'spring',
-            damping: 15,
-            stiffness: 150,
-            mass: 0.1,
-          }}
-        >
-          {children}
-        </motion.button>
-      )
-    },
-  },
-  {
     variant: 'glitch-brightness',
     component: ({ children, className, ...props }) => {
       return (
         <button
           {...props}
           className={cn(
-            'group relative overflow-hidden rounded-xl bg-black/80 px-4 py-2 text-white duration-300',
-            'hover:bg-black dark:bg-white/80 dark:text-black dark:hover:bg-white',
+            'group relative overflow-hidden rounded-xl px-4 py-2 text-primary-invert duration-300',
+            'bg-primary/80 dark:hover:bg-primary',
             className,
           )}
         >
@@ -196,17 +165,12 @@ const variants: readonly Variant[] = [
           <div className="relative overflow-hidden">
             <span className="invisible">{children}</span>
             <span
-              className={cn(
-                'group-hover:-translate-y-full absolute top-0 left-0 transition-transform duration-500 ease-in-out hover:duration-300',
-                'hover:duration-300',
-              )}
+              className='group-hover:-translate-y-full absolute top-0 left-0 transition-transform duration-500 ease-in-out hover:duration-300'
             >
               {children}
             </span>
             <span
-              className={cn(
-                'absolute top-0 left-0 translate-y-full transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0',
-              )}
+              className='absolute top-0 left-0 translate-y-full transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0'
             >
               {children}
             </span>
@@ -218,15 +182,9 @@ const variants: readonly Variant[] = [
         return (
           <div
             aria-hidden
-            className={cn(
-              'absolute inset-0 flex h-full w-full animate-brightness justify-center',
-            )}
+            className='absolute inset-0 flex h-full w-full animate-brightness justify-center'
           >
-            <div
-              className={cn(
-                'relative h-full w-8 bg-white/20 blur dark:bg-white/40',
-              )}
-            />
+            <div className='relative h-full w-8 bg-white/20 blur dark:bg-white/40' />
           </div>
         )
       }
@@ -236,35 +194,66 @@ const variants: readonly Variant[] = [
 
 export type ButtonProps = {
   variant?: (typeof variants)[number]['variant']
+  isMagnetic?: boolean
 } & React.ComponentProps<'button'>
 
 export function Button({
   variant = 'default',
+  isMagnetic = false,
   className,
   ...props
 }: ButtonProps) {
-  const FALLBACK_INDEX = 0
-
+	const FALLBACK_INDEX = 0
+  
   const variantComponent = variants.find(v => v.variant === variant)?.component
 
   if (!variantComponent) {
     return variants[FALLBACK_INDEX].component(props)
   }
 
-  return (
+  const buttonContent = (
     <Slot.Root className={cn('font-medium text-sm')}>
       {variantComponent
         ? variantComponent({ ...props, className })
         : variants[FALLBACK_INDEX].component({ ...props, className })}
     </Slot.Root>
   )
+
+  if (isMagnetic) {
+    return (
+      <Magnetic>
+        {buttonContent}
+      </Magnetic>
+    )
+  }
+
+  return buttonContent
 }
 
-// HOOKS ↴
+function Magnetic({ children }: { children: React.ReactNode }) {
+  const { ref, handleMouseMove, handleMouseLeave, x, y } = useMagnetic()
+
+  return (
+    <motion.div 
+			ref={ref} 
+			onMouseMove={handleMouseMove} 
+			onMouseLeave={handleMouseLeave} 
+			animate={{ x, y }}
+			transition={{
+				type: 'spring',
+				damping: 15,
+				stiffness: 150,
+				mass: 0.1,
+			}}
+		>
+      {children}
+    </motion.div>
+  )
+}
 
 function useMagnetic() {
   const [position, setPosition] = useState({ x: 0, y: 0 })
-  const ref = useRef<HTMLButtonElement>(null)
+  const ref = useRef<HTMLDivElement>(null)
 
   function handleMouseMove(e: React.MouseEvent) {
     const { clientX, clientY } = e

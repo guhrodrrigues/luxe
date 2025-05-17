@@ -12,9 +12,9 @@ const meta: Meta<ButtonProps> = {
     variant: {
       options: [
         "shine",
+				"outline",
         "animated-border",
         "rotate-border",
-        "magnetic",
         "success",
         "destructive",
         "glitch-brightness",
@@ -22,6 +22,9 @@ const meta: Meta<ButtonProps> = {
       ],
       control: "radio",
     },
+		magnetic: {
+			control: "boolean",
+		}
   },
   parameters: {
     layout: "centered",

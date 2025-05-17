@@ -61,10 +61,10 @@ export function CommandBlock({
           </TabsList>
           <CopyCode code={tabs[selectedPackage]} />
         </div>
-        <div className="relative overflow-x-auto px-4 pb-4">
+        <div className="relative overflow-x-auto">
           {Object.entries(tabs).map(([key, value]) => (
             <TabsContent key={key} value={key}>
-              <pre>
+              <pre className="px-4 pb-4">
                 <code
                   className="relative font-mono text-sm leading-none text-primary"
                   data-language="bash"

@@ -33,8 +33,7 @@ export function Input({
   return (
     <div
       className={cn(
-        'relative inline-flex h-11 w-64 items-center overflow-hidden rounded-xl border border-neutral-200/90 bg-neutral-50 shadow-xs transition-colors ease-out-quad focus-within:border-primary data-[filled=true]:border-neutral-300/90',
-        'dark:border-neutral-800/90 dark:bg-neutral-900 dark:data-[filled=true]:border-neutral-200/90',
+        'relative inline-flex h-11 w-64 items-center overflow-hidden rounded-xl border border-border bg-main-secondary shadow-xs transition-colors ease-out focus-within:border-primary data-[filled=true]:border-border',
         'has-disabled:opacity-80 has-disabled:*:cursor-not-allowed',
         className,
       )}
@@ -44,8 +43,7 @@ export function Input({
         {...props}
         className={cn(
           'peer h-full flex-1 bg-transparent px-3 py-2 caret-primary outline-none placeholder:sr-only',
-          'font-normal font-sans text-neutral-500 text-sm/5.5 ',
-          'dark:text-neutral-300',
+          'font-normal font-sans text-primary-foreground text-sm/5.5 ',
         )}
         placeholder={placeholder}
         onChange={event => {
@@ -59,7 +57,7 @@ export function Input({
           <motion.span
             className={cn(
               'pointer-events-none absolute left-3',
-              'font-normal font-sans text-neutral-500 text-sm/5.5',
+              'font-normal font-sans text-primary-muted/70 text-sm/5.5',
             )}
             variants={animatedPlaceholderVariants}
             initial="hidden"
