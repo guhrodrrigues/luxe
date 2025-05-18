@@ -255,18 +255,26 @@ export function CommandMenu() {
       <button
         onClick={() => setIsOpen((prev) => !prev)}
         className={cn(
-          "relative flex items-center justify-between gap-1.5 px-2.5 py-1.5 border rounded-full text-[13px] leading-none border-border/60",
-          "bg-background transition-all duration-200 hover:bg-main-foreground/30 dark:hover:border-white/10",
+          "group relative flex items-center justify-between gap-4 pl-2.5 pr-2 py-1.5 border rounded-full text-[13px] leading-none border-border/60 dark:border-border/50",
+          "bg-background ease-linear duration-150 hover:bg-main-foreground/40 dark:hover:bg-main-foreground/20 dark:hover:border-white/10",
         )}
       >
+        <div
+          aria-hidden
+          className="pointer-events-none absolute left-1/2 -top-[0.031em] h-px w-1/2 max-w-[1000px] -translate-x-1/4 -translate-y-1/2 bg-gradient-to-l from-transparent via-white/18 via-30% to-transparent"
+        />
         <span className="flex items-center gap-2 font-[460] text-neutral-500">
           <SearchIcon size={12} />
           Search
         </span>
-        <div
-          aria-hidden
-          className="pointer-events-none absolute left-1/2 -top-px h-[.75px] w-1/2 max-w-[1000px] -translate-x-1/4 -translate-y-1/2 bg-gradient-to-l from-transparent via-white/30 via-30% to-transparent"
-        />
+        <span
+          className={cn(
+            "text-neutral-500 border border-border/60 ease-linear duration-150 group-hover:border-transparent",
+            "px-1.5 py-1 rounded-lg text-[10px] flex items-center gap-0.5",
+          )}
+        >
+          <CommandIcon size={10} />K
+        </span>
       </button>
       <CommandDialog open={isOpen} onOpenChange={setIsOpen}>
         <div className="pt-3 pl-4">
