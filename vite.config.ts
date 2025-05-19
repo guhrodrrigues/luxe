@@ -16,7 +16,7 @@ export default defineConfig(() => {
         },
         {
           find: '@/registry',
-          replacement: path.resolve(__dirname, 'packages/react/src'),
+          replacement: path.resolve(__dirname, 'packages/react/src/components'),
         },
       ],
     },

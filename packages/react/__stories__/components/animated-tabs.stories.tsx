@@ -1,23 +1,23 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react'
 
-import { AnimatedTabs } from "@/registry/components/animated-tabs";
+import { AnimatedTabs } from '@/components/animated-tabs'
 
 const meta: Meta = {
-  title: "components/AnimatedTabs",
+  title: 'components/AnimatedTabs',
   component: AnimatedTabs,
   args: {
     tabs: [
-      { label: "All Posts" },
-      { label: "Interactions" },
-      { label: "Resources" },
-      { label: "Docs" },
+      { label: 'All Posts' },
+      { label: 'Interactions' },
+      { label: 'Resources' },
+      { label: 'Docs' },
     ],
   },
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-};
+}
 
-export default meta;
+export default meta
 
-export const Basic: StoryObj = {};
+export const Basic: StoryObj = {}

@@ -1,9 +1,9 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react'
 
-import { Card, CardProps } from "@/registry/components/card";
+import { Card, type CardProps } from '@/components/card'
 
 const meta: Meta<CardProps> = {
-  title: "components/Card",
+  title: 'components/Card',
   component: Card,
   args: {
     children: (
@@ -21,19 +21,19 @@ const meta: Meta<CardProps> = {
   argTypes: {
     variant: {
       options: [
-        "default",
-        "animated-border",
-        "background-shine",
-        "revealed-pointer",
+        'default',
+        'animated-border',
+        'background-shine',
+        'revealed-pointer',
       ],
-      control: "radio",
+      control: 'radio',
     },
   },
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-};
+}
 
-export default meta;
+export default meta
 
-export const Basic: StoryObj = {};
+export const Basic: StoryObj = {}
