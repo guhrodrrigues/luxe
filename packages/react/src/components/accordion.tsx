@@ -1,6 +1,6 @@
 import * as RadixAccordion from '@radix-ui/react-accordion'
 
-import { cn } from '@/registry/utils/cn'
+import { cn } from '@/utils/cn'
 
 export const Accordion = RadixAccordion.Root
 

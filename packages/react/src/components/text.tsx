@@ -3,7 +3,7 @@
 import { motion, type MotionProps } from 'motion/react'
 import * as Slot from '@radix-ui/react-slot'
 
-import { cn } from '@/registry/utils/cn'
+import { cn } from '@/utils/cn'
 
 type Variant = {
   variant: string

@@ -52,7 +52,7 @@
 		"lint": "turbo lint",
 		"storybook": "storybook dev -p 6006",
 		"storybook:build": "storybook build",
-		"registry": "tsx scripts/registry.ts"
+		"build:registry": "tsx scripts/build-registry.ts"
 	},
 	"pnpm": {
 		"overrides": {}

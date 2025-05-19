@@ -5,4 +5,5 @@ export const REQUIRED_EXTERNAL_DEPENDENCIES = [
   'tailwind-merge',
   'tailwind-variants',
   'tw-animate-css',
+  'motion',
 ]

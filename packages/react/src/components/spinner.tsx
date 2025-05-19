@@ -1,4 +1,4 @@
-import { cn } from '@/registry/utils/cn'
+import { cn } from '@/utils/cn'
 
 type SpinnerProps = {
   size?: string

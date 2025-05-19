@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import { AnimatePresence, motion, type Variants } from 'motion/react'
 
-import { cn } from '@/registry/utils/cn'
+import { cn } from '@/utils/cn'
 
 export type InputProps = React.ComponentPropsWithRef<'input'>
 type FieldState = 'idle' | 'filled'

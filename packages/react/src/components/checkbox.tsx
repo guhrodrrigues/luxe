@@ -1,29 +1,29 @@
-"use client"; // @NOTE: Add in case you are using Next.js
+'use client' // @NOTE: Add in case you are using Next.js
 
-import * as RadixCheckbox from "@radix-ui/react-checkbox";
+import * as RadixCheckbox from '@radix-ui/react-checkbox'
 
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, motion } from 'motion/react'
 
-import { cn } from "@/registry/utils/cn";
+import { cn } from '@/utils/cn'
 
 type CheckboxProps = React.CustomComponentPropsWithRef<
   typeof RadixCheckbox.Root
->;
+>
 
 export function Checkbox(props: CheckboxProps) {
-  const { checked } = props;
+  const { checked } = props
 
   return (
     <RadixCheckbox.Root
       {...props}
       className={cn(
-        "relative inset-ring-1 inset-ring-border inline-block size-5 appearance-none rounded bg-neutral-100 dark:bg-neutral-900",
+        'relative inset-ring-1 inset-ring-border inline-block size-5 appearance-none rounded bg-neutral-100 dark:bg-neutral-900',
       )}
     >
       <AnimatePresence mode="popLayout">
         <RadixCheckbox.Indicator
           className={cn(
-            "absolute inset-0 flex items-center justify-center rounded-[inherit] bg-primary",
+            'absolute inset-0 flex items-center justify-center rounded-[inherit] bg-primary',
           )}
           asChild
         >
@@ -46,16 +46,16 @@ export function Checkbox(props: CheckboxProps) {
         </RadixCheckbox.Indicator>
       </AnimatePresence>
     </RadixCheckbox.Root>
-  );
+  )
 }
 
 type CheckIconProps = {
-  checkedState: CheckboxProps["checked"];
-};
+  checkedState: CheckboxProps['checked']
+}
 
 function CheckIcon({ checkedState }: CheckIconProps) {
-  const CHECK_PATH = "M5 13 L10 18 L20 6";
-  const INDETERMINATE_PATH = "M6 12 H18";
+  const CHECK_PATH = 'M5 13 L10 18 L20 6'
+  const INDETERMINATE_PATH = 'M6 12 H18'
 
   return (
     <svg
@@ -64,13 +64,13 @@ function CheckIcon({ checkedState }: CheckIconProps) {
       strokeLinecap="round"
       strokeLinejoin="round"
       className={cn(
-        "shrink-0 scale-65 stroke-4 stroke-white dark:stroke-black",
+        'shrink-0 scale-65 stroke-4 stroke-white dark:stroke-black',
       )}
     >
       <title>Check</title>
 
       <motion.path
-        d={checkedState === "indeterminate" ? INDETERMINATE_PATH : CHECK_PATH}
+        d={checkedState === 'indeterminate' ? INDETERMINATE_PATH : CHECK_PATH}
         initial={{
           pathLength: 0,
         }}
@@ -83,5 +83,5 @@ function CheckIcon({ checkedState }: CheckIconProps) {
         }}
       />
     </svg>
-  );
+  )
 }

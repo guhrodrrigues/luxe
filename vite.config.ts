@@ -11,6 +11,10 @@ export default defineConfig(() => {
     resolve: {
       alias: [
         {
+          find: '@',
+          replacement: path.resolve(__dirname, 'packages/react/src'),
+        },
+        {
           find: '@/registry',
           replacement: path.resolve(__dirname, 'packages/react/src'),
         },

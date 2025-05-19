@@ -145,7 +145,7 @@ function getDependencies(importPaths: string[]) {
 }
 
 function applyAliasTemplates(importDeclarations: ImportDeclaration[]) {
-  const aliasRegex = /\b(components|utils)\b/
+  const aliasRegex = /\b(components)\b/
 
   for (const importDeclaration of importDeclarations) {
     const importPathNode = importDeclaration.getModuleSpecifier()
