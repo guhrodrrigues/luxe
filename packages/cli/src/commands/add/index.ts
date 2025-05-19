@@ -31,7 +31,7 @@ export const add = new Command()
 
       if (errors[ERRORS.DIRECTORY_NOT_FOUND_OR_EMPTY_PROJECT]) {
         throw new ExecutionError(
-          'The add command was run in a directory without a package.json.\nMake sure you are in a Node.js project initialized with npm init or yarn init.',
+          '`add` command was run in a directory without a `package.json`.\nMake sure you are in a Node.js project initialized with `npm init` or `yarn init`.',
         )
       }
 
@@ -61,9 +61,9 @@ export const add = new Command()
 
       if (componentsNotFound.length > 0) {
         throw new ExecutionError(
-          `The following components were not found in the registry: ${componentsNotFound
+          `${componentsNotFound
             .map(c => chalk.blue(c))
-            .join(', ')}`,
+            .join(', ')} components were not found in the registry.`,
         )
       }
 
@@ -79,9 +79,9 @@ export const add = new Command()
       }
 
       log.success(
-        `${chalk.green('Components installed successfully:\n')}${chalk.white(
+        `${chalk.green('Success! Installed components:\n')}${chalk.white(
           installedComponents.join('\n'),
-        )}`,
+        )}\n`,
       )
     } catch (err) {
       if (err instanceof ExecutionError) {

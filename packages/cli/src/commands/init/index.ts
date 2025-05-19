@@ -50,7 +50,7 @@ export const init = new Command()
       })
 
       log.success(
-        `${chalk.green('`init` command executed successfully!')}\n${chalk.white('Run `add` command to add components to your project.')}`,
+        `${chalk.green('`init` command executed successfully!')}\n\n${chalk.white(`Run ${chalk.blue('@luxeui/ui add')} to add components to your project.`)}\n`,
       )
     } catch (err) {
       if (err instanceof ExecutionError) {

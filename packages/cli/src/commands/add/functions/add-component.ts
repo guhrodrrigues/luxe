@@ -13,9 +13,6 @@ import {
 } from '@/schemas/component-schema'
 import type { LuxeAliasesProps } from '@/schemas/luxe-config-schema'
 
-/**
- * Function responsible for adding the component code to the project.
- */
 export async function addComponent(
   componentFiles: ComponentFile[],
   aliases: LuxeAliasesProps,
