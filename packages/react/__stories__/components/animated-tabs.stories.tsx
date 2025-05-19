@@ -6,12 +6,7 @@ const meta: Meta = {
   title: 'components/AnimatedTabs',
   component: AnimatedTabs,
   args: {
-    tabs: [
-      { label: 'All Posts' },
-      { label: 'Interactions' },
-      { label: 'Resources' },
-      { label: 'Docs' },
-    ],
+    tabs: ['All Posts', 'Interactions', 'Resources', 'Docs'],
   },
   parameters: {
     layout: 'centered',

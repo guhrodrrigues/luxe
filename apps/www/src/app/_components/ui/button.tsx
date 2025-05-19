@@ -1,125 +1,126 @@
-"use client"; // @NOTE: Add in case you are using Next.js
+'use client' // @NOTE: Add in case you are using Next.js
 
-import { useRef, useState } from "react";
+import { useRef, useState } from 'react'
 
-import { motion } from "motion/react";
-import * as Slot from "@radix-ui/react-slot";
+import { motion } from 'motion/react'
+import * as Slot from '@radix-ui/react-slot'
 
-import { cn } from "@/utils/cn";
+import { cn } from '@/utils/cn'
 
 type Variant = {
-  variant: string;
-  component: React.FC<React.ComponentProps<"button">>;
-};
+  variant: string
+  component: React.FC<React.ComponentProps<'button'>>
+}
 
 const variants: readonly Variant[] = [
   {
-    variant: "default",
+    variant: 'default',
     component: ({ className, ...props }) => (
       <button
         {...props}
         className={cn(
-          "group relative overflow-hidden w-fit rounded-xl text-neutral-200",
-          "bg-[#161616] shadow-inner shadow-neutral-400 border border-transparent px-4 py-2",
-          "shadow-neutral-400 hover:bg-neutral-900/90",
-          "dark:shadow-neutral-800/80 dark:hover:bg-neutral-800/50",
-          "transition-all duration-200",
+          'relative overflow-hidden rounded-xl border border-transparent bg-neutral-900 px-4 py-2 text-neutral-200 shadow-inner transition-all duration-200',
+          'shadow-main-foreground/70 hover:bg-main-invert/90 dark:shadow-main-foreground/80 dark:hover:bg-main-foreground/56',
           className,
         )}
       />
     ),
   },
   {
-    variant: "outline",
+    variant: 'outline',
     component: ({ className, ...props }) => (
       <button
         {...props}
         className={cn(
-          "group relative rounded-xl px-4 py-2",
-          "text-neutral-700 dark:text-neutral-200 border border-neutral-300 dark:border-neutral-800",
-          "hover:bg-neutral-200 dark:hover:bg-neutral-900 transition-all duration-200",
+          'relative rounded-xl border border-border px-4 py-2 transition-all duration-200',
+          'text-primary-foreground hover:bg-main-foreground/40',
           className,
         )}
       />
     ),
   },
   {
-    variant: "success",
+    variant: 'success',
     component: ({ className, ...props }) => (
       <button
         {...props}
         className={cn(
-          "rounded-xl bg-gradient-to-t from-green-700 to-green-600 text-white px-4 py-2",
+          'rounded-xl bg-gradient-to-t from-green-700 to-green-600 px-4 py-2 text-white',
           className,
         )}
       />
     ),
   },
   {
-    variant: "destructive",
+    variant: 'destructive',
     component: ({ className, ...props }) => (
       <button
         {...props}
         className={cn(
-          "rounded-xl bg-gradient-to-t from-red-600 to-red-500 text-white px-4 py-2",
+          'rounded-xl bg-gradient-to-t from-red-600 to-red-500 px-4 py-2 text-white',
           className,
         )}
       />
     ),
   },
   {
-    variant: "shine",
+    variant: 'shine',
     component: ({ className, ...props }) => (
       <button
         {...props}
         className={cn(
-          "animate-shine items-center justify-center rounded-xl border border-white/10 bg-[linear-gradient(110deg,#000000,45%,#303030,55%,#000000)]",
-          "bg-[length:400%_100%] text-neutral-200 transition-colors dark:border-neutral-800 px-4 py-2",
-          "dark:bg-[linear-gradient(110deg,#000103,45%,#303030,55%,#000103)] dark:text-neutral-400",
+          'animate-shine items-center justify-center rounded-xl border border-border bg-[length:400%_100%]',
+          'px-4 py-2 text-primary-invert/90 transition-colors dark:text-primary-muted',
+					"bg-[linear-gradient(110deg,#000000,45%,#303030,55%,#000000)]",
+          'dark:bg-[linear-gradient(110deg,#000103,45%,#303030,55%,#000103)]',
           className,
         )}
       />
     ),
   },
   {
-    variant: "animated-border",
+    variant: 'animated-border',
     component: ({ children, className, ...props }) => (
       <button
         {...props}
         className={cn(
-          "relative px-4 py-2 rounded-xl border border-black/10 dark:border-white/10 duration-200 hover:bg-neutral-200 dark:hover:bg-neutral-900",
+          'relative rounded-xl border border-primary/10 px-4 py-2 duration-200 hover:bg-main-foreground/40',
           className,
         )}
       >
         <div
           className={cn(
-            "absolute -inset-px rounded-[inherit] border border-transparent [mask-clip:padding-box,border-box] pointer-events-none",
-            "[mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]",
+            '-inset-px pointer-events-none absolute rounded-[inherit] border border-transparent [mask-clip:padding-box,border-box]',
+            '[mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]',
           )}
         >
           <motion.div
             className={cn(
-              "absolute aspect-square bg-gradient-to-r from-transparent via-neutral-300 to-neutral-400",
-              "dark:from-transparent dark:via-neutral-600 dark:to-neutral-400",
+              'absolute aspect-square bg-gradient-to-r from-transparent via-neutral-300 to-neutral-400',
+              'dark:from-transparent dark:via-neutral-600 dark:to-neutral-400',
             )}
             animate={{
-              offsetDistance: ["0%", "100%"],
+              offsetDistance: ['0%', '100%'],
             }}
             style={{
-              width: 18,
-              offsetPath: `rect(0 auto auto 0 round ${18}px)`,
+              width: 20,
+              offsetPath: `rect(0 auto auto 0 round ${20}px)`,
             }}
-            transition={{ repeat: Infinity, duration: 5, ease: "linear" }}
+            transition={{
+              repeat: Number.POSITIVE_INFINITY,
+              duration: 5,
+              ease: 'linear',
+            }}
           />
         </div>
-        <span className="relative z-10 text-neutral-500 dark:text-neutral-400">
+        <span className="relative z-10 text-primary-muted">
           {children}
         </span>
       </button>
     ),
   },
   {
-    variant: "rotate-border",
+    variant: 'rotate-border',
     component: ({ children, className, ...props }) => (
       <button
         {...props}
@@ -127,13 +128,13 @@ const variants: readonly Variant[] = [
       >
         <span
           className={cn(
-            "absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#4e4e4e_0%,#d4d4d4_50%,#414141_100%)]",
-            "dark:bg-[conic-gradient(from_90deg_at_50%_50%,#c2c2c2_0%,#505050_50%,#bebebe_100%)]",
+            'absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#4e4e4e_0%,#d4d4d4_50%,#414141_100%)]',
+            'dark:bg-[conic-gradient(from_90deg_at_50%_50%,#c2c2c2_0%,#505050_50%,#bebebe_100%)]',
           )}
         />
         <span
           className={cn(
-            "inline-flex h-full px-4 py-2 w-full items-center justify-center rounded-[11px] bg-neutral-100 text-neutral-500 backdrop-blur-3xl dark:bg-neutral-950 dark:text-neutral-100",
+            'inline-flex size-full items-center justify-center rounded-[11px] bg-main-background px-4 py-2 text-primary-foreground backdrop-blur-3xl',
             className,
           )}
         >
@@ -143,125 +144,132 @@ const variants: readonly Variant[] = [
     ),
   },
   {
-    variant: "magnetic",
-    component: ({ children, ...props }) => {
-      const { ref, handleMouseLeave, handleMouseMove, x, y } = useMagnetic();
-
-      return (
-        <motion.button
-          ref={ref}
-          className={cn(
-            "px-4 py-2 relative rounded-xl bg-black text-white dark:bg-white dark:text-black",
-            props.className,
-          )}
-          onMouseMove={handleMouseMove}
-          onMouseLeave={handleMouseLeave}
-          animate={{ x, y }}
-          transition={{
-            type: "spring",
-            damping: 15,
-            stiffness: 150,
-            mass: 0.1,
-          }}
-        >
-          {children}
-        </motion.button>
-      );
-    },
-  },
-  {
-    variant: "glitch-brightness",
+    variant: 'glitch-brightness',
     component: ({ children, className, ...props }) => {
       return (
         <button
           {...props}
           className={cn(
-            "group px-4 py-2 relative overflow-hidden rounded-xl bg-black/80 text-white duration-300 hover:bg-black dark:bg-white/80 dark:text-black dark:hover:bg-white",
+            'group relative overflow-hidden rounded-xl px-4 py-2 text-primary-invert duration-300',
+            'bg-primary/80 dark:hover:bg-primary',
             className,
           )}
         >
           <TextGlitch>{children}</TextGlitch>
           <Brightness />
         </button>
-      );
+      )
 
       function TextGlitch({ children }: { children: React.ReactNode }) {
         return (
           <div className="relative overflow-hidden">
             <span className="invisible">{children}</span>
-            <span className="absolute left-0 top-0 transition-transform duration-500 ease-in-out hover:duration-300 group-hover:-translate-y-full">
+            <span
+              className='group-hover:-translate-y-full absolute top-0 left-0 transition-transform duration-500 ease-in-out hover:duration-300'
+            >
               {children}
             </span>
-            <span className="absolute left-0 top-0 translate-y-full transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0">
+            <span
+              className='absolute top-0 left-0 translate-y-full transition-transform duration-500 ease-in-out hover:duration-300 group-hover:translate-y-0'
+            >
               {children}
             </span>
           </div>
-        );
+        )
       }
 
       function Brightness() {
         return (
           <div
             aria-hidden
-            className="absolute inset-0 flex h-full w-full animate-brightness justify-center"
+            className='absolute inset-0 flex h-full w-full animate-brightness justify-center'
           >
-            <div className="relative h-full w-8 bg-white/20 blur dark:bg-white/40" />
+            <div className='relative h-full w-8 bg-white/20 blur dark:bg-white/40' />
           </div>
-        );
+        )
       }
     },
   },
-] as const;
+] as const
 
 export type ButtonProps = {
-  variant?: (typeof variants)[number]["variant"];
-} & React.ComponentProps<"button">;
+  variant?: (typeof variants)[number]['variant']
+  isMagnetic?: boolean
+} & React.ComponentProps<'button'>
 
 export function Button({
-  variant = "default",
+  variant = 'default',
+  isMagnetic = false,
   className,
   ...props
 }: ButtonProps) {
-  const FALLBACK_INDEX = 0;
-
-  const variantComponent = variants.find(
-    (v) => v.variant === variant,
-  )?.component;
+	const FALLBACK_INDEX = 0
+  
+  const variantComponent = variants.find(v => v.variant === variant)?.component
 
   if (!variantComponent) {
-    return variants[FALLBACK_INDEX].component(props);
+    return variants[FALLBACK_INDEX].component(props)
   }
 
-  return (
-    <Slot.Root className="text-sm font-medium">
+  const buttonContent = (
+    <Slot.Root className={cn('font-medium text-sm')}>
       {variantComponent
         ? variantComponent({ ...props, className })
         : variants[FALLBACK_INDEX].component({ ...props, className })}
     </Slot.Root>
-  );
+  )
+
+  if (isMagnetic) {
+    return (
+      <Magnetic>
+        {buttonContent}
+      </Magnetic>
+    )
+  }
+
+  return buttonContent
 }
 
-// HOOKS ↴
+function Magnetic({ children }: { children: React.ReactNode }) {
+  const { ref, handleMouseMove, handleMouseLeave, x, y } = useMagnetic()
+
+  return (
+    <motion.div 
+			ref={ref} 
+			onMouseMove={handleMouseMove} 
+			onMouseLeave={handleMouseLeave} 
+			animate={{ x, y }}
+			transition={{
+				type: 'spring',
+				damping: 15,
+				stiffness: 150,
+				mass: 0.1,
+			}}
+		>
+      {children}
+    </motion.div>
+  )
+}
 
 function useMagnetic() {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const ref = useRef<any>(null);
+  const [position, setPosition] = useState({ x: 0, y: 0 })
+  const ref = useRef<HTMLDivElement>(null)
 
   function handleMouseMove(e: React.MouseEvent) {
-    const { clientX, clientY } = e;
-    const { height, width, left, top } = ref.current.getBoundingClientRect();
+    const { clientX, clientY } = e
+    const { height, width, left, top } = ref.current!.getBoundingClientRect()
 
-    const middleX = clientX - (left + width / 2);
-    const middleY = clientY - (top + height / 2);
+    const middleX = clientX - (left + width / 2)
+    const middleY = clientY - (top + height / 2)
 
-    setPosition({ x: middleX, y: middleY });
+    setPosition({ x: middleX, y: middleY })
   }
 
   function handleMouseLeave() {
-    setPosition({ x: 0, y: 0 });
+    setPosition({ x: 0, y: 0 })
   }
 
-  const { x, y } = position;
+  const { x, y } = position
 
-  return { ref, handleMouseMove, handleMouseLeave, x, y };
+  return { ref, handleMouseMove, handleMouseLeave, x, y }
 }

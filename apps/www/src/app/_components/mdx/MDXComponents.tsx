@@ -33,7 +33,7 @@ import { DropdownMenuExample } from "../../ui/_components/examples/DropdownMenuE
 import { SwitchExample } from "../../ui/_components/examples/SwitchExample";
 import { Input } from "../ui/input";
 import { BlurImage } from "../BlurImage";
-
+import { MultiStepModalExample } from "../../ui/_components/examples/MultiStepModalExample";
 const components: MDXComponents = {
   ComponentView: ({ children, isReloadAnimation, ...props }) => (
     <ComponentView
@@ -193,6 +193,7 @@ const components: MDXComponents = {
   DropdownMenuExample: () => <DropdownMenuExample />,
   SwitchExample: () => <SwitchExample />,
   Input: ({ ...props }) => <Input {...props} />,
+  MultiStepModalExample: () => <MultiStepModalExample />,
 };
 
 export function useMDXComponents(components: MDXComponents) {

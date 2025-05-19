@@ -12,15 +12,18 @@ const meta: Meta<ButtonProps> = {
     variant: {
       options: [
         'shine',
+        'outline',
         'animated-border',
         'rotate-border',
-        'magnetic',
         'success',
         'destructive',
         'glitch-brightness',
         'default',
       ],
       control: 'radio',
+    },
+    magnetic: {
+      control: 'boolean',
     },
   },
   parameters: {

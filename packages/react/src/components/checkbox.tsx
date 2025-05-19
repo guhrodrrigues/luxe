@@ -4,8 +4,6 @@ import * as RadixCheckbox from '@radix-ui/react-checkbox'
 
 import { AnimatePresence, motion } from 'motion/react'
 
-import { cn } from '@/utils/cn'
-
 type CheckboxProps = React.CustomComponentPropsWithRef<
   typeof RadixCheckbox.Root
 >
@@ -16,15 +14,11 @@ export function Checkbox(props: CheckboxProps) {
   return (
     <RadixCheckbox.Root
       {...props}
-      className={cn(
-        'relative inset-ring-1 inset-ring-border inline-block size-5 appearance-none rounded bg-neutral-100 dark:bg-neutral-900',
-      )}
+      className="relative inset-ring-1 inset-ring-border inline-block size-5 appearance-none rounded bg-main-muted"
     >
       <AnimatePresence mode="popLayout">
         <RadixCheckbox.Indicator
-          className={cn(
-            'absolute inset-0 flex items-center justify-center rounded-[inherit] bg-primary',
-          )}
+          className="absolute inset-0 flex items-center justify-center rounded-[inherit] bg-primary"
           asChild
         >
           <motion.div
@@ -63,9 +57,7 @@ function CheckIcon({ checkedState }: CheckIconProps) {
       fill="none"
       strokeLinecap="round"
       strokeLinejoin="round"
-      className={cn(
-        'shrink-0 scale-65 stroke-4 stroke-white dark:stroke-black',
-      )}
+      className="shrink-0 scale-65 stroke-4 stroke-primary-invert"
     >
       <title>Check</title>
 

@@ -1,4 +1,4 @@
-'use client'
+'use client' // @NOTE: Add in case you are using Next.js
 
 import { useState } from 'react'
 
@@ -79,7 +79,7 @@ export function MultiStepModalContent({
       <RadixDialog.Portal>
         <RadixDialog.Overlay
           className={cn(
-            'fixed inset-0 bg-black/40 ease-out-quad',
+            'fixed inset-0 bg-black/80 ease-out z-[999]',
             'motion-safe:data-[state=open]:fade-in motion-safe:data-[state=open]:animate-in',
             'motion-safe:data-[state=closed]:fade-out motion-safe:data-[state=closed]:animate-out',
           )}
@@ -88,7 +88,7 @@ export function MultiStepModalContent({
           {...props}
           className={cn(
             'max-w-96 overflow-hidden rounded-xl border border-border bg-main focus:outline-none',
-            '-translate-x-1/2 fixed top-1/3 left-1/2 motion-safe:ease-out-quad',
+            '-translate-x-1/2 fixed top-1/3 left-1/2 motion-safe:ease-out z-[1001]',
             'motion-safe:data-[state=open]:fade-in motion-safe:data-[state=open]:zoom-in-95 motion-safe:data-[state=open]:animate-in',
             'motion-safe:data-[state=closed]:fade-out motion-safe:data-[state=open]:zoom-out-95 motion-safe:data-[state=closed]:animate-out',
           )}
@@ -121,7 +121,7 @@ export function MultiStepModalContent({
           <footer
             className={cn(
               'mt-2 flex items-center justify-between border-border border-t px-4 py-2',
-              'bg-main-muted *:rounded-full *:border *:border-border *:bg-main-foreground *:text-primary',
+              'bg-main-muted *:rounded-full *:border *:border-border *:bg-main-secondary *:text-primary',
               '*:h-8 *:w-24 *:px-3 *:font-medium *:text-[13px]/5.5',
               '*:disabled:cursor-not-allowed *:disabled:opacity-50',
             )}

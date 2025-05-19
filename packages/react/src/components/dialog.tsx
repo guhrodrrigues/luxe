@@ -10,10 +10,10 @@ export const DialogClose = RadixDialog.Close
 
 function DialogOverlay() {
   return (
-    <RadixDialog.Overlay className={cn('fixed top-0 left-0 z-[999] size-full')}>
+    <RadixDialog.Overlay className='fixed top-0 left-0 z-[999] size-full'>
       <div
         className={cn(
-          'fixed inset-0 bg-black/80 ease-out-quad',
+          'fixed inset-0 bg-black/80 ease-out',
           'motion-safe:data-[state=open]:fade-in motion-safe:data-[state=open]:animate-in',
           'motion-safe:data-[state=closed]:fade-out motion-safe:data-[state=closed]:animate-out',
         )}
@@ -35,9 +35,7 @@ export function DialogContent({
       <RadixDialog.Content
         className={cn(
           '-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-[1001] max-h-[85vh] w-[90vw] max-w-[400px]',
-          'focus:outline-none motion-safe:ease-out-quad',
-          'rounded-xl border border-border bg-neutral-100 shadow',
-          'dark:border-[#222222] dark:bg-[#111111]',
+          'rounded-xl border border-border bg-main focus:outline-none motion-safe:ease-out',
           'motion-safe:data-[state=open]:zoom-in-95 motion-safe:data-[state=open]:fade-in motion-safe:data-[state=open]:animate-in',
           'motion-safe:data-[state=closed]:zoom-out-95 motion-safe:data-[state=closed]:fade-out motion-safe:data-[state=closed]:animate-out',
           className,
@@ -59,7 +57,7 @@ export function DialogTitle({
 }: DialogTitleProps) {
   return (
     <RadixDialog.Title
-      className={cn('font-semibold text-black dark:text-white', className)}
+      className={cn('font-semibold text-primary', className)}
       {...props}
     >
       {children}
@@ -79,7 +77,7 @@ export function DialogDescription({
   return (
     <RadixDialog.Description
       className={cn(
-        'text-neutral-500 text-sm dark:text-neutral-400',
+        'text-primary-muted text-sm',
         className,
       )}
       {...props}
@@ -99,8 +97,7 @@ export function DialogFooter({
   return (
     <div
       className={cn(
-        'rounded-b-[inherit] border-border border-t bg-neutral-100',
-        'dark:border-[#222222] dark:bg-[#0f0f0f]',
+        'rounded-b-[inherit] border-border border-t bg-main-muted',
         className,
       )}
       {...props}

@@ -20,12 +20,7 @@ const meta: Meta<CardProps> = {
   },
   argTypes: {
     variant: {
-      options: [
-        'default',
-        'animated-border',
-        'background-shine',
-        'revealed-pointer',
-      ],
+      options: ['default', 'animated-border', 'shine', 'revealed-pointer'],
       control: 'radio',
     },
   },

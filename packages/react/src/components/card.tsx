@@ -18,7 +18,7 @@ const variants: readonly Variant[] = [
       <div
         {...props}
         className={cn(
-          'relative rounded-xl border border-black/10 bg-neutral-100 px-4 py-5 dark:border-white/10 dark:bg-neutral-950 ',
+          'relative rounded-xl border border-primary/10 bg-main-background px-4 py-5',
           className,
         )}
       >
@@ -32,7 +32,7 @@ const variants: readonly Variant[] = [
       <div
         {...props}
         className={cn(
-          'relative rounded-xl border border-black/10 px-4 py-5 dark:border-white/10',
+          'relative rounded-xl border border-primary/10 px-4 py-5',
           className,
         )}
       >
@@ -61,7 +61,7 @@ const variants: readonly Variant[] = [
             }}
           />
         </div>
-        <span className="relative z-10 text-neutral-500 dark:text-neutral-400">
+        <span className="relative z-10">
           {children}
         </span>
       </div>
@@ -98,13 +98,13 @@ const variants: readonly Variant[] = [
             mouseY.set(e.clientY - top)
           }}
           className={cn(
-            'group relative overflow-hidden rounded-xl bg-neutral-200 p-px dark:bg-neutral-900',
+            'group relative overflow-hidden rounded-xl bg-border/50 p-px',
           )}
         >
           <motion.div
             className={cn(
               '-inset-px pointer-events-none absolute rounded-xl opacity-0 transition duration-300 group-hover:opacity-20',
-              '[--color:var(--color-black)] dark:[--color:var(--color-white)]',
+              '[--color:var(--color-primary)]',
             )}
             style={{
               background: useMotionTemplate`radial-gradient(200px circle at ${mouseX}px ${mouseY}px, var(--color), transparent 80%)`,
@@ -113,7 +113,7 @@ const variants: readonly Variant[] = [
           <div
             {...props}
             className={cn(
-              'relative select-none rounded-xl bg-neutral-100 px-4 py-5 dark:bg-neutral-950',
+              'relative select-none rounded-xl bg-main-background px-4 py-5',
               className,
             )}
           >

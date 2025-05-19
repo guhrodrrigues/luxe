@@ -17,8 +17,8 @@ const variants: readonly Variant[] = [
       <div
         {...props}
         className={cn(
-          'group relative w-fit overflow-hidden rounded-xl border border-transparent bg-[#161616] px-3 py-1 font-medium text-neutral-200 shadow-inner shadow-neutral-400 transition-all duration-200',
-          'hover:bg-neutral-900/90 dark:shadow-neutral-800/80 dark:hover:bg-neutral-800/50',
+          'relative overflow-hidden rounded-xl border border-transparent bg-neutral-900 px-3 py-1 text-neutral-200 shadow-inner transition-all duration-200',
+          'shadow-main-foreground/70 hover:bg-main-invert/90 dark:shadow-main-foreground/80 dark:hover:bg-main-foreground/56',
           className,
         )}
       />
@@ -30,8 +30,8 @@ const variants: readonly Variant[] = [
       <div
         {...props}
         className={cn(
-          'group relative w-fit overflow-hidden rounded-full border border-neutral-300 px-3 py-1 font-medium text-neutral-700 transition-all duration-200',
-          'dark:border-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-900',
+          'relative overflow-hidden rounded-full border border-border px-3 py-1 transition-all duration-200',
+          'text-primary-foreground hover:bg-main-foreground/50',
         )}
       />
     ),
@@ -42,7 +42,7 @@ const variants: readonly Variant[] = [
       <div
         {...props}
         className={cn(
-          'rounded-full bg-gradient-to-t from-green-700 to-green-600 px-3 py-1 font-medium text-white',
+          'rounded-full bg-gradient-to-t from-green-700 to-green-600 px-3 py-1 text-white',
           className,
         )}
       />
@@ -54,7 +54,7 @@ const variants: readonly Variant[] = [
       <div
         {...props}
         className={cn(
-          'rounded-full bg-gradient-to-t from-red-600 to-red-500 px-3 py-1 font-medium text-white',
+          'rounded-full bg-gradient-to-t from-red-600 to-red-500 px-3 py-1 text-white',
           className,
         )}
       />
@@ -66,9 +66,10 @@ const variants: readonly Variant[] = [
       <div
         {...props}
         className={cn(
-          'animate-shine items-center justify-center rounded-full border border-white/10 bg-[length:400%_100%] bg-[linear-gradient(110deg,#000000,45%,#303030,55%,#000000)]',
-          'px-3 py-1 text-neutral-200 transition-colors dark:border-neutral-800',
-          'dark:bg-[linear-gradient(110deg,#000103,45%,#303030,55%,#000103)] dark:text-neutral-400',
+          'animate-shine items-center justify-center rounded-full border border-border bg-[length:400%_100%]',
+          'px-3 py-1 text-primary-invert/90 transition-colors dark:text-primary-muted',
+					"bg-[linear-gradient(110deg,#000000,45%,#303030,55%,#000000)]",
+          'dark:bg-[linear-gradient(110deg,#000103,45%,#303030,55%,#000103)]',
           className,
         )}
       />
@@ -80,8 +81,7 @@ const variants: readonly Variant[] = [
       <div
         {...props}
         className={cn(
-          'relative rounded-full border border-black/10 px-3 py-1 duration-200 hover:bg-neutral-200',
-          'dark:border-white/10 dark:hover:bg-neutral-900',
+          'relative rounded-full border border-primary/10 px-3 py-1 duration-200 hover:bg-main-foreground/40',
           className,
         )}
       >
@@ -100,8 +100,8 @@ const variants: readonly Variant[] = [
               offsetDistance: ['0%', '100%'],
             }}
             style={{
-              width: 18,
-              offsetPath: `rect(0 auto auto 0 round ${18}px)`,
+              width: 20,
+              offsetPath: `rect(0 auto auto 0 round ${20}px)`,
             }}
             transition={{
               repeat: Number.POSITIVE_INFINITY,
@@ -110,7 +110,7 @@ const variants: readonly Variant[] = [
             }}
           />
         </div>
-        <span className="relative z-10 text-neutral-500 dark:text-neutral-400">
+        <span className="relative z-10 text-primary-muted">
           {children}
         </span>
       </div>
@@ -131,8 +131,7 @@ const variants: readonly Variant[] = [
         />
         <span
           className={cn(
-            'inline-flex size-full items-center justify-center rounded-full bg-neutral-100 px-3 py-1 text-neutral-500 backdrop-blur-3xl',
-            'dark:bg-neutral-950 dark:text-neutral-100',
+            'inline-flex size-full items-center justify-center rounded-full bg-main-background px-3 py-1 text-primary-foreground backdrop-blur-3xl',
             className,
           )}
         >

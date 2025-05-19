@@ -69,10 +69,10 @@ export function AnimatedBadge() {
       <motion.div
         aria-hidden
         className={cn(
-          "absolute inset-0 size-full bg-black/40 dark:bg-white/25 blur-[6px] -z-[1] rounded-full",
-          isHover && "animate-pulse",
+          "absolute inset-0 size-full bg-amber-500/55 dark:bg-white/20 blur-[6px] -z-[1] rounded-full",
+          isHover && "delay-300 animate-pulse",
         )}
-        animate={{ opacity: isHover ? 0.5 : 0 }}
+        animate={!isHover ? { opacity: 0 } : {}}
         transition={{ duration: 0.7 }}
       />
     </a>

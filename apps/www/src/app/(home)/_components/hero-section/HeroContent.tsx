@@ -33,7 +33,7 @@ export async function HeroContent() {
           <ButtonGlitchBrightness
             href="/ui/accordion"
             text="Explore components"
-            className="py-3 px-4 h-11 text-base"
+            className="py-4 px-4 h-11 text-base"
             shine={false}
           />
           <GetStartedButton />

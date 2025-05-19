@@ -127,7 +127,7 @@ Install the package
 </h2>
 
 <CommandBlock 
-	npmCommand="npm install clsx tailwind-merge" 
+	npmCommand="npm i clsx tailwind-merge" 
 	pnpmCommand="pnpm add clsx tailwind-merge" 
 	yarnCommand="yarn add clsx tailwind-merge" 
 	bunCommand="bun add clsx tailwind-merge" 
@@ -155,28 +155,28 @@ Copy and paste the following code into your project
 
 <CodeBlock fileName="spinner.tsx">
 ```tsx
-import { cn } from "@/utils/cn";
+import { cn } from '@/utils/cn'
 
 type SpinnerProps = {
-  size?: string;
-} & React.ComponentProps<"div">;
+  size?: string
+} & React.ComponentProps<'div'>
 
 export function Spinner({
-  size = "size-6",
+  size = 'size-6',
   className,
   ...props
 }: SpinnerProps) {
-  const bars = Array(12).fill(0);
+  const bars = Array(12).fill(0)
 
   return (
     <div className={cn(size)}>
-      <div className="relative left-1/2 top-1/2 h-[inherit] w-[inherit]">
+      <div className={cn('relative top-1/2 left-1/2 h-[inherit] w-[inherit]')}>
         {bars.map((_, i) => (
           <div
-            key={`spinner-bar-${i}`}
+            key={`spinner-bar-${String(i)}`}
             aria-label={`spinner-bar-${i + 1}`}
             className={cn(
-              "absolute -left-[10%] -top-[3.9%] h-[8%] w-[24%] animate-spinner rounded-md bg-black dark:bg-white",
+              '-left-[10%] -top-[3.9%] absolute h-[8%] w-[24%] animate-spinner rounded-md bg-primary',
               `bar:nth-child(${i + 1})`,
               className,
             )}
@@ -189,7 +189,7 @@ export function Spinner({
         ))}
       </div>
     </div>
-  );
+  )
 }
 ```
 </CodeBlock>
@@ -232,8 +232,55 @@ export function cn(...inputs: ClassValue[]) {
 <div className="relative">
 
 <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">4</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
 	
-<span className="font-semibold text-primary">4</span>
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Add animations and variable colors in your CSS File
+
+</h2>
+
+<CodeBlock fileName="css" customFilePath="styles/globals.css" contentClassName="h-fit">
+```css
+:root {
+  --primary: oklch(0 0 0);
+}
+
+.dark {
+  --primary: oklch(1 0 0);
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+
+  --animate-spinner: spinner 1.2s linear infinite;
+
+  @keyframes spinner {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.15;
+    }
+  }
+}
+```
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	
+<span className="font-semibold text-primary">5</span>
 
 </div>
 

@@ -12,6 +12,7 @@ const meta: Meta<BadgeProps> = {
     variant: {
       options: [
         'shine',
+        'outline',
         'animated-border',
         'rotate-border',
         'success',

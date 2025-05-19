@@ -1,7 +1,7 @@
 @import "tailwindcss";
-@custom-variant dark (&:is(.dark *));
-
 @import "./luxe.css";
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
   --background: #f5f5f5;
@@ -37,11 +37,6 @@
   --color-primary: var(--primary);
   --color-foreground: var(--foreground);
   --color-muted: #0a0a0a;
-
-  --font-sans: var(--font-geist-sans);
-  --font-mono:
-    "__GeistMono_c1e5c9", ui-monospace, SFMono-Regular, Roboto Mono, Menlo,
-    Monaco, Liberation Mono, DejaVu Sans Mono, Courier New, monospace;
 
   --animate-spotlight: spotlight 2s ease 1 forwards;
 
