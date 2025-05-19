@@ -22,8 +22,12 @@ export const init = new Command()
       const { data } = await preFlightInit()
       const { cssPath, componentsPath } = data
 
-      const aliasedComponentsPath = componentsPath
-        .replace(/^\.\/src\//, '@/')
+      let aliasedComponentsPath = componentsPath.endsWith('/')
+        ? componentsPath
+        : componentsPath.concat('/')
+
+      aliasedComponentsPath = aliasedComponentsPath
+        .replace(/src\//g, '@/')
         .concat('*')
 
       updateTsconfigPaths({

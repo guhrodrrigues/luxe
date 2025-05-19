@@ -85,6 +85,6 @@ async function askInitialSetupPaths() {
 
   return {
     cssPath,
-    componentsPath,
+    componentsPath: path.join(componentsPath),
   }
 }
