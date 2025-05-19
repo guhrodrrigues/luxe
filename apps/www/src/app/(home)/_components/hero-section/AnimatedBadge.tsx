@@ -39,7 +39,7 @@ export function AnimatedBadge() {
                 ? { delay: 0.5 }
                 : {
                     repeat: Number.POSITIVE_INFINITY,
-                    duration: 5,
+                    duration: 8,
                     ease: "linear",
                   }
             }
@@ -69,7 +69,7 @@ export function AnimatedBadge() {
       <motion.div
         aria-hidden
         className={cn(
-          "absolute inset-0 size-full bg-amber-500/55 dark:bg-white/20 blur-[6px] -z-[1] rounded-full",
+          "absolute inset-0 size-full bg-amber-500/55 dark:bg-white/15 blur-[6px] -z-[1] rounded-full",
           isHover && "delay-300 animate-pulse",
         )}
         animate={!isHover ? { opacity: 0 } : {}}
