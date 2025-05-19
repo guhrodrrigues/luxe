@@ -13,6 +13,7 @@ import { installExternalDependencies } from '@/utils/install-external-dependenci
 import { addComponent } from './functions/add-component'
 import { fetchComponentInfo } from './functions/fetch-component-info'
 import { getRegistryData } from './functions/get-registry-data'
+import { log } from '@/lib/log'
 
 import { preFlightAdd } from '@/preflights/preflight-add'
 
@@ -69,10 +70,22 @@ export const add = new Command()
       const infoSelectedComponents =
         await fetchComponentInfo(selectedComponents)
 
+			const installedComponents: string[] = []
+
       for (const component of infoSelectedComponents) {
         await installExternalDependencies(component.externalDependencies)
         await addComponent(component.files, config!.aliases, eta)
+        installedComponents.push(pascalCase(component.name))
       }
+
+      log.success(
+        `${chalk.green(
+          'Components installed successfully:\n',
+        )}${chalk.white(installedComponents.join(
+					'\n',
+				))}`,
+      )
+
     } catch (err) {
       if (err instanceof ExecutionError) {
         process.exit(0)

@@ -1,3 +1,5 @@
+import chalk from 'chalk'
+
 import { Command } from 'commander'
 
 import { preFlightInit } from '@/preflights/preflight-init'
@@ -15,7 +17,7 @@ import { log } from '@/lib/log'
 export const init = new Command()
   .name('init')
   .summary(
-    'initialize your project with ready to use Luxe components. Practical, fast, and customizable.',
+    'initialize your project and install dependencies.',
   )
   .action(async () => {
     try {
@@ -46,6 +48,10 @@ export const init = new Command()
           components: aliasedComponentsPath,
         },
       })
+
+      log.success(
+        `${chalk.green('`init` command executed successfully!')}\n${chalk.white('Run `add` command to add components to your project.')}`,
+      )
     } catch (err) {
       if (err instanceof ExecutionError) {
         log.error(err.message)
