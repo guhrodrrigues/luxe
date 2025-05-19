@@ -24,7 +24,7 @@ export async function injectCommonUtilities() {
     )
 
     await fs.writeFile(
-      path.resolve('./src/utils', `${utility}.ts`),
+      path.resolve(process.cwd(), 'src/utils', `${utility}.ts`),
       code,
       'utf8',
     )

@@ -6,6 +6,7 @@ import * as prompts from '@clack/prompts'
 import chalk from 'chalk'
 import { findUp } from 'find-up'
 import { detect } from 'package-manager-detector/detect'
+import path from 'node:path'
 
 export async function installExternalDependencies(
   dependenciesToInstall: string[],
@@ -20,7 +21,7 @@ export async function installExternalDependencies(
   const packageJsonPath = await findUp('package.json')
   if (!packageJsonPath) return
 
-  const packageJsonContent = await fs.readFile(packageJsonPath, 'utf8')
+  const packageJsonContent = await fs.readFile(path.resolve(process.cwd(), packageJsonPath), 'utf8')
 
   const { dependencies } = JSON.parse(packageJsonContent) as {
     dependencies: Record<string, string>

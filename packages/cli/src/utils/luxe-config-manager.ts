@@ -44,7 +44,7 @@ class LuxeConfigManager {
   }
 
   async writeConfig(configProps: LuxeConfigProps): Promise<void> {
-    this._configFilePath = path.resolve(LUXE_JSON_FILE)
+    this._configFilePath = path.resolve(process.cwd(), LUXE_JSON_FILE)
 
     await fs.writeFile(
       this._configFilePath,

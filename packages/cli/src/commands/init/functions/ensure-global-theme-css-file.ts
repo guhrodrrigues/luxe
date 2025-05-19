@@ -7,7 +7,7 @@ import { THEME_BASE_CSS } from '@/utils/const'
 
 export async function ensureGlobalThemeCssFile(cssFilePath: string) {
   const { dir } = path.parse(cssFilePath)
-  const resolvedDir = path.resolve(dir)
+  const resolvedDir = path.resolve(process.cwd(), dir)
 
   if (!existsSync(resolvedDir)) {
     await fs.mkdir(resolvedDir, {

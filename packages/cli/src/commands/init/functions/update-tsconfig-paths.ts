@@ -10,7 +10,7 @@ export async function updateTsconfigPaths(aliases: Record<string, string[]>) {
     const { configFileAbsolutePath } = tsconfig
 
     const fileContent = await fs.readFile(
-      path.resolve(configFileAbsolutePath),
+      path.resolve(process.cwd(), configFileAbsolutePath),
       'utf8',
     )
 

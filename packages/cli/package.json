@@ -1,16 +1,20 @@
 {
 	"name": "@luxeui/ui",
-	"description": "Copy and paste components ready to use. Practical. Customizable.",
-	"version": "1.0.0",
+	"description": "Add components instantly in your app with the Luxe CLI.",
+	"version": "1.0.0-alpha.4",
 	"type": "module",
 	"bin": "./dist/index.js",
+	"files": [
+		"dist"
+	],
 	"types": "./dist/index.d.ts",
 	"scripts": {
 		"dev": "tsup --watch",
+		"build": "tsup",
 		"lint": "biome check --write ."
 	},
 	"dependencies": {
-		"@clack/prompts": "^0.10.0",
+		"@clack/prompts": "0.9.1",
 		"camelcase": "^8.0.0",
 		"chalk": "^5.4.1",
 		"commander": "^13.1.0",
