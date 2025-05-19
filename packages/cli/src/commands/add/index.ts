@@ -10,10 +10,10 @@ import * as ERRORS from '@/utils/errors'
 import { ExecutionError } from '@/utils/errors/execution-error'
 import { installExternalDependencies } from '@/utils/install-external-dependencies'
 
+import { log } from '@/lib/log'
 import { addComponent } from './functions/add-component'
 import { fetchComponentInfo } from './functions/fetch-component-info'
 import { getRegistryData } from './functions/get-registry-data'
-import { log } from '@/lib/log'
 
 import { preFlightAdd } from '@/preflights/preflight-add'
 
@@ -70,7 +70,7 @@ export const add = new Command()
       const infoSelectedComponents =
         await fetchComponentInfo(selectedComponents)
 
-			const installedComponents: string[] = []
+      const installedComponents: string[] = []
 
       for (const component of infoSelectedComponents) {
         await installExternalDependencies(component.externalDependencies)
@@ -79,13 +79,10 @@ export const add = new Command()
       }
 
       log.success(
-        `${chalk.green(
-          'Components installed successfully:\n',
-        )}${chalk.white(installedComponents.join(
-					'\n',
-				))}`,
+        `${chalk.green('Components installed successfully:\n')}${chalk.white(
+          installedComponents.join('\n'),
+        )}`,
       )
-
     } catch (err) {
       if (err instanceof ExecutionError) {
         process.exit(0)

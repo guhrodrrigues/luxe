@@ -4,6 +4,7 @@ import { Command } from 'commander'
 
 import { preFlightInit } from '@/preflights/preflight-init'
 
+import { ensureGlobalThemeCssFile } from './functions/ensure-global-theme-css-file'
 import { injectCommonUtilities } from './functions/inject-common-utilities'
 import { updateTsconfigPaths } from './functions/update-tsconfig-paths'
 
@@ -16,9 +17,7 @@ import { log } from '@/lib/log'
 
 export const init = new Command()
   .name('init')
-  .summary(
-    'initialize your project and install dependencies.',
-  )
+  .summary('initialize your project and install dependencies.')
   .action(async () => {
     try {
       const { data } = await preFlightInit()
@@ -36,7 +35,8 @@ export const init = new Command()
         [aliasedComponentsPath]: [componentsPath.concat('*')],
       })
 
-      injectCommonUtilities()
+      await injectCommonUtilities()
+      await ensureGlobalThemeCssFile(cssPath)
 
       await installExternalDependencies(REQUIRED_EXTERNAL_DEPENDENCIES)
 
