@@ -430,7 +430,43 @@ Add <CodeHighlight>tw-animate-css</CodeHighlight> and variable colors in your CS
 
 </h2>
 
-<CodeBlock fileName="css" customFilePath="styles/globals.css">
+<CodeBlock fileName="css" simpleCode={`@import "tw-animate-css";
+
+:root {
+  --main: oklch(0.97 0 0);
+  --main-secondary: oklch(97% 0 0);
+  --main-muted: oklch(0.96 0 0);
+
+  --primary: oklch(0 0 0);
+  --primary-foreground: oklch(37.1% 0 0);
+  --primary-muted: oklch(0.556 0 0);
+
+  --border: oklch(0.885 0 0);
+}
+
+.dark {
+  --main: oklch(0.178 0 0);
+  --main-secondary: oklch(0.205 0 0);
+  --main-muted: oklch(0.168 0 0);
+
+  --primary: oklch(1 0 0);
+  --primary-foreground: oklch(0.97 0 0);
+  --primary-muted: oklch(0.708 0 0);
+
+  --border: oklch(0.26 0 0);
+}
+
+@theme inline {
+  --color-main: var(--main);
+  --color-main-secondary: var(--main-secondary);
+  --color-main-muted: var(--main-muted);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-muted: var(--primary-muted);
+  
+  --color-border: var(--border);
+}`}>
 ```css
 @import "tw-animate-css";
 

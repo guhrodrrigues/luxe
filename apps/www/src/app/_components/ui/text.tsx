@@ -184,20 +184,16 @@ export type TextProps = {
 } & React.ComponentProps<'span'> &
   Partial<MotionProps>
 
-export function Text({ variant = 'shine', ...props }: TextProps) {
+export function Text({ variant = 'shine', className, ...props }: TextProps) {
   const FALLBACK_INDEX = 0
 
   const variantComponent = variants.find(v => v.variant === variant)?.component
 
-  if (!variantComponent) {
-    return variants[FALLBACK_INDEX].component(props)
-  }
+  const Component = variantComponent || variants[FALLBACK_INDEX].component
 
   return (
     <Slot.Root className={cn('font-medium text-sm')}>
-      {variantComponent
-        ? variantComponent(props)
-        : variants[FALLBACK_INDEX].component(props)}
+      <Component {...props} className={className} />
     </Slot.Root>
   )
 }

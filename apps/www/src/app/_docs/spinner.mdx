@@ -245,7 +245,28 @@ Add animations and variable colors in your CSS File
 
 </h2>
 
-<CodeBlock fileName="css" customFilePath="styles/globals.css" contentClassName="h-fit">
+<CodeBlock fileName="css" contentClassName="h-fit" simpleCode={`:root {
+  --primary: oklch(0 0 0);
+}
+
+.dark {
+  --primary: oklch(1 0 0);
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+
+  --animate-spinner: spinner 1.2s linear infinite;
+
+  @keyframes spinner {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0.15;
+    }
+  }
+}`}>
 ```css
 :root {
   --primary: oklch(0 0 0);

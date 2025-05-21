@@ -610,20 +610,16 @@ export type TextProps = {
 } & React.ComponentProps<'span'> &
   Partial<MotionProps>
 
-export function Text({ variant = 'shine', ...props }: TextProps) {
+export function Text({ variant = 'shine', className, ...props }: TextProps) {
   const FALLBACK_INDEX = 0
 
   const variantComponent = variants.find(v => v.variant === variant)?.component
 
-  if (!variantComponent) {
-    return variants[FALLBACK_INDEX].component(props)
-  }
+  const Component = variantComponent || variants[FALLBACK_INDEX].component
 
   return (
     <Slot.Root className={cn('font-medium text-sm')}>
-      {variantComponent
-        ? variantComponent(props)
-        : variants[FALLBACK_INDEX].component(props)}
+      <Component {...props} className={className} />
     </Slot.Root>
   )
 }
@@ -682,7 +678,40 @@ Add animations and variable colors in your CSS File
 
 </h2>
 
-<CodeBlock fileName="css" customFilePath="styles/globals.css">
+<CodeBlock fileName="css" simpleCode={`:root {
+  --primary-foreground: oklch(37.1% 0 0);
+  --primary-muted: oklch(0.556 0 0);
+}
+
+.dark {
+  --primary-foreground: oklch(0.97 0 0);
+  --primary-muted: oklch(0.708 0 0);
+}
+
+@theme inline {
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-muted: var(--primary-muted);
+
+  --animate-text-shake: text-shake 1s ease 1;
+
+  @keyframes text-shake {
+    15% {
+      transform: translateX(5px);
+    }
+    30% {
+      transform: translateX(-5px);
+    }
+    50% {
+      transform: translateX(3px);
+    }
+    80% {
+      transform: translateX(2px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+}`}>
 ```css
 :root {
   --primary-foreground: oklch(37.1% 0 0);

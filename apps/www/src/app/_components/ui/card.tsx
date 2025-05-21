@@ -134,15 +134,11 @@ export function Card({ variant = 'default', className, ...props }: CardProps) {
 
   const variantComponent = variants.find(v => v.variant === variant)?.component
 
-  if (!variantComponent) {
-    return variants[FALLBACK_INDEX].component(props)
-  }
+  const Component = variantComponent || variants[FALLBACK_INDEX].component
 
   return (
     <Slot.Root className="w-full max-w-[350px]">
-      {variantComponent
-        ? variantComponent({ ...props, className })
-        : variants[FALLBACK_INDEX].component({ ...props, className })}
+      <Component {...props} className={className} />
     </Slot.Root>
   )
 }

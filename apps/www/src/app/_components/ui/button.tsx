@@ -203,19 +203,15 @@ export function Button({
   className,
   ...props
 }: ButtonProps) {
-	const FALLBACK_INDEX = 0
+  const FALLBACK_INDEX = 0
   
   const variantComponent = variants.find(v => v.variant === variant)?.component
 
-  if (!variantComponent) {
-    return variants[FALLBACK_INDEX].component(props)
-  }
+  const Component = variantComponent || variants[FALLBACK_INDEX].component
 
   const buttonContent = (
     <Slot.Root className={cn('font-medium text-sm')}>
-      {variantComponent
-        ? variantComponent({ ...props, className })
-        : variants[FALLBACK_INDEX].component({ ...props, className })}
+      <Component {...props} className={className} />
     </Slot.Root>
   )
 
@@ -235,17 +231,17 @@ function Magnetic({ children }: { children: React.ReactNode }) {
 
   return (
     <motion.div 
-			ref={ref} 
-			onMouseMove={handleMouseMove} 
-			onMouseLeave={handleMouseLeave} 
-			animate={{ x, y }}
-			transition={{
-				type: 'spring',
-				damping: 15,
-				stiffness: 150,
-				mass: 0.1,
-			}}
-		>
+      ref={ref} 
+      onMouseMove={handleMouseMove} 
+      onMouseLeave={handleMouseLeave} 
+      animate={{ x, y }}
+      transition={{
+        type: 'spring',
+        damping: 15,
+        stiffness: 150,
+        mass: 0.1,
+      }}
+    >
       {children}
     </motion.div>
   )

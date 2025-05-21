@@ -155,15 +155,11 @@ export function Badge({
 
   const variantComponent = variants.find(v => v.variant === variant)?.component
 
-  if (!variantComponent) {
-    return variants[FALLBACK_INDEX].component(props)
-  }
+  const Component = variantComponent || variants[FALLBACK_INDEX].component
 
   return (
     <Slot.Root className={cn('font-medium text-xs')}>
-      {variantComponent
-        ? variantComponent({ className, ...props })
-        : variants[FALLBACK_INDEX].component({ className, ...props })}
+      <Component {...props} className={className} />
     </Slot.Root>
   )
 }

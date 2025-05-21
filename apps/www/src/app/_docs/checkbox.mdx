@@ -318,7 +318,26 @@ Add variable colors in your CSS File
 
 </h2>
 
-<CodeBlock fileName="css" customFilePath="styles/globals.css">
+<CodeBlock fileName="css" simpleCode={`:root {
+  --main-muted: oklch(0.96 0 0);
+  --primary: oklch(0 0 0);
+  --primary-invert: oklch(1 0 0);
+  --border: oklch(0.885 0 0);
+}
+
+.dark {
+  --main: oklch(0.178 0 0);
+  --primary: oklch(1 0 0);
+  --primary-invert: oklch(0 0 0);
+  --border: oklch(0.26 0 0);
+}
+
+@theme inline {
+  --color-main-muted: var(--main-muted);
+  --color-primary: var(--primary);
+  --color-primary-invert: var(--primary-invert);
+  --color-border: var(--border);
+}`}>
 ```css
 :root {
   --main-muted: oklch(0.96 0 0);

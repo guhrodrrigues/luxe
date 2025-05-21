@@ -233,7 +233,23 @@ Add variable colors in your CSS File
 
 </h2>
 
-<CodeBlock fileName="css" customFilePath="styles/globals.css" contentClassName="h-fit">
+<CodeBlock fileName="css" contentClassName="h-fit" simpleCode={`:root {
+  --primary: oklch(0 0 0);
+  --primary-muted: oklch(0.556 0 0);
+  --primary-invert: oklch(1 0 0);
+}
+
+.dark {
+  --primary: oklch(1 0 0);
+  --primary-invert: oklch(0 0 0);
+  --primary-muted: oklch(0.708 0 0);
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-primary-muted: var(--primary-muted);
+  --color-primary-invert: var(--primary-invert);
+}`}>
 ```css
 :root {
   --primary: oklch(0 0 0);
