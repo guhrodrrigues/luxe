@@ -10,6 +10,6 @@ export const GET_STARTED = [
   {
     name: "CLI",
     slug: "/ui/cli",
-    isNew: true,
+    isBeta: true,
   },
 ];
