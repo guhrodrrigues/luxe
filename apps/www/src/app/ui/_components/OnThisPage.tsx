@@ -18,7 +18,7 @@ export function OnThisPage() {
     new Set(),
   );
 
-	const pathname = usePathname()
+  const pathname = usePathname();
 
   const getHeadings = useCallback(() => {
     const headingElement = document.querySelectorAll("h1, h2, h3");

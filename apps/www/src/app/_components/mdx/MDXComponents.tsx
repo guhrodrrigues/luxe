@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 import type { MDXComponents } from "mdx/types";
 import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc";
@@ -34,6 +35,7 @@ import { SwitchExample } from "../../ui/_components/examples/SwitchExample";
 import { Input } from "../ui/input";
 import { BlurImage } from "../BlurImage";
 import { MultiStepModalExample } from "../../ui/_components/examples/MultiStepModalExample";
+
 const components: MDXComponents = {
   ComponentView: ({ children, isReloadAnimation, ...props }) => (
     <ComponentView
@@ -142,8 +144,11 @@ const components: MDXComponents = {
       {children}
     </span>
   ),
-  Image: ({ src, alt, ...props }) => (
+  BlurImage: ({ src, alt, ...props }) => (
     <BlurImage src={src} alt={alt} {...props} />
+  ),
+  Image: ({ src, alt, ...props }) => (
+    <Image src={src} alt={alt} width={1280} height={960} {...props} />
   ),
   Tabs: ({ ...props }) => (
     <Tabs className={cn("relative w-full", props.className)} {...props} />

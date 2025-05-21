@@ -59,7 +59,7 @@ export function SidebarButton({
           <div
             className={cn(
               "w-[30px] h-4 font-medium bg-amber-600/25 dark:bg-amber-700/30 rounded-full text-[10px]",
-              "leading-[150%] text-center mr-2.5 text-amber-600 dark:text-amber-600 [text-shadow:0_1px_1.5px_rgb(0,0,0,0.16)]",
+              "leading-[150%] text-center mr-2.5 text-amber-600 dark:text-amber-500 [text-shadow:0_1px_1.5px_rgb(0,0,0,0.16)]",
             )}
           >
             Beta
