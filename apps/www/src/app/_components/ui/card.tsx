@@ -32,7 +32,7 @@ const variants: readonly Variant[] = [
       <div
         {...props}
         className={cn(
-          'relative rounded-xl border border-primary/10 px-4 py-5',
+          'relative rounded-xl border border-primary/10 bg-main-background px-4 py-5',
           className,
         )}
       >
