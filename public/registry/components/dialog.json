@@ -1,0 +1,14 @@
+{
+  "name": "dialog",
+  "type": "ui:components",
+  "externalDependencies": [
+    "@radix-ui/react-dialog"
+  ],
+  "internalDependencies": [],
+  "files": [
+    {
+      "name": "dialog.tsx",
+      "content": "import * as RadixDialog from '@radix-ui/react-dialog'\n\nimport { cn } from '@/utils/cn'\n\nexport const Dialog = RadixDialog.Root\n\nexport const DialogTrigger = RadixDialog.Trigger\n\nexport const DialogClose = RadixDialog.Close\n\nfunction DialogOverlay() {\n  return (\n    <RadixDialog.Overlay className='fixed top-0 left-0 z-[999] size-full'>\n      <div\n        className={cn(\n          'fixed inset-0 bg-black/80 ease-out',\n          'motion-safe:data-[state=open]:fade-in motion-safe:data-[state=open]:animate-in',\n          'motion-safe:data-[state=closed]:fade-out motion-safe:data-[state=closed]:animate-out',\n        )}\n      />\n    </RadixDialog.Overlay>\n  )\n}\n\ntype DialogContentProps = React.ComponentProps<typeof RadixDialog.Content>\n\nexport function DialogContent({\n  children,\n  className,\n  ...props\n}: DialogContentProps) {\n  return (\n    <RadixDialog.Portal>\n      <DialogOverlay />\n      <RadixDialog.Content\n        className={cn(\n          '-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-[1001] max-h-[85vh] w-[90vw] max-w-[400px]',\n          'rounded-xl border border-border bg-main focus:outline-none motion-safe:ease-out',\n          'motion-safe:data-[state=open]:zoom-in-95 motion-safe:data-[state=open]:fade-in motion-safe:data-[state=open]:animate-in',\n          'motion-safe:data-[state=closed]:zoom-out-95 motion-safe:data-[state=closed]:fade-out motion-safe:data-[state=closed]:animate-out',\n          className,\n        )}\n        {...props}\n      >\n        {children}\n      </RadixDialog.Content>\n    </RadixDialog.Portal>\n  )\n}\n\ntype DialogTitleProps = React.ComponentProps<typeof RadixDialog.Title>\n\nexport function DialogTitle({\n  children,\n  className,\n  ...props\n}: DialogTitleProps) {\n  return (\n    <RadixDialog.Title\n      className={cn('font-semibold text-primary', className)}\n      {...props}\n    >\n      {children}\n    </RadixDialog.Title>\n  )\n}\n\ntype DialogDescriptionProps = React.ComponentProps<\n  typeof RadixDialog.Description\n>\n\nexport function DialogDescription({\n  children,\n  className,\n  ...props\n}: DialogDescriptionProps) {\n  return (\n    <RadixDialog.Description\n      className={cn(\n        'text-primary-muted text-sm',\n        className,\n      )}\n      {...props}\n    >\n      {children}\n    </RadixDialog.Description>\n  )\n}\n\ntype DialogFooterProps = React.ComponentProps<'div'>\n\nexport function DialogFooter({\n  children,\n  className,\n  ...props\n}: DialogFooterProps) {\n  return (\n    <div\n      className={cn(\n        'rounded-b-[inherit] border-border border-t bg-main-muted',\n        className,\n      )}\n      {...props}\n    >\n      {children}\n    </div>\n  )\n}\n"
+    }
+  ]
+}
