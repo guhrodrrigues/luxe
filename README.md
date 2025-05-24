@@ -2,7 +2,7 @@
 
 ### Luxe
 
-Library of copy and paste components to illuminate your applications with elegance and sophistication. Build fast. Ship with style.
+Library of copy and paste components to illuminate your applications with elegance and sophistication. <br> Build fast. Ship with style.
 
 <a href="https://luxeui.com">See the website</a>
 
