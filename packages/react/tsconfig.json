@@ -3,7 +3,8 @@
 	"compilerOptions": {
 		"baseUrl": ".",
 		"paths": {
-			"@/registry/*": ["src/*"]
+			"@/*": ["src/*"],
+			"@/registry/*": ["src/components/*"]
 		}
 	}
 }

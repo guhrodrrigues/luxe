@@ -1,18 +1,18 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react'
 
-import { Input, type InputProps } from "@/registry/components/input";
+import { Input, type InputProps } from '@/components/input'
 
 const meta: Meta<InputProps> = {
-  title: "components/Input",
+  title: 'components/Input',
   component: Input,
   args: {
-    placeholder: "Placeholder",
+    placeholder: 'Placeholder',
   },
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-};
+}
 
-export default meta;
+export default meta
 
-export const Basic: StoryObj<InputProps> = {};
+export const Basic: StoryObj<InputProps> = {}

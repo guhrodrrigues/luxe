@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react'
 
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/registry/components/accordion";
+} from '@/components/accordion'
 
 const meta: Meta = {
-  title: "components/Accordion",
+  title: 'components/Accordion',
   component: () => (
     <Accordion
       className="w-[400px]"
@@ -38,10 +38,10 @@ const meta: Meta = {
     </Accordion>
   ),
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-};
+}
 
-export default meta;
+export default meta
 
-export const Basic: StoryObj = {};
+export const Basic: StoryObj = {}

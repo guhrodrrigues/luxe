@@ -1,36 +1,36 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react'
 
-import { Button, ButtonProps } from "@/registry/components/button";
+import { Button, type ButtonProps } from '@/components/button'
 
 const meta: Meta<ButtonProps> = {
-  title: "components/Button",
+  title: 'components/Button',
   component: Button,
   args: {
-    children: "Button",
+    children: 'Button',
   },
   argTypes: {
     variant: {
       options: [
-        "shine",
-				"outline",
-        "animated-border",
-        "rotate-border",
-        "success",
-        "destructive",
-        "glitch-brightness",
-        "default",
+        'shine',
+        'outline',
+        'animated-border',
+        'rotate-border',
+        'success',
+        'destructive',
+        'glitch-brightness',
+        'default',
       ],
-      control: "radio",
+      control: 'radio',
     },
-		magnetic: {
-			control: "boolean",
-		}
+    magnetic: {
+      control: 'boolean',
+    },
   },
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-};
+}
 
-export default meta;
+export default meta
 
-export const Basic: StoryObj = {};
+export const Basic: StoryObj = {}

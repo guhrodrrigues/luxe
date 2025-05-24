@@ -5,8 +5,8 @@ import {
   Tooltip,
   TooltipTrigger,
   TooltipContent,
-} from '@/registry/components/tooltip'
-import { Button } from '@/registry/components/button'
+} from '@/components/tooltip'
+import { Button } from '@/components/button'
 
 const meta: Meta = {
   title: 'components/Tooltip',

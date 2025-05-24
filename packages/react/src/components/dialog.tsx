@@ -1,6 +1,6 @@
 import * as RadixDialog from '@radix-ui/react-dialog'
 
-import { cn } from '@/registry/utils/cn'
+import { cn } from '@/utils/cn'
 
 export const Dialog = RadixDialog.Root
 

@@ -12,7 +12,7 @@ import {
 
 import useMeasure from 'react-use-measure'
 
-import { cn } from '@/registry/utils/cn'
+import { cn } from '@/utils/cn'
 
 export const MultiStepModal = RadixDialog.Root
 export const MultiStepModalTrigger = RadixDialog.Trigger
@@ -58,13 +58,13 @@ export function MultiStepModalContent({
       return {
         x: `${110 * dir}%`,
         opacity: 0,
-				height: heightContent > 0 ? heightContent : "auto",
+        height: heightContent > 0 ? heightContent : 'auto',
       }
     },
     active: {
       x: '0%',
       opacity: 1,
-			height: heightContent > 0 ? heightContent : "auto",
+      height: heightContent > 0 ? heightContent : 'auto',
     },
     exit: (dir: number) => {
       return {
@@ -93,27 +93,31 @@ export function MultiStepModalContent({
             'motion-safe:data-[state=closed]:fade-out motion-safe:data-[state=open]:zoom-out-95 motion-safe:data-[state=closed]:animate-out',
           )}
         >
-					<div className='px-4 pt-4 pb-3'>
-						<AnimatePresence initial={false} mode="popLayout" custom={direction}>
-							<motion.div
-								key={activeContentIndex}
-								variants={slideMotionVariants}
-								initial="initial"
-								animate="active"
-								exit="exit"
-								custom={direction}
-							>
-								<div ref={ref}>
-									<RadixDialog.Title className='mb-2 font-medium text-base text-primary-foreground'>
-										{title}
-									</RadixDialog.Title>
-									<RadixDialog.Description className='font-normal text-primary-muted text-sm/5.5'>
-										{description}
-									</RadixDialog.Description>
-								</div>
-							</motion.div>
-						</AnimatePresence>
-					</div>
+          <div className="px-4 pt-4 pb-3">
+            <AnimatePresence
+              initial={false}
+              mode="popLayout"
+              custom={direction}
+            >
+              <motion.div
+                key={activeContentIndex}
+                variants={slideMotionVariants}
+                initial="initial"
+                animate="active"
+                exit="exit"
+                custom={direction}
+              >
+                <div ref={ref}>
+                  <RadixDialog.Title className="mb-2 font-medium text-base text-primary-foreground">
+                    {title}
+                  </RadixDialog.Title>
+                  <RadixDialog.Description className="font-normal text-primary-muted text-sm/5.5">
+                    {description}
+                  </RadixDialog.Description>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
           <footer
             className={cn(
               'mt-2 flex items-center justify-between border-border border-t px-4 py-2',

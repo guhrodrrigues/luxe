@@ -1,13 +1,13 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { cn } from '@/registry/utils/cn'
+import { cn } from '@/utils/cn'
 
 import {
   DropdownMenu,
   DrodpownMenuTrigger,
   DropdownMenuItem,
   DropdownMenuContent,
-} from '@/registry/components/dropdown-menu'
+} from '@/components/dropdown-menu'
 
 import {
   LayoutGridIcon,

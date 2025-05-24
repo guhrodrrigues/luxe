@@ -6,6 +6,7 @@ import * as prompts from '@clack/prompts'
 import chalk from 'chalk'
 import { findUp } from 'find-up'
 import { detect } from 'package-manager-detector/detect'
+import path from 'node:path'
 
 export async function installExternalDependencies(
   dependenciesToInstall: string[],
@@ -20,26 +21,31 @@ export async function installExternalDependencies(
   const packageJsonPath = await findUp('package.json')
   if (!packageJsonPath) return
 
-  const packageJsonContent = await fs.readFile(packageJsonPath, 'utf8')
+  const packageJsonContent = await fs.readFile(path.resolve(process.cwd(), packageJsonPath), 'utf8')
 
   const { dependencies } = JSON.parse(packageJsonContent) as {
     dependencies: Record<string, string>
   }
 
-  for (const dependency of dependenciesToInstall) {
-    if (dependency in dependencies) {
-      continue
-    }
+  const dependenciesNotInstalled = dependenciesToInstall.filter(
+    dependency => !Object.keys(dependencies).includes(dependency),
+  )
 
+  if (dependenciesNotInstalled.length > 0) {
     await prompts.tasks(
-      dependenciesToInstall.map(dependency => {
+      dependenciesNotInstalled.map(dependency => {
         return {
           title: `Installing ${dependency}`,
           task: async () => {
-            await executeCommandAsync(
-              `${packageManager.agent} add ${dependency}`,
-            )
-            return `${chalk.green(dependency)} installed!`
+            try {
+              await executeCommandAsync(
+                `${packageManager.agent} add ${dependency}`,
+              )
+
+              return `${chalk.green(dependency)} installed!`
+            } catch {
+              return `${chalk.red(dependency)} not installed!`
+            }
           },
         }
       }),

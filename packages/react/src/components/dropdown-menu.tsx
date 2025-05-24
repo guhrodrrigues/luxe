@@ -4,7 +4,7 @@ import { useState, createContext, useContext } from 'react'
 
 import { motion, type Variants } from 'motion/react'
 
-import { cn } from '@/registry/utils/cn'
+import { cn } from '@/utils/cn'
 
 import { Slot } from '@radix-ui/react-slot'
 

@@ -1,6 +1,6 @@
 import * as RadixTooltip from '@radix-ui/react-tooltip'
 
-import { cn } from '@/registry/utils/cn'
+import { cn } from '@/utils/cn'
 
 export const Tooltip = RadixTooltip.Root
 
