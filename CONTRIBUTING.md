@@ -1,6 +1,6 @@
-# Contributing to Luxe
+# Contributing
 
-Contributions are welcome! The goal is to make contributing to Luxe as easy and transparent as possible, whether it's:
+The goal is to make contributing to Luxe as easy and transparent as possible, whether it's:
 
 - Reporting a bug
 - Discussing the current state of the code
