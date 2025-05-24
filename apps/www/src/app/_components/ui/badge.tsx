@@ -30,7 +30,7 @@ const variants: readonly Variant[] = [
       <div
         {...props}
         className={cn(
-          'relative overflow-hidden rounded-full border border-border px-3 py-1 transition-all duration-200',
+          'relative overflow-hidden rounded-full border border-border bg-main-background px-3 py-1 transition-all duration-200',
           'text-primary-foreground hover:bg-main-foreground/50',
         )}
       />

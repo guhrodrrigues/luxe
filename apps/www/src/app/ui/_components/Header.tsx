@@ -37,10 +37,10 @@ export function Header() {
 
   function handleScroll() {
     if (window.scrollY > 0) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
+      return setIsScrolled(true);
     }
+
+    return setIsScrolled(false);
   }
 
   useEffect(() => {
@@ -68,7 +68,7 @@ export function Header() {
         <Link href="/">
           <Icons.logo className="w-[70px]" />
         </Link>
-        <div className="flex items-center gap-5 max-sm:hidden">
+        <div className="flex items-center gap-5 [@media(max-width:662px)]:hidden">
           <div className="flex items-center gap-6">
             {ITEMS.map(({ name, slug }) => (
               <Link
@@ -98,7 +98,7 @@ export function Header() {
             </a>
           </div>
         </div>
-        <div className="sm:hidden">
+        <div className="[@media(min-width:663px)]:hidden">
           <Drawer>
             <button className="flex items-center justify-center lg:hidden">
               <MenuIcon

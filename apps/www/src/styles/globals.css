@@ -44,9 +44,9 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-	--animate-spotlight: spotlight 2s ease 1 forwards;
+  --animate-spotlight: spotlight 2s ease 1 forwards;
 
-	@keyframes spotlight {
+  @keyframes spotlight {
     0% {
       opacity: 0;
       transform: translate(-72%, -62%) scale(0.5);

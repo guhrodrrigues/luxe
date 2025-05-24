@@ -62,8 +62,8 @@ export default function InstallationPage() {
       </div>
       <Pagination
         next={{
-          href: "/ui/add-utilities",
-          title: "Add Utilities",
+          href: "/ui/cli",
+          title: "CLI",
         }}
       />
     </main>

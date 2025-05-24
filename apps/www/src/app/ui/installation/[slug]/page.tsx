@@ -6,9 +6,7 @@ import { Pagination } from "../../_components/Pagination";
 import { getDocs } from "@/lib/mdx";
 import { MDX } from "@/app/_components/mdx";
 
-const Docs = getDocs("get-started").filter(
-  (docs) => docs.slug !== "add-utilities",
-);
+const Docs = getDocs("get-started").filter((docs) => docs.slug !== "cli");
 
 export async function generateMetadata({
   params,

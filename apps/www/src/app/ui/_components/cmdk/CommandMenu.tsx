@@ -10,6 +10,10 @@ import {
   CodeIcon,
   FileIcon,
   SquareStackIcon,
+  ArrowUp,
+  ArrowDown,
+  ArrowUpIcon,
+  ArrowDownIcon,
 } from "lucide-react";
 
 import { cn } from "@/utils/cn";
@@ -22,6 +26,8 @@ import {
   CommandItem,
   CommandList,
 } from "./CommandMenuPrimitives";
+import { detectOS } from "@/utils/detect-os";
+import { Icons } from "@/app/_components/Icons";
 
 type ItemProps = {
   heading: string;
@@ -81,16 +87,10 @@ const ITEMS: ItemProps[] = [
         shortcut: "i",
       },
       {
-        title: "Add Utilities",
-        icon: <FileIcon size={17} />,
-        slug: "/ui/add-utilities",
-        shortcut: "j",
-      },
-      {
         title: "CLI",
         icon: <TerminalIcon size={17} />,
         slug: "/ui/cli",
-        shortcut: "l",
+        shortcut: "j",
       },
     ],
   },
@@ -229,13 +229,17 @@ export function CommandMenu() {
   const router = useRouter();
   const pathname = usePathname();
 
+  const isApp = pathname === "/" || pathname.startsWith("/updates");
   const homePage = pathname === "/";
   const uiPage = pathname.startsWith("/ui");
+
+  const category = isApp ? "App" : "Docs";
+
   const currentPage = homePage
     ? "Home"
     : uiPage
-      ? pathname.split("/")[2]
-      : pathname.split("/")[1];
+      ? pathname.split("/")[2].replace(/-/g, " ")
+      : pathname.split("/")[1].replace(/-/g, " ");
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
@@ -267,19 +271,22 @@ export function CommandMenu() {
           <SearchIcon size={12} />
           Search
         </span>
-        <span
-          className={cn(
-            "text-neutral-500 border border-border/60 ease-linear duration-150 group-hover:border-transparent",
-            "px-1.5 py-1 rounded-lg text-[10px] flex items-center gap-0.5",
-          )}
-        >
-          <CommandIcon size={10} />K
-        </span>
+        <CommandMenuIcon />
       </button>
       <CommandDialog open={isOpen} onOpenChange={setIsOpen}>
-        <div className="pt-3 pl-4">
+        <div className="flex items-center gap-1.5 pt-3 pl-4">
           <div className="bg-neutral-200 dark:bg-neutral-900 px-2 h-6 w-fit flex items-center justify-center rounded-md">
             <span className="text-[13px] font-[460] text-foreground capitalize">
+              {category}
+            </span>
+          </div>
+          <div className="bg-neutral-200 dark:bg-neutral-900 px-2 h-6 w-fit flex items-center justify-center rounded-md">
+            <span
+              className={cn(
+                "text-[13px] font-[460] text-foreground",
+                currentPage === "cli" ? "uppercase" : "capitalize",
+              )}
+            >
               {currentPage}
             </span>
           </div>
@@ -309,7 +316,68 @@ export function CommandMenu() {
             ))}
           </div>
         </CommandList>
+        <div className="flex items-center justify-between border-t border-border bg-background p-4">
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5">
+                <div className="p-1 rounded-md text-neutral-500 bg-neutral-200 dark:bg-[#141414]">
+                  <ArrowUpIcon size={16} />
+                </div>
+                <div className="p-1 rounded-md text-neutral-500 bg-neutral-200 dark:bg-[#141414]">
+                  <ArrowDownIcon size={16} />
+                </div>
+              </div>
+              <span className="text-sm">Navigate</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="p-1 rounded-md bg-neutral-200 dark:bg-[#141414]">
+                <Icons.arrowBack className="text-neutral-500" />
+              </div>
+              <span className="text-sm">Select</span>
+            </div>
+          </div>
+          <div className="flex items-center gap-2">
+            <span className="text-sm">Close</span>
+            <div className="p-1 text-xs rounded-md bg-neutral-200 dark:bg-[#141414]">
+              <span className="text-neutral-500 font-medium">ESC</span>
+            </div>
+          </div>
+        </div>
       </CommandDialog>
     </>
+  );
+}
+
+function CommandMenuIcon() {
+  const [os, setOS] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    setOS(detectOS());
+  }, []);
+
+  if (!os) return null;
+
+  if (os === "Mac OS") {
+    return (
+      <span
+        className={cn(
+          "text-neutral-500 border border-border/60 ease-linear duration-150 group-hover:border-transparent",
+          "px-1.5 py-1 rounded-lg text-[10px] flex items-center gap-0.5",
+        )}
+      >
+        <CommandIcon size={10} /> K
+      </span>
+    );
+  }
+
+  return (
+    <span
+      className={cn(
+        "text-neutral-500 border border-border/60 ease-linear duration-150 group-hover:border-transparent",
+        "px-1.5 py-1 rounded-lg text-[10px] flex items-center gap-0.5",
+      )}
+    >
+      CTRL K
+    </span>
   );
 }

@@ -58,7 +58,7 @@ export default async function CLIPage() {
   return (
     <main className="my-2 space-y-10">
       <div className="space-y-4">
-        <Breadcrumbs groupName="Get Started" currentPage="Add Utilities" />
+        <Breadcrumbs groupName="Get Started" currentPage="CLI" />
         <div className="space-y-3.5">
           <h1 className="text-3xl font-bold -tracking-wide text-primary">
             {title}
@@ -71,8 +71,8 @@ export default async function CLIPage() {
       <MDX source={content} />
       <Pagination
         back={{
-          href: "/ui/add-utilities",
-          title: "Add Utilities",
+          href: "/ui/installation",
+          title: "Installation",
         }}
       />
     </main>
