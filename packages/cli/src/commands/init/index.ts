@@ -4,9 +4,10 @@ import { Command } from 'commander'
 
 import { preFlightInit } from '@/preflights/preflight-init'
 
+import * as ERRORS from '@/utils/errors'
+
 import { ensureGlobalThemeCssFile } from './functions/ensure-global-theme-css-file'
 import { injectCommonUtilities } from './functions/inject-common-utilities'
-import { updateTsconfigPaths } from './functions/update-tsconfig-paths'
 
 import { REQUIRED_EXTERNAL_DEPENDENCIES } from '@/utils/const'
 import { ExecutionError } from '@/utils/errors/execution-error'
@@ -20,32 +21,26 @@ export const init = new Command()
   .summary('initialize your project and install dependencies.')
   .action(async () => {
     try {
-      const { data } = await preFlightInit()
-      const { cssPath, componentsPath } = data
+      const { errors, globalsCssPath } = await preFlightInit()
 
-      let aliasedComponentsPath = componentsPath.endsWith('/')
-        ? componentsPath
-        : componentsPath.concat('/')
-
-      aliasedComponentsPath = aliasedComponentsPath
-        .replace(/src\//g, '@/')
-        .concat('*')
-
-      updateTsconfigPaths({
-        [aliasedComponentsPath]: [componentsPath.concat('*')],
-      })
+      if (errors[ERRORS.IMPORT_ALIAS_NOT_CONFIG]) {
+        log.error(
+          `Invalid or missing import alias. Please verify your alias configuration in \`${chalk.blue('tsconfig.json')}\`.`,
+        )
+      }
 
       await injectCommonUtilities()
-      await ensureGlobalThemeCssFile(cssPath)
+      await ensureGlobalThemeCssFile(globalsCssPath)
 
       await installExternalDependencies(REQUIRED_EXTERNAL_DEPENDENCIES)
 
       await luxeConfig.writeConfig({
         tailwind: {
-          css: cssPath,
+          css: globalsCssPath,
         },
         aliases: {
-          components: aliasedComponentsPath,
+          components: '@/components/ui',
+          utils: '@/utils',
         },
       })
 

@@ -1,4 +1,5 @@
 export const LUXE_JSON_FILE = 'luxe.json'
+export const LUXE_CSS_FILE = 'luxe.css'
 
 export const REQUIRED_EXTERNAL_DEPENDENCIES = [
   'clsx',
@@ -8,8 +9,7 @@ export const REQUIRED_EXTERNAL_DEPENDENCIES = [
   'motion',
 ]
 
-export const THEME_BASE_CSS = String.raw`@import "tailwindcss";
-  @import "tw-animate-css";
+export const THEME_BASE_CSS = String.raw`@import "tw-animate-css";
 
   :root {
     --main: oklch(0.97 0 0);

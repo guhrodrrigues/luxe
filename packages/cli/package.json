@@ -1,7 +1,7 @@
 {
 	"name": "@luxeui/ui",
 	"description": "Add components instantly in your app with the Luxe CLI.",
-	"version": "1.0.0-alpha.4",
+	"version": "1.0.0-alpha.15",
 	"type": "module",
 	"bin": "./dist/index.js",
 	"files": [
@@ -15,20 +15,27 @@
 	},
 	"dependencies": {
 		"@clack/prompts": "0.9.1",
+		"@radix-ui/react-tooltip": "^1.2.4",
 		"camelcase": "^8.0.0",
 		"chalk": "^5.4.1",
+		"clsx": "^2.1.0",
 		"commander": "^13.1.0",
 		"conf": "^13.1.0",
+		"diff": "^8.0.2",
 		"eta": "^3.5.0",
 		"find-up": "^7.0.0",
 		"jsonschema": "^1.5.0",
 		"lilconfig": "^3.1.3",
+		"motion": "^11.15.0",
 		"package-manager-detector": "^0.2.11",
 		"prettier": "^3.5.3",
 		"prettier-plugin-tailwindcss": "^0.6.11",
 		"scule": "^1.3.0",
+		"tailwind-merge": "^2.2.1",
+		"tailwind-variants": "0.2.0",
 		"tsconfig-paths": "^4.2.0",
 		"tsx": "^4.19.3",
+		"tw-animate-css": "^1.2.8",
 		"zod": "^3.24.2"
 	},
 	"devDependencies": {
