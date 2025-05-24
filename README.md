@@ -12,7 +12,7 @@ https://luxeui.com/ui
 
 ### Contributing
 
-Read the [contributing guide](/CONTRIBUTING.md)
+Read the [contributing guide](/CONTRIBUTING.md).
 
 ### License
 
