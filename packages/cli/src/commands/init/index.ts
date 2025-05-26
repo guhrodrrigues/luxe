@@ -1,55 +1,57 @@
-import chalk from 'chalk'
-
+import * as p from '@clack/prompts'
 import { Command } from 'commander'
 
-import { preFlightInit } from '@/preflights/preflight-init'
+import { CLIError } from '@/utils/cli-error'
+import { logger } from '@/utils/logger'
 
-import * as ERRORS from '@/utils/errors'
-
-import { ensureGlobalThemeCssFile } from './functions/ensure-global-theme-css-file'
-import { injectCommonUtilities } from './functions/inject-common-utilities'
-
-import { REQUIRED_EXTERNAL_DEPENDENCIES } from '@/utils/const'
-import { ExecutionError } from '@/utils/errors/execution-error'
-import { installExternalDependencies } from '@/utils/install-external-dependencies'
-import { luxeConfig } from '@/utils/luxe-config-manager'
-
-import { log } from '@/lib/log'
+import { handler } from './handler'
+import { InitCommandErrors, preFlight } from './preflight'
 
 export const init = new Command()
   .name('init')
-  .summary('initialize your project and install dependencies.')
+  .description('initialize your project and install dependencies.')
   .action(async () => {
     try {
-      const { errors, globalsCssPath } = await preFlightInit()
+      const { errorsFound } = await preFlight()
 
-      if (errors[ERRORS.IMPORT_ALIAS_NOT_CONFIG]) {
-        log.error(
-          `Invalid or missing import alias. Please verify your alias configuration in \`${chalk.blue('tsconfig.json')}\`.`,
+      if (errorsFound[InitCommandErrors.UNIDENTIFIED_NODE_PROJECT]) {
+        logger.error(
+          `No Node.js project detected. Ensure 'package.json' exists in the current directory.`,
         )
       }
 
-      await injectCommonUtilities()
-      await ensureGlobalThemeCssFile(globalsCssPath)
+      if (errorsFound[InitCommandErrors.TAILWIND_NOT_INSTALLED]) {
+        logger.warning(
+          'TailwindCSS is not installed. Continuing may cause issues during initialization.',
+        )
 
-      await installExternalDependencies(REQUIRED_EXTERNAL_DEPENDENCIES)
+        const shouldProceedWithoutTailwind = await p.confirm({
+          message: 'Proceed without TailwindCSS?',
+          active: 'Yes, proceed anyway.',
+          inactive: 'No, abort setup.',
+          initialValue: false,
+        })
 
-      await luxeConfig.writeConfig({
-        tailwind: {
-          css: globalsCssPath,
-        },
-        aliases: {
-          components: '@/components/ui',
-          utils: '@/utils',
-        },
-      })
+        if (!shouldProceedWithoutTailwind) {
+          logger.info(
+            'Setup aborted. Install TailwindCSS first:\n→ https://tailwindcss.com/docs/installation',
+          )
+          process.exit(0)
+        }
+      }
 
-      log.success(
-        `${chalk.green('`init` command executed successfully!')}\n\n${chalk.white(`Run ${chalk.blue('@luxeui/ui add')} to add components to your project.`)}\n`,
-      )
+      if (errorsFound[InitCommandErrors.INCOMPATIBLE_VERSION_TAILWIND]) {
+        logger.error(
+          'Incompatible TailwindCSS version detected. Please use version 4.x.x or higher.',
+        )
+      }
+
+      logger.step('Preflight check completed. Ready to initialize.')
+
+      await handler()
     } catch (err) {
-      if (err instanceof ExecutionError) {
-        log.error(err.message)
+      if (err instanceof CLIError) {
+        logger.error(err.message)
       }
     }
   })

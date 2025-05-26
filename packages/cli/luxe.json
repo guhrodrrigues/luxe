@@ -1,6 +1,6 @@
 {
   "tailwind": {
-    "css": "./src/globals.css"
+    "css": "./src/styles/globals.css"
   },
   "aliases": {
     "components": "@/components/ui",
