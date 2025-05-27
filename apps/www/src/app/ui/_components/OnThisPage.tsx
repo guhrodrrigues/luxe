@@ -24,7 +24,11 @@ export function OnThisPage() {
     const headingElement = document.querySelectorAll("h1, h2, h3");
 
     return Array.from(headingElement)
-      .filter((heading) => heading.id)
+      .filter((heading) => {
+        const isInDialog = heading.closest('[role="dialog"]');
+				
+        return heading.id && !isInDialog;
+      })
       .map((heading) => ({
         id: heading.id,
         text: heading.textContent || "",

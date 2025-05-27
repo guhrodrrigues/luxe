@@ -230,16 +230,47 @@ export function CommandMenu() {
   const pathname = usePathname();
 
   const isApp = pathname === "/" || pathname.startsWith("/updates");
-  const homePage = pathname === "/";
+  const isHomePage = pathname === "/";
   const uiPage = pathname.startsWith("/ui");
 
   const category = isApp ? "App" : "Docs";
 
-  const currentPage = homePage
-    ? "Home"
-    : uiPage
-      ? pathname.split("/")[2].replace(/-/g, " ")
-      : pathname.split("/")[1].replace(/-/g, " ");
+  let currentPage = "";
+  let subCategory = "";
+
+  if (uiPage) {
+    const pathParts = pathname.split("/").filter(Boolean);
+
+    if (pathParts.length >= 2) {
+      const isComponentPage = ITEMS.some(
+        (item) =>
+          item.heading === "Components" &&
+          item.group.some((group) => group.slug === pathname),
+      );
+
+      if (isComponentPage) {
+        subCategory = "Components";
+        currentPage = pathParts[1].replace(/-/g, " ");
+      }
+
+      if (pathParts[1] === "installation") {
+        subCategory = "Installation";
+        currentPage = pathParts[2] ? pathParts[2].replace(/-/g, " ") : "";
+      }
+
+      if (!isComponentPage && pathParts[1] !== "installation") {
+        currentPage = pathParts[1].replace(/-/g, " ");
+      }
+    }
+  }
+
+  if (isHomePage) {
+    currentPage = "Home";
+  }
+
+  if (!uiPage && !isHomePage) {
+    currentPage = pathname.split("/")[1];
+  }
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
@@ -280,16 +311,25 @@ export function CommandMenu() {
               {category}
             </span>
           </div>
-          <div className="bg-neutral-200 dark:bg-neutral-900 px-2 h-6 w-fit flex items-center justify-center rounded-md">
-            <span
-              className={cn(
-                "text-[13px] font-[460] text-foreground",
-                currentPage === "cli" ? "uppercase" : "capitalize",
-              )}
-            >
-              {currentPage}
-            </span>
-          </div>
+          {subCategory && (
+            <div className="bg-neutral-200 dark:bg-neutral-900 px-2 h-6 w-fit flex items-center justify-center rounded-md">
+              <span className="text-[13px] font-[460] text-foreground capitalize">
+                {subCategory}
+              </span>
+            </div>
+          )}
+          {currentPage && (
+            <div className="bg-neutral-200 dark:bg-neutral-900 px-2 h-6 w-fit flex items-center justify-center rounded-md">
+              <span
+                className={cn(
+                  "text-[13px] font-[460] text-foreground",
+                  currentPage === "cli" ? "uppercase" : "capitalize",
+                )}
+              >
+                {currentPage}
+              </span>
+            </div>
+          )}
         </div>
         <CommandInput placeholder="What do you need?" />
         <CommandList>

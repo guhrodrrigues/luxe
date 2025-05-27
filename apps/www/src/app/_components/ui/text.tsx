@@ -177,6 +177,27 @@ const variants: readonly Variant[] = [
       </span>
     ),
   },
+  {
+    variant: 'hover-decoration',
+    component: ({ children, className, ...props }) => (
+      <div
+        className={cn(
+          'relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right',
+          'after:scale-x-0 after:bg-primary-muted after:transition-transform after:duration-300 after:ease-in-out hover:after:origin-bottom-left hover:after:scale-x-100'
+        )}
+      >
+        <span 
+          {...props} 
+          className={cn(
+            'text-primary-muted', 
+            className
+          )}
+        >
+          {children}
+        </span>
+      </div>
+    ),
+  },
 ] as const
 
 export type TextProps = {

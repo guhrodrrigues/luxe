@@ -170,7 +170,7 @@ export function TextGlitchExample() {
 
 <ComponentView className="h-[223px] flex items-center justify-center">
 
-<Text>Hover Me</Text>
+<Text variant="glitch">Hover Me</Text>
 
 </ComponentView>
 
@@ -310,6 +310,68 @@ import { Text } from "@/components/ui/text"
 export function TextShakeExample() {
   return (
     <Text variant="shake">
+      Hover Me
+    </Text>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+### Hover Decoration
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code={`import { Text } from "@/components/ui/text"
+
+export function TextHoverDecorationExample() {
+  return (
+    <Text variant="hover-decoration">
+      Hover Me
+    </Text>
+  )
+}`}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[223px] flex items-center justify-center">
+
+<Text variant="hover-decoration">Hover Me</Text>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Text } from "@/components/ui/text"
+
+export function TextHoverDecorationExample() {
+  return (
+    <Text variant="hover-decoration">
       Hover Me
     </Text>
   )
@@ -601,6 +663,27 @@ const variants: readonly Variant[] = [
       >
         {children}
       </span>
+    ),
+  },
+  {
+    variant: 'hover-decoration',
+    component: ({ children, className, ...props }) => (
+      <div
+        className={cn(
+          'relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right',
+          'after:scale-x-0 after:bg-primary-muted after:transition-transform after:duration-300 after:ease-in-out hover:after:origin-bottom-left hover:after:scale-x-100'
+        )}
+      >
+        <span 
+          {...props} 
+          className={cn(
+            'text-primary-muted', 
+            className
+          )}
+        >
+          {children}
+        </span>
+      </div>
     ),
   },
 ] as const
