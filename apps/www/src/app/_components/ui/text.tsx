@@ -10,7 +10,7 @@ type Variant = {
   component: React.FC<React.ComponentProps<'span'> & Partial<MotionProps>>
 }
 
-const variants: readonly Variant[] = [
+const variants = [
   {
     variant: 'shine',
     component: ({ children, className, ...props }) => (
@@ -198,7 +198,7 @@ const variants: readonly Variant[] = [
       </div>
     ),
   },
-] as const
+] as const satisfies readonly Variant[]
 
 export type TextProps = {
   variant?: (typeof variants)[number]['variant']

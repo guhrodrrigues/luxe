@@ -11,7 +11,7 @@ type Variant = {
   component: React.FC<React.ComponentProps<'div'>>
 }
 
-const variants: readonly Variant[] = [
+const variants = [
   {
     variant: 'default',
     component: ({ children, className, ...props }) => (
@@ -123,7 +123,7 @@ const variants: readonly Variant[] = [
       )
     },
   },
-] as const
+] as const satisfies readonly Variant[]
 
 export type CardProps = {
   variant?: (typeof variants)[number]['variant']
