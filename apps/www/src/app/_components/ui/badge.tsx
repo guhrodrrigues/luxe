@@ -10,7 +10,7 @@ type Variant = {
   component: React.FC<React.ComponentProps<'div'>>
 }
 
-const variants: readonly Variant[] = [
+const variants = [
   {
     variant: 'default',
     component: ({ className, ...props }) => (
@@ -140,7 +140,7 @@ const variants: readonly Variant[] = [
       </div>
     ),
   },
-] as const
+] as const satisfies readonly Variant[]
 
 export type BadgeProps = {
   variant?: (typeof variants)[number]['variant']

@@ -12,7 +12,7 @@ type Variant = {
   component: React.FC<React.ComponentProps<'button'>>
 }
 
-const variants: readonly Variant[] = [
+const variants = [
   {
     variant: 'default',
     component: ({ className, ...props }) => (
@@ -190,7 +190,7 @@ const variants: readonly Variant[] = [
       }
     },
   },
-] as const
+] as const satisfies readonly Variant[]
 
 export type ButtonProps = {
   variant?: (typeof variants)[number]['variant']
