@@ -35,19 +35,19 @@ export function Footer() {
                 href="https://guhrodrigues.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="duration-200 hover:text-primary"
+                className="duration-200 hover:text-primary outline-none focus-visible:ring-1 focus-visible:ring-neutral-300/80 dark:focus-visible:ring-neutral-800"
               >
                 Gustavo Rodrigues.
               </a>
             </p>
           </AnimateEnter>
-          <div className="flex items-start gap-6 [@media(max-width:534px)]:items-center [@media(max-width:534px)]:flex-col">
-            <AnimateEnter delay={0.1} className="flex gap-6">
+          <div className="flex items-start gap-5 [@media(max-width:534px)]:items-center [@media(max-width:534px)]:flex-col">
+            <AnimateEnter delay={0.1} className="flex gap-5">
               {NAVIGATE.map(({ name, slug }, idx) => (
                 <Link
                   key={idx}
                   href={slug}
-                  className="group flex w-fit items-center gap-1 text-[13px] text-foreground duration-200 hover:text-primary"
+                  className="px-1 rounded group flex w-fit items-center gap-1 text-[13px] text-foreground duration-200 hover:text-primary outline-none focus-visible:ring-1 focus-visible:ring-neutral-300/80 dark:focus-visible:ring-neutral-800"
                 >
                   {name}
                 </Link>
@@ -59,12 +59,12 @@ export function Footer() {
             >
               <Divider />
             </AnimateEnter>
-            <AnimateEnter delay={0.2} className="flex gap-6">
+            <AnimateEnter delay={0.2} className="flex gap-5">
               <a
                 href="https://github.com/guhrodrrigues/luxe"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex w-fit items-center gap-1 text-[13px] text-foreground duration-200 hover:text-primary"
+                className="px-1 rounded group flex w-fit items-center gap-1 text-[13px] text-foreground duration-200 hover:text-primary outline-none focus-visible:ring-1 focus-visible:ring-neutral-300/80 dark:focus-visible:ring-neutral-800"
               >
                 GitHub
                 <ArrowIconGlitch />
@@ -73,7 +73,7 @@ export function Footer() {
                 href="https://x.com/guhrodrrigues"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group flex w-fit items-center gap-1 text-[13px] text-foreground duration-200 hover:text-primary"
+                className="px-1 rounded group flex w-fit items-center gap-1 text-[13px] text-foreground duration-200 hover:text-primary outline-none focus-visible:ring-1 focus-visible:ring-neutral-300/80 dark:focus-visible:ring-neutral-800"
               >
                 X (Twitter)
                 <ArrowIconGlitch />
