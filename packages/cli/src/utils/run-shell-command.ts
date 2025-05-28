@@ -1,5 +1,5 @@
-import { promisify } from 'node:util'
 import { exec } from 'node:child_process'
+import { promisify } from 'node:util'
 
 export async function runShellCommand(command: string) {
   try {

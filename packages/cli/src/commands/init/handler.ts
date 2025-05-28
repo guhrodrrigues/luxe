@@ -1,15 +1,13 @@
-import { promises as fs, existsSync } from 'node:fs'
+import { existsSync } from 'node:fs'
 import path from 'node:path'
 
 import * as p from '@clack/prompts'
-import prettier from 'prettier'
 
 import { CLIError } from '@/utils/cli-error'
 import {
   DEFAULT_COMPONENTS_ALIAS,
   DEFAULT_CSS_PATH,
   DEFAULT_UTILS_ALIAS,
-  FS_ERROR_CODES,
   IS_DEV,
   MANIFEST_FILE,
   PROCESS_CWD,
@@ -17,9 +15,14 @@ import {
 } from '@/utils/const'
 import { logger } from '@/utils/logger'
 import { manifestManager } from '@/utils/manifest-manager'
-import { resolveAliasToAbsolutePath } from '@/utils/resolve-alias-to-absolute-path'
+
 import { resolvePackageManagerCommand } from '@/utils/resolve-package-manager-command'
 import { runShellCommand } from '@/utils/run-shell-command'
+
+import {
+  appendAndMergeThemeStyles,
+  generateAndSaveUtilityFunctions,
+} from './utils'
 
 export async function handler() {
   try {
@@ -50,10 +53,17 @@ export async function handler() {
 
     await p.tasks([
       {
-        title: 'Saving utilities to alias directory',
+        title: 'Generating and saving utility functions',
         task: async () => {
-          await saveFileWithUtilities(utilsAlias)
-          return 'Utilities saved successfully.'
+          await generateAndSaveUtilityFunctions(utilsAlias)
+          return 'Utility functions generated and saved successfully.'
+        },
+      },
+      {
+        title: 'Appending and merging CSS theme variables',
+        task: async () => {
+          await appendAndMergeThemeStyles(cssPath)
+          return 'CSS theme variables appended and merged successfully.'
         },
       },
       {
@@ -67,7 +77,7 @@ export async function handler() {
           const fullCommandInstallation = `${command} ${args.join(' ')}`
 
           await runShellCommand(fullCommandInstallation)
-          return 'External dependencies installed successfully.'
+          return 'All required external dependencies installed successfully.'
         },
       },
     ])
@@ -77,6 +87,7 @@ export async function handler() {
       aliases: { components: componentsAlias, utils: utilsAlias },
     })
 
+    // @TODO: Add resume
     logger.success('Configuration saved successfully.')
   } catch (err) {
     if (err instanceof Error && IS_DEV) {
@@ -142,43 +153,4 @@ async function askUtilsAlias() {
   }
 
   return result.toString()
-}
-
-// @TODO: There may be an improvement here later if more utilities are added.
-async function saveFileWithUtilities(utilsAlias: string) {
-  const fileContent = await prettier.format(
-    String.raw`
-    import { type ClassValue, clsx } from 'clsx'
-    import { twMerge } from 'tailwind-merge'
-
-    export function cn(...inputs: ClassValue[]) {
-      return twMerge(clsx(inputs))
-    }
-  `,
-    {
-      parser: 'typescript',
-    },
-  )
-
-  const utilitiesPath = resolveAliasToAbsolutePath(utilsAlias)
-
-  if (!existsSync(utilitiesPath)) {
-    await fs.mkdir(utilitiesPath, {
-      recursive: true,
-    })
-  }
-
-  const filePath = path.join(utilitiesPath, 'cn.ts')
-
-  try {
-    await fs.writeFile(filePath, fileContent, 'utf8')
-  } catch (err) {
-    if (err.code === FS_ERROR_CODES.PERMISSION_DENIED) {
-      throw new CLIError(
-        `Writing the file to the \`${filePath}\` directory is not permitted. Please check access permissions.`,
-      )
-    }
-
-    throw new Error(err.message)
-  }
 }
