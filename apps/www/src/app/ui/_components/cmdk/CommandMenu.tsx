@@ -1,13 +1,16 @@
 import { usePathname, useRouter } from "next/navigation";
+
 import { useEffect, useState, useRef } from "react";
+
 import Lottie from "lottie-react";
+
 import { useTheme } from "next-themes";
 
 import {
   CommandIcon,
-  SquareStackIcon,
   ArrowUpIcon,
   ArrowDownIcon,
+  SearchIcon,
 } from "lucide-react";
 
 import { cn } from "@/utils/cn";
@@ -32,7 +35,6 @@ import thunderDarkModeIcon from "@/assets/icons/thunder/dark-mode.json";
 import thunderLightModeIcon from "@/assets/icons/thunder/light-mode.json";
 import fileDarkModeIcon from "@/assets/icons/file/dark-mode.json";
 import fileLightModeIcon from "@/assets/icons/file/light-mode.json";
-import searchIcon from "@/assets/icons/search-icon.json";
 
 type ItemProps = {
   heading: string;
@@ -45,25 +47,6 @@ type ItemProps = {
     shortcut?: string;
   }[];
 };
-
-const HomeIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="17"
-    height="17"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  >
-    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-    <path d="M5 12l-2 0l9 -9l9 9l-2 0" />
-    <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
-    <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
-  </svg>
-);
 
 type CommandMenuItemProps = {
   shortcut?: string;
@@ -84,7 +67,6 @@ function CommandMenuItem({
   ...props
 }: CommandMenuItemProps) {
   const itemRef = useRef<HTMLDivElement>(null);
-  const { theme } = useTheme();
 
   useEffect(() => {
     if (!itemRef.current) return;
@@ -541,13 +523,10 @@ export function CommandMenu() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [setIsOpen]);
 
-  const searchRef = useRef<any>(null);
-
   return (
     <>
       <button
         onClick={() => setIsOpen((prev) => !prev)}
-        onMouseEnter={() => searchRef.current?.goToAndPlay(0, true)}
         className={cn(
           "group relative flex items-center justify-between gap-4 pl-2.5 pr-2 py-1.5 border rounded-full text-[13px] leading-none border-border/60 dark:border-border/50",
           "bg-background ease-linear duration-150 hover:bg-main-foreground/40 outline-none dark:hover:bg-main-foreground/20 dark:hover:border-white/10 focus-visible:ring-1 focus-visible:ring-neutral-300/80 dark:focus-visible:ring-neutral-800",
@@ -558,13 +537,7 @@ export function CommandMenu() {
           className="pointer-events-none absolute left-1/2 -top-[0.031em] h-px w-1/2 max-w-[1000px] -translate-x-1/4 -translate-y-1/2 bg-gradient-to-l from-transparent via-white/18 via-30% to-transparent"
         />
         <span className="flex items-center gap-2 font-[460] text-neutral-500">
-          <Lottie
-            lottieRef={searchRef}
-            animationData={searchIcon}
-            style={{ width: 13, height: 13 }}
-            autoplay={false}
-            loop={false}
-          />
+          <SearchIcon size={12} />
           Search
         </span>
         <CommandMenuIcon />
