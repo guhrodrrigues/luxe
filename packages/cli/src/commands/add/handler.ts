@@ -95,6 +95,7 @@ export async function handler(
             componentData.externalDependencies.join(', '),
           )} installed successfully for ${chalk.cyan(componentName)}.`
         },
+        enabled: componentData.externalDependencies.length > 0,
       },
       {
         title: 'Adding dependent components',
@@ -118,6 +119,7 @@ export async function handler(
 
           return 'All dependent components were successfully added.'
         },
+        enabled: componentData.internalDependencies.length > 0,
       },
     ])
 
