@@ -36,7 +36,7 @@ export async function handler() {
       )
 
       const shouldProceedOverwrite = await p.confirm({
-        message: `The '${MANIFEST_FILE}' file already exists. Do you want to overwrite it?`,
+        message: `'${MANIFEST_FILE}' file already exists. Do you want to overwrite it?`,
         active: 'Yes, overwrite and reset.',
         inactive: 'No, keep current configuration.',
         initialValue: false,
@@ -54,17 +54,17 @@ export async function handler() {
 
     await p.tasks([
       {
-        title: 'Generating and saving utility functions',
+        title: 'Generating utility functions',
         task: async () => {
           await generateAndSaveUtilityFunctions(utilsAlias)
-          return 'Utility functions generated and saved successfully.'
+          return 'Utility functions saved successfully!'
         },
       },
       {
-        title: 'Appending and merging CSS theme variables',
+        title: 'Merging CSS theme variables',
         task: async () => {
           await appendAndMergeThemeStyles(cssPath)
-          return 'CSS theme variables appended and merged successfully.'
+          return 'CSS theme variables merged successfully!'
         },
       },
       {
@@ -78,7 +78,7 @@ export async function handler() {
           const fullCommandInstallation = `${command} ${args.join(' ')}`
 
           await runShellCommand(fullCommandInstallation)
-          return 'All required external dependencies installed successfully.'
+          return 'External dependencies installed successfully!'
         },
       },
     ])
@@ -93,7 +93,8 @@ export async function handler() {
       componentsAlias,
       utilsAlias,
     })
-    logger.success('Configuration saved successfully.')
+
+    logger.success('Configuration saved successfully.\n')
   } catch (err) {
     if (err instanceof Error && IS_DEV) {
       logger.debug(`Error: ${err.message}`)
@@ -105,12 +106,12 @@ export async function handler() {
 
 async function askCssPath() {
   const result = await p.text({
-    message: 'Enter the path to your main CSS file (with Tailwind directives):',
+    message: 'Enter the path to your main Tailwind CSS file:',
     placeholder: DEFAULT_CSS_PATH,
     initialValue: DEFAULT_CSS_PATH,
     validate(value) {
       if (!value.trim())
-        return 'Path is required. Please provide a valid value.'
+        return 'Path is required. Please enter a valid one.'
     },
   })
 
@@ -129,7 +130,7 @@ async function askComponentsAlias() {
     initialValue: DEFAULT_COMPONENTS_ALIAS,
     validate(value) {
       if (!value.trim())
-        return 'Alias is required. Please provide a valid value.'
+        return 'Alias is required. Please enter a valid one.'
     },
   })
 

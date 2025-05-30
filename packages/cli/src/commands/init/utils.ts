@@ -104,9 +104,9 @@ export function logInitSummary({
     [
       chalk.bold('Init complete'),
       '',
-      `CSS path:         ${chalk.cyan(cssPath)}`,
-      `Components alias: ${chalk.cyan(componentsAlias)}`,
-      `Utils alias:      ${chalk.cyan(utilsAlias)}`,
+      `CSS path         ${chalk.cyan(cssPath)}`,
+      `Components alias ${chalk.cyan(componentsAlias)}`,
+      `Utils alias      ${chalk.cyan(utilsAlias)}`,
       '',
       '✔ Utility functions generated',
       '✔ Theme variables merged',

@@ -59,7 +59,7 @@ export async function handler(
       if (!existingComponentNames.includes(componentName)) continue
 
       const shouldOverwrite = await p.confirm({
-        message: `The component ${chalk.cyan(componentName)} already exists. Do you want to overwrite it?`,
+        message: `${chalk.cyan(pascalCase(componentName))} already exists. Do you want to overwrite it?`,
         active: 'Yes, overwrite',
         inactive: 'No, skip',
         initialValue: false,
@@ -73,9 +73,9 @@ export async function handler(
 
   if (skippedComponents.length > 0) {
     logger.info(
-      `Some components already existed and were kept: ${chalk.cyan(
+      `${chalk.cyan(
         skippedComponents.join(', '),
-      )}.`,
+      )} already existed and were kept.`,
     )
 
     selectedComponents = selectedComponents.filter(
@@ -92,7 +92,7 @@ export async function handler(
 
     await p.tasks([
       {
-        title: `Installing dependencies for component ${chalk.cyan(componentName)}`,
+        title: `Installing dependencies for component ${chalk.cyan(pascalCase(componentName))}`,
         task: async () => {
           const { command, args } = await resolvePackageManagerCommand(
             'add',
@@ -102,7 +102,7 @@ export async function handler(
           const fullCommand = `${command} ${args.join(' ')}`
           await runShellCommand(fullCommand)
 
-          return `Successfully installed ${chalk.blue(componentData.externalDependencies.join(', '))} for component ${chalk.cyan(componentName)}.`
+          return `${chalk.blue(componentData.externalDependencies.join(', '))} installed for component ${chalk.cyan(pascalCase(componentName))}.`
         },
         enabled: componentData.externalDependencies.length > 0,
       },
@@ -126,7 +126,7 @@ export async function handler(
             }
           }
 
-          return 'All dependent components were successfully added.'
+          return 'Dependent components added successfully.'
         },
         enabled: componentData.internalDependencies.length > 0,
       },
@@ -137,5 +137,5 @@ export async function handler(
   }
 
   logComponentSummary(installedComponents)
-  logger.success('Components successfully installed and ready to go.')
+  logger.success('Components installed and ready!\n')
 }

@@ -46,8 +46,6 @@ export const init = new Command()
         )
       }
 
-      logger.step('Preflight check completed. Ready to initialize.')
-
       await handler()
     } catch (err) {
       if (err instanceof CLIError) {

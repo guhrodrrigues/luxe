@@ -104,7 +104,7 @@ export function logComponentSummary(installedComponents: string[]) {
       chalk.bold('✔ Components added\n'),
       formattedList,
       '',
-      `${chalk.dim('Location:')} ${chalk.yellow(componentsPath)}`,
+      `${chalk.dim('Location →')} ${chalk.yellow(componentsPath)}`,
     ].join('\n'),
   )
 }

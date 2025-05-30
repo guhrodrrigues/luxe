@@ -18,7 +18,7 @@ export const add = new Command()
 
     if (errorsFound[AddCommandErrors.MANIFEST_FILE_NOT_FOUND]) {
       logger.error(
-        `Warning: the project has not been initialized yet. Run ${chalk.yellow('@luxeui/ui init')} to set up the environment before adding components.`,
+        `Project not initialized. Run ${chalk.yellow('@luxeui/ui init')} first`,
       )
     }
 
