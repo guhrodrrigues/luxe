@@ -27,7 +27,7 @@ export async function handler(
     selectedComponents = (await p.multiselect({
       message:
         'Select your components › (`Space` to select) (`A` to toggle all) (`Enter` to confirm).',
-      options: availableComponents.map(componentName => ({
+      options: availableComponents.sort().map(componentName => ({
         label: pascalCase(componentName),
         value: componentName,
       })),
@@ -91,9 +91,7 @@ export async function handler(
           const fullCommand = `${command} ${args.join(' ')}`
           await runShellCommand(fullCommand)
 
-          return `Dependencies ${chalk.blue(
-            componentData.externalDependencies.join(', '),
-          )} installed successfully for ${chalk.cyan(componentName)}.`
+          return `Successfully installed ${chalk.blue(componentData.externalDependencies.join(', '))} for component ${chalk.cyan(componentName)}.`
         },
         enabled: componentData.externalDependencies.length > 0,
       },

@@ -14,8 +14,6 @@ export const FS_ERROR_CODES = {
   IS_A_DIRECTORY: 'EISDIR',
 }
 
-export const UTILITIES = String.raw``
-
 export const REQUIRED_EXTERNAL_DEPENDENCIES = [
   'clsx',
   'tailwind-merge',
@@ -23,6 +21,11 @@ export const REQUIRED_EXTERNAL_DEPENDENCIES = [
   'tw-animate-css',
   'motion',
 ]
+
+export const TAILWIND_PACKAGE = 'tailwindcss'
+
+export const TAILWIND_V4_REGEX =
+  /^\s*(?:\^|~|>=|<=|>|<|=)?\s*4(?:\.\d+){0,2}(?:-[0-9A-Za-z.-]+)?\s*$/
 
 export const THEME_BASE_CSS = String.raw`@import "tailwindcss";
   @import "tw-animate-css";
