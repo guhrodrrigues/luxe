@@ -22,6 +22,7 @@ import { runShellCommand } from '@/utils/run-shell-command'
 import {
   appendAndMergeThemeStyles,
   generateAndSaveUtilityFunctions,
+  logInitSummary,
 } from './utils'
 
 export async function handler() {
@@ -87,7 +88,11 @@ export async function handler() {
       aliases: { components: componentsAlias, utils: utilsAlias },
     })
 
-    // @TODO: Add resume
+    logInitSummary({
+      cssPath,
+      componentsAlias,
+      utilsAlias,
+    })
     logger.success('Configuration saved successfully.')
   } catch (err) {
     if (err instanceof Error && IS_DEV) {

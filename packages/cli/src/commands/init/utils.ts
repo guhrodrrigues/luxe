@@ -2,9 +2,11 @@ import { promises as fs, existsSync } from 'node:fs'
 import path from 'node:path'
 
 import prettier from 'prettier'
+import chalk from 'chalk'
 
 import { FS_ERROR_CODES, THEME_BASE_CSS } from '@/utils/const'
 import { resolveAliasToAbsolutePath } from '@/utils/resolve-alias-to-absolute-path'
+import { logger } from '@/utils/logger'
 
 import { postcss } from '@/lib/postcss'
 import {
@@ -87,4 +89,30 @@ export async function appendAndMergeThemeStyles(cssPath: string) {
       )
     }
   }
+}
+
+export function logInitSummary({
+  cssPath,
+  componentsAlias,
+  utilsAlias,
+}: {
+  cssPath: string
+  componentsAlias: string
+  utilsAlias: string
+}) {
+  logger.step(
+    [
+      chalk.bold('Init complete'),
+      '',
+      `CSS path:         ${chalk.cyan(cssPath)}`,
+      `Components alias: ${chalk.cyan(componentsAlias)}`,
+      `Utils alias:      ${chalk.cyan(utilsAlias)}`,
+      '',
+      '✔ Utility functions generated',
+      '✔ Theme variables merged',
+      '✔ External dependencies installed',
+      '',
+      chalk.green.bold('Luxe is ready! You can now start building.'),
+    ].join('\n'),
+  )
 }

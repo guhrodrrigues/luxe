@@ -3,6 +3,8 @@ import path from 'node:path'
 
 import type { Eta } from 'eta'
 import prettier from 'prettier'
+import chalk from 'chalk'
+import { pascalCase } from 'scule'
 
 import { type Registry, RegistrySchema } from '@/schemas/registry'
 import { apiConfig } from '@/services/api-config'
@@ -26,7 +28,7 @@ export async function fetchComponentRegistry(componentName: string) {
 
     if (!response.ok) {
       logger.warning(
-        `Component ${componentName} not found in the registry. Please check the name.`,
+        `Component ${chalk.green(componentName)} not found in the registry. Please check the name.`,
       )
       return null
     }
@@ -42,10 +44,9 @@ export async function fetchComponentRegistry(componentName: string) {
 
     return parsed.data
   } catch (error) {
-    logger.error(
+    throw new CLIError(
       `Failed to fetch registry for ${componentName}: ${(error as Error).message}`,
     )
-    return null
   }
 }
 
@@ -81,4 +82,29 @@ export async function writeComponentFileFromTemplate(
   } catch {
     throw new CLIError(`Failed to write component file: ${file.name}`)
   }
+}
+
+export function logComponentSummary(installedComponents: string[]) {
+  if (!installedComponents.length) return
+
+  const getManifest = manifestManager.readManifest
+
+  const componentsPath = resolveAliasToAbsolutePath(
+    getManifest.aliases.components,
+  )
+
+  const formattedList = installedComponents
+    .map(
+      component => `  ${chalk.gray('•')} ${chalk.green(pascalCase(component))}`,
+    )
+    .join('\n')
+
+  logger.step(
+    [
+      chalk.bold('✔ Components added\n'),
+      formattedList,
+      '',
+      `${chalk.dim('Location:')} ${chalk.yellow(componentsPath)}`,
+    ].join('\n'),
+  )
 }

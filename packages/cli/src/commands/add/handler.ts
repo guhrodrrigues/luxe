@@ -10,9 +10,13 @@ import { manifestManager } from '@/utils/manifest-manager'
 import { resolveAliasToAbsolutePath } from '@/utils/resolve-alias-to-absolute-path'
 import { resolvePackageManagerCommand } from '@/utils/resolve-package-manager-command'
 import { runShellCommand } from '@/utils/run-shell-command'
-
 import { logger } from '@/utils/logger'
-import { fetchComponentRegistry, writeComponentFileFromTemplate } from './utils'
+
+import {
+  fetchComponentRegistry,
+  writeComponentFileFromTemplate,
+  logComponentSummary,
+} from './utils'
 
 export async function handler(
   availableComponents: string[],
@@ -32,6 +36,11 @@ export async function handler(
         value: componentName,
       })),
     })) as string[]
+
+    if (p.isCancel(selectedComponents)) {
+      logger.warning('Component selection was canceled. No changes were made.')
+      process.exit(0)
+    }
   }
 
   const componentsDirPath = resolveAliasToAbsolutePath(
@@ -73,6 +82,8 @@ export async function handler(
       component => !skippedComponents.includes(component),
     )
   }
+
+  const installedComponents: string[] = []
 
   for (const componentName of selectedComponents) {
     const componentData = await fetchComponentRegistry(componentName)
@@ -122,5 +133,9 @@ export async function handler(
     ])
 
     await writeComponentFileFromTemplate(componentData, etaEngine)
+    installedComponents.push(componentName)
   }
+
+  logComponentSummary(installedComponents)
+  logger.success('Components successfully installed and ready to go.')
 }
