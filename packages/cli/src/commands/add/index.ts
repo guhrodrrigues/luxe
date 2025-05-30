@@ -1,91 +1,36 @@
-import * as p from '@clack/prompts'
 import { Command } from 'commander'
-import { z } from 'zod'
-
 import chalk from 'chalk'
-import { Eta } from 'eta'
-import { pascalCase } from 'scule'
 
-import * as ERRORS from '@/utils/errors'
-import { ExecutionError } from '@/utils/errors/execution-error'
-import { installExternalDependencies } from '@/utils/install-external-dependencies'
+import { preFlight, AddCommandErrors } from './preflight'
+import { handler } from './handler'
 
-import { log } from '@/lib/log'
-import { addComponent } from './functions/add-component'
-import { fetchComponentInfo } from './functions/fetch-component-info'
-import { getRegistryData } from './functions/get-registry-data'
-
-import { preFlightAdd } from '@/preflights/preflight-add'
-
-const addCommandSchema = z.array(z.string())
+import { logger } from '@/utils/logger'
+import { apiConfig } from '@/services/api-config'
 
 export const add = new Command()
   .name('add')
-  .summary('select and add the components you need.')
-  .argument('[components...]', 'enter the component name(s)')
-  .action(async components => {
-    try {
-      const eta = new Eta()
+  .description('')
+  .argument('[components...]')
+  .action(async args => {
+    const { errorsFound } = preFlight()
 
-      const { errors, config } = await preFlightAdd()
-
-      if (errors[ERRORS.DIRECTORY_NOT_FOUND_OR_EMPTY_PROJECT]) {
-        throw new ExecutionError(
-          '`add` command was run in a directory without a `package.json`.\nMake sure you are in a Node.js project initialized with `npm init` or `yarn init`.',
-        )
-      }
-
-      let selectedComponents = addCommandSchema.parse(components)
-
-      const registryComponents = await getRegistryData('components')
-
-      if (selectedComponents.length === 0) {
-        selectedComponents = (await p.multiselect({
-          message:
-            'Select your components › (`Space` to select) (`A` to toggle all) (`Enter` to confirm).',
-          options: registryComponents.map(component => ({
-            label: pascalCase(component),
-            value: component,
-          })),
-        })) as string[]
-
-        if (p.isCancel(selectedComponents)) {
-          p.cancel('Operation cancelled.')
-          process.exit(0)
-        }
-      }
-
-      const componentsNotFound = selectedComponents.filter(
-        component => !registryComponents.includes(component),
+    if (errorsFound[AddCommandErrors.MANIFEST_FILE_NOT_FOUND]) {
+      logger.error(
+        `Warning: the project has not been initialized yet. Run ${chalk.yellow('@luxeui/ui init')} to set up the environment before adding components.`,
       )
-
-      if (componentsNotFound.length > 0) {
-        throw new ExecutionError(
-          `${componentsNotFound
-            .map(c => chalk.blue(c))
-            .join(', ')} components were not found in the registry.`,
-        )
-      }
-
-      const infoSelectedComponents =
-        await fetchComponentInfo(selectedComponents)
-
-      const installedComponents: string[] = []
-
-      for (const component of infoSelectedComponents) {
-        await installExternalDependencies(component.externalDependencies)
-        await addComponent(component.files, config!.aliases, eta)
-        installedComponents.push(pascalCase(component.name))
-      }
-
-      log.success(
-        `${chalk.green('Success! Installed components:\n')}${chalk.white(
-          installedComponents.join('\n'),
-        )}\n`,
-      )
-    } catch (err) {
-      if (err instanceof ExecutionError) {
-        process.exit(0)
-      }
     }
+
+    try {
+      const response = await fetch(`${apiConfig.luxeRegistry}/index.json`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      const { components } = await response.json()
+      const availableComponents = components as string[]
+
+      handler(availableComponents, args)
+    } catch {}
   })

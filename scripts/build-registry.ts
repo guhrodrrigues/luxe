@@ -19,10 +19,9 @@ type RegistryFile = {
 
 type Registry = {
   name: string
-  type: `ui:${RegistryType}`
   externalDependencies: string[]
   internalDependencies: string[]
-  files: RegistryFile[]
+  file: RegistryFile
 }
 
 /* =====================================
@@ -71,15 +70,12 @@ async function main() {
 
       const registryEntry: Registry = {
         name,
-        type: 'ui:components',
         externalDependencies,
         internalDependencies,
-        files: [
-          {
-            name: filename,
-            content: sourceFile.getText(),
-          },
-        ],
+        file: {
+          name: filename,
+          content: sourceFile.getText(),
+        },
       }
 
       const previousEntries = registryMap.get('components') ?? []
@@ -145,7 +141,7 @@ function getDependencies(importPaths: string[]) {
 }
 
 function applyAliasTemplates(importDeclarations: ImportDeclaration[]) {
-  const aliasRegex = /\b(components)\b/
+  const aliasRegex = /\b(components|utils)\b/
 
   for (const importDeclaration of importDeclarations) {
     const importPathNode = importDeclaration.getModuleSpecifier()

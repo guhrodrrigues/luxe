@@ -1,5 +1,7 @@
-import { promises as fs, readFileSync } from 'node:fs'
+import { promises as fs } from 'node:fs'
 import path from 'node:path'
+
+import { lilconfigSync } from 'lilconfig'
 
 import { type Manifest, ManifestSchema } from '@/schemas/manifest'
 
@@ -33,21 +35,16 @@ class ManifestManager {
     }
   }
 
-  public get readManifest() {
-    const rawFile = readFileSync(
-      path.resolve(PROCESS_CWD, MANIFEST_FILE),
-      'utf8',
-    )
+  public get readManifest(): Manifest {
+    const manifestFile = lilconfigSync('luxe', {
+      searchPlaces: [MANIFEST_FILE],
+    }).search()
 
-    const result = ManifestSchema.safeParse(rawFile)
-
-    if (!result.success) {
-      throw new Error(
-        `Invalid manifest file format detected. Please ensure that \`${MANIFEST_FILE}\` matches the expected schema.`,
-      )
+    if (!manifestFile) {
+      throw new CLIError('Could not read your manifest file.')
     }
 
-    return result.data
+    return manifestFile.config
   }
 }
 

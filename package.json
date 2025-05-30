@@ -47,7 +47,7 @@
 		"vite": "^6.1.0"
 	},
 	"scripts": {
-		"dev": "turbo dev",
+		"dev": "turbo dev --filter=www",
 		"build": "turbo build",
 		"lint": "turbo lint",
 		"storybook": "storybook dev -p 6006",
