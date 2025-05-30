@@ -11,7 +11,7 @@ type Variant = {
   component: React.FC<React.ComponentProps<'div'>>
 }
 
-const variants: readonly Variant[] = [
+const variants = [
   {
     variant: 'default',
     component: ({ children, className, ...props }) => (
@@ -32,7 +32,7 @@ const variants: readonly Variant[] = [
       <div
         {...props}
         className={cn(
-          'relative rounded-xl border border-primary/10 px-4 py-5',
+          'relative rounded-xl border border-primary/10 bg-main-background px-4 py-5',
           className,
         )}
       >
@@ -123,7 +123,7 @@ const variants: readonly Variant[] = [
       )
     },
   },
-] as const
+] as const satisfies readonly Variant[]
 
 export type CardProps = {
   variant?: (typeof variants)[number]['variant']
@@ -134,15 +134,11 @@ export function Card({ variant = 'default', className, ...props }: CardProps) {
 
   const variantComponent = variants.find(v => v.variant === variant)?.component
 
-  if (!variantComponent) {
-    return variants[FALLBACK_INDEX].component(props)
-  }
+  const Component = variantComponent || variants[FALLBACK_INDEX].component
 
   return (
     <Slot.Root className="w-full max-w-[350px]">
-      {variantComponent
-        ? variantComponent({ ...props, className })
-        : variants[FALLBACK_INDEX].component({ ...props, className })}
+      <Component {...props} className={className} />
     </Slot.Root>
   )
 }

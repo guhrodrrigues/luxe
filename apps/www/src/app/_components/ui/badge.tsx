@@ -10,7 +10,7 @@ type Variant = {
   component: React.FC<React.ComponentProps<'div'>>
 }
 
-const variants: readonly Variant[] = [
+const variants = [
   {
     variant: 'default',
     component: ({ className, ...props }) => (
@@ -30,7 +30,7 @@ const variants: readonly Variant[] = [
       <div
         {...props}
         className={cn(
-          'relative overflow-hidden rounded-full border border-border px-3 py-1 transition-all duration-200',
+          'relative overflow-hidden rounded-full border border-border bg-main-background px-3 py-1 transition-all duration-200',
           'text-primary-foreground hover:bg-main-foreground/50',
         )}
       />
@@ -81,7 +81,7 @@ const variants: readonly Variant[] = [
       <div
         {...props}
         className={cn(
-          'relative rounded-full border border-primary/10 px-3 py-1 duration-200 hover:bg-main-foreground/40',
+          'relative rounded-full border border-primary/10 bg-main-background px-3 py-1 duration-200 hover:bg-main-foreground/40',
           className,
         )}
       >
@@ -140,7 +140,7 @@ const variants: readonly Variant[] = [
       </div>
     ),
   },
-] as const
+] as const satisfies readonly Variant[]
 
 export type BadgeProps = {
   variant?: (typeof variants)[number]['variant']
@@ -155,15 +155,11 @@ export function Badge({
 
   const variantComponent = variants.find(v => v.variant === variant)?.component
 
-  if (!variantComponent) {
-    return variants[FALLBACK_INDEX].component(props)
-  }
+  const Component = variantComponent || variants[FALLBACK_INDEX].component
 
   return (
     <Slot.Root className={cn('font-medium text-xs')}>
-      {variantComponent
-        ? variantComponent({ className, ...props })
-        : variants[FALLBACK_INDEX].component({ className, ...props })}
+      <Component {...props} className={className} />
     </Slot.Root>
   )
 }

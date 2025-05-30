@@ -178,7 +178,7 @@ import {
 
 <h2 className="font-medium text-primary">
 
-Install the package
+Install the packages
 
 </h2>
 
@@ -311,7 +311,22 @@ Add <CodeHighlight>tw-animate-css</CodeHighlight> and variable colors in your CS
 
 </h2>
 
-<CodeBlock fileName="css" customFilePath="styles/globals.css" contentClassName="h-fit">
+<CodeBlock fileName="css" contentClassName="h-fit" simpleCode={`@import "tw-animate-css";
+
+:root {
+  --main: oklch(0.97 0 0);
+  --primary-muted: oklch(0.556 0 0);
+}
+
+.dark {
+  --main: oklch(0.178 0 0);
+  --primary-muted: oklch(0.708 0 0);
+}
+
+@theme inline {
+  --color-main: var(--main);
+  --color-primary-muted: var(--primary-muted);
+}`}>
 ```css
 @import "tw-animate-css";
 

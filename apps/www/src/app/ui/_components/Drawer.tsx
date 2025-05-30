@@ -129,7 +129,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
                       key={component.slug}
                       name={component.name}
                       slug={component.slug}
-                      isNew={component.isNew}
+                      isBeta={component.isBeta}
                       onClick={handleClose}
                     />
                   ))}

@@ -4,6 +4,8 @@ description: "Display a multi step modal."
 slug: "multi-step-modal"
 ---
 
+<div className="space-y-3">
+
 <Tabs defaultValue="preview">
 
 <div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
@@ -62,7 +64,7 @@ export function MultiStepModalExample() {
 
 <TabsContent value="preview">
 
-<ComponentView className="h-[402px] flex items-center justify-center">
+<ComponentView className="h-[350px] flex items-center justify-center">
 
 <MultiStepModalExample />
 
@@ -72,7 +74,7 @@ export function MultiStepModalExample() {
 
 <TabsContent value="code">
 
-<CodeBlock contentClassName="h-[400px]">
+<CodeBlock className="h-[350px]" contentClassName="h-full">
 
 ```tsx
 import {
@@ -124,6 +126,14 @@ export function MultiStepModalExample() {
 
 </Tabs>
 
+<div className="flex items-center justify-center">
+
+<span className="block text-xs text-neutral-500">This example uses the <Link href="/ui/button">Button</Link>.</span>
+
+</div>
+
+</div>
+
 <div className="space-y-2 pt-4">
 
 <div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
@@ -148,7 +158,9 @@ const steps = [
 ]
 
 <MultiStepModal>
-  <MultiStepModalTrigger>Multi Step Modal Trigger</MultiStepModalTrigger>
+  <MultiStepModalTrigger>
+    Multi Step Modal Trigger
+  </MultiStepModalTrigger>
   <MultiStepModalContent steps={steps} />
 </MultiStepModal>
 ```
@@ -199,7 +211,7 @@ const steps = [
 
 <h2 className="font-medium text-primary">
 
-Install the package
+Install the packages
 
 </h2>
 
@@ -230,7 +242,7 @@ Copy and paste the following code into your project
 
 </h2>
 
-<CodeBlock fileName="dropdown-menu.tsx">
+<CodeBlock fileName="multi-step-modal.tsx">
 ```tsx
 'use client' // @NOTE: Add in case you are using Next.js
 
@@ -313,7 +325,7 @@ export function MultiStepModalContent({
       <RadixDialog.Portal>
         <RadixDialog.Overlay
           className={cn(
-            'fixed inset-0 bg-black/40 ease-out',
+            'fixed inset-0 z-[999] bg-black/80 ease-out',
             'motion-safe:data-[state=open]:fade-in motion-safe:data-[state=open]:animate-in',
             'motion-safe:data-[state=closed]:fade-out motion-safe:data-[state=closed]:animate-out',
           )}
@@ -322,9 +334,9 @@ export function MultiStepModalContent({
           {...props}
           className={cn(
             'max-w-96 overflow-hidden rounded-xl border border-border bg-main focus:outline-none',
-            '-translate-x-1/2 fixed top-1/3 left-1/2 motion-safe:ease-out',
-            'motion-safe:data-[state=open]:fade-in motion-safe:data-[state=open]:zoom-in-95 motion-safe:data-[state=open]:animate-in',
-            'motion-safe:data-[state=closed]:fade-out motion-safe:data-[state=open]:zoom-out-95 motion-safe:data-[state=closed]:animate-out',
+            '-translate-x-1/2 fixed top-1/3 left-1/2 z-[1001] motion-safe:ease-out',
+            'motion-safe:data-[state=open]:fade-in motion-safe:data-[state=open]:animate-in',
+            'motion-safe:data-[state=closed]:fade-out motion-safe:data-[state=closed]:animate-out',
           )}
         >
 					<div className='px-4 pt-4 pb-3'>
@@ -337,8 +349,8 @@ export function MultiStepModalContent({
 								exit="exit"
 								custom={direction}
 							>
-								<div ref={ref}>
-									<RadixDialog.Title className='mb-2 font-medium text-base text-primary-foreground'>
+								<div ref={ref} className='flex flex-col gap-2'>
+									<RadixDialog.Title className='font-medium text-base text-primary-foreground'>
 										{title}
 									</RadixDialog.Title>
 									<RadixDialog.Description className='font-normal text-primary-muted text-sm/5.5'>
@@ -430,7 +442,43 @@ Add <CodeHighlight>tw-animate-css</CodeHighlight> and variable colors in your CS
 
 </h2>
 
-<CodeBlock fileName="css" customFilePath="styles/globals.css">
+<CodeBlock fileName="css" simpleCode={`@import "tw-animate-css";
+
+:root {
+  --main: oklch(0.97 0 0);
+  --main-secondary: oklch(97% 0 0);
+  --main-muted: oklch(0.96 0 0);
+
+  --primary: oklch(0 0 0);
+  --primary-foreground: oklch(37.1% 0 0);
+  --primary-muted: oklch(0.556 0 0);
+
+  --border: oklch(0.885 0 0);
+}
+
+.dark {
+  --main: oklch(0.178 0 0);
+  --main-secondary: oklch(0.205 0 0);
+  --main-muted: oklch(0.168 0 0);
+
+  --primary: oklch(1 0 0);
+  --primary-foreground: oklch(0.97 0 0);
+  --primary-muted: oklch(0.708 0 0);
+
+  --border: oklch(0.26 0 0);
+}
+
+@theme inline {
+  --color-main: var(--main);
+  --color-main-secondary: var(--main-secondary);
+  --color-main-muted: var(--main-muted);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-muted: var(--primary-muted);
+  
+  --color-border: var(--border);
+}`}>
 ```css
 @import "tw-animate-css";
 

@@ -4,12 +4,8 @@ export const GET_STARTED = [
     slug: "/ui/installation",
   },
   {
-    name: "Add Utilities",
-    slug: "/ui/add-utilities",
-  },
-  {
     name: "CLI",
     slug: "/ui/cli",
-    isNew: true,
+    isBeta: true,
   },
 ];

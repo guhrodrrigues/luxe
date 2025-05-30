@@ -37,10 +37,10 @@ export function Header() {
 
   function handleScroll() {
     if (window.scrollY > 0) {
-      setIsScrolled(true);
-    } else {
-      setIsScrolled(false);
+      return setIsScrolled(true);
     }
+
+    return setIsScrolled(false);
   }
 
   useEffect(() => {
@@ -65,17 +65,20 @@ export function Header() {
           isDocsPage && "horizontal-dotted",
         )}
       >
-        <Link href="/">
+        <Link
+          href="/"
+          className="p-1 rounded outline-none focus-visible:ring-1 focus-visible:ring-neutral-300/80 dark:focus-visible:ring-neutral-800"
+        >
           <Icons.logo className="w-[70px]" />
         </Link>
-        <div className="flex items-center gap-5 max-sm:hidden">
-          <div className="flex items-center gap-6">
+        <div className="flex items-center gap-5 [@media(max-width:662px)]:hidden">
+          <div className="flex items-center gap-5">
             {ITEMS.map(({ name, slug }) => (
               <Link
                 key={name}
                 href={slug}
                 className={cn(
-                  "text-sm font-[460] leading-none",
+                  "text-sm p-1 rounded font-[460] leading-none outline-none focus-visible:ring-1 focus-visible:ring-neutral-300/80 dark:focus-visible:ring-neutral-800",
                   pathname === slug
                     ? "text-primary"
                     : "duration-200 text-foreground hover:text-primary",
@@ -98,7 +101,7 @@ export function Header() {
             </a>
           </div>
         </div>
-        <div className="sm:hidden">
+        <div className="[@media(min-width:663px)]:hidden">
           <Drawer>
             <button className="flex items-center justify-center lg:hidden">
               <MenuIcon

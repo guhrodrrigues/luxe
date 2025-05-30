@@ -538,7 +538,7 @@ import { Badge } from "@/components/ui/badge"
 
 <h2 className="font-medium text-primary">
 
-Install the package
+Install the packages
 
 </h2>
 
@@ -584,7 +584,7 @@ type Variant = {
   component: React.FC<React.ComponentProps<'div'>>
 }
 
-const variants: readonly Variant[] = [
+const variants = [
   {
     variant: 'default',
     component: ({ className, ...props }) => (
@@ -604,7 +604,7 @@ const variants: readonly Variant[] = [
       <div
         {...props}
         className={cn(
-          'relative overflow-hidden rounded-full border border-border px-3 py-1 transition-all duration-200',
+          'relative overflow-hidden rounded-full border border-border bg-main-background px-3 py-1 transition-all duration-200',
           'text-primary-foreground hover:bg-main-foreground/50',
         )}
       />
@@ -655,7 +655,7 @@ const variants: readonly Variant[] = [
       <div
         {...props}
         className={cn(
-          'relative rounded-full border border-primary/10 px-3 py-1 duration-200 hover:bg-main-foreground/40',
+          'relative rounded-full border border-primary/10 bg-main-background px-3 py-1 duration-200 hover:bg-main-foreground/40',
           className,
         )}
       >
@@ -714,7 +714,7 @@ const variants: readonly Variant[] = [
       </div>
     ),
   },
-] as const
+] as const satisfies readonly Variant[]
 
 export type BadgeProps = {
   variant?: (typeof variants)[number]['variant']
@@ -729,15 +729,11 @@ export function Badge({
 
   const variantComponent = variants.find(v => v.variant === variant)?.component
 
-  if (!variantComponent) {
-    return variants[FALLBACK_INDEX].component(props)
-  }
+  const Component = variantComponent || variants[FALLBACK_INDEX].component
 
   return (
     <Slot.Root className={cn('font-medium text-xs')}>
-      {variantComponent
-        ? variantComponent({ className, ...props })
-        : variants[FALLBACK_INDEX].component({ className, ...props })}
+      <Component {...props} className={className} />
     </Slot.Root>
   )
 }
@@ -796,7 +792,64 @@ Add animations and variable colors in your CSS File
 
 </h2>
 
-<CodeBlock fileName="css" customFilePath="styles/globals.css">
+<CodeBlock fileName="css" simpleCode={`:root {
+  --main: oklch(0.97 0 0);
+  --main-secondary: oklch(97% 0 0);
+  --main-foreground: oklch(0.925 0 0);
+  --main-muted: oklch(0.96 0 0);
+  --main-background: oklch(0.97 0 0);
+  --main-invert: oklch(0.205 0 0);
+
+  --primary: oklch(0 0 0);
+  --primary-foreground: oklch(37.1% 0 0);
+  --primary-muted: oklch(0.556 0 0);
+  --primary-invert: oklch(1 0 0);
+
+  --border: oklch(0.885 0 0);
+}
+
+.dark {
+  --main: oklch(0.178 0 0);
+  --main-secondary: oklch(0.205 0 0);
+  --main-foreground: oklch(0.269 0 0);
+  --main-muted: oklch(0.168 0 0);
+  --main-background: oklch(0.145 0 0);
+  --main-invert: oklch(0.8 0 0);
+
+  --primary: oklch(1 0 0);
+  --primary-invert: oklch(0 0 0);
+  --primary-foreground: oklch(0.97 0 0);
+  --primary-muted: oklch(0.708 0 0);
+
+  --border: oklch(0.26 0 0);
+}
+
+@theme inline {
+  --color-main: var(--main);
+  --color-main-secondary: var(--main-secondary);
+  --color-main-foreground: var(--main-foreground);
+  --color-main-muted: var(--main-muted);
+  --color-main-background: var(--main-background);
+  --color-main-invert: var(--main-invert);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-muted: var(--primary-muted);
+  --color-primary-invert: var(--primary-invert);
+
+  --color-border: var(--border);
+
+  --animate-shine: shine 6s linear infinite;
+
+  @keyframes shine {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: -400% 0;
+    }
+  }
+}`}>
 ```css
 :root {
   --main: oklch(0.97 0 0);

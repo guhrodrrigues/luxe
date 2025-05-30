@@ -170,7 +170,7 @@ export function TextGlitchExample() {
 
 <ComponentView className="h-[223px] flex items-center justify-center">
 
-<Text>Hover Me</Text>
+<Text variant="glitch">Hover Me</Text>
 
 </ComponentView>
 
@@ -326,6 +326,68 @@ export function TextShakeExample() {
 
 <div className="space-y-2 pt-4">
 
+### Hover Decoration
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code={`import { Text } from "@/components/ui/text"
+
+export function TextHoverDecorationExample() {
+  return (
+    <Text variant="hover-decoration">
+      Hover Me
+    </Text>
+  )
+}`}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[223px] flex items-center justify-center">
+
+<Text variant="hover-decoration">Hover Me</Text>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Text } from "@/components/ui/text"
+
+export function TextHoverDecorationExample() {
+  return (
+    <Text variant="hover-decoration">
+      Hover Me
+    </Text>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
 <div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
 
 ## Usage
@@ -390,7 +452,7 @@ import { Text } from "@/components/ui/text"
 
 <h2 className="font-medium text-primary">
 
-Install the package
+Install the packages
 
 </h2>
 
@@ -436,7 +498,7 @@ type Variant = {
   component: React.FC<React.ComponentProps<'span'> & Partial<MotionProps>>
 }
 
-const variants: readonly Variant[] = [
+const variants = [
   {
     variant: 'shine',
     component: ({ children, className, ...props }) => (
@@ -603,27 +665,44 @@ const variants: readonly Variant[] = [
       </span>
     ),
   },
-] as const
+  {
+    variant: 'hover-decoration',
+    component: ({ children, className, ...props }) => (
+      <div
+        className={cn(
+          'relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right',
+          'after:scale-x-0 after:bg-primary-muted after:transition-transform after:duration-300 after:ease-in-out hover:after:origin-bottom-left hover:after:scale-x-100'
+        )}
+      >
+        <span 
+          {...props} 
+          className={cn(
+            'text-primary-muted', 
+            className
+          )}
+        >
+          {children}
+        </span>
+      </div>
+    ),
+  },
+] as const satisfies readonly Variant[]
 
 export type TextProps = {
   variant?: (typeof variants)[number]['variant']
 } & React.ComponentProps<'span'> &
   Partial<MotionProps>
 
-export function Text({ variant = 'shine', ...props }: TextProps) {
+export function Text({ variant = 'shine', className, ...props }: TextProps) {
   const FALLBACK_INDEX = 0
 
   const variantComponent = variants.find(v => v.variant === variant)?.component
 
-  if (!variantComponent) {
-    return variants[FALLBACK_INDEX].component(props)
-  }
+  const Component = variantComponent || variants[FALLBACK_INDEX].component
 
   return (
     <Slot.Root className={cn('font-medium text-sm')}>
-      {variantComponent
-        ? variantComponent(props)
-        : variants[FALLBACK_INDEX].component(props)}
+      <Component {...props} className={className} />
     </Slot.Root>
   )
 }
@@ -682,7 +761,40 @@ Add animations and variable colors in your CSS File
 
 </h2>
 
-<CodeBlock fileName="css" customFilePath="styles/globals.css">
+<CodeBlock fileName="css" simpleCode={`:root {
+  --primary-foreground: oklch(37.1% 0 0);
+  --primary-muted: oklch(0.556 0 0);
+}
+
+.dark {
+  --primary-foreground: oklch(0.97 0 0);
+  --primary-muted: oklch(0.708 0 0);
+}
+
+@theme inline {
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-muted: var(--primary-muted);
+
+  --animate-text-shake: text-shake 1s ease 1;
+
+  @keyframes text-shake {
+    15% {
+      transform: translateX(5px);
+    }
+    30% {
+      transform: translateX(-5px);
+    }
+    50% {
+      transform: translateX(3px);
+    }
+    80% {
+      transform: translateX(2px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+}`}>
 ```css
 :root {
   --primary-foreground: oklch(37.1% 0 0);

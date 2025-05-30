@@ -10,7 +10,7 @@ type Variant = {
   component: React.FC<React.ComponentProps<'span'> & Partial<MotionProps>>
 }
 
-const variants: readonly Variant[] = [
+const variants = [
   {
     variant: 'shine',
     component: ({ children, className, ...props }) => (
@@ -177,27 +177,44 @@ const variants: readonly Variant[] = [
       </span>
     ),
   },
-] as const
+  {
+    variant: 'hover-decoration',
+    component: ({ children, className, ...props }) => (
+      <div
+        className={cn(
+          'relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:origin-bottom-right',
+          'after:scale-x-0 after:bg-primary-muted after:transition-transform after:duration-300 after:ease-in-out hover:after:origin-bottom-left hover:after:scale-x-100'
+        )}
+      >
+        <span 
+          {...props} 
+          className={cn(
+            'text-primary-muted', 
+            className
+          )}
+        >
+          {children}
+        </span>
+      </div>
+    ),
+  },
+] as const satisfies readonly Variant[]
 
 export type TextProps = {
   variant?: (typeof variants)[number]['variant']
 } & React.ComponentProps<'span'> &
   Partial<MotionProps>
 
-export function Text({ variant = 'shine', ...props }: TextProps) {
+export function Text({ variant = 'shine', className, ...props }: TextProps) {
   const FALLBACK_INDEX = 0
 
   const variantComponent = variants.find(v => v.variant === variant)?.component
 
-  if (!variantComponent) {
-    return variants[FALLBACK_INDEX].component(props)
-  }
+  const Component = variantComponent || variants[FALLBACK_INDEX].component
 
   return (
     <Slot.Root className={cn('font-medium text-sm')}>
-      {variantComponent
-        ? variantComponent(props)
-        : variants[FALLBACK_INDEX].component(props)}
+      <Component {...props} className={className} />
     </Slot.Root>
   )
 }

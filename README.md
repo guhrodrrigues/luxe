@@ -1,23 +1,19 @@
-https://github.com/user-attachments/assets/92a08035-ee5d-4d88-a258-7a7ffe0bdcc6
+![hero](apps/www/public/open-graphs/og-website.png)
 
 ### Luxe
 
-Explore the library that simplifies the creation of sophisticated components. With React, Tailwind CSS and Motion, easily achieve an elegant and modern aesthetic in your digital projects.
+Library of copy and paste components to illuminate your applications with elegance and sophistication. <br> Build fast. Ship with style.
 
-<a href="https://luxeui.com">
-  See the website
-</a>
+<a href="https://luxeui.com">See the website</a>
 
-### How to use?
+### Docs
 
-Simply click on a component, copy the code and paste it into your project. This will give your application extra sophistication!
+https://luxeui.com/ui
 
-### Inspiration
+### Contributing
 
-My biggest inspiration for creating components comes from the [Linear](https://linear.app) and [Vercel](https://vercel.com/home) websites, which are fascinating in terms of user experience.
-
-I would like to thank [ui.ibelick](https://ui.ibelick.com), who was a fundamental inspiration for the creation of this project.
+Read the [contributing guide](/CONTRIBUTING.md).
 
 ### License
 
-© Gustavo Rodrigues – All rights reserved. Licensed under the [MIT LICENSE](https://github.com/guhrodrrigues/luxe/blob/main/LICENSE).
+© Licensed under the [MIT LICENSE](https://github.com/guhrodrrigues/luxe/blob/main/LICENSE).

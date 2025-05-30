@@ -18,13 +18,17 @@ export function OnThisPage() {
     new Set(),
   );
 
-	const pathname = usePathname()
+  const pathname = usePathname();
 
   const getHeadings = useCallback(() => {
     const headingElement = document.querySelectorAll("h1, h2, h3");
 
     return Array.from(headingElement)
-      .filter((heading) => heading.id)
+      .filter((heading) => {
+        const isInDialog = heading.closest('[role="dialog"]');
+				
+        return heading.id && !isInDialog;
+      })
       .map((heading) => ({
         id: heading.id,
         text: heading.textContent || "",

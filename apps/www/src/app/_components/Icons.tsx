@@ -202,4 +202,21 @@ export const Icons = {
       />
     </svg>
   ),
+  arrowBack: (props: IconProps) => (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 18 18"
+      className={cn("size-[18px]", props.className)}
+    >
+      <path
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.25"
+        d="m5.455 13-2.36-2.202a.29.29 0 0 1 0-.427l2.36-2.201m-1.618 2.415h9.869c.715 0 1.294-.54 1.294-1.208v-3.17C15 5.542 14.42 5 13.706 5H8.852"
+      />
+    </svg>
+  ),
 };

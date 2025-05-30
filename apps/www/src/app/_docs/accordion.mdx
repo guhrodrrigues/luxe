@@ -196,7 +196,7 @@ import {
 
 <h2 className="font-medium text-primary">
 
-Install the package
+Install the packages
 
 </h2>
 
@@ -365,11 +365,48 @@ export function cn(...inputs: ClassValue[]) {
 
 <h2 className="font-medium text-primary">
 
-Add animations andvariable colors in your CSS File
+Add animations and variable colors in your CSS File
 
 </h2>
 
-<CodeBlock fileName="css" customFilePath="styles/globals.css">
+<CodeBlock fileName="css" simpleCode={`:root {
+  --primary: oklch(0 0 0);
+  --primary-muted: oklch(0.556 0 0);
+  --border: oklch(0.885 0.000 0);
+}
+
+.dark {
+  --primary: oklch(1 0 0);
+  --primary-muted: oklch(0.708 0 0);
+  --border: oklch(0.26 0 0);
+}
+
+@theme inline {
+  --color-primary: var(--primary);
+  --color-primary-muted: var(--primary-muted);
+  --color-border: var(--border);
+
+  --animate-accordion-open: accordion-open 0.2s ease-out;
+  --animate-accordion-close: accordion-close 0.2s ease-out;
+
+  @keyframes accordion-open {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-close {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}`}>
 ```css
 :root {
   --primary: oklch(0 0 0);
