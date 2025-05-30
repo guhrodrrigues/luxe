@@ -8,12 +8,9 @@
 		"node": ">=20"
 	},
 	"dependencies": {
-		"@luxe/cli": "link:",
 		"@luxe/react": "workspace:*",
 		"@radix-ui/react-slot": "^1.2.0",
 		"@tailwindcss/postcss": "^4.0.14",
-		"dist": "link:dist",
-		"luxe": "link:",
 		"postcss": "^8"
 	},
 	"devDependencies": {
@@ -50,18 +47,14 @@
 		"vite": "^6.1.0"
 	},
 	"scripts": {
-		"dev": "turbo dev",
+		"dev": "turbo dev --filter=www",
 		"build": "turbo build",
 		"lint": "turbo lint",
 		"storybook": "storybook dev -p 6006",
 		"storybook:build": "storybook build",
-		"registry": "tsx scripts/registry.ts"
+		"build:registry": "tsx scripts/build-registry.ts"
 	},
 	"pnpm": {
-		"overrides": {
-			"luxe": "link:",
-			"@luxe/cli": "link:",
-			"dist": "link:dist"
-		}
+		"overrides": {}
 	}
 }

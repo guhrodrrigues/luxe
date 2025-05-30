@@ -1,32 +1,32 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react'
 
-import { Badge, BadgeProps } from "@/registry/components/badge";
+import { Badge, type BadgeProps } from '@/components/badge'
 
 const meta: Meta<BadgeProps> = {
-  title: "components/Badge",
+  title: 'components/Badge',
   component: Badge,
   args: {
-    children: "Badge",
+    children: 'Badge',
   },
   argTypes: {
     variant: {
       options: [
-        "shine",
-        "outline",
-        "animated-border",
-        "rotate-border",
-        "success",
-        "destructive",
-        "default",
+        'shine',
+        'outline',
+        'animated-border',
+        'rotate-border',
+        'success',
+        'destructive',
+        'default',
       ],
-      control: "radio",
+      control: 'radio',
     },
   },
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-};
+}
 
-export default meta;
+export default meta
 
-export const Basic: StoryObj = {};
+export const Basic: StoryObj = {}

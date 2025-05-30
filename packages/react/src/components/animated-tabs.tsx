@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 
-import { cn } from '@/registry/utils/cn'
+import { cn } from '@/utils/cn'
 
 type AnimatedTabsProps = {
   tabs: Array<string>

@@ -4,7 +4,7 @@ import { useState, createContext, useContext } from 'react'
 
 import { motion, type Variants } from 'motion/react'
 
-import { cn } from '@/registry/utils/cn'
+import { cn } from '@/utils/cn'
 
 import { Slot } from '@radix-ui/react-slot'
 
@@ -75,6 +75,7 @@ export function DrodpownMenuTrigger({
       className={cn(
         'flex w-full max-w-[300px] items-center justify-between rounded-xl border border-border bg-main-secondary px-3.5 py-2.5 ease-out active:scale-[0.97]',
         'focus-visible:border-border focus-visible:outline-none',
+				className
       )}
       onClick={() => setIsOpen(prev => !prev)}
       {...props}

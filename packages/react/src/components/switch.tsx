@@ -1,6 +1,6 @@
 import * as RadixSwitch from '@radix-ui/react-switch'
 
-import { cn } from '@/registry/utils/cn'
+import { cn } from '@/utils/cn'
 
 export type SwitchProps = React.ComponentProps<typeof RadixSwitch.Root>
 

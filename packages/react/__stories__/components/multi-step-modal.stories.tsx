@@ -4,9 +4,9 @@ import {
   MultiStepModal,
   MultiStepModalContent,
   MultiStepModalTrigger,
-} from '@/registry/components/multi-step-modal'
+} from '@/components/multi-step-modal'
 
-import { Button } from '@/registry/components/button'
+import { Button } from '@/components/button'
 
 const meta: Meta = {
   title: 'components/MultiStepModal',

@@ -12,7 +12,7 @@ import {
 
 import useMeasure from 'react-use-measure'
 
-import { cn } from '@/registry/utils/cn'
+import { cn } from '@/utils/cn'
 
 export const MultiStepModal = RadixDialog.Root
 export const MultiStepModalTrigger = RadixDialog.Trigger
@@ -79,7 +79,7 @@ export function MultiStepModalContent({
       <RadixDialog.Portal>
         <RadixDialog.Overlay
           className={cn(
-            'fixed inset-0 bg-black/80 ease-out z-[999]',
+            'fixed inset-0 z-[999] bg-black/80 ease-out',
             'motion-safe:data-[state=open]:fade-in motion-safe:data-[state=open]:animate-in',
             'motion-safe:data-[state=closed]:fade-out motion-safe:data-[state=closed]:animate-out',
           )}
@@ -88,9 +88,9 @@ export function MultiStepModalContent({
           {...props}
           className={cn(
             'max-w-96 overflow-hidden rounded-xl border border-border bg-main focus:outline-none',
-            '-translate-x-1/2 fixed top-1/3 left-1/2 motion-safe:ease-out z-[1001]',
-            'motion-safe:data-[state=open]:fade-in motion-safe:data-[state=open]:zoom-in-95 motion-safe:data-[state=open]:animate-in',
-            'motion-safe:data-[state=closed]:fade-out motion-safe:data-[state=open]:zoom-out-95 motion-safe:data-[state=closed]:animate-out',
+            '-translate-x-1/2 fixed top-1/3 left-1/2 z-[1001] motion-safe:ease-out',
+            'motion-safe:data-[state=open]:fade-in motion-safe:data-[state=open]:animate-in',
+            'motion-safe:data-[state=closed]:fade-out motion-safe:data-[state=closed]:animate-out',
           )}
         >
 					<div className='px-4 pt-4 pb-3'>
@@ -103,8 +103,8 @@ export function MultiStepModalContent({
 								exit="exit"
 								custom={direction}
 							>
-								<div ref={ref}>
-									<RadixDialog.Title className='mb-2 font-medium text-base text-primary-foreground'>
+								<div ref={ref} className='flex flex-col gap-2'>
+									<RadixDialog.Title className='font-medium text-base text-primary-foreground'>
 										{title}
 									</RadixDialog.Title>
 									<RadixDialog.Description className='font-normal text-primary-muted text-sm/5.5'>

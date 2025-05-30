@@ -1,0 +1,33 @@
+{
+	"name": "example",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc -b && vite build",
+		"lint": "eslint .",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"@tailwindcss/vite": "^4.1.5",
+		"class-variance-authority": "^0.7.1",
+		"clsx": "^2.1.1",
+		"lucide-react": "^0.330.0",
+		"motion": "^11.15.0",
+		"react": "^19.1.0",
+		"react-dom": "^19.1.0",
+		"tailwind-merge": "^2.6.0",
+		"tailwind-variants": "0.2.0",
+		"tailwindcss": "4.0.14"
+	},
+	"devDependencies": {
+		"@types/react": "^19.1.2",
+		"@types/react-dom": "^19.1.2",
+		"@vitejs/plugin-react": "^4.4.1",
+		"globals": "^16.0.0",
+		"tw-animate-css": "^1.2.8",
+		"typescript": "~5.8.3",
+		"vite": "^6.3.5"
+	}
+}

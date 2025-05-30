@@ -8,9 +8,9 @@ import {
   DialogFooter,
   DialogTitle,
   DialogTrigger,
-} from '@/registry/components/dialog'
-import { Button } from '@/registry/components/button'
-import { Input } from '@/registry/components/input'
+} from '@/components/dialog'
+import { Button } from '@/components/button'
+import { Input } from '@/components/input'
 
 const meta: Meta = {
   title: 'components/Dialog',

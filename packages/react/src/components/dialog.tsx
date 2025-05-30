@@ -1,6 +1,6 @@
 import * as RadixDialog from '@radix-ui/react-dialog'
 
-import { cn } from '@/registry/utils/cn'
+import { cn } from '@/utils/cn'
 
 export const Dialog = RadixDialog.Root
 
@@ -13,7 +13,7 @@ function DialogOverlay() {
     <RadixDialog.Overlay className='fixed top-0 left-0 z-[999] size-full'>
       <div
         className={cn(
-          'fixed inset-0 bg-black/80 ease-out',
+          'fixed inset-0 bg-black/50 ease-out dark:bg-black/80',
           'motion-safe:data-[state=open]:fade-in motion-safe:data-[state=open]:animate-in',
           'motion-safe:data-[state=closed]:fade-out motion-safe:data-[state=closed]:animate-out',
         )}

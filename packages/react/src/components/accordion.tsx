@@ -1,6 +1,6 @@
 import * as RadixAccordion from '@radix-ui/react-accordion'
 
-import { cn } from '@/registry/utils/cn'
+import { cn } from '@/utils/cn'
 
 export const Accordion = RadixAccordion.Root
 
@@ -31,7 +31,6 @@ type AccordionTriggerProps = React.ComponentProps<typeof RadixAccordion.Trigger>
 export function AccordionTrigger({
   children,
   className,
-  value,
   ...props
 }: AccordionTriggerProps) {
   return (
@@ -45,7 +44,6 @@ export function AccordionTrigger({
         {...props}
       >
         {children}
-
         <svg
           width="18"
           height="18"
@@ -75,7 +73,10 @@ export function AccordionContent({
 }: AccordionContentProps) {
   return (
     <RadixAccordion.Content
-      className='transition-transform motion-safe:data-[state=closed]:animate-accordion-close motion-safe:data-[state=open]:animate-accordion-open'
+      className={cn(
+        'transition-transform motion-safe:data-[state=closed]:animate-accordion-close motion-safe:data-[state=open]:animate-accordion-open', 
+        className
+      )}
       {...props}
     >
       <div className='px-3.5 pb-3 text-primary-muted'>{children}</div>

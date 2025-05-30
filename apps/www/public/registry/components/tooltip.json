@@ -1,12 +1,11 @@
 {
-	"name": "tooltip",
-	"type": "ui:components",
-	"externalDependencies": [],
-	"internalDependencies": [],
-	"files": [
-		{
-			"name": "tooltip.tsx",
-			"content": "\"use client\";\n\nimport { useState } from \"react\";\n\nimport { motion } from \"motion/react\";\n\nimport { cn } from '<%= it.aliases.utils %>/cn';\n\nexport function TooltipExample() {\n  return (\n    <Tooltip text=\"Add to library\">\n      <button className=\"rounded-xl border border-neutral-300 bg-neutral-100 px-4 py-2 text-sm font-medium text-neutral-500 dark:border-neutral-900 dark:bg-neutral-950 dark:text-neutral-400\">\n        Hover Me\n      </button>\n    </Tooltip>\n  );\n}\n\ntype TooltipProps = {\n  text: string;\n} & React.ComponentProps<\"div\">;\n\nfunction Tooltip({ text, children, className }: TooltipProps) {\n  const [isToastVisible, setIsToastVisible] = useState(false);\n\n  return (\n    <div\n      onMouseEnter={() => setIsToastVisible(true)}\n      onMouseLeave={() => setIsToastVisible(false)}\n      className=\"relative inline-block\"\n    >\n      <motion.div\n        className={cn(\n          \"absolute -top-4 left-1/2 whitespace-nowrap rounded-md border border-neutral-300 bg-neutral-100 [translate:-50%_-50%]\",\n          \"px-2 py-1 text-xs text-black dark:border-[#262626] dark:bg-neutral-900 dark:text-white\",\n          className,\n        )}\n        initial={{ opacity: 0, y: 5, filter: \"blur(4px)\", scale: 0.9 }}\n        animate={{\n          opacity: isToastVisible ? 1 : 0,\n          y: isToastVisible ? 0 : 5,\n          filter: isToastVisible ? \"blur(0px)\" : \"blur(4px)\",\n          scale: isToastVisible ? 1 : 0.9,\n        }}\n        transition={{ ease: \"easeInOut\", duration: 0.15 }}\n      >\n        <span>{text}</span>\n      </motion.div>\n\n      {children}\n    </div>\n  );\n}\n"
-		}
-	]
+  "name": "tooltip",
+  "externalDependencies": [
+    "@radix-ui/react-tooltip"
+  ],
+  "internalDependencies": [],
+  "file": {
+    "name": "tooltip.tsx",
+    "content": "import * as RadixTooltip from '@radix-ui/react-tooltip'\r\n\r\nimport { cn } from '<%= it.aliases.utils %>/cn'\r\n\r\nexport const Tooltip = RadixTooltip.Root\r\n\r\nexport const TooltipTrigger = RadixTooltip.Trigger\r\n\r\ntype TooltipProviderProps = React.ComponentProps<typeof RadixTooltip.Provider>\r\n\r\nexport function TooltipProvider({ children, ...props }: TooltipProviderProps) {\r\n  return (\r\n    <RadixTooltip.Provider delayDuration={0} {...props}>\r\n      {children}\r\n    </RadixTooltip.Provider>\r\n  )\r\n}\r\n\r\ntype TooltipContentProps = React.ComponentProps<typeof RadixTooltip.Content>\r\n\r\nexport function TooltipContent({\r\n  children,\r\n  className,\r\n  sideOffset = 6,\r\n  ...props\r\n}: TooltipContentProps) {\r\n  return (\r\n    <RadixTooltip.Portal>\r\n      <RadixTooltip.Content\r\n        sideOffset={sideOffset}\r\n        className={cn(\r\n          'z-50 overflow-hidden rounded-lg border border-border bg-main px-3 py-1.5 text-primary-muted text-xs',\r\n\t\t\t\t\t'motion-safe:fade-in-0 motion-safe:zoom-in-95 motion-safe:data-[state=closed]:fade-out-0 motion-safe:animate-in motion-safe:data-[state=closed]:animate-out',\r\n          'motion-safe:data-[state=closed]:zoom-out-95 motion-safe:data-[side=bottom]:slide-in-from-top-2 motion-safe:data-[side=left]:slide-in-from-right-2',\r\n          'motion-safe:data-[side=right]:slide-in-from-left-2 motion-safe:data-[side=top]:slide-in-from-bottom-2',\r\n          className,\r\n        )}\r\n        {...props}\r\n      >\r\n        {children}\r\n      </RadixTooltip.Content>\r\n    </RadixTooltip.Portal>\r\n  )\r\n}\r\n"
+  }
 }
