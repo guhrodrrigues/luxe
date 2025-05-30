@@ -1,7 +1,7 @@
 {
 	"name": "@luxeui/ui",
 	"description": "Add components instantly in your app with the Luxe CLI.",
-	"version": "1.0.0-alpha.17",
+	"version": "1.0.0-alpha.18",
 	"type": "module",
 	"bin": "./dist/index.js",
 	"files": ["dist"],
