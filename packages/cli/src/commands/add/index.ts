@@ -1,16 +1,18 @@
-import { Command } from 'commander'
 import chalk from 'chalk'
+import { Command } from 'commander'
 
-import { preFlight, AddCommandErrors } from './preflight'
 import { handler } from './handler'
+import { AddCommandErrors, preFlight } from './preflight'
 
+import { CLIError } from '@/utils/cli-error'
 import { logger } from '@/utils/logger'
+
 import { apiConfig } from '@/services/api-config'
 
 export const add = new Command()
   .name('add')
-  .description('')
-  .argument('[components...]')
+  .description('select and add the components you need.')
+  .argument('[components...]', 'enter the component name(s)')
   .action(async args => {
     const { errorsFound } = preFlight()
 
@@ -32,5 +34,9 @@ export const add = new Command()
       const availableComponents = components as string[]
 
       handler(availableComponents, args)
-    } catch {}
+    } catch (err) {
+      if (err instanceof CLIError) {
+        logger.error(err.message)
+      }
+    }
   })

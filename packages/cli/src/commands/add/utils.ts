@@ -1,16 +1,16 @@
 import { promises as fs, existsSync } from 'node:fs'
 import path from 'node:path'
 
-import prettier from 'prettier'
 import type { Eta } from 'eta'
+import prettier from 'prettier'
 
+import { type Registry, RegistrySchema } from '@/schemas/registry'
 import { apiConfig } from '@/services/api-config'
-import { RegistrySchema, type Registry } from '@/schemas/registry'
 
+import { CLIError } from '@/utils/cli-error'
 import { logger } from '@/utils/logger'
 import { manifestManager } from '@/utils/manifest-manager'
 import { resolveAliasToAbsolutePath } from '@/utils/resolve-alias-to-absolute-path'
-import { CLIError } from '@/utils/cli-error'
 
 export async function fetchComponentRegistry(componentName: string) {
   try {

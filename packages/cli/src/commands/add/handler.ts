@@ -1,16 +1,17 @@
-import { existsSync } from 'node:fs'
+import { promises as fs, existsSync } from 'node:fs'
 import path from 'node:path'
 
 import * as p from '@clack/prompts'
-import { pascalCase } from 'scule'
 import chalk from 'chalk'
 import { Eta } from 'eta'
+import { pascalCase } from 'scule'
 
+import { manifestManager } from '@/utils/manifest-manager'
+import { resolveAliasToAbsolutePath } from '@/utils/resolve-alias-to-absolute-path'
 import { resolvePackageManagerCommand } from '@/utils/resolve-package-manager-command'
 import { runShellCommand } from '@/utils/run-shell-command'
-import { resolveAliasToAbsolutePath } from '@/utils/resolve-alias-to-absolute-path'
-import { manifestManager } from '@/utils/manifest-manager'
 
+import { logger } from '@/utils/logger'
 import { fetchComponentRegistry, writeComponentFileFromTemplate } from './utils'
 
 export async function handler(
@@ -18,6 +19,7 @@ export async function handler(
   cliArgs: string[],
 ) {
   const etaEngine = new Eta()
+  const getManifest = manifestManager.readManifest
 
   let selectedComponents = cliArgs
 
@@ -30,6 +32,46 @@ export async function handler(
         value: componentName,
       })),
     })) as string[]
+  }
+
+  const componentsDirPath = resolveAliasToAbsolutePath(
+    getManifest.aliases.components,
+  )
+
+  const skippedComponents: string[] = []
+
+  if (existsSync(componentsDirPath)) {
+    const existingFiles = await fs.readdir(componentsDirPath)
+    const existingComponentNames = existingFiles.map(
+      file => path.parse(file).name,
+    )
+
+    for (const componentName of selectedComponents) {
+      if (!existingComponentNames.includes(componentName)) continue
+
+      const shouldOverwrite = await p.confirm({
+        message: `The component ${chalk.cyan(componentName)} already exists. Do you want to overwrite it?`,
+        active: 'Yes, overwrite',
+        inactive: 'No, skip',
+        initialValue: false,
+      })
+
+      if (!shouldOverwrite) {
+        skippedComponents.push(componentName)
+      }
+    }
+  }
+
+  if (skippedComponents.length > 0) {
+    logger.info(
+      `Some components already existed and were kept: ${chalk.cyan(
+        skippedComponents.join(', '),
+      )}.`,
+    )
+
+    selectedComponents = selectedComponents.filter(
+      component => !skippedComponents.includes(component),
+    )
   }
 
   for (const componentName of selectedComponents) {
@@ -58,8 +100,6 @@ export async function handler(
         title: 'Adding dependent components',
         task: async () => {
           for (const dependencyName of componentData.internalDependencies) {
-            const getManifest = manifestManager.readManifest
-
             const componentAbsolutePath = path.join(
               resolveAliasToAbsolutePath(getManifest.aliases.components),
               dependencyName,
