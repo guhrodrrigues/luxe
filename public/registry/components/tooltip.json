@@ -1,0 +1,11 @@
+{
+  "name": "tooltip",
+  "externalDependencies": [
+    "@radix-ui/react-tooltip"
+  ],
+  "internalDependencies": [],
+  "file": {
+    "name": "tooltip.tsx",
+    "content": "import * as RadixTooltip from '@radix-ui/react-tooltip'\r\n\r\nimport { cn } from '<%= it.aliases.utils %>/cn'\r\n\r\nexport const Tooltip = RadixTooltip.Root\r\n\r\nexport const TooltipTrigger = RadixTooltip.Trigger\r\n\r\ntype TooltipProviderProps = React.ComponentProps<typeof RadixTooltip.Provider>\r\n\r\nexport function TooltipProvider({ children, ...props }: TooltipProviderProps) {\r\n  return (\r\n    <RadixTooltip.Provider delayDuration={0} {...props}>\r\n      {children}\r\n    </RadixTooltip.Provider>\r\n  )\r\n}\r\n\r\ntype TooltipContentProps = React.ComponentProps<typeof RadixTooltip.Content>\r\n\r\nexport function TooltipContent({\r\n  children,\r\n  className,\r\n  sideOffset = 6,\r\n  ...props\r\n}: TooltipContentProps) {\r\n  return (\r\n    <RadixTooltip.Portal>\r\n      <RadixTooltip.Content\r\n        sideOffset={sideOffset}\r\n        className={cn(\r\n          'z-50 overflow-hidden rounded-lg border border-border bg-main px-3 py-1.5 text-primary-muted text-xs',\r\n\t\t\t\t\t'motion-safe:fade-in-0 motion-safe:zoom-in-95 motion-safe:data-[state=closed]:fade-out-0 motion-safe:animate-in motion-safe:data-[state=closed]:animate-out',\r\n          'motion-safe:data-[state=closed]:zoom-out-95 motion-safe:data-[side=bottom]:slide-in-from-top-2 motion-safe:data-[side=left]:slide-in-from-right-2',\r\n          'motion-safe:data-[side=right]:slide-in-from-left-2 motion-safe:data-[side=top]:slide-in-from-bottom-2',\r\n          className,\r\n        )}\r\n        {...props}\r\n      >\r\n        {children}\r\n      </RadixTooltip.Content>\r\n    </RadixTooltip.Portal>\r\n  )\r\n}\r\n"
+  }
+}
