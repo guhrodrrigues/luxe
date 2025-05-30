@@ -1,0 +1,11 @@
+{
+  "name": "switch",
+  "externalDependencies": [
+    "@radix-ui/react-switch"
+  ],
+  "internalDependencies": [],
+  "file": {
+    "name": "switch.tsx",
+    "content": "import * as RadixSwitch from '@radix-ui/react-switch'\n\nimport { cn } from '<%= it.aliases.utils %>/cn'\n\nexport type SwitchProps = React.ComponentProps<typeof RadixSwitch.Root>\n\nexport function Switch({ className, ...props }: SwitchProps) {\n  return (\n    <RadixSwitch.Root\n      {...props}\n      className={cn(\n        'group inline-flex h-6 w-10.5 shrink-0 touch-none items-center rounded-full bg-main-foreground p-0.5 outline-none transition-colors ease-out',\n        'data-[state=checked]:border-transparent data-[state=checked]:bg-primary',\n        className,\n      )}\n    >\n      <RadixSwitch.Thumb\n        className={cn(\n          'block aspect-square h-full rounded-full bg-primary-invert shadow-sm transition-transform ease-out',\n          'group-data-[state=unchecked]:translate-x-0',\n          'group-data-[state=checked]:translate-x-4.5',\n        )}\n      />\n    </RadixSwitch.Root>\n  )\n}\n"
+  }
+}
