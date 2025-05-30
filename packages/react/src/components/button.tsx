@@ -12,7 +12,7 @@ type Variant = {
   component: React.FC<React.ComponentProps<'button'>>
 }
 
-const variants: readonly Variant[] = [
+const variants = [
   {
     variant: 'default',
     component: ({ className, ...props }) => (
@@ -32,7 +32,7 @@ const variants: readonly Variant[] = [
       <button
         {...props}
         className={cn(
-          'relative rounded-xl border border-border px-4 py-2 transition-all duration-200',
+          'relative rounded-xl border border-border bg-main-background px-4 py-2 transition-all duration-200',
           'text-primary-foreground hover:bg-main-foreground/40',
           className,
         )}
@@ -84,7 +84,7 @@ const variants: readonly Variant[] = [
       <button
         {...props}
         className={cn(
-          'relative rounded-xl border border-primary/10 px-4 py-2 duration-200 hover:bg-main-foreground/40',
+          'relative rounded-xl border border-primary/10 bg-main-background px-4 py-2 duration-200 hover:bg-main-foreground/40',
           className,
         )}
       >
@@ -190,7 +190,7 @@ const variants: readonly Variant[] = [
       }
     },
   },
-] as const
+] as const satisfies readonly Variant[]
 
 export type ButtonProps = {
   variant?: (typeof variants)[number]['variant']
@@ -203,19 +203,15 @@ export function Button({
   className,
   ...props
 }: ButtonProps) {
-	const FALLBACK_INDEX = 0
+  const FALLBACK_INDEX = 0
   
   const variantComponent = variants.find(v => v.variant === variant)?.component
 
-  if (!variantComponent) {
-    return variants[FALLBACK_INDEX].component(props)
-  }
+  const Component = variantComponent || variants[FALLBACK_INDEX].component
 
   const buttonContent = (
     <Slot.Root className={cn('font-medium text-sm')}>
-      {variantComponent
-        ? variantComponent({ ...props, className })
-        : variants[FALLBACK_INDEX].component({ ...props, className })}
+      <Component {...props} className={className} />
     </Slot.Root>
   )
 
@@ -235,17 +231,17 @@ function Magnetic({ children }: { children: React.ReactNode }) {
 
   return (
     <motion.div 
-			ref={ref} 
-			onMouseMove={handleMouseMove} 
-			onMouseLeave={handleMouseLeave} 
-			animate={{ x, y }}
-			transition={{
-				type: 'spring',
-				damping: 15,
-				stiffness: 150,
-				mass: 0.1,
-			}}
-		>
+      ref={ref} 
+      onMouseMove={handleMouseMove} 
+      onMouseLeave={handleMouseLeave} 
+      animate={{ x, y }}
+      transition={{
+        type: 'spring',
+        damping: 15,
+        stiffness: 150,
+        mass: 0.1,
+      }}
+    >
       {children}
     </motion.div>
   )
