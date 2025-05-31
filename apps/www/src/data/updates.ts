@@ -17,6 +17,6 @@ export const UPDATES: Update[] = [
     author: "Gustavo Rodrigues",
     banner: "/open-graphs/updates/v2.0.webp",
     author_image: "https://github.com/guhrodrrigues.png",
-    date: "May 19, 2025",
+    date: "June 2, 2025",
   },
 ];

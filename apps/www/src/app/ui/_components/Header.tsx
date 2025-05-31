@@ -56,7 +56,7 @@ export function Header() {
         isDocsPage ? "sticky bg-background bottom-dotted" : "fixed",
         !isDocsPage &&
           isScrolled &&
-          "bg-background/40 backdrop-blur-md border-border dark:border-[#262626]/50",
+          "bg-background dark:bg-background sm:dark:bg-background/40 backdrop-blur-md border-border dark:border-[#262626]/50",
       )}
     >
       <nav

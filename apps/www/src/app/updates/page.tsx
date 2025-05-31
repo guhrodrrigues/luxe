@@ -9,22 +9,20 @@ import { UPDATES } from "@/data/updates";
 
 export const metadata: Metadata = {
   title: "Updates",
-  description:
-    "Navigate to all the components that will make your application sophisticated and luxurious.",
+  description: "Discover the latest updates from Luxe.",
   openGraph: {
     images: [
       {
         width: 1920,
         height: 1080,
-        url: "https://luxeui.com/open-graphs/og-updates.png",
+        url: "https://luxeui.com/open-graphs/og-website.png",
         alt: "Luxe's website cover",
       },
     ],
     locale: "en",
     siteName: "Gustavo Rodrigues",
     title: "Luxe — Updates",
-    description:
-      "Navigate to all the components that will make your application sophisticated and luxurious.",
+    description: "Discover the latest updates from Luxe.",
     type: "website",
     url: "https://luxeui.com/updates",
   },
@@ -33,14 +31,13 @@ export const metadata: Metadata = {
       {
         width: 1920,
         height: 1080,
-        url: "https://luxeui.com/open-graphs/og-updates.png",
+        url: "https://luxeui.com/open-graphs/og-website.png",
         alt: "Luxe's website cover",
       },
     ],
     card: "summary_large_image",
     title: "Luxe — Updates",
-    description:
-      "Navigate to all the components that will make your application sophisticated and luxurious.",
+    description: "Discover the latest updates from Luxe.",
     site: "@guhrodrrigues",
     creator: "Gustavo Rodrigues",
   },
