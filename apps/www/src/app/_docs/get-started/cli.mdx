@@ -1,0 +1,89 @@
+---
+title: "CLI"
+description: "Add components instantly in your app with the Luxe CLI."
+slug: "cli"
+---
+
+<div className="space-y-2">
+
+<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
+
+## init
+
+</div>
+
+<div className="py-3 flex flex-col gap-3">
+
+Use the <CodeHighlight>init</CodeHighlight> command to create initial setup in your project.
+
+This command installs required dependencies, configures CSS variables, and adds the <CodeHighlight>cn</CodeHighlight> util.
+
+<CommandBlock
+	className="mt-2"
+	npmCommand="npx @luxeui/ui@beta init" 
+	pnpmCommand="pnpm dlx @luxeui/ui@beta init" 
+	yarnCommand="npx @luxeui/ui@beta init" 
+	bunCommand="bunx --bun @luxeui/ui@beta init" 
+/>
+
+</div>
+
+<div className="flex flex-col gap-5 mt-5">
+
+### Options
+
+<CodeBlock contentClassName="h-fit">
+
+```md
+Usage: @luxeui/ui init
+
+initialize your project and install dependencies.
+```
+
+</CodeBlock>
+
+</div>
+
+</div>
+
+<div className="space-y-2 pt-3">
+
+<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
+
+## add
+
+</div>
+
+<div className="py-3 flex flex-col gap-5">
+
+Use the <CodeHighlight>add</CodeHighlight> command to add components and your dependencies in your app.
+
+<CommandBlock
+	npmCommand="npx @luxeui/ui@beta add" 
+	pnpmCommand="pnpm dlx @luxeui/ui@beta add" 
+	yarnCommand="npx @luxeui/ui@beta add" 
+	bunCommand="bunx --bun @luxeui/ui@beta add" 
+/>
+
+</div>
+
+<div className="flex flex-col gap-5 mt-5">
+
+### Options
+
+<CodeBlock contentClassName="h-fit">
+
+```md
+Usage: @luxeui/ui add [components...]
+
+select and add the components you need.
+
+Arguments:
+  components         enter the component name(s)
+```
+
+</CodeBlock>
+
+</div>
+
+</div>

@@ -1,0 +1,801 @@
+---
+title: "Card"
+description: "Displays a simple or animated card."
+slug: "card"
+---
+
+<div className="space-y-2">
+
+<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
+
+## Simple Examples
+
+</div>
+
+<div className="mt-12">
+
+### Default
+
+</div>
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code={`import { Card } from "@/components/ui/card"
+
+export function CardExample() {
+  return (
+    <Card>
+      <div className="flex flex-col gap-2">
+        <span className="text-xl font-semibold text-black dark:text-neutral-200">
+          Luxe
+        </span>
+        <span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">
+          Explore the new website that simplifies the creation of sophisticated components.
+        </span>
+      </div>
+    </Card>
+  )
+}`}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[380px] flex items-center justify-center">
+
+<Card>
+	<div className="flex flex-col gap-2">
+		<span className="text-xl font-semibold text-black dark:text-neutral-200">Luxe</span>
+		<span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">Explore the new website that simplifies the creation of sophisticated components.</span>
+	</div>
+</Card>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Card } from "@/components/ui/card"
+
+export function CardExample() {
+  return (
+    <Card>
+      <div className="flex flex-col gap-2">
+        <span className="text-xl font-semibold text-black dark:text-neutral-200">
+          Luxe
+        </span>
+        <span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">
+          Explore the new website that simplifies the creation of sophisticated components.
+        </span>
+      </div>
+    </Card>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
+
+## Animated Examples
+
+</div>
+
+<div className="mt-12">
+
+### Shine
+
+</div>
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code={`import { Card } from "@/components/ui/card"
+
+export function CardAnimatedBorderExample() {
+  return (
+    <Card variant="shine">
+      <div className="flex flex-col gap-2">
+        <span className="text-xl font-semibold text-neutral-100 dark:text-neutral-200">
+          Luxe
+        </span>
+        <span className="text-sm leading-[1.5] text-neutral-200 dark:text-neutral-400">
+          Explore the new website that simplifies the creation of sophisticated components.
+        </span>
+      </div>
+    </Card>
+  )
+}`}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[380px] flex items-center justify-center">
+
+<Card variant="shine">
+	<div className="flex flex-col gap-2">
+		<span className="text-xl font-semibold text-neutral-100 dark:text-neutral-200">Luxe</span>
+		<span className="text-sm leading-[1.5] text-neutral-200 dark:text-neutral-400">Explore the new website that simplifies the creation of sophisticated components.</span>
+	</div>
+</Card>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Card } from "@/components/ui/card"
+
+export function CardAnimatedBorderExample() {
+  return (
+    <Card variant="shine">
+      <div className="flex flex-col gap-2">
+        <span className="text-xl font-semibold text-neutral-100 dark:text-neutral-200">
+          Luxe
+        </span>
+        <span className="text-sm leading-[1.5] text-neutral-200 dark:text-neutral-400">
+          Explore the new website that simplifies the creation of sophisticated components.
+        </span>
+      </div>
+    </Card>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+### Animated Border
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code={`import { Card } from "@/components/ui/card"
+
+export function CardAnimatedBorderExample() {
+  return (
+    <Card variant="animated-border">
+      <div className="flex flex-col gap-2">
+        <span className="text-xl font-semibold text-black dark:text-neutral-200">
+          Luxe
+        </span>
+        <span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">
+          Explore the new website that simplifies the creation of sophisticated components.
+        </span>
+      </div>
+    </Card>
+  )
+}`}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[380px] flex items-center justify-center">
+
+<Card variant="animated-border">
+	<div className="flex flex-col gap-2">
+		<span className="text-xl font-semibold text-black dark:text-neutral-200">Luxe</span>
+		<span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">Explore the new website that simplifies the creation of sophisticated components.</span>
+	</div>
+</Card>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Card } from "@/components/ui/card"
+
+export function CardAnimatedBorderExample() {
+  return (
+    <Card variant="animated-border">
+      <div className="flex flex-col gap-2">
+        <span className="text-xl font-semibold text-black dark:text-neutral-200">
+          Luxe
+        </span>
+        <span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">
+          Explore the new website that simplifies the creation of sophisticated components.
+        </span>
+      </div>
+    </Card>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+### Revealed Pointer
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code={`import { Card } from "@/components/ui/card"
+
+export function CardRevealedPointerExample() {
+  return (
+    <Card variant="revealed-pointer">
+      <div className="flex flex-col gap-2">
+        <span className="text-xl font-semibold text-black dark:text-neutral-200">
+          Luxe
+        </span>
+        <span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">
+          Explore the new website that simplifies the creation of sophisticated components.
+        </span>
+      </div>
+    </Card>
+  )
+}`}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[380px] flex items-center justify-center">
+
+<Card variant="revealed-pointer">
+	<div className="flex flex-col gap-2">
+		<span className="text-xl font-semibold text-black dark:text-neutral-200">Luxe</span>
+		<span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">Explore the new website that simplifies the creation of sophisticated components.</span>
+	</div>
+</Card>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Card } from "@/components/ui/card"
+
+export function CardRevealedPointerExample() {
+  return (
+    <Card variant="revealed-pointer">
+      <div className="flex flex-col gap-2">
+        <span className="text-xl font-semibold text-black dark:text-neutral-200">
+          Luxe
+        </span>
+        <span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">
+          Explore the new website that simplifies the creation of sophisticated components.
+        </span>
+      </div>
+    </Card>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
+
+## Usage
+
+</div>
+
+<CodeBlock className="mt-6" contentClassName="h-fit">
+
+```tsx
+import { Card } from "@/components/ui/card"
+```
+</CodeBlock>
+
+<CodeBlock className="mt-4" contentClassName="h-fit">
+
+```tsx
+<Card variant="revealed-pointer">Card</Card>
+```
+</CodeBlock>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="cli">CLI</TabsTrigger>
+	<TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+</div>
+
+<TabsContent value="cli">
+
+<CommandBlock 
+	npmCommand="npx @luxeui/ui add card" 
+	pnpmCommand="pnpm dlx @luxeui/ui add card" 
+	yarnCommand="npx @luxeui/ui add card" 
+	bunCommand="bunx --bun @luxeui/ui add card" 
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">1</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Install the packages
+
+</h2>
+
+<CommandBlock 
+	npmCommand="npm i @radix-ui/react-slot clsx tailwind-merge" 
+	pnpmCommand="pnpm add @radix-ui/react-slot clsx tailwind-merge" 
+	yarnCommand="yarn add @radix-ui/react-slot clsx tailwind-merge" 
+	bunCommand="bun add @radix-ui/react-slot clsx tailwind-merge" 
+/>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">2</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Copy and paste the following code into your project
+
+</h2>
+
+<CodeBlock fileName="card.tsx">
+
+```tsx
+'use client' // @NOTE: Add in case you are using Next.js
+
+import { motion, useMotionTemplate, useMotionValue } from 'motion/react'
+
+import * as Slot from '@radix-ui/react-slot'
+
+import { cn } from '@/utils/cn'
+
+type Variant = {
+  variant: string
+  component: React.FC<React.ComponentProps<'div'>>
+}
+
+const variants = [
+  {
+    variant: 'default',
+    component: ({ children, className, ...props }) => (
+      <div
+        {...props}
+        className={cn(
+          'relative rounded-xl border border-primary/10 bg-main-background px-4 py-5',
+          className,
+        )}
+      >
+        {children}
+      </div>
+    ),
+  },
+  {
+    variant: 'animated-border',
+    component: ({ children, className, ...props }) => (
+      <div
+        {...props}
+        className={cn(
+          'relative rounded-xl border border-primary/10 bg-main-background px-4 py-5',
+          className,
+        )}
+      >
+        <div
+          className={cn(
+            '-inset-px pointer-events-none absolute rounded-[inherit] border border-transparent [mask-clip:padding-box,border-box]',
+            '[mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]',
+          )}
+        >
+          <motion.div
+            className={cn(
+              'absolute aspect-square bg-gradient-to-r from-transparent via-neutral-400 to-neutral-500',
+              'dark:from-transparent dark:via-neutral-600 dark:to-neutral-400',
+            )}
+            animate={{
+              offsetDistance: ['0%', '100%'],
+            }}
+            style={{
+              width: 42,
+              offsetPath: `rect(0 auto auto 0 round ${18}px)`,
+            }}
+            transition={{
+              repeat: Number.POSITIVE_INFINITY,
+              duration: 5,
+              ease: 'linear',
+            }}
+          />
+        </div>
+        <span className="relative z-10">
+          {children}
+        </span>
+      </div>
+    ),
+  },
+  {
+    variant: 'shine',
+    component: ({ children, className, ...props }) => (
+      <div
+        {...props}
+        className={cn(
+          'inline-flex animate-shine items-center justify-center rounded-xl border border-white/10 px-4 py-5',
+          'bg-[length:400%_100%] bg-[linear-gradient(110deg,#000000,45%,#303030,55%,#000000)]',
+          'text-sm transition-colors dark:bg-[linear-gradient(110deg,#000103,45%,#303030,55%,#000103)]',
+          className,
+        )}
+      >
+        {children}
+      </div>
+    ),
+  },
+  {
+    variant: 'revealed-pointer',
+    component: ({ children, className, ...props }) => {
+      const mouseX = useMotionValue(0)
+      const mouseY = useMotionValue(0)
+
+      return (
+        <div
+          onMouseMove={e => {
+            const { left, top } = e.currentTarget.getBoundingClientRect()
+
+            mouseX.set(e.clientX - left)
+            mouseY.set(e.clientY - top)
+          }}
+          className={cn(
+            'group relative overflow-hidden rounded-xl bg-border/50 p-px',
+          )}
+        >
+          <motion.div
+            className={cn(
+              '-inset-px pointer-events-none absolute rounded-xl opacity-0 transition duration-300 group-hover:opacity-20',
+              '[--color:var(--color-primary)]',
+            )}
+            style={{
+              background: useMotionTemplate`radial-gradient(200px circle at ${mouseX}px ${mouseY}px, var(--color), transparent 80%)`,
+            }}
+          />
+          <div
+            {...props}
+            className={cn(
+              'relative select-none rounded-xl bg-main-background px-4 py-5',
+              className,
+            )}
+          >
+            {children}
+          </div>
+        </div>
+      )
+    },
+  },
+] as const satisfies readonly Variant[]
+
+export type CardProps = {
+  variant?: (typeof variants)[number]['variant']
+} & React.ComponentProps<'div'>
+
+export function Card({ variant = 'default', className, ...props }: CardProps) {
+  const FALLBACK_INDEX = 0
+
+  const variantComponent = variants.find(v => v.variant === variant)?.component
+
+  const Component = variantComponent || variants[FALLBACK_INDEX].component
+
+  return (
+    <Slot.Root className="w-full max-w-[350px]">
+      <Component {...props} className={className} />
+    </Slot.Root>
+  )
+}
+```
+
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">3</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Create a file with the path <CodeHighlight>utils/cn.ts</CodeHighlight>
+
+</h2>
+
+<CodeBlock fileName="utils/cn.ts" customFilePath="utils/cn.ts" contentClassName="h-fit">
+```tsx
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">4</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Add animations and variable colors in your CSS File
+
+</h2>
+
+<CodeBlock fileName="css" simpleCode={`:root {
+  --main: oklch(0.97 0 0);
+  --main-secondary: oklch(97% 0 0);
+  --main-foreground: oklch(0.925 0 0);
+  --main-muted: oklch(0.96 0 0);
+  --main-background: oklch(0.97 0 0);
+  --main-invert: oklch(0.205 0 0);
+
+  --primary: oklch(0 0 0);
+  --primary-foreground: oklch(37.1% 0 0);
+  --primary-muted: oklch(0.556 0 0);
+  --primary-invert: oklch(1 0 0);
+
+  --border: oklch(0.885 0 0);
+}
+
+.dark {
+  --main: oklch(0.178 0 0);
+  --main-secondary: oklch(0.205 0 0);
+  --main-foreground: oklch(0.269 0 0);
+  --main-muted: oklch(0.168 0 0);
+  --main-background: oklch(0.145 0 0);
+  --main-invert: oklch(0.8 0 0);
+
+  --primary: oklch(1 0 0);
+  --primary-invert: oklch(0 0 0);
+  --primary-foreground: oklch(0.97 0 0);
+  --primary-muted: oklch(0.708 0 0);
+
+  --border: oklch(0.26 0 0);
+}
+
+@theme inline {
+  --color-main: var(--main);
+  --color-main-secondary: var(--main-secondary);
+  --color-main-foreground: var(--main-foreground);
+  --color-main-muted: var(--main-muted);
+  --color-main-background: var(--main-background);
+  --color-main-invert: var(--main-invert);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-muted: var(--primary-muted);
+  --color-primary-invert: var(--primary-invert);
+
+  --color-border: var(--border);
+
+  --animate-shine: shine 6s linear infinite;
+
+  @keyframes shine {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: -400% 0;
+    }
+  }
+}`}>
+```css
+:root {
+  --main: oklch(0.97 0 0);
+  --main-secondary: oklch(97% 0 0);
+  --main-foreground: oklch(0.925 0 0);
+  --main-muted: oklch(0.96 0 0);
+  --main-background: oklch(0.97 0 0);
+  --main-invert: oklch(0.205 0 0);
+
+  --primary: oklch(0 0 0);
+  --primary-foreground: oklch(37.1% 0 0);
+  --primary-muted: oklch(0.556 0 0);
+  --primary-invert: oklch(1 0 0);
+
+  --border: oklch(0.885 0 0);
+}
+
+.dark {
+  --main: oklch(0.178 0 0);
+  --main-secondary: oklch(0.205 0 0);
+  --main-foreground: oklch(0.269 0 0);
+  --main-muted: oklch(0.168 0 0);
+  --main-background: oklch(0.145 0 0);
+  --main-invert: oklch(0.8 0 0);
+
+  --primary: oklch(1 0 0);
+  --primary-invert: oklch(0 0 0);
+  --primary-foreground: oklch(0.97 0 0);
+  --primary-muted: oklch(0.708 0 0);
+
+  --border: oklch(0.26 0 0);
+}
+
+@theme inline {
+  --color-main: var(--main);
+  --color-main-secondary: var(--main-secondary);
+  --color-main-foreground: var(--main-foreground);
+  --color-main-muted: var(--main-muted);
+  --color-main-background: var(--main-background);
+  --color-main-invert: var(--main-invert);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-muted: var(--primary-muted);
+  --color-primary-invert: var(--primary-invert);
+
+  --color-border: var(--border);
+
+  --animate-shine: shine 6s linear infinite;
+
+  @keyframes shine {
+    from {
+      background-position: 0 0;
+    }
+    to {
+      background-position: -400% 0;
+    }
+  }
+}
+```
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	
+<span className="font-semibold text-primary">5</span>
+
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+
+<div className="space-y-4 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Update the import paths to match your project setup
+
+</h2>
+
+</div>
+</div>
+</div>
+</div>
+
+</TabsContent>
+
+</Tabs>
+
+</div>

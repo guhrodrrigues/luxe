@@ -41,5 +41,5 @@ export function Spotlight() {
         </filter>
       </defs>
     </svg>
-  )
+  );
 }

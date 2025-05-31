@@ -1,0 +1,1 @@
+export { MDX } from "./MDXComponents";

@@ -1,13 +1,13 @@
-import { cn } from '@/utils/cn'
+import { cn } from "@/utils/cn";
 
-type IconProps = React.HTMLAttributes<SVGElement>
+type IconProps = React.HTMLAttributes<SVGElement>;
 
 export const Icons = {
   nextjs: (props: IconProps) => (
     <svg
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      className={cn('h-20 w-20', props.className)}
+      className={cn("h-20 w-20", props.className)}
       fill="currentColor"
       {...props}
     >
@@ -19,7 +19,7 @@ export const Icons = {
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
       className={cn(
-        'mr-1 h-[28px] w-[28px] text-neutral-600 dark:text-neutral-300',
+        "mr-1 h-[28px] w-[28px] text-neutral-400 dark:text-neutral-400",
         props.className,
       )}
       fill="currentColor"
@@ -34,7 +34,7 @@ export const Icons = {
       fill="currentColor"
       strokeWidth="0"
       viewBox="0 0 24 24"
-      className="flex-shrink-0 text-neutral-600 dark:text-neutral-300"
+      className="flex-shrink-0 text-neutral-400 dark:text-neutral-400"
       width="34"
       height="34"
       xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +49,7 @@ export const Icons = {
       width="42"
       height="14"
       viewBox="0 0 1400 454"
-      className={cn('fill-neutral-600 dark:fill-neutral-300', props.className)}
+      className={cn("fill-neutral-400 dark:fill-neutral-400", props.className)}
       {...props}
     >
       <path
@@ -74,7 +74,7 @@ export const Icons = {
     <svg
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
-      className={cn('h-20 w-20', props.className)}
+      className={cn("h-20 w-20", props.className)}
       fill="currentColor"
       {...props}
     >
@@ -105,8 +105,8 @@ export const Icons = {
   sun: (props: IconProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="16"
-      height="16"
+      width="18"
+      height="18"
       viewBox="0 0 24 24"
       fill="currentColor"
       {...props}
@@ -118,8 +118,8 @@ export const Icons = {
   moon: (props: IconProps) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="14"
-      height="14"
+      width="16"
+      height="16"
       viewBox="0 0 24 24"
       fill="currentColor"
       {...props}
@@ -193,7 +193,7 @@ export const Icons = {
       height="24"
       fill="none"
       viewBox="4 0 17 25"
-      className={cn('fill-neutral-600 dark:fill-neutral-300', props.className)}
+      className={cn("fill-neutral-400 dark:fill-neutral-400", props.className)}
       {...props}
     >
       <path
@@ -202,4 +202,96 @@ export const Icons = {
       />
     </svg>
   ),
-}
+  arrowBack: (props: IconProps) => (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 18 18"
+      className={cn("size-[18px]", props.className)}
+    >
+      <path
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="1.25"
+        d="m5.455 13-2.36-2.202a.29.29 0 0 1 0-.427l2.36-2.201m-1.618 2.415h9.869c.715 0 1.294-.54 1.294-1.208v-3.17C15 5.542 14.42 5 13.706 5H8.852"
+      />
+    </svg>
+  ),
+  lamp: (props: IconProps) => (
+    <svg
+      height="1em"
+      width="1em"
+      viewBox="0 0 18 18"
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <g fill="#737373">
+        <path
+          d="M7.973 4.358C11.045 3.714 13.75 6.041 13.75 9C13.75 10.8669 12.6695 12.4752 11.1028 13.25H6.89721C5.11106 12.3665 3.95706 10.3995 4.315 8.202C4.623 6.315 6.101 4.75 7.973 4.358Z"
+          fill="#737373"
+          fillOpacity="0.3"
+          fillRule="evenodd"
+          stroke="none"
+        />
+        <path
+          d="M9 0.75V1.75"
+          fill="none"
+          stroke="#737373"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1"
+        />
+        <path
+          d="M14.834 3.16599L14.127 3.87299"
+          fill="none"
+          stroke="#737373"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1"
+        />
+        <path
+          d="M17.25 9H16.25"
+          fill="none"
+          stroke="#737373"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1"
+        />
+        <path
+          d="M3.166 3.16599L3.873 3.87299"
+          fill="none"
+          stroke="#737373"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1"
+        />
+        <path
+          d="M0.75 9H1.75"
+          fill="none"
+          stroke="#737373"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1"
+        />
+        <path
+          d="M13.75 9C13.75 6.041 11.045 3.714 7.973 4.358C6.101 4.75 4.623 6.315 4.315 8.202C3.934 10.541 5.266 12.619 7.25 13.407V15.75C7.25 16.302 7.698 16.75 8.25 16.75H9.75C10.302 16.75 10.75 16.302 10.75 15.75V13.407C12.505 12.71 13.75 11.004 13.75 9Z"
+          fill="none"
+          stroke="#737373"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1"
+        />
+        <path
+          d="M6.897 13.25H11.103"
+          fill="none"
+          stroke="#737373"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="1"
+        />
+      </g>
+    </svg>
+  ),
+};

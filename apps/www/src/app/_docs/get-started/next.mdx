@@ -1,0 +1,78 @@
+---
+title: "Next"
+description: "Install and configure Next."
+slug: "next"
+---
+
+<div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">1</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	<div className="space-y-4 pb-10 pl-8 pt-1">
+		<h2 className="font-medium text-primary">
+			Create a new project
+		</h2>
+		<CommandBlock
+			npmCommand="npx create-next-app@latest my-app" 
+			pnpmCommand="pnpm create next-app my-app" 
+			yarnCommand="yarn create next-app my-app" 
+			bunCommand="bunx create-next-app my-app" 
+		/>
+	</div>
+</div>
+
+</div>
+
+<div className="relative">
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">2</span>
+</div>
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">After the above command, it is mandatory to select these values in the prompts</h2>
+
+<CodeBlock contentClassName="h-fit">
+			
+```shell
+Would you like to use TypeScript? Yes
+Would you like to use Tailwind CSS? Yes
+Would you like to customize the default import alias (@/*)? Yes
+What import alias would you like configured? @/*
+```
+
+</CodeBlock>
+
+</div>
+
+</div>
+
+</div>
+
+<div className="relative">
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">3</span>
+</div>
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">Start the app</h2>
+<CommandBlock
+	npmCommand="cd my-app && npm run dev"
+	pnpmCommand="cd my-app && pnpm dev"
+	yarnCommand="cd my-app && yarn dev"
+	bunCommand="cd my-app && bun run dev" 
+/>
+</div>
+
+</div>
+
+</div>
+
+</div>

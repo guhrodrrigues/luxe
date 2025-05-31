@@ -1,12 +1,12 @@
-import type { Metadata } from 'next'
-import Link from 'next/link'
+import type { Metadata } from "next";
+import Link from "next/link";
 
-import { MoveLeftIcon } from 'lucide-react'
+import { MoveLeftIcon } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: 'Not Found',
+  title: "Not Found",
   description: "The route you're trying to access doesn't exist.",
-}
+};
 
 export default function NotFoundPage() {
   return (
@@ -41,5 +41,5 @@ export default function NotFoundPage() {
         </div>
       </section>
     </main>
-  )
+  );
 }
