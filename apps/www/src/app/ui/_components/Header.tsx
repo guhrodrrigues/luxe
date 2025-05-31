@@ -89,8 +89,10 @@ export function Header() {
             ))}
           </div>
           <div className="flex items-center gap-3">
-            <CommandMenu />
-            <ToggleTheme />
+            <div className="flex items-center gap-2">
+              <CommandMenu />
+              <ToggleTheme />
+            </div>
             <a
               href="https://github.com/guhrodrrigues/luxe"
               target="_blank"

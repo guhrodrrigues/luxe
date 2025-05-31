@@ -54,6 +54,8 @@ type CommandMenuItemProps = {
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   onAction: () => void;
   ref: React.MutableRefObject<any>;
+  children?: React.ReactNode;
+  className?: string;
 } & React.ComponentProps<typeof CommandItem>;
 
 function CommandMenuItem({
