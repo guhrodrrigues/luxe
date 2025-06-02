@@ -1,0 +1,9 @@
+{
+  "name": "spinner",
+  "externalDependencies": [],
+  "internalDependencies": [],
+  "file": {
+    "name": "spinner.tsx",
+    "content": "import { cn } from '<%= it.aliases.utils %>/cn'\r\n\r\ntype SpinnerProps = {\r\n  size?: string\r\n} & React.ComponentProps<'div'>\r\n\r\nexport function Spinner({\r\n  size = 'size-6',\r\n  className,\r\n  ...props\r\n}: SpinnerProps) {\r\n  const bars = Array(12).fill(0)\r\n\r\n  return (\r\n    <div className={cn(size)}>\r\n      <div className={cn('relative top-1/2 left-1/2 h-[inherit] w-[inherit]')}>\r\n        {bars.map((_, i) => (\r\n          <div\r\n            key={`spinner-bar-${String(i)}`}\r\n            aria-label={`spinner-bar-${i + 1}`}\r\n            className={cn(\r\n              '-left-[10%] -top-[3.9%] absolute h-[8%] w-[24%] animate-spinner rounded-md bg-primary',\r\n              `bar:nth-child(${i + 1})`,\r\n              className,\r\n            )}\r\n            style={{\r\n              animationDelay: `-${1.3 - i * 0.1}s`,\r\n              transform: `rotate(${30 * i}deg) translate(146%)`,\r\n            }}\r\n            {...props}\r\n          />\r\n        ))}\r\n      </div>\r\n    </div>\r\n  )\r\n}\r\n"
+  }
+}

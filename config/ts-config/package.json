@@ -1,0 +1,9 @@
+{
+	"name": "@luxe/ts-config",
+	"version": "1.0.0",
+	"exports": {
+		"./*.json": "./*.json"
+	},
+	"license": "MIT",
+	"private": true
+}

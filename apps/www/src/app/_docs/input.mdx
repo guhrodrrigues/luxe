@@ -1,0 +1,387 @@
+---
+title: "Input"
+description: "Display an smooth and animated input."
+slug: "input"
+---
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code={`import { Input } from "@/components/ui/input";
+
+export function InputExample() {
+  return (
+    <Input 
+      placeholder="Placeholder"
+    />
+  );
+}`}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[223px] flex items-center justify-center">
+
+<Input placeholder="Placeholder" />
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Input } from "@/components/ui/input";
+
+export function InputExample() {
+  return (
+    <Input 
+      placeholder="Placeholder"
+    />
+  );
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+<div className="space-y-2 pt-4">
+
+<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
+
+## Usage
+
+</div>
+
+<CodeBlock className="mt-6" contentClassName="h-fit">
+
+```tsx
+import { Input } from "@/components/ui/input"
+```
+</CodeBlock>
+
+<CodeBlock className="mt-4" contentClassName="h-fit">
+
+```tsx
+<Input />
+```
+</CodeBlock>
+
+</div>
+
+<div className="space-y-2 pt-6">
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="cli">CLI</TabsTrigger>
+	<TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+</div>
+
+<TabsContent value="cli">
+
+<CommandBlock 
+	npmCommand="npx @luxeui/ui add input" 
+	pnpmCommand="pnpm dlx @luxeui/ui add input" 
+	yarnCommand="npx @luxeui/ui add input" 
+	bunCommand="bunx --bun @luxeui/ui add input" 
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">1</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Install the packages
+
+</h2>
+
+<CommandBlock 
+	npmCommand="npm i motion clsx tailwind-merge" 
+	pnpmCommand="pnpm add motion clsx tailwind-merge" 
+	yarnCommand="yarn add motion clsx tailwind-merge" 
+	bunCommand="bun add motion clsx tailwind-merge" 
+/>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">2</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Copy and paste the following code into your project
+
+</h2>
+
+<CodeBlock fileName="input.tsx">
+```tsx
+'use client' // @NOTE: Add in case you are using Next.js
+
+import { useState } from 'react'
+
+import { AnimatePresence, motion, type Variants } from 'motion/react'
+
+import { cn } from '@/utils/cn'
+
+export type InputProps = React.ComponentPropsWithRef<'input'>
+type FieldState = 'idle' | 'filled'
+
+export function Input({
+  placeholder,
+  onChange,
+  className,
+  ...props
+}: InputProps) {
+  const [fieldState, setFieldState] = useState<FieldState>('idle')
+
+  const animatedPlaceholderVariants: Variants = {
+    show: {
+      x: 0,
+      opacity: 1,
+      filter: 'blur(var(--blur-none))',
+    },
+    hidden: {
+      x: 28,
+      opacity: 0,
+      filter: 'blur(var(--blur-xs))',
+    },
+  }
+
+  return (
+    <div
+      className={cn(
+        'relative inline-flex h-11 w-64 items-center overflow-hidden rounded-xl border border-border bg-main-secondary shadow-xs transition-colors ease-out focus-within:border-primary data-[filled=true]:border-border',
+        'has-disabled:opacity-80 has-disabled:*:cursor-not-allowed',
+        className,
+      )}
+      data-filled={fieldState === 'filled'}
+    >
+      <input
+        {...props}
+        className={cn(
+          'peer h-full flex-1 bg-transparent px-3 py-2 caret-primary outline-none placeholder:sr-only',
+          'font-normal font-sans text-primary-foreground text-sm/5.5 ',
+        )}
+        placeholder={placeholder}
+        onChange={event => {
+          setFieldState(event.target.value.length > 0 ? 'filled' : 'idle')
+          onChange?.(event)
+        }}
+      />
+
+      <AnimatePresence mode="popLayout" initial={false}>
+        {fieldState !== 'filled' && (
+          <motion.span
+            className={cn(
+              'pointer-events-none absolute left-3',
+              'font-normal font-sans text-primary-muted/70 text-sm/5.5',
+            )}
+            variants={animatedPlaceholderVariants}
+            initial="hidden"
+            animate="show"
+            exit="hidden"
+            transition={{
+              type: 'spring',
+              duration: 0.6,
+              bounce: 0,
+            }}
+          >
+            {placeholder}
+          </motion.span>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
+```
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">3</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Create a file with the path <CodeHighlight>utils/cn.ts</CodeHighlight>
+
+</h2>
+
+<CodeBlock fileName="utils/cn.ts" customFilePath="utils/cn.ts" contentClassName="h-fit">
+```tsx
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">4</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Add variable colors in your CSS File
+
+</h2>
+
+<CodeBlock fileName="css" simpleCode={`:root {
+  --main-secondary: oklch(97% 0 0);
+
+  --primary: oklch(0 0 0);
+  --primary-foreground: oklch(37.1% 0 0);
+  --primary-muted: oklch(0.556 0 0);
+
+  --border: oklch(0.885 0 0);
+}
+
+.dark {
+  --main-secondary: oklch(0.205 0 0);
+
+  --primary: oklch(1 0 0);
+  --primary-foreground: oklch(0.97 0 0);
+  --primary-muted: oklch(0.708 0 0);
+
+  --border: oklch(0.26 0 0);
+}
+
+@theme inline {
+  --color-main-secondary: var(--main-secondary);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-muted: var(--primary-muted);
+  
+  --color-border: var(--border);
+}`}>
+```css
+:root {
+  --main-secondary: oklch(97% 0 0);
+
+  --primary: oklch(0 0 0);
+  --primary-foreground: oklch(37.1% 0 0);
+  --primary-muted: oklch(0.556 0 0);
+
+  --border: oklch(0.885 0 0);
+}
+
+.dark {
+  --main-secondary: oklch(0.205 0 0);
+
+  --primary: oklch(1 0 0);
+  --primary-foreground: oklch(0.97 0 0);
+  --primary-muted: oklch(0.708 0 0);
+
+  --border: oklch(0.26 0 0);
+}
+
+@theme inline {
+  --color-main-secondary: var(--main-secondary);
+
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-muted: var(--primary-muted);
+  
+  --color-border: var(--border);
+}
+```
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	
+<span className="font-semibold text-primary">5</span>
+
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+
+<div className="space-y-4 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Update the import paths to match your project setup
+
+</h2>
+
+</div>
+</div>
+</div>
+</div>
+
+</TabsContent>
+
+</Tabs>
+
+</div>

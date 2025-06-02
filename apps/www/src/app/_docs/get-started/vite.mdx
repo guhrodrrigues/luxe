@@ -1,0 +1,281 @@
+---
+title: "Vite"
+description: "Install and configure Vite."
+slug: "vite"
+---
+
+<div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">1</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	<div className="space-y-4 pb-10 pl-8 pt-1">
+		<h2 className="font-medium text-primary">
+			Create a new project
+		</h2>
+		<CommandBlock 
+			npmCommand="npm create vite@latest" 
+			pnpmCommand="pnpm create vite" 
+			yarnCommand="yarn create vite" 
+			bunCommand="bun create vite" 
+		/>
+	</div>
+</div>
+
+</div>
+
+<div className="relative">
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">2</span>
+</div>
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+	Install dependencies
+</h2>
+
+<CommandBlock
+	npmCommand="cd my-app && npm i" 
+	pnpmCommand="cd my-app && pnpm i" 
+	yarnCommand="cd my-app && yarn" 
+	bunCommand="cd my-app && bun install" 
+/>
+
+</div>
+
+</div>
+
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">3</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">Install Tailwind v4</h2>
+
+<CommandBlock
+	npmCommand="npm i tailwindcss @tailwindcss/vite" 
+	pnpmCommand="pnpm i tailwindcss @tailwindcss/vite" 
+	yarnCommand="yarn add tailwindcss @tailwindcss/vite" 
+	bunCommand="bun install tailwindcss @tailwindcss/vite" 
+/>
+
+</div>
+
+</div>
+
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">4</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">Put the following code in <CodeHighlight>styles/globals.css</CodeHighlight></h2>
+
+<CodeBlock
+	fileName="styles/globals.css"
+	simpleCode={`@import "tailwindcss";`}
+	contentClassName="h-fit"
+>
+```css
+@import "tailwindcss";
+```
+
+</CodeBlock>
+
+</div>
+
+</div>
+
+</div>
+
+<div className="relative">
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">5</span>
+</div>
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">Edit <CodeHighlight>tsconfig.json</CodeHighlight> file</h2>
+
+<CodeBlock
+	fileName="tsconfig.json"
+	simpleCode={`
+{
+  // ...
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+	// ...
+}
+	`}
+	contentClassName="h-fit"
+>
+
+```json
+{
+  // ...
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+  // ...
+}
+```
+
+</CodeBlock>
+
+</div>
+
+</div>
+
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">6</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+
+<div className="space-y-4 pb-10 pl-8 pt-1">
+<h2 className="font-medium text-primary">Edit <CodeHighlight>tsconfig.app.json</CodeHighlight> file</h2>
+
+<CodeBlock
+	fileName="tsconfig.app.json"
+	simpleCode={`
+{
+  "compilerOptions": {
+    // ...
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+    // ...
+  }
+}
+	`}
+	contentClassName="h-fit"
+>
+
+```json
+{
+  "compilerOptions": {
+    // ...
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+    // ...
+  }
+}
+```
+
+</CodeBlock>
+
+</div>
+
+</div>
+
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">7</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+
+<div className="space-y-4 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+	Update <CodeHighlight>vite.config.ts</CodeHighlight>
+</h2>
+
+<div className="space-y-3.5">
+
+<CodeBlock
+	fileName="Terminal"
+	simpleCode={`npm i -D @types/node`}
+	contentClassName="h-fit"
+>
+
+```md
+# 'path' doesn't work without this package
+npm i -D @types/node
+```
+
+</CodeBlock>
+
+<CodeBlock
+	fileName="vite.config.ts"
+	simpleCode={`import { defineConfig } from "vite"
+import react from "@vitejs/plugin-react"
+import path from "path"
+ 
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+})`}
+	contentClassName="h-fit"
+>
+
+```ts
+import { defineConfig } from "vite"
+import react from "@vitejs/plugin-react"
+import path from "path"
+ 
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
+    },
+  },
+})
+```
+
+</CodeBlock>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>

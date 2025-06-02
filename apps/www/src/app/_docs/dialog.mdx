@@ -1,0 +1,519 @@
+---
+title: "Dialog"
+description: "Displays a simple or animated dialog, respecting user motion preferences."
+slug: "dialog"
+externalDocs: "https://radix-ui.com/primitives/docs/components/dialog"
+externalApi: "https://radix-ui.com/primitives/docs/components/dialog#api-reference"
+---
+
+<div className="space-y-3">
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code={`import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+} from "@/app/_components/ui/dialog";
+
+import { Button } from "@/app/_components/ui/button";
+import { Input } from "@/app/_components/ui/input";
+
+export function DialogExample() {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="outline">Open</Button>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogTitle asChild>
+          <span className="block px-6 pt-5">Change Username</span>
+        </DialogTitle>
+        <DialogDescription className="px-6 py-1">
+          Make changes to your username here.
+        </DialogDescription>
+        <fieldset className="mb-[15px] flex items-center gap-4 px-6 py-4">
+          <Input id="name" placeholder="@guhrodrrigues" className="w-full" />
+        </fieldset>
+        <DialogFooter className="flex justify-between gap-4 px-6 py-3">
+          <DialogClose asChild>
+            <Button variant="outline">Cancel</Button>
+          </DialogClose>
+          <DialogClose asChild>
+            <Button>Save Changes</Button>
+          </DialogClose>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+}`}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[350px] flex items-center justify-center">
+
+<DialogExample />
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock className="h-[350px]" contentClassName="h-full">
+
+```tsx
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+} from "@/components/ui/dialog";
+
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+
+export function DialogExample() {
+  return (
+    <Dialog>
+      <DialogTrigger asChild>
+        <Button variant="outline">Open</Button>
+      </DialogTrigger>
+      <DialogContent>
+        <DialogTitle asChild>
+          <span className="block px-6 pt-5">Change Username</span>
+        </DialogTitle>
+        <DialogDescription className="px-6 py-1">
+          Make changes to your username here.
+        </DialogDescription>
+        <fieldset className="mb-[15px] flex items-center gap-4 px-6 py-4">
+          <Input id="name" placeholder="@guhrodrrigues" className="w-full" />
+        </fieldset>
+        <DialogFooter className="flex justify-between gap-4 px-6 py-3">
+          <DialogClose asChild>
+            <Button variant="outline">Cancel</Button>
+          </DialogClose>
+          <DialogClose asChild>
+            <Button>Save Changes</Button>
+          </DialogClose>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
+  );
+}
+```
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+<div className="flex items-center justify-center">
+
+<span className="block text-xs text-neutral-500">This example uses the <Link href="/ui/button">Button</Link> and <Link href="/ui/input">Input</Link>.</span>
+
+</div>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
+
+## Usage
+
+</div>
+
+<CodeBlock className="mt-6" contentClassName="h-fit">
+
+```tsx
+import {
+  Dialog,
+  DialogTrigger,
+  DialogPortal,
+  DialogOverlay,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+} from "@/components/ui/dialog"
+```
+</CodeBlock>
+
+<CodeBlock className="mt-4" contentClassName="h-fit">
+
+```tsx
+<Dialog>
+  <DialogTrigger>Open</DialogTrigger>
+  <DialogContent>
+    <DialogTitle>Dialog Title</DialogTitle>
+    <DialogDescription>
+      This is a description of the dialog.
+    </DialogDescription>
+    <DialogFooter>
+      <DialogClose />
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
+```
+</CodeBlock>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="cli">CLI</TabsTrigger>
+	<TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+</div>
+
+<TabsContent value="cli">
+
+<CommandBlock 
+	npmCommand="npx @luxeui/ui add dialog" 
+	pnpmCommand="pnpm dlx @luxeui/ui add dialog" 
+	yarnCommand="npx @luxeui/ui add dialog" 
+	bunCommand="bunx --bun @luxeui/ui add dialog" 
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">1</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Install the packages
+
+</h2>
+
+<CommandBlock 
+	npmCommand="npm i @radix-ui/react-dialog clsx tailwind-merge tw-animate-css" 
+	pnpmCommand="pnpm add @radix-ui/react-dialog clsx tailwind-merge tw-animate-css" 
+	yarnCommand="yarn add @radix-ui/react-dialog clsx tailwind-merge tw-animate-css" 
+	bunCommand="bun add @radix-ui/react-dialog clsx tailwind-merge tw-animate-css" 
+/>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">2</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Copy and paste the following code into your project
+
+</h2>
+
+<CodeBlock fileName="dialog.tsx">
+
+```tsx
+import * as RadixDialog from '@radix-ui/react-dialog'
+
+import { cn } from '@/utils/cn'
+
+export const Dialog = RadixDialog.Root
+
+export const DialogTrigger = RadixDialog.Trigger
+
+export const DialogClose = RadixDialog.Close
+
+function DialogOverlay() {
+  return (
+    <RadixDialog.Overlay className='fixed top-0 left-0 z-[999] size-full'>
+      <div
+        className={cn(
+          'fixed inset-0 bg-black/50 ease-out dark:bg-black/80',
+          'motion-safe:data-[state=open]:fade-in motion-safe:data-[state=open]:animate-in',
+          'motion-safe:data-[state=closed]:fade-out motion-safe:data-[state=closed]:animate-out',
+        )}
+      />
+    </RadixDialog.Overlay>
+  )
+}
+
+type DialogContentProps = React.ComponentProps<typeof RadixDialog.Content>
+
+export function DialogContent({
+  children,
+  className,
+  ...props
+}: DialogContentProps) {
+  return (
+    <RadixDialog.Portal>
+      <DialogOverlay />
+      <RadixDialog.Content
+        className={cn(
+          '-translate-x-1/2 -translate-y-1/2 fixed top-1/2 left-1/2 z-[1001] max-h-[85vh] w-[90vw] max-w-[400px]',
+          'rounded-xl border border-border bg-main focus:outline-none motion-safe:ease-out',
+          'motion-safe:data-[state=open]:zoom-in-95 motion-safe:data-[state=open]:fade-in motion-safe:data-[state=open]:animate-in',
+          'motion-safe:data-[state=closed]:zoom-out-95 motion-safe:data-[state=closed]:fade-out motion-safe:data-[state=closed]:animate-out',
+          className,
+        )}
+        {...props}
+      >
+        {children}
+      </RadixDialog.Content>
+    </RadixDialog.Portal>
+  )
+}
+
+type DialogTitleProps = React.ComponentProps<typeof RadixDialog.Title>
+
+export function DialogTitle({
+  children,
+  className,
+  ...props
+}: DialogTitleProps) {
+  return (
+    <RadixDialog.Title
+      className={cn('font-semibold text-primary', className)}
+      {...props}
+    >
+      {children}
+    </RadixDialog.Title>
+  )
+}
+
+type DialogDescriptionProps = React.ComponentProps<
+  typeof RadixDialog.Description
+>
+
+export function DialogDescription({
+  children,
+  className,
+  ...props
+}: DialogDescriptionProps) {
+  return (
+    <RadixDialog.Description
+      className={cn(
+        'text-primary-muted text-sm',
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </RadixDialog.Description>
+  )
+}
+
+type DialogFooterProps = React.ComponentProps<'div'>
+
+export function DialogFooter({
+  children,
+  className,
+  ...props
+}: DialogFooterProps) {
+  return (
+    <div
+      className={cn(
+        'rounded-b-[inherit] border-border border-t bg-main-muted',
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </div>
+  )
+}
+```
+
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">3</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Create a file with the path <CodeHighlight>utils/cn.ts</CodeHighlight>
+
+</h2>
+
+<CodeBlock fileName="utils/cn.ts" customFilePath="utils/cn.ts" contentClassName="h-fit">
+```tsx
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">4</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Add <CodeHighlight>tw-animate-css</CodeHighlight> and variable colors in your CSS File
+
+</h2>
+
+<CodeBlock fileName="css" simpleCode={`@import "tw-animate-css";
+
+:root {
+  --main: oklch(0.97 0 0);
+  --main-muted: oklch(0.96 0 0);
+
+  --primary: oklch(0 0 0);
+  --primary-muted: oklch(0.556 0 0);
+
+  --border: oklch(0.885 0 0);
+}
+
+.dark {
+  --main: oklch(0.178 0 0);
+  --main-muted: oklch(0.168 0 0);
+
+  --primary: oklch(1 0 0);
+  --primary-muted: oklch(0.708 0 0);
+
+  --border: oklch(0.26 0 0);
+}
+
+@theme inline {
+  --color-main: var(--main);
+  --color-main-muted: var(--main-muted);
+
+  --color-primary: var(--primary);
+  --color-primary-muted: var(--primary-muted);
+  
+  --color-border: var(--border);
+}`}>
+```css
+@import "tw-animate-css";
+
+:root {
+  --main: oklch(0.97 0 0);
+  --main-muted: oklch(0.96 0 0);
+
+  --primary: oklch(0 0 0);
+  --primary-muted: oklch(0.556 0 0);
+
+  --border: oklch(0.885 0 0);
+}
+
+.dark {
+  --main: oklch(0.178 0 0);
+  --main-muted: oklch(0.168 0 0);
+
+  --primary: oklch(1 0 0);
+  --primary-muted: oklch(0.708 0 0);
+
+  --border: oklch(0.26 0 0);
+}
+
+@theme inline {
+  --color-main: var(--main);
+  --color-main-muted: var(--main-muted);
+
+  --color-primary: var(--primary);
+  --color-primary-muted: var(--primary-muted);
+  
+  --color-border: var(--border);
+}
+```
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	
+<span className="font-semibold text-primary">5</span>
+
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+
+<div className="space-y-4 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Update the import paths to match your project setup
+
+</h2>
+
+</div>
+</div>
+</div>
+</div>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
