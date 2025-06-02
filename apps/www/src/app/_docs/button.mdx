@@ -8,273 +8,6 @@ slug: "button"
 
 <div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
 
-## Simple Examples
-
-</div>
-
-<div className="mt-12">
-
-### Default
-
-</div>
-
-<Tabs defaultValue="preview">
-
-<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
-
-<TabsList>
-	<TabsTrigger value="preview">Preview</TabsTrigger>
-	<TabsTrigger value="code">Code</TabsTrigger>
-</TabsList>
-
-<CopyCode 
-	code={`import { Button } from "@/components/ui/button"
-
-export function ButtonExample() {
-  return (
-    <Button>
-      Button
-    </Button>
-  )
-}`}
-	mode="text"
-/>
-
-</div>
-
-<TabsContent value="preview">
-
-<ComponentView className="h-[223px] flex items-center justify-center">
-
-<Button>
-	<span>Button</span>
-</Button>
-
-</ComponentView>
-
-</TabsContent>
-
-<TabsContent value="code">
-
-<CodeBlock contentClassName="h-fit">
-
-```tsx
-import { Button } from "@/components/ui/button"
-
-export function ButtonExample() {
-  return (
-    <Button>
-      Button
-    </Button>
-  )
-}
-```
-
-</CodeBlock>
-
-</TabsContent>
-
-</Tabs>
-
-</div>
-
-<div className="space-y-2 pt-4">
-
-### Outline
-
-<Tabs defaultValue="preview">
-
-<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
-
-<TabsList>
-	<TabsTrigger value="preview">Preview</TabsTrigger>
-	<TabsTrigger value="code">Code</TabsTrigger>
-</TabsList>
-
-<CopyCode 
-	code={`import { Button } from "@/components/ui/button"
-
-export function ButtonOutlineExample() {
-  return (
-    <Button variant="outline">
-      Button
-    </Button>
-  )
-}`}
-	mode="text"
-/>
-
-</div>
-
-<TabsContent value="preview">
-
-<ComponentView className="h-[223px] flex items-center justify-center">
-
-<Button variant="outline">
-	<span>Button</span>
-</Button>
-
-</ComponentView>
-
-</TabsContent>
-
-<TabsContent value="code">
-
-<CodeBlock contentClassName="h-fit">
-
-```tsx
-import { Button } from "@/components/ui/button"
-
-export function ButtonOutlineExample() {
-  return (
-    <Button variant="outline">
-      Button
-    </Button>
-  )
-}
-```
-
-</CodeBlock>
-
-</TabsContent>
-
-</Tabs>
-
-</div>
-
-<div className="space-y-2 pt-4">
-
-### Success
-
-<Tabs defaultValue="preview">
-
-<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
-
-<TabsList>
-	<TabsTrigger value="preview">Preview</TabsTrigger>
-	<TabsTrigger value="code">Code</TabsTrigger>
-</TabsList>
-
-<CopyCode 
-	code={`import { Button } from "@/components/ui/button"
-
-export function ButtonSuccessExample() {
-  return (
-    <Button variant="success">
-      Button
-    </Button>
-  )
-}`}
-	mode="text"
-/>
-
-</div>
-
-<TabsContent value="preview">
-
-<ComponentView className="h-[223px] flex items-center justify-center">
-
-<Button variant="success">
-	<span>Button</span>
-</Button>
-
-</ComponentView>
-
-</TabsContent>
-
-<TabsContent value="code">
-
-<CodeBlock contentClassName="h-fit">
-
-```tsx
-import { Button } from "@/components/ui/button"
-
-export function ButtonSuccessExample() {
-  return (
-    <Button variant="success">
-      Button
-    </Button>
-  )
-}
-```
-
-</CodeBlock>
-
-</TabsContent>
-
-</Tabs>
-
-</div>
-
-<div className="space-y-2 pt-4">
-
-### Destructive
-
-<Tabs defaultValue="preview">
-
-<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
-
-<TabsList>
-	<TabsTrigger value="preview">Preview</TabsTrigger>
-	<TabsTrigger value="code">Code</TabsTrigger>
-</TabsList>
-
-<CopyCode 
-	code={`import { Button } from "@/components/ui/button"
-
-export function ButtonDestructiveExample() {
-  return (
-    <Button variant="destructive">
-      Button
-    </Button>
-  )
-}`}
-	mode="text"
-/>
-
-</div>
-
-<TabsContent value="preview">
-
-<ComponentView className="h-[223px] flex items-center justify-center">
-
-<Button variant="destructive">
-	<span>Button</span>
-</Button>
-
-</ComponentView>
-
-</TabsContent>
-
-<TabsContent value="code">
-
-<CodeBlock contentClassName="h-fit">
-
-```tsx
-import { Button } from "@/components/ui/button"
-
-export function ButtonDestructiveExample() {
-  return (
-    <Button variant="destructive">
-      Button
-    </Button>
-  )
-}
-```
-
-</CodeBlock>
-
-</TabsContent>
-
-</Tabs>
-
-</div>
-
-
-<div className="space-y-2 pt-4">
-
-<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
-
 ## Animated Examples
 
 </div>
@@ -605,6 +338,272 @@ export function ButtonMagneticExample() {
 
 <div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
 
+## Simple Examples
+
+</div>
+
+<div className="mt-12">
+
+### Default
+
+</div>
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code={`import { Button } from "@/components/ui/button"
+
+export function ButtonExample() {
+  return (
+    <Button>
+      Button
+    </Button>
+  )
+}`}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[223px] flex items-center justify-center">
+
+<Button>
+	<span>Button</span>
+</Button>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Button } from "@/components/ui/button"
+
+export function ButtonExample() {
+  return (
+    <Button>
+      Button
+    </Button>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+### Outline
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code={`import { Button } from "@/components/ui/button"
+
+export function ButtonOutlineExample() {
+  return (
+    <Button variant="outline">
+      Button
+    </Button>
+  )
+}`}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[223px] flex items-center justify-center">
+
+<Button variant="outline">
+	<span>Button</span>
+</Button>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Button } from "@/components/ui/button"
+
+export function ButtonOutlineExample() {
+  return (
+    <Button variant="outline">
+      Button
+    </Button>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+### Success
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code={`import { Button } from "@/components/ui/button"
+
+export function ButtonSuccessExample() {
+  return (
+    <Button variant="success">
+      Button
+    </Button>
+  )
+}`}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[223px] flex items-center justify-center">
+
+<Button variant="success">
+	<span>Button</span>
+</Button>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Button } from "@/components/ui/button"
+
+export function ButtonSuccessExample() {
+  return (
+    <Button variant="success">
+      Button
+    </Button>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+### Destructive
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code={`import { Button } from "@/components/ui/button"
+
+export function ButtonDestructiveExample() {
+  return (
+    <Button variant="destructive">
+      Button
+    </Button>
+  )
+}`}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[223px] flex items-center justify-center">
+
+<Button variant="destructive">
+	<span>Button</span>
+</Button>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Button } from "@/components/ui/button"
+
+export function ButtonDestructiveExample() {
+  return (
+    <Button variant="destructive">
+      Button
+    </Button>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
+
 ## Usage
 
 </div>
@@ -774,7 +773,7 @@ const variants = [
         className={cn(
           'animate-shine items-center justify-center rounded-xl border border-border bg-[length:400%_100%]',
           'px-4 py-2 text-primary-invert/90 transition-colors dark:text-primary-muted',
-					"bg-[linear-gradient(110deg,#000000,45%,#303030,55%,#000000)]",
+          'bg-[linear-gradient(110deg,#000000,45%,#303030,55%,#000000)]',
           'dark:bg-[linear-gradient(110deg,#000103,45%,#303030,55%,#000103)]',
           className,
         )}

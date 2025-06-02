@@ -8,97 +8,6 @@ slug: "card"
 
 <div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
 
-## Simple Examples
-
-</div>
-
-<div className="mt-12">
-
-### Default
-
-</div>
-
-<Tabs defaultValue="preview">
-
-<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
-
-<TabsList>
-	<TabsTrigger value="preview">Preview</TabsTrigger>
-	<TabsTrigger value="code">Code</TabsTrigger>
-</TabsList>
-
-<CopyCode 
-	code={`import { Card } from "@/components/ui/card"
-
-export function CardExample() {
-  return (
-    <Card>
-      <div className="flex flex-col gap-2">
-        <span className="text-xl font-semibold text-black dark:text-neutral-200">
-          Luxe
-        </span>
-        <span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">
-          Explore the new website that simplifies the creation of sophisticated components.
-        </span>
-      </div>
-    </Card>
-  )
-}`}
-	mode="text"
-/>
-
-</div>
-
-<TabsContent value="preview">
-
-<ComponentView className="h-[380px] flex items-center justify-center">
-
-<Card>
-	<div className="flex flex-col gap-2">
-		<span className="text-xl font-semibold text-black dark:text-neutral-200">Luxe</span>
-		<span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">Explore the new website that simplifies the creation of sophisticated components.</span>
-	</div>
-</Card>
-
-</ComponentView>
-
-</TabsContent>
-
-<TabsContent value="code">
-
-<CodeBlock contentClassName="h-fit">
-
-```tsx
-import { Card } from "@/components/ui/card"
-
-export function CardExample() {
-  return (
-    <Card>
-      <div className="flex flex-col gap-2">
-        <span className="text-xl font-semibold text-black dark:text-neutral-200">
-          Luxe
-        </span>
-        <span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">
-          Explore the new website that simplifies the creation of sophisticated components.
-        </span>
-      </div>
-    </Card>
-  )
-}
-```
-
-</CodeBlock>
-
-</TabsContent>
-
-</Tabs>
-
-</div>
-
-<div className="space-y-2 pt-4">
-
-<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
-
 ## Animated Examples
 
 </div>
@@ -327,6 +236,97 @@ import { Card } from "@/components/ui/card"
 export function CardRevealedPointerExample() {
   return (
     <Card variant="revealed-pointer">
+      <div className="flex flex-col gap-2">
+        <span className="text-xl font-semibold text-black dark:text-neutral-200">
+          Luxe
+        </span>
+        <span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">
+          Explore the new website that simplifies the creation of sophisticated components.
+        </span>
+      </div>
+    </Card>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
+
+## Simple Examples
+
+</div>
+
+<div className="mt-12">
+
+### Default
+
+</div>
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code={`import { Card } from "@/components/ui/card"
+
+export function CardExample() {
+  return (
+    <Card>
+      <div className="flex flex-col gap-2">
+        <span className="text-xl font-semibold text-black dark:text-neutral-200">
+          Luxe
+        </span>
+        <span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">
+          Explore the new website that simplifies the creation of sophisticated components.
+        </span>
+      </div>
+    </Card>
+  )
+}`}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[380px] flex items-center justify-center">
+
+<Card>
+	<div className="flex flex-col gap-2">
+		<span className="text-xl font-semibold text-black dark:text-neutral-200">Luxe</span>
+		<span className="text-sm leading-[1.5] text-neutral-500 dark:text-neutral-400">Explore the new website that simplifies the creation of sophisticated components.</span>
+	</div>
+</Card>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Card } from "@/components/ui/card"
+
+export function CardExample() {
+  return (
+    <Card>
       <div className="flex flex-col gap-2">
         <span className="text-xl font-semibold text-black dark:text-neutral-200">
           Luxe

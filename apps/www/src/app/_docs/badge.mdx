@@ -8,6 +8,208 @@ slug: "badge"
 
 <div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
 
+## Animated Examples
+
+</div>
+
+<div className="mt-12">
+
+### Shine
+
+</div>
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code={`import { Badge } from "@/components/ui/badge"
+
+export function BadgeShineExample() {
+  return (
+    <Badge variant="shine">
+      Badge
+    </Badge>
+  )
+}`}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[223px] flex items-center justify-center">
+
+<Badge variant="shine">
+	<span>Badge</span>
+</Badge>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Badge } from "@/components/ui/badge"
+
+export function BadgeShineExample() {
+  return (
+    <Badge variant="shine">
+      Badge
+    </Badge>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+### Animated Border
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code={`import { Badge } from "@/components/ui/badge"
+
+export function BadgeAnimatedBorderExample() {
+  return (
+    <Badge variant="animated-border">
+      Badge
+    </Badge>
+  )
+}`}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[223px] flex items-center justify-center">
+
+<Badge variant="animated-border">
+	<span>Badge</span>
+</Badge>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Badge } from "@/components/ui/badge"
+
+export function BadgeAnimatedBorderExample() {
+  return (
+    <Badge variant="animated-border">
+      Badge
+    </Badge>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+### Rotate Border
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code={`import { Badge } from "@/components/ui/badge"
+
+export function BadgeRotateBorderExample() {
+  return (
+    <Badge variant="rotate-border">
+      Badge
+    </Badge>
+  )
+}`}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[223px] flex items-center justify-center">
+
+<Badge variant="rotate-border">
+	<span>Badge</span>
+</Badge>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-fit">
+
+```tsx
+import { Badge } from "@/components/ui/badge"
+
+export function BadgeRotateBorderExample() {
+  return (
+    <Badge variant="rotate-border">
+      Badge
+    </Badge>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
+
 ## Simple Examples
 
 </div>
@@ -256,208 +458,6 @@ import { Badge } from "@/components/ui/badge"
 export function BadgeDestructiveExample() {
   return (
     <Badge variant="destructive">
-      Badge
-    </Badge>
-  )
-}
-```
-
-</CodeBlock>
-
-</TabsContent>
-
-</Tabs>
-
-</div>
-
-<div className="space-y-2 pt-4">
-
-<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
-
-## Animated Examples
-
-</div>
-
-<div className="mt-12">
-
-### Shine
-
-</div>
-
-<Tabs defaultValue="preview">
-
-<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
-
-<TabsList>
-	<TabsTrigger value="preview">Preview</TabsTrigger>
-	<TabsTrigger value="code">Code</TabsTrigger>
-</TabsList>
-
-<CopyCode 
-	code={`import { Badge } from "@/components/ui/badge"
-
-export function BadgeShineExample() {
-  return (
-    <Badge variant="shine">
-      Badge
-    </Badge>
-  )
-}`}
-	mode="text"
-/>
-
-</div>
-
-<TabsContent value="preview">
-
-<ComponentView className="h-[223px] flex items-center justify-center">
-
-<Badge variant="shine">
-	<span>Badge</span>
-</Badge>
-
-</ComponentView>
-
-</TabsContent>
-
-<TabsContent value="code">
-
-<CodeBlock contentClassName="h-fit">
-
-```tsx
-import { Badge } from "@/components/ui/badge"
-
-export function BadgeShineExample() {
-  return (
-    <Badge variant="shine">
-      Badge
-    </Badge>
-  )
-}
-```
-
-</CodeBlock>
-
-</TabsContent>
-
-</Tabs>
-
-</div>
-
-<div className="space-y-2 pt-4">
-
-### Animated Border
-
-<Tabs defaultValue="preview">
-
-<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
-
-<TabsList>
-	<TabsTrigger value="preview">Preview</TabsTrigger>
-	<TabsTrigger value="code">Code</TabsTrigger>
-</TabsList>
-
-<CopyCode 
-	code={`import { Badge } from "@/components/ui/badge"
-
-export function BadgeAnimatedBorderExample() {
-  return (
-    <Badge variant="animated-border">
-      Badge
-    </Badge>
-  )
-}`}
-	mode="text"
-/>
-
-</div>
-
-<TabsContent value="preview">
-
-<ComponentView className="h-[223px] flex items-center justify-center">
-
-<Badge variant="animated-border">
-	<span>Badge</span>
-</Badge>
-
-</ComponentView>
-
-</TabsContent>
-
-<TabsContent value="code">
-
-<CodeBlock contentClassName="h-fit">
-
-```tsx
-import { Badge } from "@/components/ui/badge"
-
-export function BadgeAnimatedBorderExample() {
-  return (
-    <Badge variant="animated-border">
-      Badge
-    </Badge>
-  )
-}
-```
-
-</CodeBlock>
-
-</TabsContent>
-
-</Tabs>
-
-</div>
-
-<div className="space-y-2 pt-4">
-
-### Rotate Border
-
-<Tabs defaultValue="preview">
-
-<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
-
-<TabsList>
-	<TabsTrigger value="preview">Preview</TabsTrigger>
-	<TabsTrigger value="code">Code</TabsTrigger>
-</TabsList>
-
-<CopyCode 
-	code={`import { Badge } from "@/components/ui/badge"
-
-export function BadgeRotateBorderExample() {
-  return (
-    <Badge variant="rotate-border">
-      Badge
-    </Badge>
-  )
-}`}
-	mode="text"
-/>
-
-</div>
-
-<TabsContent value="preview">
-
-<ComponentView className="h-[223px] flex items-center justify-center">
-
-<Badge variant="rotate-border">
-	<span>Badge</span>
-</Badge>
-
-</ComponentView>
-
-</TabsContent>
-
-<TabsContent value="code">
-
-<CodeBlock contentClassName="h-fit">
-
-```tsx
-import { Badge } from "@/components/ui/badge"
-
-export function BadgeRotateBorderExample() {
-  return (
-    <Badge variant="rotate-border">
       Badge
     </Badge>
   )
