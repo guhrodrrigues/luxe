@@ -6,7 +6,6 @@ The goal is to make contributing to Luxe as easy and transparent as possible, wh
 - Discussing the current state of the code
 - Submitting a fix
 - Proposing new features
-- Becoming a maintainer
 
 ## About this repository
 

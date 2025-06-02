@@ -66,7 +66,7 @@ export function CommandBlock({
             <TabsContent key={key} value={key}>
               <pre className="px-4 pb-4">
                 <code
-                  className="relative font-mono text-sm leading-none text-primary"
+                  className="relative font-mono text-sm leading-none !text-primary"
                   data-language="bash"
                 >
                   {value}
