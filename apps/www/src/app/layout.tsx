@@ -81,7 +81,7 @@ export const metadata: Metadata = {
       },
     ],
     card: "summary_large_image",
-    title: "Luxe",
+    title: "Luxe: Illuminate your apps.",
     description:
       "Copy and paste components ready to use. Practical. Customizable.",
     site: "@guhrodrrigues",
