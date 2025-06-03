@@ -8,7 +8,7 @@ Library of copy and paste components to illuminate your applications with elegan
 
 ### Docs
 
-https://luxeui.com/ui
+https://luxeui.com/ui/installation
 
 ### Contributing
 
