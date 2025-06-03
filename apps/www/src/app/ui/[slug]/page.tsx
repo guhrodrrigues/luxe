@@ -87,11 +87,7 @@ export default async function ComponentPage({
     <main className="my-2">
       <div className="space-y-20">
         <div className="space-y-4">
-          <Breadcrumbs
-            backLink="/ui"
-            groupName="Components"
-            currentPage={title}
-          />
+          <Breadcrumbs groupName="Components" currentPage={title} />
           <h1 className="text-3xl font-bold -tracking-wide text-primary">
             {title}
           </h1>

@@ -107,7 +107,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
                 rel="noopener noreferrer"
                 className="group"
               >
-                <Icons.github className="h-3.5 w-3.5 text-neutral-400 duration-150 group-hover:!text-primary dark:text-neutral-600" />
+                <Icons.github className="size-4 text-neutral-400 duration-150 group-hover:!text-primary dark:text-neutral-600" />
               </a>
               <ToggleTheme />
             </div>
