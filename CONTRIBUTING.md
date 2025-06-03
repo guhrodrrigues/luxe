@@ -45,7 +45,7 @@ Pull requests are the best way to propose changes to the codebase. Pull requests
 4. Make sure your code lints.
 5. Issue that pull request.
 
-## Report bugs using GitHub's [issues](https://github.com/guhrodrrigues/luxe/issues)
+## Report bugs using [GitHub's issues](https://github.com/guhrodrrigues/luxe/issues)
 
 GitHub issues are used to track public bugs. Report a bug by [opening a new issue](https://github.com/guhrodrrigues/luxe/issues/new)!
 
@@ -56,7 +56,7 @@ GitHub issues are used to track public bugs. Report a bug by [opening a new issu
 
 ## CLI
 
-The `@luxeui/ui` package is a CLI for adding components to your project. You can find the [docs](https://luxeui.com/ui).
+The `@luxeui/ui` package is a CLI for adding components to your project. You can find the [docs](https://luxeui.com/ui/cli).
 
 Any changes to the CLI should be made in the packages/cli directory.
 
