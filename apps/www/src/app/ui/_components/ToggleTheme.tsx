@@ -18,6 +18,14 @@ export function ToggleTheme() {
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
+      // Prevent theme toggle if focus is in an input, textarea, or contenteditable
+      const target = e.target as HTMLElement | null;
+      const isInput =
+        target &&
+        (target.tagName === "INPUT" ||
+          target.tagName === "TEXTAREA" ||
+          target.isContentEditable);
+      if (isInput) return;
       if (e.key === "t") {
         e.preventDefault();
         setTheme(theme === "dark" ? "light" : "dark");
