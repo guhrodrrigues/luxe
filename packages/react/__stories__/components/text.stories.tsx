@@ -1,30 +1,24 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react'
 
-import { Text } from "@/registry/components/text";
+import { Text } from '@/components/text'
 
 const meta: Meta = {
-  title: "components/Text",
+  title: 'components/Text',
   component: Text,
-	args: {
-    children: "This is a text",
+  args: {
+    children: 'This is a text',
   },
   argTypes: {
     variant: {
-      options: [
-        "shine",
-        "generate-effect",
-        "glitch",
-        "hover-enter",
-        "shake",
-      ],
-      control: "radio",
+      options: ['shine', 'generate-effect', 'glitch', 'hover-enter', 'shake'],
+      control: 'radio',
     },
   },
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
-};
+}
 
-export default meta;
+export default meta
 
-export const Basic: StoryObj = {};
+export const Basic: StoryObj = {}
