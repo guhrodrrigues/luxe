@@ -1,6 +1,7 @@
 "use client";
 
 import { useTheme } from "next-themes";
+import { useEffect, useCallback } from "react";
 
 import { Icons } from "@/app/_components/Icons";
 
@@ -11,21 +12,23 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/app/_components/ui/tooltip";
-import { useEffect } from "react";
 
 export function ToggleTheme() {
   const { setTheme, resolvedTheme: theme } = useTheme();
 
+  const isTextEditableElement = useCallback((event: KeyboardEvent) => {
+    const target = event.target as HTMLElement | null;
+    if (target) {
+      const { tagName, isContentEditable } = target;
+      const tagsTextField = ["INPUT", "TEXTAREA"];
+      return tagsTextField.includes(tagName) || isContentEditable;
+    }
+    return false;
+  }, []);
+
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
-      // Prevent theme toggle if focus is in an input, textarea, or contenteditable
-      const target = e.target as HTMLElement | null;
-      const isInput =
-        target &&
-        (target.tagName === "INPUT" ||
-          target.tagName === "TEXTAREA" ||
-          target.isContentEditable);
-      if (isInput) return;
+      if (isTextEditableElement(e)) return;
       if (e.key === "t") {
         e.preventDefault();
         setTheme(theme === "dark" ? "light" : "dark");
@@ -35,7 +38,7 @@ export function ToggleTheme() {
     document.addEventListener("keydown", handleKeyDown);
 
     return () => document.removeEventListener("keydown", handleKeyDown);
-  }, [theme]);
+  }, [theme, setTheme, isTextEditableElement]);
 
   return (
     <TooltipProvider>
