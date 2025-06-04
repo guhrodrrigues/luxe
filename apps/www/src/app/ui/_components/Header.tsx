@@ -57,11 +57,10 @@ export function Header() {
       className={cn(
         "top-0 z-50 h-17 w-full transition-colors duration-300 ease-out border-b-[.75px] border-transparent",
         isDocsPage ? "sticky bg-background bottom-dotted" : "fixed",
-        isMobile && "bg-background border-border dark:border-[#262626]/50",
-        !isDocsPage &&
-          isScrolled &&
-          !isMobile &&
-          "bg-background dark:bg-background/40 backdrop-blur-md border-border dark:border-[#262626]/50",
+        {
+          "bg-background dark:bg-background/40 backdrop-blur-md border-border dark:border-[#262626]/50":
+            !isDocsPage && isScrolled,
+        },
       )}
     >
       <nav
