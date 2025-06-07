@@ -63,6 +63,11 @@ const COMPONENTS = [
     slug: "/ui/multi-step-modal",
   },
   {
+    title: "Navigation Menu",
+    slug: "/ui/navigation-menu",
+    isNew: true,
+  },
+  {
     title: "Spinner",
     slug: "/ui/spinner",
   },
@@ -144,25 +149,16 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
                 </div>
               </div>
               <div className="flex flex-col gap-1">
-                <div className="flex items-center gap-1.5">
-                  <span className="relative z-[1] -ml-[2.5px] text-xs font-medium text-foreground">
-                    Components
-                  </span>
-                  <div
-                    className={cn(
-                      "w-[30px] h-4 font-medium bg-yellow-400/30 dark:bg-[#eaec8a]/16 rounded-full text-[10px]",
-                      "leading-[150%] text-center mr-2.5 text-yellow-600 dark:text-[#eaec8a] [text-shadow:0_1px_1.5px_rgb(0,0,0,0.16)]",
-                    )}
-                  >
-                    New
-                  </div>
-                </div>
+                <span className="relative z-[1] -ml-[2.5px] text-xs font-medium text-foreground">
+                  Components
+                </span>
                 <div className="flex flex-col pb-3">
                   {COMPONENTS.map((component) => (
                     <SidebarButton
                       key={component.slug}
                       name={component.title}
                       slug={component.slug}
+                      isNew={component.isNew}
                       onClick={handleClose}
                     />
                   ))}

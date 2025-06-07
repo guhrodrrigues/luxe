@@ -402,6 +402,22 @@ export function CommandMenu() {
           ),
         },
         {
+          title: "Navigation Menu",
+          slug: "/ui/navigation-menu",
+          ref: getComponentRef("Navigation Menu"),
+          icon: (
+            <Lottie
+              lottieRef={getComponentRef("Navigation Menu")}
+              animationData={
+                theme === "dark" ? fileDarkModeIcon : fileLightModeIcon
+              }
+              style={{ width: 22, height: 22 }}
+              autoplay={false}
+              loop={false}
+            />
+          ),
+        },
+        {
           title: "Spinner",
           slug: "/ui/spinner",
           ref: getComponentRef("Spinner"),

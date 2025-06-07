@@ -24,25 +24,16 @@ export function Sidebar() {
           </div>
         </div>
         <div className="flex flex-col gap-1">
-          <div className="flex items-center gap-1.5">
-            <span className="relative z-[1] -ml-0.5 text-sm font-[460] text-foreground">
-              Components
-            </span>
-            <div
-              className={cn(
-                "w-[30px] h-4 font-medium bg-yellow-400/30 dark:bg-[#eaec8a]/16 rounded-full text-[10px]",
-                "leading-[150%] text-center mr-2.5 text-yellow-600 dark:text-[#eaec8a] [text-shadow:0_1px_1.5px_rgb(0,0,0,0.16)]",
-              )}
-            >
-              New
-            </div>
-          </div>
+          <span className="relative z-[1] -ml-0.5 text-sm font-[460] text-foreground">
+            Components
+          </span>
           <div className="flex flex-col pb-8">
             {getComponents.map((component) => (
               <SidebarButton
                 key={component.title}
                 name={component.title}
                 slug={`/ui/${component.slug}`}
+                isNew={component.isNew}
               />
             ))}
           </div>
