@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+
 @import "tailwindcss";
 @import "./luxe.css";
 
@@ -37,6 +39,7 @@
   --color-primary: var(--primary);
   --color-foreground: var(--foreground);
   --color-muted: #0a0a0a;
+	--font-sans: "Geist", sans-serif; 
 
   --animate-spotlight: spotlight 2s ease 1 forwards;
 
@@ -55,7 +58,7 @@
 @layer base {
   img,
   button {
-    @apply select-none;
+    @apply select-none font-sans;
   }
 
   ::selection {
@@ -89,23 +92,6 @@ html {
   tab-size: 4;
   font-feature-settings: normal;
   font-variation-settings: normal;
-}
-
-.shiki {
-  background-color: transparent !important;
-  font-size: 14px;
-  border: 1px solid transparent;
-  font-family: var(--font-mono);
-
-  &:focus-visible {
-    border-color: var(--border);
-    outline: none;
-  }
-
-  & span {
-    color: var(--shiki--light, var(--_s-light))
-      var(--shiki--dark, var(--_s-dark));
-  }
 }
 
 button {

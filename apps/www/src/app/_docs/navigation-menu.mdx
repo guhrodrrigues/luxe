@@ -1,0 +1,736 @@
+---
+title: "Navigation Menu"
+description: "Displays an animated navigation menu, respecting user motion preferences."
+slug: "navigation-menu"
+externalDocs: "https://radix-ui.com/primitives/docs/components/navigation-menu"
+externalApi: "https://radix-ui.com/primitives/docs/components/navigation-menu#api-reference"
+---
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code={`import {
+  NavigationMenuListItem,
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+  NavigationMenuLink,
+} from "@/components/ui/navigation-menu";
+
+const OVERVIEW = [
+  {
+    title: "Quick Start",
+    description: "Install and assemble your first component.",
+  },
+  {
+    title: "About",
+    description: "Learn more about Luxe and our mission.",
+  },
+  {
+    title: "Accessibility",
+    description: "Learn how we build accessible components.",
+  },
+  {
+    title: "Releases",
+    description: "See what’s new in the latest Luxe versions.",
+  },
+];
+
+const DOCS = [
+  {
+    title: "Accordion",
+    description: "A vertically stacked set of interactive headings.",
+  },
+  {
+    title: "Checkbox",
+    description: "A control that allows users to select one or more options.",
+  },
+  {
+    title: "Dialog",
+    description: "A modal window that appears on top of the main content.",
+  },
+  {
+    title: "Tooltip",
+    description: "A small popup that appears when hovering over an element.",
+  },
+  {
+    title: "Multi Step Modal",
+    description:
+      "A modal dialog that guides users through a sequence of steps.",
+  },
+  {
+    title: "Switch",
+    description:
+      "A toggle control that allows users to turn an option on or off.",
+  },
+];
+
+export function NavigationMenuExample() {
+  return (
+    <NavigationMenu>
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Overview</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              {OVERVIEW.map((component) => (
+                <NavigationMenuListItem key={component.title} href="#">
+                  <h3 className="text-primary">{component.title}</h3>
+                  <span className="text-primary-muted">
+                    {component.description}
+                  </span>
+                </NavigationMenuListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Docs</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              {DOCS.map((component) => (
+                <NavigationMenuListItem key={component.title} href="#">
+                  <h3 className="text-primary">{component.title}</h3>
+                  <span className="text-primary-muted">
+                    {component.description}
+                  </span>
+                </NavigationMenuListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuLink href="#">Updates</NavigationMenuLink>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
+  );
+}`}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[350px] flex items-center justify-center">
+
+<NavigationMenuExample />
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock className="h-[350px]" contentClassName="h-full">
+
+```tsx
+import {
+  NavigationMenuListItem,
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+  NavigationMenuLink,
+} from "@/components/ui/navigation-menu";
+
+const OVERVIEW = [
+  {
+    title: "Quick Start",
+    description: "Install and assemble your first component.",
+  },
+  {
+    title: "About",
+    description: "Learn more about Luxe and our mission.",
+  },
+  {
+    title: "Accessibility",
+    description: "Learn how we build accessible components.",
+  },
+  {
+    title: "Releases",
+    description: "See what’s new in the latest Luxe versions.",
+  },
+];
+
+const DOCS = [
+  {
+    title: "Accordion",
+    description: "A vertically stacked set of interactive headings.",
+  },
+  {
+    title: "Checkbox",
+    description: "A control that allows users to select one or more options.",
+  },
+  {
+    title: "Dialog",
+    description: "A modal window that appears on top of the main content.",
+  },
+  {
+    title: "Tooltip",
+    description: "A small popup that appears when hovering over an element.",
+  },
+  {
+    title: "Multi Step Modal",
+    description:
+      "A modal dialog that guides users through a sequence of steps.",
+  },
+  {
+    title: "Switch",
+    description:
+      "A toggle control that allows users to turn an option on or off.",
+  },
+];
+
+export function NavigationMenuExample() {
+  return (
+    <NavigationMenu>
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Overview</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              {OVERVIEW.map((component) => (
+                <NavigationMenuListItem key={component.title} href="#">
+                  <h3 className="text-primary">{component.title}</h3>
+                  <span className="text-primary-muted">
+                    {component.description}
+                  </span>
+                </NavigationMenuListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Docs</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+              {DOCS.map((component) => (
+                <NavigationMenuListItem key={component.title} href="#">
+                  <h3 className="text-primary">{component.title}</h3>
+                  <span className="text-primary-muted">
+                    {component.description}
+                  </span>
+                </NavigationMenuListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuLink href="#">Updates</NavigationMenuLink>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
+  );
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+<div className="space-y-2 pt-4">
+
+<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
+
+## Usage
+
+</div>
+
+<CodeBlock className="mt-6" contentClassName="h-fit">
+
+```tsx
+import {
+  NavigationMenuListItem,
+  NavigationMenu,
+  NavigationMenuList,
+  NavigationMenuItem,
+  NavigationMenuTrigger,
+  NavigationMenuContent,
+  NavigationMenuLink,
+} from "@/components/ui/navigation-menu";
+```
+</CodeBlock>
+
+<CodeBlock className="mt-4" contentClassName="h-fit">
+
+```tsx
+<NavigationMenu>
+  <NavigationMenuList>
+    <NavigationMenuItem>
+      <NavigationMenuLink href="#">Link</NavigationMenuLink>
+    </NavigationMenuItem>
+    <NavigationMenuItem>
+      <NavigationMenuTrigger>Trigger</NavigationMenuTrigger>
+      <NavigationMenuContent>
+        <NavigationMenuListItem>Link One</NavigationMenuListItem>
+        <NavigationMenuListItem>Link Two</NavigationMenuListItem>
+        <NavigationMenuListItem>Link Three</NavigationMenuListItem>
+        <NavigationMenuListItem>Link Four</NavigationMenuListItem>
+      </NavigationMenuContent>
+    </NavigationMenuItem>
+    <NavigationMenuItem>
+      <NavigationMenuLink href="#">Link</NavigationMenuLink>
+    </NavigationMenuItem>
+  </NavigationMenuList>
+</NavigationMenu>
+```
+</CodeBlock>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="cli">CLI</TabsTrigger>
+	<TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+</div>
+
+<TabsContent value="cli">
+
+<CommandBlock 
+	npmCommand="npx @luxeui/ui@beta add navigation-menu" 
+	pnpmCommand="pnpm dlx @luxeui/ui@beta add navigation-menu" 
+	yarnCommand="npx @luxeui/ui@beta add navigation-menu" 
+	bunCommand="bunx --bun @luxeui/ui@beta add navigation-menu" 
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">1</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Install the packages
+
+</h2>
+
+<CommandBlock 
+	npmCommand="npm i @radix-ui/react-navigation-menu motion clsx tailwind-merge tw-animate-css" 
+	pnpmCommand="pnpm add @radix-ui/react-navigation-menu motion clsx tailwind-merge tw-animate-css" 
+	yarnCommand="yarn add @radix-ui/react-navigation-menu motion clsx tailwind-merge tw-animate-css" 
+	bunCommand="bun add @radix-ui/react-navigation-menu motion clsx tailwind-merge tw-animate-css" 
+/>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">2</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Copy and paste the following code into your project
+
+</h2>
+
+<CodeBlock fileName="navigation-menu.tsx">
+
+```tsx
+"use client"; // @NOTE: Add in case you are using Next.js
+
+import { useState } from "react";
+
+import * as RadixNavigationMenu from "@radix-ui/react-navigation-menu";
+import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+
+import { cn } from "@/utils/cn";
+
+type NavigationMenuProps = React.ComponentProps<
+  typeof RadixNavigationMenu.Root
+>;
+
+export function NavigationMenu({
+  className,
+  children,
+  ...props
+}: NavigationMenuProps) {
+  return (
+    <RadixNavigationMenu.Root
+      data-slot="navigation-menu"
+      data-viewport={false}
+      className={cn(
+        "relative flex max-w-max flex-1 items-center justify-center",
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </RadixNavigationMenu.Root>
+  );
+}
+
+type NavigationMenuListProps = React.ComponentProps<
+  typeof RadixNavigationMenu.List
+>;
+
+export function NavigationMenuList({
+  className,
+  ...props
+}: NavigationMenuListProps) {
+  return (
+    <RadixNavigationMenu.List
+      data-slot="navigation-menu-list"
+      className={cn(
+        "group flex flex-1 list-none items-center justify-center gap-1",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
+
+type NavigationMenuItemProps = React.ComponentProps<
+  typeof RadixNavigationMenu.Item
+>;
+
+export function NavigationMenuItem({
+  className,
+  ...props
+}: NavigationMenuItemProps) {
+  return (
+    <RadixNavigationMenu.Item
+      data-slot="navigation-menu-item"
+      className={cn("relative", className)}
+      {...props}
+    />
+  );
+}
+
+type NavigationMenuTriggerProps = React.ComponentProps<
+  typeof RadixNavigationMenu.Trigger
+>;
+
+export function NavigationMenuTrigger({
+  className,
+  children,
+  ...props
+}: NavigationMenuTriggerProps) {
+  return (
+    <RadixNavigationMenu.Trigger
+      data-slot="navigation-menu-trigger"
+      className={cn(
+        "group inline-flex h-9 w-max items-center justify-center rounded-md bg-main-background px-4 py-2 font-medium text-sm hover:bg-main-foreground hover:text-primary",
+        "text-primary-muted focus:bg-main-foreground focus:text-primary disabled:pointer-events-none disabled:opacity-50 data-[state=open]:text-primary",
+        "outline-none data-[state=open]:bg-main-foreground data-[state=open]:focus:bg-main-foreground",
+        className,
+      )}
+      {...props}
+    >
+      {children}
+      <svg
+        aria-hidden
+        xmlns="http://www.w3.org/2000/svg"
+        className="relative top-[1px] ml-1 size-3 transition duration-200 group-data-[state=open]:rotate-180"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <title>Chevron Down</title>
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </RadixNavigationMenu.Trigger>
+  );
+}
+
+type NavigationMenuContentProps = React.ComponentProps<
+  typeof RadixNavigationMenu.Content
+>;
+
+export function NavigationMenuContent({
+  className,
+  ...props
+}: NavigationMenuContentProps) {
+  return (
+    <RadixNavigationMenu.Content
+      data-slot="navigation-menu-content"
+      className={cn(
+        "top-full mt-1.5 overflow-hidden rounded-xl border bg-main-muted z-50 text-primary-muted shadow left-0 w-full border-border p-2.5 md:absolute md:left-1/2 md:w-auto",
+        "**:data-[slot=navigation-menu-link]:focus:outline-none **:data-[slot=navigation-menu-link]:focus:ring-0",
+        "motion-safe:data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52",
+        "motion-safe:data-[motion=to-end]:slide-out-to-right-52 motion-safe:data-[motion=to-start]:slide-out-to-left-52 md:-translate-x-1/2",
+        "motion-safe:data-[state=closed]:zoom-out-95 motion-safe:data-[state=open]:zoom-in-95 motion-safe:data-[motion^=from-]:animate-in motion-safe:data-[motion^=to-]:animate-out",
+        "motion-safe:duration-200 motion-safe:data-[state=closed]:animate-out motion-safe:data-[state=open]:animate-in",
+        "motion-safe:data-[state=open]:fade-in-0 motion-safe:data-[state=closed]:zoom-out-95 motion-safe:data-[state=open]:zoom-in-95 motion-safe:data-[state=closed]:fade-out-0",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
+
+type NavigationMenuLinkProps = React.ComponentProps<
+  typeof RadixNavigationMenu.Link
+>;
+
+export function NavigationMenuLink({
+  className,
+  ...props
+}: NavigationMenuLinkProps) {
+  return (
+    <RadixNavigationMenu.Link
+      data-slot="navigation-menu-link"
+      className={cn(
+        "text-primary-muted data-[active=true]:bg-main-foreground data-[active=true]:text-primary data-[active=true]:focus:bg-main-foreground",
+        "flex hover:bg-main-foreground hover:text-primary focus:bg-main-foreground focus:text-primary data-[active=true]:hover:bg-main-foreground",
+        "h-9 flex-col gap-1 rounded-md px-4 py-2 font-medium text-sm outline-none transition-all focus-within:ring-border focus-visible:outline-1",
+        'focus-visible:ring-1 [&_svg:not([class*="size-"])]:size-4 [&_svg:not([class*="text-"])]:text-main-muted',
+        className,
+      )}
+      {...props}
+    />
+  );
+}
+
+type NavigationMenuListItemProps = React.ComponentProps<
+  typeof RadixNavigationMenu.Link
+>;
+
+export function NavigationMenuListItem({
+  children,
+  className,
+  ...props
+}: NavigationMenuListItemProps) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const isReducedMotion = useReducedMotion();
+
+  return (
+    <RadixNavigationMenu.Link
+      {...props}
+      data-slot="navigation-menu-list-item"
+      className="relative rounded-lg p-3 outline-none"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      onFocus={() => setIsHovered(true)}
+      onBlur={() => setIsHovered(false)}
+    >
+      <div className={cn("relative z-10 flex flex-col gap-0.5", className)}>
+        {children}
+      </div>
+      {!isReducedMotion && (
+        <AnimatePresence initial={false}>
+          {isHovered && (
+            <motion.div
+              className="absolute inset-0 z-[1] rounded-[inherit] bg-main-foreground"
+              layoutId="background"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{
+                duration: 0.3,
+                type: "spring",
+                bounce: 0,
+              }}
+            />
+          )}
+        </AnimatePresence>
+      )}
+    </RadixNavigationMenu.Link>
+  );
+}
+```
+
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">3</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Create a file with the path <CodeHighlight>utils/cn.ts</CodeHighlight>
+
+</h2>
+
+<CodeBlock fileName="utils/cn.ts" customFilePath="utils/cn.ts" contentClassName="h-fit">
+```tsx
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">4</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Add animations and variable colors in your CSS File
+
+</h2>
+
+<CodeBlock fileName="css" simpleCode={`:root {
+  --main: oklch(0.97 0 0);
+  --main-foreground: oklch(0.925 0 0);
+  --main-muted: oklch(0.96 0 0);
+  --main-background: oklch(0.97 0 0);
+
+  --primary: oklch(0 0 0);
+  --primary-muted: oklch(0.556 0 0);
+
+  --border: oklch(0.885 0 0);
+}
+
+.dark {
+  --main: oklch(0.178 0 0);
+  --main-foreground: oklch(0.269 0 0);
+  --main-muted: oklch(0.168 0 0);
+  --main-background: oklch(0.145 0 0);
+
+  --primary: oklch(1 0 0);
+  --primary-muted: oklch(0.708 0 0);
+
+  --border: oklch(0.26 0 0);
+}
+
+@theme inline {
+  --color-main: var(--main);
+  --color-main-foreground: var(--main-foreground);
+  --color-main-muted: var(--main-muted);
+  --color-main-background: var(--main-background);
+
+  --color-primary: var(--primary);
+  --color-primary-muted: var(--primary-muted);
+
+  --color-border: var(--border);
+}`}>
+```css
+:root {
+  --main: oklch(0.97 0 0);
+  --main-foreground: oklch(0.925 0 0);
+  --main-muted: oklch(0.96 0 0);
+  --main-background: oklch(0.97 0 0);
+
+  --primary: oklch(0 0 0);
+  --primary-muted: oklch(0.556 0 0);
+
+  --border: oklch(0.885 0 0);
+}
+
+.dark {
+  --main: oklch(0.178 0 0);
+  --main-foreground: oklch(0.269 0 0);
+  --main-muted: oklch(0.168 0 0);
+  --main-background: oklch(0.145 0 0);
+
+  --primary: oklch(1 0 0);
+  --primary-muted: oklch(0.708 0 0);
+
+  --border: oklch(0.26 0 0);
+}
+
+@theme inline {
+  --color-main: var(--main);
+  --color-main-foreground: var(--main-foreground);
+  --color-main-muted: var(--main-muted);
+  --color-main-background: var(--main-background);
+
+  --color-primary: var(--primary);
+  --color-primary-muted: var(--primary-muted);
+
+  --color-border: var(--border);
+}
+```
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+  
+<span className="font-semibold text-primary">5</span>
+
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+
+<div className="space-y-4 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Update the import paths to match your project setup
+
+</h2>
+
+</div>
+</div>
+</div>
+</div>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
