@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     ],
     locale: "en",
     siteName: "Gustavo Rodrigues",
-    title: "Luxe — Add Utilities",
+    title: "Luxe: Add Utilities",
     description:
       "This code is widely used in Luxe, it is responsible for merging classes when they have conditionals.",
     type: "website",
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
       },
     ],
     card: "summary_large_image",
-    title: "Luxe — Add Utilities",
+    title: "Luxe: Add Utilities",
     description:
       "This code is widely used in Luxe, it is responsible for merging classes when they have conditionals.",
     site: "@guhrodrrigues",

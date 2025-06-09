@@ -37,7 +37,7 @@ export async function generateMetadata({
     title,
     description,
     openGraph: {
-      title: `Luxe — ${title}`,
+      title: `Luxe: ${title}`,
       description,
       type: "website",
       url: `https://luxeui.com/ui/${slugDocs}`,
@@ -51,7 +51,7 @@ export async function generateMetadata({
       ],
     },
     twitter: {
-      title: `Luxe — ${title}`,
+      title: `Luxe: ${title}`,
       description,
       card: "summary_large_image",
       images: [
