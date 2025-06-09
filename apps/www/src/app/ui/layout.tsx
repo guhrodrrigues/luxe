@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     ],
     locale: "en",
     siteName: "Gustavo Rodrigues",
-    title: "Luxe — Browse Components",
+    title: "Luxe: Browse Components",
     description:
       "Navigate to all the components that will make your application sophisticated and luxurious.",
     type: "website",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
       },
     ],
     card: "summary_large_image",
-    title: "Luxe — Browse Components",
+    title: "Luxe: Browse Components",
     description:
       "Navigate to all the components that will make your application sophisticated and luxurious.",
     site: "@guhrodrrigues",
