@@ -1,11 +1,15 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 
 import { cn } from "@/utils/cn";
 
+import { usePackageManager } from "@/hooks/use-package-manager";
+
 import { CopyCode } from "./CopyCode";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "./Tabs";
+
+type PackageManager = "npm" | "pnpm" | "yarn" | "bun";
 
 type CommandBlockProps = {
   npmCommand: string;
@@ -21,6 +25,8 @@ export function CommandBlock({
   bunCommand,
   className,
 }: CommandBlockProps) {
+  const [packageManager, setPackageManager] = usePackageManager();
+
   const tabs = useMemo(() => {
     return {
       npm: npmCommand,
@@ -29,9 +35,6 @@ export function CommandBlock({
       bun: bunCommand,
     };
   }, [npmCommand, pnpmCommand, yarnCommand, bunCommand]);
-
-  const [selectedPackage, setSelectedPackage] =
-    useState<keyof typeof tabs>("npm");
 
   return (
     <div
@@ -42,10 +45,8 @@ export function CommandBlock({
     >
       <Tabs
         defaultValue="npm"
-        value={selectedPackage}
-        onValueChange={(value) =>
-          setSelectedPackage(value as keyof typeof tabs)
-        }
+        value={packageManager}
+        onValueChange={(value) => setPackageManager(value as PackageManager)}
       >
         <div className="flex items-center justify-between border-b border-neutral-300/50 bg-neutral-200/30 pr-2.5 dark:border-neutral-800/60 dark:bg-neutral-900/30">
           <TabsList className="bg-transparent h-10 pl-4">
@@ -59,7 +60,7 @@ export function CommandBlock({
               </TabsTrigger>
             ))}
           </TabsList>
-          <CopyCode code={tabs[selectedPackage]} />
+          <CopyCode code={tabs[packageManager]} />
         </div>
         <div className="relative overflow-x-auto">
           {Object.entries(tabs).map(([key, value]) => (
