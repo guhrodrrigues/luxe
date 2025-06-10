@@ -1,6 +1,6 @@
+import Link from "next/link";
+
 import { cn } from "@/utils/cn";
-import { Link } from "next-view-transitions";
-import React from "react";
 
 type ButtonGlitchBrightnessProps = {
   href: string;

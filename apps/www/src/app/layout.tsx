@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { fontSans, fontMono } from "@/utils/fonts";
 
-import { ViewTransitions } from "next-view-transitions";
-
 import "@/styles/globals.css";
 
 import { cn } from "@/utils/cn";
@@ -103,17 +101,15 @@ export default function RootLayout({
           fontMono.variable,
         )}
       >
-        <ViewTransitions>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <Header />
-            {children}
-          </ThemeProvider>
-        </ViewTransitions>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Header />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
