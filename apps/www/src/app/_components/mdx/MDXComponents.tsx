@@ -36,6 +36,10 @@ import { Input } from "../ui/input";
 import { BlurImage } from "../BlurImage";
 import { MultiStepModalExample } from "../../ui/_components/examples/MultiStepModalExample";
 import { NavigationMenuExample } from "@/app/ui/_components/examples/NavigationMenuExample";
+import { InputOTPExample } from "@/app/ui/_components/examples/input-otp/InputOTPExample";
+import { InputOTPDisabledExample } from "@/app/ui/_components/examples/input-otp/InputOTPDisabledExample";
+import { InputOTPPatternExample } from "@/app/ui/_components/examples/input-otp/InputOTPPatternExample";
+import { InputOTPFormExample } from "@/app/ui/_components/examples/input-otp/InputOTPFormExample";
 
 const components: MDXComponents = {
   ComponentView: ({ children, isReloadAnimation, ...props }) => (
@@ -201,6 +205,10 @@ const components: MDXComponents = {
   Input: ({ ...props }) => <Input {...props} />,
   MultiStepModalExample: () => <MultiStepModalExample />,
   NavigationMenuExample: () => <NavigationMenuExample />,
+  InputOTPExample: () => <InputOTPExample />,
+  InputOTPDisabledExample: () => <InputOTPDisabledExample />,
+  InputOTPPatternExample: () => <InputOTPPatternExample />,
+  InputOTPFormExample: () => <InputOTPFormExample />,
 };
 
 export function useMDXComponents(components: MDXComponents) {

@@ -1,0 +1,912 @@
+---
+title: "Input OTP"
+description: "Animated one-time password, respecting user motion preferences."
+slug: "input-otp"
+externalDocs: "https://input-otp.rodz.dev"
+isNew: true
+---
+
+<div className="space-y-2">
+
+<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
+
+## Examples
+
+</div>
+
+<div className="mt-12">
+
+### Default
+
+</div>
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code={`import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+  InputOTPSeparator,
+} from "@/components/ui/input-otp";
+
+export function InputOTPExample() {
+  return (
+    <InputOTP maxLength={6}>
+      <InputOTPGroup>
+        <InputOTPSlot index={0} />
+        <InputOTPSlot index={1} />
+        <InputOTPSlot index={2} />
+      </InputOTPGroup>
+      <InputOTPSeparator />
+      <InputOTPGroup>
+        <InputOTPSlot index={3} />
+        <InputOTPSlot index={4} />
+        <InputOTPSlot index={5} />
+      </InputOTPGroup>
+    </InputOTP>
+  );
+}`}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[402px] flex items-center justify-center">
+
+<InputOTPExample />
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-[400px]">
+
+```tsx
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+  InputOTPSeparator,
+} from "@/components/ui/input-otp";
+
+export function InputOTPExample() {
+  return (
+    <InputOTP maxLength={6}>
+      <InputOTPGroup>
+        <InputOTPSlot index={0} />
+        <InputOTPSlot index={1} />
+        <InputOTPSlot index={2} />
+      </InputOTPGroup>
+      <InputOTPSeparator />
+      <InputOTPGroup>
+        <InputOTPSlot index={3} />
+        <InputOTPSlot index={4} />
+        <InputOTPSlot index={5} />
+      </InputOTPGroup>
+    </InputOTP>
+  );
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+### With Pattern
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code={`"use client"; // @NOTE: Add in case you are using Next.js
+
+import { REGEXP_ONLY_DIGITS } from "input-otp";
+
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+  InputOTPSeparator,
+} from "@/components/ui/input-otp";
+
+export function InputOTPPatternExample() {
+  return (
+    <InputOTP maxLength={6} pattern={REGEXP_ONLY_DIGITS}>
+      <InputOTPGroup>
+        <InputOTPSlot index={0} />
+        <InputOTPSlot index={1} />
+        <InputOTPSlot index={2} />
+      </InputOTPGroup>
+      <InputOTPSeparator />
+      <InputOTPGroup>
+        <InputOTPSlot index={3} />
+        <InputOTPSlot index={4} />
+        <InputOTPSlot index={5} />
+      </InputOTPGroup>
+    </InputOTP>
+  );
+}
+`}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[402px] flex items-center justify-center">
+
+<InputOTPPatternExample />
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-[400px]">
+
+```tsx
+"use client"; // @NOTE: Add in case you are using Next.js
+
+import { REGEXP_ONLY_DIGITS } from "input-otp";
+
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+  InputOTPSeparator,
+} from "@/components/ui/input-otp";
+
+export function InputOTPPatternExample() {
+  return (
+    <InputOTP maxLength={6} pattern={REGEXP_ONLY_DIGITS}>
+      <InputOTPGroup>
+        <InputOTPSlot index={0} />
+        <InputOTPSlot index={1} />
+        <InputOTPSlot index={2} />
+      </InputOTPGroup>
+      <InputOTPSeparator />
+      <InputOTPGroup>
+        <InputOTPSlot index={3} />
+        <InputOTPSlot index={4} />
+        <InputOTPSlot index={5} />
+      </InputOTPGroup>
+    </InputOTP>
+  );
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+### With Form
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code='`"use client"; // @NOTE: Add in case you are using Next.js
+
+import { z } from "zod";
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+  InputOTPSeparator,
+} from "@/components/ui/input-otp";
+import { Button } from "@/components/ui/button";
+
+import { cn } from "@/utils/cn";
+
+const formSchema = z.object({
+  pin: z.string().min(6, {
+    message: "Your password must have 6 characters.",
+  }),
+});
+
+type FormData = z.infer<typeof formSchema>;
+
+export function InputOTPFormExample() {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(formSchema),
+  });
+
+  function onSubmit(data: FormData) {
+    alert(`Your password is: ${data.pin}`);
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="w-2/3">
+      <h1
+        className={cn(
+          "text-primary text-sm mb-2",
+          errors.pin && "text-red-400",
+        )}
+      >
+        One-time Password
+      </h1>
+      <Controller
+        control={control}
+        name="pin"
+        render={({ field }) => (
+          <InputOTP maxLength={6} {...field}>
+            <InputOTPGroup>
+              <InputOTPSlot index={0} />
+              <InputOTPSlot index={1} />
+              <InputOTPSlot index={2} />
+            </InputOTPGroup>
+            <InputOTPSeparator />
+            <InputOTPGroup>
+              <InputOTPSlot index={3} />
+              <InputOTPSlot index={4} />
+              <InputOTPSlot index={5} />
+            </InputOTPGroup>
+          </InputOTP>
+        )}
+      />
+      {errors.pin && (
+        <p className="text-sm text-red-400 mt-2">{errors.pin.message}</p>
+      )}
+      <Button type="submit" className="mt-4">
+        Submit
+      </Button>
+    </form>
+  );
+}'
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[402px] flex items-center justify-center">
+
+<InputOTPFormExample />
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-[400px]">
+
+```tsx
+"use client"; // @NOTE: Add in case you are using Next.js
+
+import { z } from "zod";
+import { useForm, Controller } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+  InputOTPSeparator,
+} from "@/components/ui/input-otp";
+import { Button } from "@/components/ui/button";
+
+import { cn } from "@/utils/cn";
+
+const formSchema = z.object({
+  pin: z.string().min(6, {
+    message: "Your password must have 6 characters.",
+  }),
+});
+
+type FormData = z.infer<typeof formSchema>;
+
+export function InputOTPFormExample() {
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(formSchema),
+  });
+
+  function onSubmit(data: FormData) {
+    alert(`Your password is: ${data.pin}`);
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="w-2/3">
+      <h1
+        className={cn(
+          "text-primary text-sm mb-2",
+          errors.pin && "text-red-400",
+        )}
+      >
+        One-time Password
+      </h1>
+      <Controller
+        control={control}
+        name="pin"
+        render={({ field }) => (
+          <InputOTP maxLength={6} {...field}>
+            <InputOTPGroup>
+              <InputOTPSlot index={0} />
+              <InputOTPSlot index={1} />
+              <InputOTPSlot index={2} />
+            </InputOTPGroup>
+            <InputOTPSeparator />
+            <InputOTPGroup>
+              <InputOTPSlot index={3} />
+              <InputOTPSlot index={4} />
+              <InputOTPSlot index={5} />
+            </InputOTPGroup>
+          </InputOTP>
+        )}
+      />
+      {errors.pin && (
+        <p className="text-sm text-red-400 mt-2">{errors.pin.message}</p>
+      )}
+      <Button type="submit" className="mt-4">
+        Submit
+      </Button>
+    </form>
+  );
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+<div className="flex items-center justify-center">
+
+<span className="block text-xs text-neutral-500 mt-1">This example uses the <Link href="/ui/button">Button</Link>.</span>
+
+</div>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+### Disabled
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code={`import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+  InputOTPSeparator,
+} from "@/components/ui/input-otp";
+
+export function InputOTPDisabled() {
+  return (
+    <InputOTP maxLength={6} disabled>
+      <InputOTPGroup>
+        <InputOTPSlot index={0} />
+        <InputOTPSlot index={1} />
+        <InputOTPSlot index={2} />
+      </InputOTPGroup>
+      <InputOTPSeparator />
+      <InputOTPGroup>
+        <InputOTPSlot index={3} />
+        <InputOTPSlot index={4} />
+        <InputOTPSlot index={5} />
+      </InputOTPGroup>
+    </InputOTP>
+  );
+}`}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[402px] flex items-center justify-center">
+
+<InputOTPDisabledExample />
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-[400px]">
+
+```tsx
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+  InputOTPSeparator,
+} from "@/components/ui/input-otp";
+
+export function InputOTPDisabled() {
+  return (
+    <InputOTP maxLength={6} disabled>
+      <InputOTPGroup>
+        <InputOTPSlot index={0} />
+        <InputOTPSlot index={1} />
+        <InputOTPSlot index={2} />
+      </InputOTPGroup>
+      <InputOTPSeparator />
+      <InputOTPGroup>
+        <InputOTPSlot index={3} />
+        <InputOTPSlot index={4} />
+        <InputOTPSlot index={5} />
+      </InputOTPGroup>
+    </InputOTP>
+  );
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
+
+## Usage
+
+</div>
+
+<CodeBlock className="mt-6" contentClassName="h-fit">
+
+```tsx
+import {
+  InputOTP,
+  InputOTPGroup,
+  InputOTPSlot,
+  InputOTPSeparator,
+} from "@/components/ui/input-otp";
+```
+</CodeBlock>
+
+<CodeBlock className="mt-4" contentClassName="h-fit">
+
+```tsx
+<InputOTP maxLength={6}>
+  <InputOTPGroup>
+    <InputOTPSlot index={0} />
+    <InputOTPSlot index={1} />
+    <InputOTPSlot index={2} />
+  </InputOTPGroup>
+  <InputOTPSeparator />
+  <InputOTPGroup>
+    <InputOTPSlot index={3} />
+    <InputOTPSlot index={4} />
+    <InputOTPSlot index={5} />
+  </InputOTPGroup>
+</InputOTP>
+```
+</CodeBlock>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="cli">CLI</TabsTrigger>
+	<TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+</div>
+
+<TabsContent value="cli">
+
+<CommandBlock 
+	npmCommand="npx @luxeui/ui@beta add input-otp" 
+	pnpmCommand="pnpm dlx @luxeui/ui@beta add input-otp" 
+	yarnCommand="npx @luxeui/ui@beta add input-otp" 
+	bunCommand="bunx --bun @luxeui/ui@beta add input-otp" 
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">1</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Install the packages
+
+</h2>
+
+<CommandBlock 
+	npmCommand="npm i input-otp motion clsx tailwind-merge" 
+	pnpmCommand="pnpm add input-otp motion clsx tailwind-merge" 
+	yarnCommand="yarn add input-otp motion clsx tailwind-merge" 
+	bunCommand="bun add input-otp motion clsx tailwind-merge"
+/>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">2</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Copy and paste the following code into your project
+
+</h2>
+
+<CodeBlock fileName="input-otp.tsx">
+
+```tsx
+'use client' // @NOTE: Add in case you are using Next.js
+
+import { useContext } from 'react'
+
+import { OTPInput, OTPInputContext } from 'input-otp'
+import {
+  AnimatePresence,
+  type AnimationProps,
+  MotionConfig,
+  motion,
+} from 'motion/react'
+
+import { cn } from '@/utils/cn'
+
+type InputOTPProps = React.ComponentProps<typeof OTPInput>
+
+export function InputOTP({
+  containerClassName,
+  className,
+  ...props
+}: InputOTPProps) {
+  return (
+    <OTPInput
+      data-slot="input-otp"
+      containerClassName={cn(
+        'flex items-center gap-2 has-disabled:opacity-50',
+        containerClassName,
+      )}
+      className={cn('disabled:cursor-not-allowed', className)}
+      {...props}
+    />
+  )
+}
+
+type InputOTPGroupProps = React.ComponentProps<'div'>
+
+export function InputOTPGroup({ className, ...props }: InputOTPGroupProps) {
+  return (
+    <div
+      data-slot="input-otp-group"
+      className={cn('flex items-center gap-1', className)}
+      {...props}
+    />
+  )
+}
+
+type InputOTPAnimatedNumberProps = {
+  value: string | null
+}
+
+function InputOTPAnimatedNumber({ value }: InputOTPAnimatedNumberProps) {
+  const animationProps: AnimationProps = {
+    initial: { opacity: 0.2, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: 0 },
+  }
+
+  return (
+    <div className="relative flex size-[inherit] items-center justify-center overflow-hidden">
+      <AnimatePresence mode="wait">
+        <motion.span
+          key={value}
+          data-slot="input-otp-animated-number"
+          className="absolute"
+          transition={{ duration: 0.09, ease: 'easeOut' }}
+          {...animationProps}
+        >
+          {value}
+        </motion.span>
+      </AnimatePresence>
+    </div>
+  )
+}
+
+type InputOTPSlotProps = {
+  index: number
+} & React.ComponentProps<typeof motion.div>
+
+export function InputOTPSlot({
+  index,
+  className,
+  ...props
+}: InputOTPSlotProps) {
+  const inputOTPContext = useContext(OTPInputContext)
+  const { char, hasFakeCaret, isActive } = inputOTPContext?.slots[index] ?? {}
+
+  return (
+    <MotionConfig reducedMotion="user">
+      <motion.div
+        data-slot="input-otp-slot"
+        className={cn(
+          'group relative flex h-10 w-9 items-center justify-center rounded-[10px] border border-border bg-main-muted font-medium text-base text-primary-foreground',
+          'aria-invalid:border-red-500 data-[active=true]:aria-invalid:border-red-500 data-[active=true]:aria-invalid:ring-2 data-[active=true]:aria-invalid:ring-red-500',
+          className,
+        )}
+        {...props}
+      >
+        {char && <InputOTPAnimatedNumber value={char} />}
+
+        {hasFakeCaret && <FakeCaret />}
+
+        {isActive && (
+          <AnimatePresence>
+            <motion.div
+              layoutId="indicator"
+              className="absolute inset-0 z-10 rounded-[inherit] ring-2 ring-border"
+              transition={{ duration: 0.12, ease: 'easeInOut' }}
+            />
+          </AnimatePresence>
+        )}
+      </motion.div>
+    </MotionConfig>
+  )
+}
+
+type InputOTPSeparatorProps = React.ComponentProps<'div'>
+
+export function InputOTPSeparator({
+  className,
+  ...props
+}: InputOTPSeparatorProps) {
+  return (
+    <div
+      data-slot="input-otp-separator"
+      aria-hidden
+      className={cn('h-0.5 w-2 rounded-full bg-border', className)}
+      {...props}
+    />
+  )
+}
+
+function FakeCaret() {
+  return (
+    <div
+      aria-hidden
+      className="pointer-events-none absolute inset-0 flex items-center justify-center"
+    >
+      <div className="h-4.5 w-px bg-primary-muted motion-safe:animate-caret-blink motion-safe:duration-1000" />
+    </div>
+  )
+}
+```
+
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">3</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Create a file with the path <CodeHighlight>utils/cn.ts</CodeHighlight>
+
+</h2>
+
+<CodeBlock fileName="utils/cn.ts" customFilePath="utils/cn.ts" contentClassName="h-fit">
+```tsx
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">4</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Add animations and variable colors in your CSS File
+
+</h2>
+
+<CodeBlock fileName="css" simpleCode={`:root {
+  --primary-foreground: oklch(37.1% 0 0);
+  --primary-muted: oklch(0.556 0 0);
+}
+
+.dark {
+  --primary-foreground: oklch(0.97 0 0);
+  --primary-muted: oklch(0.708 0 0);
+}
+
+@theme inline {
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-muted: var(--primary-muted);
+
+  --animate-text-shake: text-shake 1s ease 1;
+
+  @keyframes text-shake {
+    15% {
+      transform: translateX(5px);
+    }
+    30% {
+      transform: translateX(-5px);
+    }
+    50% {
+      transform: translateX(3px);
+    }
+    80% {
+      transform: translateX(2px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+}`}>
+```css
+:root {
+  --main-muted: oklch(0.96 0 0);
+
+  --primary-foreground: oklch(37.1% 0 0);
+  --primary-muted: oklch(0.556 0 0);
+
+  --border: oklch(0.885 0 0);
+}
+
+.dark {
+  --main-muted: oklch(0.168 0 0);
+
+  --primary-foreground: oklch(0.97 0 0);
+  --primary-muted: oklch(0.708 0 0);
+
+  --border: oklch(0.26 0 0);
+}
+
+@theme inline {
+  --color-main-muted: var(--main-muted);
+
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-muted: var(--primary-muted);
+
+  --color-border: var(--border);
+}
+```
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	
+<span className="font-semibold text-primary">5</span>
+
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+
+<div className="space-y-4 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Update the import paths to match your project setup
+
+</h2>
+
+</div>
+</div>
+</div>
+</div>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
