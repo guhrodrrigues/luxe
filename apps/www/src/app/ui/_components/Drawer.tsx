@@ -59,6 +59,10 @@ const COMPONENTS = [
     slug: "/ui/input",
   },
   {
+    title: "Input OTP",
+    slug: "/ui/input-otp",
+  },
+  {
     title: "Multi Step Modal",
     slug: "/ui/multi-step-modal",
   },

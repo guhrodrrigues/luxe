@@ -386,6 +386,22 @@ export function CommandMenu() {
           ),
         },
         {
+          title: "Input OTP",
+          slug: "/ui/input-otp",
+          ref: getComponentRef("InputOTP"),
+          icon: (
+            <Lottie
+              lottieRef={getComponentRef("InputOTP")}
+              animationData={
+                theme === "dark" ? fileDarkModeIcon : fileLightModeIcon
+              }
+              style={{ width: 22, height: 22 }}
+              autoplay={false}
+              loop={false}
+            />
+          ),
+        },
+        {
           title: "Multi Step Modal",
           slug: "/ui/multi-step-modal",
           ref: getComponentRef("Multi Step Modal"),

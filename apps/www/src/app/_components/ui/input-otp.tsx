@@ -100,13 +100,11 @@ export function InputOTPSlot({
         {hasFakeCaret && <FakeCaret />}
 
         {isActive && (
-          <AnimatePresence>
-            <motion.div
-              layoutId="indicator"
-              className="absolute inset-0 z-10 rounded-[inherit] ring-2 ring-border"
-              transition={{ duration: 0.12, ease: 'easeInOut' }}
-            />
-          </AnimatePresence>
+          <motion.div
+            layoutId="indicator"
+            className="absolute inset-0 z-10 rounded-[inherit] ring-2 ring-border"
+            transition={{ duration: 0.12, ease: 'easeInOut' }}
+          />
         )}
       </motion.div>
     </MotionConfig>
