@@ -84,6 +84,9 @@ export function InputOTPSlot({
   const inputOTPContext = useContext(OTPInputContext)
   const { char, hasFakeCaret, isActive } = inputOTPContext?.slots[index] ?? {}
 
+  const activeSlots = inputOTPContext?.slots.filter(slot => slot.isActive) ?? []
+  const isMultiSelect = activeSlots.length > 1
+
   return (
     <MotionConfig reducedMotion="user">
       <motion.div
@@ -99,13 +102,16 @@ export function InputOTPSlot({
 
         {hasFakeCaret && <FakeCaret />}
 
-        {isActive && (
-          <motion.div
-            layoutId="indicator"
-            className="absolute inset-0 z-10 rounded-[inherit] ring-2 ring-border"
-            transition={{ duration: 0.12, ease: 'easeInOut' }}
-          />
-        )}
+        <AnimatePresence mode="wait">
+          {isActive && (
+            <motion.div
+              key={`${isActive}-${isMultiSelect}`}
+              layoutId={isMultiSelect ? `indicator-${index}` : 'indicator'}
+              className="absolute inset-0 z-10 rounded-[inherit] ring-2 ring-border"
+              transition={{ duration: 0.12, ease: 'easeInOut' }}
+            />
+          )}
+        </AnimatePresence>
       </motion.div>
     </MotionConfig>
   )

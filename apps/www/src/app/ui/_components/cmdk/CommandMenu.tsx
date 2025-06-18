@@ -143,7 +143,7 @@ export function CommandMenu() {
   const router = useRouter();
   const pathname = usePathname();
 
-  const { theme } = useTheme();
+  const { resolvedTheme: theme } = useTheme();
 
   const homeRef = useRef<any>(null);
   const updatesRef = useRef<any>(null);
@@ -376,6 +376,22 @@ export function CommandMenu() {
           icon: (
             <Lottie
               lottieRef={getComponentRef("Input")}
+              animationData={
+                theme === "dark" ? fileDarkModeIcon : fileLightModeIcon
+              }
+              style={{ width: 22, height: 22 }}
+              autoplay={false}
+              loop={false}
+            />
+          ),
+        },
+        {
+          title: "Input OTP",
+          slug: "/ui/input-otp",
+          ref: getComponentRef("InputOTP"),
+          icon: (
+            <Lottie
+              lottieRef={getComponentRef("InputOTP")}
               animationData={
                 theme === "dark" ? fileDarkModeIcon : fileLightModeIcon
               }
