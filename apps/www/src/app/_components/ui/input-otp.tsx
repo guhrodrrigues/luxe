@@ -1,6 +1,6 @@
 'use client' // @NOTE: Add in case you are using Next.js
 
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
 
 import { OTPInput, OTPInputContext } from 'input-otp'
 import {
@@ -83,6 +83,8 @@ export function InputOTPSlot({
 }: InputOTPSlotProps) {
   const inputOTPContext = useContext(OTPInputContext)
   const { char, hasFakeCaret, isActive } = inputOTPContext?.slots[index] ?? {}
+  const isMultiSelect =
+    inputOTPContext?.slots.filter(slot => slot.isActive).length > 1
 
   return (
     <MotionConfig reducedMotion="user">
@@ -99,13 +101,15 @@ export function InputOTPSlot({
 
         {hasFakeCaret && <FakeCaret />}
 
-        {isActive && (
-          <motion.div
-            layoutId="indicator"
-            className="absolute inset-0 z-10 rounded-[inherit] ring-2 ring-border"
-            transition={{ duration: 0.12, ease: 'easeInOut' }}
-          />
-        )}
+        <AnimatePresence>
+          {isActive && (
+            <motion.div
+              layoutId={isMultiSelect ? `indicator-${index}` : 'indicator'}
+              className="absolute inset-0 z-10 rounded-[inherit] ring-2 ring-border"
+              transition={{ duration: 0.12, ease: 'easeInOut' }}
+            />
+          )}
+        </AnimatePresence>
       </motion.div>
     </MotionConfig>
   )

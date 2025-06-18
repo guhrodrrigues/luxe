@@ -143,7 +143,7 @@ export function CommandMenu() {
   const router = useRouter();
   const pathname = usePathname();
 
-  const { theme } = useTheme();
+  const { resolvedTheme: theme } = useTheme();
 
   const homeRef = useRef<any>(null);
   const updatesRef = useRef<any>(null);
