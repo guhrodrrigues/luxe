@@ -61,7 +61,6 @@ function InputOTPAnimatedNumber({ value }: InputOTPAnimatedNumberProps) {
         <motion.span
           key={value}
           data-slot="input-otp-animated-number"
-          className="absolute"
           transition={{ duration: 0.09, ease: 'easeOut' }}
           {...animationProps}
         >

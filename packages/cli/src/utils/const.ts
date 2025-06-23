@@ -88,6 +88,19 @@ export const THEME_BASE_CSS = String.raw`@import "tailwindcss";
     --animate-spinner: spinner 1.2s linear infinite;
     --animate-accordion-open: accordion-open 0.2s ease-out;
     --animate-accordion-close: accordion-close 0.2s ease-out;
+		--animate-caret-blink: caret-blink 1.25s ease-out infinite;
+
+    @keyframes caret-blink {
+      0%,
+      70%,
+      100% {
+        opacity: 1;
+      }
+      20%,
+      50% {
+        opacity: 0;
+      }
+    }
 
     @keyframes accordion-open {
       from {
