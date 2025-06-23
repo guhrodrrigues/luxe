@@ -1,139 +1,78 @@
 'use client' // @NOTE: Add in case you are using Next.js
 
-import { useContext } from 'react'
+import { useState } from 'react'
 
-import { OTPInput, OTPInputContext } from 'input-otp'
-import {
-  AnimatePresence,
-  type AnimationProps,
-  MotionConfig,
-  motion,
-} from 'motion/react'
+import { AnimatePresence, type Variants, motion } from 'motion/react'
 
 import { cn } from '@/utils/cn'
 
-type InputOTPProps = React.ComponentProps<typeof OTPInput>
+export type InputProps = React.ComponentPropsWithRef<'input'>
+type FieldState = 'idle' | 'filled'
 
-export function InputOTP({
-  containerClassName,
+export function Input({
+  placeholder,
+  onChange,
   className,
   ...props
-}: InputOTPProps) {
-  return (
-    <OTPInput
-      data-slot="input-otp"
-      containerClassName={cn(
-        'flex items-center gap-2 has-disabled:opacity-50',
-        containerClassName,
-      )}
-      className={cn('disabled:cursor-not-allowed', className)}
-      {...props}
-    />
-  )
-}
+}: InputProps) {
+  const [fieldState, setFieldState] = useState<FieldState>('idle')
 
-type InputOTPGroupProps = React.ComponentProps<'div'>
-
-export function InputOTPGroup({ className, ...props }: InputOTPGroupProps) {
-  return (
-    <div
-      data-slot="input-otp-group"
-      className={cn('flex items-center gap-1', className)}
-      {...props}
-    />
-  )
-}
-
-type InputOTPAnimatedNumberProps = {
-  value: string | null
-}
-
-function InputOTPAnimatedNumber({ value }: InputOTPAnimatedNumberProps) {
-  const animationProps: AnimationProps = {
-    initial: { opacity: 0.2, y: 20 },
-    animate: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: 0 },
+  const animatedPlaceholderVariants: Variants = {
+    show: {
+      x: 0,
+      opacity: 1,
+      filter: 'blur(var(--blur-none))',
+    },
+    hidden: {
+      x: 28,
+      opacity: 0,
+      filter: 'blur(var(--blur-xs))',
+    },
   }
 
   return (
-    <div className="relative flex size-[inherit] items-center justify-center overflow-hidden">
-      <AnimatePresence mode="wait">
-        <motion.span
-          key={value}
-          data-slot="input-otp-animated-number"
-          className="absolute"
-          transition={{ duration: 0.09, ease: 'easeOut' }}
-          {...animationProps}
-        >
-          {value}
-        </motion.span>
-      </AnimatePresence>
-    </div>
-  )
-}
-
-type InputOTPSlotProps = {
-  index: number
-} & React.ComponentProps<typeof motion.div>
-
-export function InputOTPSlot({
-  index,
-  className,
-  ...props
-}: InputOTPSlotProps) {
-  const inputOTPContext = useContext(OTPInputContext)
-  const { char, hasFakeCaret, isActive } = inputOTPContext?.slots[index] ?? {}
-
-  return (
-    <MotionConfig reducedMotion="user">
-      <motion.div
-        data-slot="input-otp-slot"
-        className={cn(
-          'group relative flex h-10 w-9 items-center justify-center rounded-[10px] border border-border bg-main-muted font-medium text-base text-primary-foreground',
-          'aria-invalid:border-red-500 data-[active=true]:aria-invalid:border-red-500 data-[active=true]:aria-invalid:ring-2 data-[active=true]:aria-invalid:ring-red-500',
-          className,
-        )}
-        {...props}
-      >
-        {char && <InputOTPAnimatedNumber value={char} />}
-
-        {hasFakeCaret && <FakeCaret />}
-
-        {isActive && (
-          <motion.div
-            layoutId="indicator"
-            className="absolute inset-0 z-10 rounded-[inherit] ring-2 ring-border"
-            transition={{ duration: 0.12, ease: 'easeInOut' }}
-          />
-        )}
-      </motion.div>
-    </MotionConfig>
-  )
-}
-
-type InputOTPSeparatorProps = React.ComponentProps<'div'>
-
-export function InputOTPSeparator({
-  className,
-  ...props
-}: InputOTPSeparatorProps) {
-  return (
     <div
-      data-slot="input-otp-separator"
-      aria-hidden
-      className={cn('h-0.5 w-2 rounded-full bg-border', className)}
-      {...props}
-    />
-  )
-}
-
-function FakeCaret() {
-  return (
-    <div
-      aria-hidden
-      className="pointer-events-none absolute inset-0 flex items-center justify-center"
+      className={cn(
+        'relative inline-flex h-11 w-64 items-center overflow-hidden rounded-xl border border-border bg-main-secondary shadow-xs transition-colors ease-out focus-within:border-primary data-[filled=true]:border-border',
+        'has-disabled:opacity-80 has-disabled:*:cursor-not-allowed',
+        className,
+      )}
+      data-filled={fieldState === 'filled'}
     >
-      <div className="h-4.5 w-px bg-primary-muted motion-safe:animate-caret-blink motion-safe:duration-1000" />
+      <input
+        {...props}
+        className={cn(
+          'peer h-full flex-1 bg-transparent px-3 py-2 caret-primary outline-none placeholder:sr-only',
+          'font-normal font-sans text-primary-foreground text-sm/5.5 ',
+        )}
+        placeholder={placeholder}
+        onChange={event => {
+          setFieldState(event.target.value.length > 0 ? 'filled' : 'idle')
+          onChange?.(event)
+        }}
+      />
+
+      <AnimatePresence mode="popLayout" initial={false}>
+        {fieldState !== 'filled' && (
+          <motion.span
+            className={cn(
+              'pointer-events-none absolute left-3',
+              'font-normal font-sans text-primary-muted/70 text-sm/5.5',
+            )}
+            variants={animatedPlaceholderVariants}
+            initial="hidden"
+            animate="show"
+            exit="hidden"
+            transition={{
+              type: 'spring',
+              duration: 0.6,
+              bounce: 0,
+            }}
+          >
+            {placeholder}
+          </motion.span>
+        )}
+      </AnimatePresence>
     </div>
   )
 }

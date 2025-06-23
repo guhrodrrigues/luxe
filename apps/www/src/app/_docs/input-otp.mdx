@@ -681,7 +681,6 @@ function InputOTPAnimatedNumber({ value }: InputOTPAnimatedNumberProps) {
         <motion.span
           key={value}
           data-slot="input-otp-animated-number"
-          className="absolute"
           transition={{ duration: 0.09, ease: 'easeOut' }}
           {...animationProps}
         >
@@ -819,36 +818,42 @@ Add animations and variable colors in your CSS File
 </h2>
 
 <CodeBlock fileName="css" simpleCode={`:root {
+  --main-muted: oklch(0.96 0 0);
+
   --primary-foreground: oklch(37.1% 0 0);
   --primary-muted: oklch(0.556 0 0);
+
+  --border: oklch(0.885 0 0);
 }
 
 .dark {
+  --main-muted: oklch(0.168 0 0);
+
   --primary-foreground: oklch(0.97 0 0);
   --primary-muted: oklch(0.708 0 0);
+
+  --border: oklch(0.26 0 0);
 }
 
 @theme inline {
+  --color-main-muted: var(--main-muted);
+
   --color-primary-foreground: var(--primary-foreground);
   --color-primary-muted: var(--primary-muted);
 
-  --animate-text-shake: text-shake 1s ease 1;
+  --color-border: var(--border);
 
-  @keyframes text-shake {
-    15% {
-      transform: translateX(5px);
-    }
-    30% {
-      transform: translateX(-5px);
-    }
-    50% {
-      transform: translateX(3px);
-    }
-    80% {
-      transform: translateX(2px);
-    }
+  --animate-caret-blink: caret-blink 1.25s ease-out infinite;
+
+	@keyframes caret-blink {
+    0%,
+    70%,
     100% {
-      transform: translateX(0);
+      opacity: 1;
+    }
+    20%,
+    50% {
+      opacity: 0;
     }
   }
 }`}>
@@ -878,6 +883,20 @@ Add animations and variable colors in your CSS File
   --color-primary-muted: var(--primary-muted);
 
   --color-border: var(--border);
+
+  --animate-caret-blink: caret-blink 1.25s ease-out infinite;
+
+  @keyframes caret-blink {
+    0%,
+    70%,
+    100% {
+      opacity: 1;
+    }
+    20%,
+    50% {
+      opacity: 0;
+    }
+  }
 }
 ```
 </CodeBlock>
