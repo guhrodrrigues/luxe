@@ -63,6 +63,11 @@ const COMPONENTS = [
     slug: "/ui/input",
   },
   {
+    title: "Input OTP",
+    slug: "/ui/input-otp",
+    isNew: true,
+  },
+  {
     title: "Multi Step Modal",
     slug: "/ui/multi-step-modal",
   },
@@ -102,7 +107,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
       <VaulDrawer.Portal>
         <VaulDrawer.Overlay className="fixed inset-0 z-[60] bg-black/60" />
         <VaulDrawer.Content
-          className="fixed bottom-2 right-2 top-2 z-[70] flex w-[270px] outline-none"
+          className="fixed top-2 right-2 bottom-2 z-[70] flex w-[270px] outline-none"
           style={
             { "--initial-transform": "calc(100% + 8px)" } as React.CSSProperties
           }
@@ -116,13 +121,13 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
                 rel="noopener noreferrer"
                 className="group"
               >
-                <Icons.github className="size-4 text-neutral-400 duration-150 group-hover:!text-primary dark:text-neutral-600" />
+                <Icons.github className="group-hover:!text-primary size-4 text-neutral-400 duration-150 dark:text-neutral-600" />
               </a>
               <ToggleTheme />
             </div>
             <div className="flex h-full flex-col gap-6 overflow-y-auto px-3 pt-2 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
               <div className="flex flex-col gap-1">
-                <span className="-ml-[2.5px] text-xs font-medium text-foreground">
+                <span className="-ml-[2.5px] font-medium text-foreground text-xs">
                   Suggestions
                 </span>
                 <div className="flex flex-col">
@@ -137,7 +142,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
                 </div>
               </div>
               <div className="flex flex-col gap-1">
-                <span className="-ml-[2.5px] text-xs font-medium text-foreground">
+                <span className="-ml-[2.5px] font-medium text-foreground text-xs">
                   Get Started
                 </span>
                 <div className="flex flex-col">
@@ -153,7 +158,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
                 </div>
               </div>
               <div className="flex flex-col gap-1">
-                <span className="relative z-[1] -ml-[2.5px] text-xs font-medium text-foreground">
+                <span className="-ml-[2.5px] relative z-[1] font-medium text-foreground text-xs">
                   Components
                 </span>
                 <div className="flex flex-col pb-3">

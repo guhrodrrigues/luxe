@@ -1,16 +1,19 @@
 "use client";
 
-import { cn } from "@/utils/cn";
+import Link from "next/link";
+
+import { useState } from "react";
 
 import { motion } from "motion/react";
-import { useState } from "react";
+
+import { cn } from "@/utils/cn";
 
 export function AnimatedBadge() {
   const [isHover, setIsHover] = useState(false);
 
   return (
-    <a
-      href="/updates/v2.0"
+    <Link
+      href="/ui/input-otp"
       className="group relative outline-none block rounded-full py-[5px] pr-3 pl-1.5 bg-[#eeeeee] dark:bg-[#161616] dark:shadow-inner dark:shadow-neutral-800/80 border border-neutral-400/20 dark:border-neutral-700/70"
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
@@ -56,7 +59,7 @@ export function AnimatedBadge() {
           New
         </div>
         <span className="relative text-[12px] leading-none font-medium">
-          Luxe 2.0
+          Input OTP
         </span>
       </div>
       <div
@@ -75,6 +78,6 @@ export function AnimatedBadge() {
         animate={!isHover ? { opacity: 0 } : {}}
         transition={{ duration: 0.7 }}
       />
-    </a>
+    </Link>
   );
 }

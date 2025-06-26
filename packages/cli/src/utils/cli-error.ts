@@ -1,5 +1,5 @@
 const DEFAULT_ERROR_MESSAGE =
-  'An internal error occurred in the Hynix CLI. Please report this issue if it persists.'
+  'An internal error occurred in the Luxe CLI. Please report this issue if it persists.'
 
 export class CLIError extends Error {
   constructor(
