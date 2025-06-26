@@ -1,109 +1,104 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-import { Drawer as VaulDrawer } from 'vaul'
+import { Drawer as VaulDrawer } from "vaul";
 
-import { SidebarButton } from './sidebar/SidebarButton'
+import { SidebarButton } from "./sidebar/SidebarButton";
 
-import { Icons } from '@/app/_components/Icons'
-import { ToggleTheme } from './ToggleTheme'
+import { Icons } from "@/app/_components/Icons";
+import { ToggleTheme } from "./ToggleTheme";
 
-import { GET_STARTED } from '@/data/get-started'
-import { cn } from '@/utils/cn'
+import { GET_STARTED } from "@/data/get-started";
+import { cn } from "@/utils/cn";
 
 const SUGGESTIONS = [
   {
-    title: 'Home',
-    slug: '/',
+    title: "Home",
+    slug: "/",
   },
   {
-    title: 'Updates',
-    slug: '/updates',
+    title: "Updates",
+    slug: "/updates",
   },
-]
+];
 
 const COMPONENTS = [
   {
-    title: 'Accordion',
-    slug: '/ui/accordion',
+    title: "Accordion",
+    slug: "/ui/accordion",
   },
   {
-    title: 'Animated Tabs',
-    slug: '/ui/animated-tabs',
+    title: "Animated Tabs",
+    slug: "/ui/animated-tabs",
   },
   {
-<<<<<<< vicentesan/avatar
     title: "Avatar",
     slug: "/ui/avatar",
   },
   {
     title: "Badge",
     slug: "/ui/badge",
-=======
-    title: 'Badge',
-    slug: '/ui/badge',
->>>>>>> main
   },
   {
-    title: 'Button',
-    slug: '/ui/button',
+    title: "Button",
+    slug: "/ui/button",
   },
   {
-    title: 'Card',
-    slug: '/ui/card',
+    title: "Card",
+    slug: "/ui/card",
   },
   {
-    title: 'Checkbox',
-    slug: '/ui/checkbox',
+    title: "Checkbox",
+    slug: "/ui/checkbox",
   },
   {
-    title: 'Dialog',
-    slug: '/ui/dialog',
+    title: "Dialog",
+    slug: "/ui/dialog",
   },
   {
-    title: 'Dropdown Menu',
-    slug: '/ui/dropdown-menu',
+    title: "Dropdown Menu",
+    slug: "/ui/dropdown-menu",
   },
   {
-    title: 'Input',
-    slug: '/ui/input',
+    title: "Input",
+    slug: "/ui/input",
   },
   {
-    title: 'Input OTP',
-    slug: '/ui/input-otp',
+    title: "Input OTP",
+    slug: "/ui/input-otp",
     isNew: true,
   },
   {
-    title: 'Multi Step Modal',
-    slug: '/ui/multi-step-modal',
+    title: "Multi Step Modal",
+    slug: "/ui/multi-step-modal",
   },
   {
-    title: 'Navigation Menu',
-    slug: '/ui/navigation-menu',
+    title: "Navigation Menu",
+    slug: "/ui/navigation-menu",
     isNew: true,
   },
   {
-    title: 'Spinner',
-    slug: '/ui/spinner',
+    title: "Spinner",
+    slug: "/ui/spinner",
   },
   {
-    title: 'Switch',
-    slug: '/ui/switch',
+    title: "Switch",
+    slug: "/ui/switch",
   },
   {
-    title: 'Text',
-    slug: '/ui/text',
+    title: "Text",
+    slug: "/ui/text",
   },
   {
-    title: 'Tooltip',
-    slug: '/ui/tooltip',
+    title: "Tooltip",
+    slug: "/ui/tooltip",
   },
-]
+];
 
 export default function Drawer({ children }: { children: React.ReactNode }) {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   function handleClose() {
-    setIsOpen(false)
+    setIsOpen(false);
   }
 
   return (
@@ -114,7 +109,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
         <VaulDrawer.Content
           className="fixed top-2 right-2 bottom-2 z-[70] flex w-[270px] outline-none"
           style={
-            { '--initial-transform': 'calc(100% + 8px)' } as React.CSSProperties
+            { "--initial-transform": "calc(100% + 8px)" } as React.CSSProperties
           }
         >
           <VaulDrawer.Title className="sr-only">Drawer Title</VaulDrawer.Title>
@@ -136,7 +131,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
                   Suggestions
                 </span>
                 <div className="flex flex-col">
-                  {SUGGESTIONS.map(component => (
+                  {SUGGESTIONS.map((component) => (
                     <SidebarButton
                       key={component.slug}
                       name={component.title}
@@ -151,7 +146,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
                   Get Started
                 </span>
                 <div className="flex flex-col">
-                  {GET_STARTED.map(component => (
+                  {GET_STARTED.map((component) => (
                     <SidebarButton
                       key={component.slug}
                       name={component.name}
@@ -167,7 +162,7 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
                   Components
                 </span>
                 <div className="flex flex-col pb-3">
-                  {COMPONENTS.map(component => (
+                  {COMPONENTS.map((component) => (
                     <SidebarButton
                       key={component.slug}
                       name={component.title}
@@ -183,5 +178,5 @@ export default function Drawer({ children }: { children: React.ReactNode }) {
         </VaulDrawer.Content>
       </VaulDrawer.Portal>
     </VaulDrawer.Root>
-  )
+  );
 }
