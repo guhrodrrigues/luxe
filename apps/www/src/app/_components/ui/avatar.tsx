@@ -6,15 +6,11 @@ type AvatarProps = {
   hasBorder?: boolean
 } & React.ComponentProps<typeof RadixAvatar.Root>
 
-export function Avatar({
-  className,
-  hasBorder,
-  ...props
-}: AvatarProps) {
+export function Avatar({ className, hasBorder, ...props }: AvatarProps) {
   return (
     <RadixAvatar.Root
       data-has-border={hasBorder}
-			data-slot="avatar"
+      data-slot="avatar"
       className={cn(
         'group inline-flex size-10 overflow-hidden rounded-full outline-2 outline-transparent',
         hasBorder && 'data-[has-border=true]:outline-border',
@@ -37,9 +33,7 @@ export function AvatarImage({ className, ...props }: AvatarImageProps) {
   )
 }
 
-type AvatarFallbackProps = React.ComponentProps<
-  typeof RadixAvatar.Fallback
->
+type AvatarFallbackProps = React.ComponentProps<typeof RadixAvatar.Fallback>
 
 export function AvatarFallback({ className, ...props }: AvatarFallbackProps) {
   return (

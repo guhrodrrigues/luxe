@@ -31,6 +31,10 @@ const COMPONENTS = [
     slug: "/ui/animated-tabs",
   },
   {
+    title: "Avatar",
+    slug: "/ui/avatar",
+  },
+  {
     title: "Badge",
     slug: "/ui/badge",
   },

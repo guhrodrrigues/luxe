@@ -36,6 +36,7 @@ import { Input } from "../ui/input";
 import { BlurImage } from "../BlurImage";
 import { MultiStepModalExample } from "../../ui/_components/examples/MultiStepModalExample";
 import { NavigationMenuExample } from "@/app/ui/_components/examples/NavigationMenuExample";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
 const components: MDXComponents = {
   ComponentView: ({ children, isReloadAnimation, ...props }) => (
@@ -201,6 +202,9 @@ const components: MDXComponents = {
   Input: ({ ...props }) => <Input {...props} />,
   MultiStepModalExample: () => <MultiStepModalExample />,
   NavigationMenuExample: () => <NavigationMenuExample />,
+  Avatar: ({ ...props }) => <Avatar {...props} />,
+  AvatarImage: ({ ...props }) => <AvatarImage {...props} />,
+  AvatarFallback: ({ ...props }) => <AvatarFallback {...props} />,
 };
 
 export function useMDXComponents(components: MDXComponents) {

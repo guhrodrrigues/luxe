@@ -1,15 +1,14 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react'
 
 import {
-  AvatarRoot,
-  type AvatarRootProps,
-  AvatarImage,
   AvatarFallback,
+  AvatarImage,
+  Avatar,
 } from '@/components/avatar'
 
-const meta: Meta<AvatarRootProps> = {
+const meta = {
   title: 'components/Avatar',
-  component: AvatarRoot,
+  component: Avatar,
   argTypes: {
     hasBorder: {
       control: 'boolean',
@@ -17,10 +16,13 @@ const meta: Meta<AvatarRootProps> = {
   },
   args: {
     children: (
-      <AvatarRoot>
-        <AvatarImage src="https://github.com/guhrodrrigues.png" alt="Gustavo Rodrigues" />
-        <AvatarFallback>GH</AvatarFallback>
-      </AvatarRoot>
+      <Avatar>
+        <AvatarImage
+          src="https://github.com/guhrodrrigues.png"
+          alt="Gustavo Rodrigues"
+        />
+        <AvatarFallback>GR</AvatarFallback>
+      </Avatar>
     ),
   },
   parameters: {

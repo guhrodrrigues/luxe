@@ -274,6 +274,22 @@ export function CommandMenu() {
           ),
         },
         {
+          title: "Avatar",
+          slug: "/ui/avatar",
+          ref: getComponentRef("Avatar"),
+          icon: (
+            <Lottie
+              lottieRef={getComponentRef("Avatar")}
+              animationData={
+                theme === "dark" ? fileDarkModeIcon : fileLightModeIcon
+              }
+              style={{ width: 22, height: 22 }}
+              autoplay={false}
+              loop={false}
+            />
+          ),
+        },
+        {
           title: "Badge",
           slug: "/ui/badge",
           ref: getComponentRef("Badge"),
