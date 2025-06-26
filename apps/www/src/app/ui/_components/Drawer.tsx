@@ -31,8 +31,17 @@ const COMPONENTS = [
     slug: '/ui/animated-tabs',
   },
   {
+<<<<<<< vicentesan/avatar
+    title: "Avatar",
+    slug: "/ui/avatar",
+  },
+  {
+    title: "Badge",
+    slug: "/ui/badge",
+=======
     title: 'Badge',
     slug: '/ui/badge',
+>>>>>>> main
   },
   {
     title: 'Button',

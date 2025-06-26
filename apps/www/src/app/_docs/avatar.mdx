@@ -1,0 +1,610 @@
+---
+title: "Avatar"
+description: "Displays a user image with fallback support."
+slug: "avatar"
+externalDocs: "https://radix-ui.com/primitives/docs/components/avatar"
+externalApi: "https://radix-ui.com/primitives/docs/components/avatar#api-reference"
+isNew: true
+---
+
+<div className="space-y-2">
+
+<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
+
+## Examples
+
+</div>
+
+<div className="mt-12">
+
+### Default
+
+</div>
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code={`import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar";
+
+export function AvatarExample() {
+  return (
+    <Avatar>
+      <AvatarImage
+        src="https://github.com/guhrodrrigues.png"
+        alt="@guhrodrrigues"
+      />
+      <AvatarFallback>GR</AvatarFallback>
+    </Avatar>
+  );
+}`}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[392px] flex items-center justify-center">
+
+<Avatar>
+	<AvatarImage
+		src="https://github.com/guhrodrrigues.png"
+		alt="@guhrodrrigues"
+	/>
+	<AvatarFallback>GR</AvatarFallback>
+</Avatar>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-[390px]">
+
+```tsx
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar";
+
+export function AvatarExample() {
+  return (
+    <Avatar>
+      <AvatarImage
+        src="https://github.com/guhrodrrigues.png"
+        alt="@guhrodrrigues"
+      />
+      <AvatarFallback>GR</AvatarFallback>
+    </Avatar>
+  );
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+### With Border
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code={`import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar";
+
+export function AvatarWithBorderExample() {
+  return (
+    <Avatar hasBorder>
+      <AvatarImage
+        src="https://github.com/guhrodrrigues.png"
+        alt="@guhrodrrigues"
+      />
+      <AvatarFallback>GR</AvatarFallback>
+    </Avatar>
+  );
+}
+`}
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[392px] flex items-center justify-center">
+
+<Avatar hasBorder>
+	<AvatarImage
+		src="https://github.com/guhrodrrigues.png"
+		alt="@guhrodrrigues"
+	/>
+	<AvatarFallback>GR</AvatarFallback>
+</Avatar>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-[390px]">
+
+```tsx
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar";
+
+export function AvatarWithBorderExample() {
+  return (
+    <Avatar hasBorder>
+      <AvatarImage
+        src="https://github.com/guhrodrrigues.png"
+        alt="@guhrodrrigues"
+      />
+      <AvatarFallback>GR</AvatarFallback>
+    </Avatar>
+  );
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+### Collection
+
+<Tabs defaultValue="preview">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="preview">Preview</TabsTrigger>
+	<TabsTrigger value="code">Code</TabsTrigger>
+</TabsList>
+
+<CopyCode 
+	code='import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar";
+
+export function AvatarCollectionExample() {
+  return (
+    <div className="flex -space-x-2 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:ring-background">
+      <Avatar>
+        <AvatarImage src="https://github.com/guhrodrrigues.png" alt="@guhrodrrigues" />
+        <AvatarFallback>GR</AvatarFallback>
+     </Avatar>
+     <Avatar>
+       <AvatarImage src="https://github.com/guhrodrrigues.png" alt="@guhrodrrigues" />
+       <AvatarFallback>ZR</AvatarFallback>
+     </Avatar>
+     <Avatar>
+       <AvatarFallback>GR</AvatarFallback>
+     </Avatar>
+    </div>
+  )
+}'
+	mode="text"
+/>
+
+</div>
+
+<TabsContent value="preview">
+
+<ComponentView className="h-[392px] flex items-center justify-center">
+
+<div className="flex -space-x-2 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:ring-background">
+	<Avatar>
+		<AvatarImage src="https://github.com/guhrodrrigues.png" alt="@guhrodrrigues" />
+		<AvatarFallback>GR</AvatarFallback>
+	</Avatar>
+	<Avatar>
+		<AvatarImage src="https://github.com/guhrodrrigues.png" alt="@guhrodrrigues" />
+		<AvatarFallback>ZR</AvatarFallback>
+	</Avatar>
+	<Avatar>
+		<AvatarFallback>GR</AvatarFallback>
+	</Avatar>
+</div>
+
+</ComponentView>
+
+</TabsContent>
+
+<TabsContent value="code">
+
+<CodeBlock contentClassName="h-[390px]">
+
+```tsx
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar";
+
+export function AvatarCollectionExample() {
+  return (
+    <div className="flex -space-x-2 *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:ring-background">
+      <Avatar>
+        <AvatarImage src="https://github.com/guhrodrrigues.png" alt="@guhrodrrigues" />
+        <AvatarFallback>GR</AvatarFallback>
+     </Avatar>
+     <Avatar>
+       <AvatarImage src="https://github.com/guhrodrrigues.png" alt="@guhrodrrigues" />
+       <AvatarFallback>ZR</AvatarFallback>
+     </Avatar>
+     <Avatar>
+       <AvatarFallback>GR</AvatarFallback>
+     </Avatar>
+    </div>
+  )
+}
+```
+
+</CodeBlock>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+<div className="pb-3 border-b dark:border-neutral-800/60 border-neutral-300/50">
+
+## Usage
+
+</div>
+
+<CodeBlock className="mt-6" contentClassName="h-fit">
+
+```tsx
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar";
+```
+</CodeBlock>
+
+<CodeBlock className="mt-4" contentClassName="h-fit">
+
+```tsx
+<Avatar>
+  <AvatarImage
+    src="https://github.com/guhrodrrigues.png"
+    alt="@guhrodrrigues"
+  />
+  <AvatarFallback>GR</AvatarFallback>
+</Avatar>
+```
+</CodeBlock>
+
+</div>
+
+<div className="space-y-2 pt-4">
+
+## Installation
+
+<Tabs defaultValue="cli">
+
+<div className="flex items-center justify-between border-b dark:border-neutral-800/60 border-neutral-300/50 pr-3">
+
+<TabsList>
+	<TabsTrigger value="cli">CLI</TabsTrigger>
+	<TabsTrigger value="manual">Manual</TabsTrigger>
+</TabsList>
+
+</div>
+
+<TabsContent value="cli">
+
+<CommandBlock 
+	npmCommand="npx @luxeui/ui@beta add avatar" 
+	pnpmCommand="pnpm dlx @luxeui/ui@beta add avatar" 
+	yarnCommand="npx @luxeui/ui@beta add avatar" 
+	bunCommand="bunx --bun @luxeui/ui@beta add avatar" 
+/>
+
+</TabsContent>
+
+<TabsContent value="manual">
+
+<div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">1</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Install the packages
+
+</h2>
+
+<CommandBlock 
+	npmCommand="npm i @radix-ui/react-avatar clsx tailwind-merge" 
+	pnpmCommand="pnpm add @radix-ui/react-avatar clsx tailwind-merge" 
+	yarnCommand="yarn add @radix-ui/react-avatar clsx tailwind-merge" 
+	bunCommand="bun add @radix-ui/react-avatar clsx tailwind-merge"
+/>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">2</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Copy and paste the following code into your project
+
+</h2>
+
+<CodeBlock fileName="avatar.tsx">
+
+```tsx
+import * as RadixAvatar from '@radix-ui/react-avatar'
+
+import { cn } from '@/utils/cn'
+
+type AvatarProps = {
+  hasBorder?: boolean
+} & React.ComponentProps<typeof RadixAvatar.Root>
+
+export function Avatar({
+  className,
+  hasBorder,
+  ...props
+}: AvatarProps) {
+  return (
+    <RadixAvatar.Root
+      data-has-border={hasBorder}
+      className={cn(
+        'group inline-flex size-10 overflow-hidden rounded-full outline-2 outline-transparent',
+        hasBorder && 'data-[has-border=true]:outline-border',
+        className,
+      )}
+      {...props}
+    />
+  )
+}
+
+type AvatarImageProps = React.ComponentProps<typeof RadixAvatar.Image>
+
+export function AvatarImage({ className, ...props }: AvatarImageProps) {
+  return (
+    <RadixAvatar.Image
+      className={cn('size-full object-cover', className)}
+      {...props}
+    />
+  )
+}
+
+type AvatarFallbackProps = React.ComponentProps<
+  typeof RadixAvatar.Fallback
+>
+
+export function AvatarFallback({ className, ...props }: AvatarFallbackProps) {
+  return (
+    <RadixAvatar.Fallback
+      className={cn(
+        'pointer flex size-full select-none items-center justify-center bg-main-foreground text-primary-muted',
+        'group-data-[has-border=true]:bg-main-background',
+        className,
+      )}
+      {...props}
+    />
+  )
+}
+```
+
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">3</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Create a file with the path <CodeHighlight>utils/cn.ts</CodeHighlight>
+
+</h2>
+
+<CodeBlock fileName="utils/cn.ts" customFilePath="utils/cn.ts" contentClassName="h-fit">
+```tsx
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	<span className="font-semibold text-primary">4</span>
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+	
+<div className="space-y-4 pb-10 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Add the variable colors in your CSS File
+
+</h2>
+
+<CodeBlock fileName="css" simpleCode={`:root {
+  --main-muted: oklch(0.96 0 0);
+
+  --primary-foreground: oklch(37.1% 0 0);
+  --primary-muted: oklch(0.556 0 0);
+
+  --border: oklch(0.885 0 0);
+}
+
+.dark {
+  --main-muted: oklch(0.168 0 0);
+
+  --primary-foreground: oklch(0.97 0 0);
+  --primary-muted: oklch(0.708 0 0);
+
+  --border: oklch(0.26 0 0);
+}
+
+@theme inline {
+  --color-main-muted: var(--main-muted);
+
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-muted: var(--primary-muted);
+
+  --color-border: var(--border);
+
+  --animate-caret-blink: caret-blink 1.25s ease-out infinite;
+
+	@keyframes caret-blink {
+    0%,
+    70%,
+    100% {
+      opacity: 1;
+    }
+    20%,
+    50% {
+      opacity: 0;
+    }
+  }
+}`}>
+```css
+:root {
+  --main-foreground: oklch(0.925 0 0);
+  --main-background: oklch(0.97 0 0);
+
+  --primary-muted: oklch(0.556 0 0);
+
+  --border: oklch(0.885 0 0);
+}
+
+.dark {
+  --main-foreground: oklch(0.269 0 0);
+  --main-background: oklch(0.145 0 0);
+
+  --primary-muted: oklch(0.708 0 0);
+
+  --border: oklch(0.26 0 0);
+}
+
+@theme inline {
+  --color-main-foreground: var(--main-foreground);
+  --color-main-background: var(--main-background);
+
+  --color-primary-muted: var(--primary-muted);
+
+  --color-border: var(--border);
+}
+```
+</CodeBlock>
+
+</div>
+</div>
+</div>
+
+<div className="relative">
+
+<div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
+	
+<span className="font-semibold text-primary">5</span>
+
+</div>
+
+<div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
+
+<div className="space-y-4 pl-8 pt-1">
+
+<h2 className="font-medium text-primary">
+
+Update the import paths to match your project setup
+
+</h2>
+
+</div>
+</div>
+</div>
+</div>
+
+</TabsContent>
+
+</Tabs>
+
+</div>
