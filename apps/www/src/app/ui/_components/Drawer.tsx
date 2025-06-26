@@ -33,6 +33,7 @@ const COMPONENTS = [
   {
     title: "Avatar",
     slug: "/ui/avatar",
+    isNew: true,
   },
   {
     title: "Badge",
