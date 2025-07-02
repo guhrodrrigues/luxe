@@ -1,12 +1,23 @@
 import Link from "next/link";
 
 import { ChevronRightIcon } from "lucide-react";
+import { cn } from "@/utils/cn";
 
-export function GetStartedButton() {
+type GetStartedButtonProps = React.ComponentProps<typeof Link>;
+
+export function GetStartedButton({
+  className,
+  href,
+  ...props
+}: GetStartedButtonProps) {
   return (
     <Link
-      href="/ui/installation"
-      className="group flex items-center gap-1.5 rounded-xl bg-background px-4 py-[11px] text-[15px] font-semibold text-neutral-600 duration-300 hover:bg-neutral-200 dark:border-transparent dark:bg-transparent dark:text-foreground dark:hover:bg-neutral-800 dark:hover:text-primary"
+      {...props}
+      href={href}
+      className={cn(
+        "group flex items-center justify-center gap-1.5 rounded-xl bg-background px-4 py-[11px] text-[15px] font-semibold text-neutral-600 duration-300 hover:bg-neutral-200 dark:border-transparent dark:bg-transparent dark:text-foreground dark:hover:bg-neutral-800 dark:hover:text-primary",
+        className,
+      )}
     >
       <span>Get Started</span>
       <ChevronIconGlitch />

@@ -31,7 +31,7 @@ export function Card({ slug, icon, name }: CardProps) {
           <Illustration icon={icon} />
         </div>
         <div className="space-y-1.5">
-          <h1 className="text-2xl font-bold -tracking-wide text-primary">
+          <h1 className="text-2xl font-semibold tracking-tight text-primary">
             {name}
           </h1>
         </div>

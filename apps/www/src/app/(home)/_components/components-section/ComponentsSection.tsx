@@ -5,16 +5,27 @@ import { ChevronRightIcon } from "lucide-react";
 import { AnimateEnter } from "../AnimateEnter";
 import { ComponentsExample } from "./ComponentsExample";
 
+import { cn } from "@/utils/cn";
+
 export function ComponentsSection() {
   return (
     <section className="mt-14 flex flex-col items-center justify-center gap-20">
-      <AnimateEnter className="space-y-7 text-center">
-        <h1 className="text-gradient mx-auto max-w-2xl text-4xl font-medium leading-tight tracking-tight md:text-5xl">
-          Elevate your web apps with sophisticated interfaces
-        </h1>
-        <p className="mx-auto text-lg max-w-lg text-foreground">
+      <AnimateEnter className="space-y-5 text-center">
+        <div className="space-y-1">
+          <Link
+            href="/ui/accordion"
+            className="group w-fit mx-auto flex items-center justify-center gap-1.5 text-[15px] font-semibold text-gradient duration-300"
+          >
+            <span>See more</span>
+            <ChevronIconGlitch className="text-gradient" />
+          </Link>
+          <h1 className="text-gradient mx-auto text-5xl font-medium leading-tight tracking-tight md:text-6xl">
+            Refined user <br className="md:hidden" /> interfaces
+          </h1>
+        </div>
+        <p className="mx-auto text-base md:text-lg max-w-lg text-foreground">
           Choose a component, copy the code, and instantly elevate your
-          interface. With just a few clicks, and your app shines.
+          interface. With just a few clicks, watch your app shine.
         </p>
       </AnimateEnter>
       <ComponentsExample />
@@ -42,16 +53,26 @@ function Button() {
   );
 }
 
-function ChevronIconGlitch() {
+function ChevronIconGlitch({ className }: { className?: string }) {
   return (
     <div className="relative overflow-hidden font-medium">
       <span className="invisible">
         <ChevronRightIcon size={14} />
       </span>
-      <span className="absolute left-0 top-0 text-white transition-transform duration-300 ease-in-out hover:duration-150 group-hover:translate-x-full dark:text-black">
+      <span
+        className={cn(
+          "absolute left-0 top-0 text-white transition-transform duration-300 ease-in-out hover:duration-150 group-hover:translate-x-full dark:text-black",
+          className,
+        )}
+      >
         <ChevronRightIcon size={14} />
       </span>
-      <span className="absolute left-0 top-0 -translate-x-full text-white transition-transform duration-300 ease-in-out hover:duration-150 group-hover:translate-x-0 dark:text-black">
+      <span
+        className={cn(
+          "absolute left-0 top-0 -translate-x-full text-white transition-transform duration-300 ease-in-out hover:duration-150 group-hover:translate-x-0 dark:text-black",
+          className,
+        )}
+      >
         <ChevronRightIcon size={14} />
       </span>
     </div>

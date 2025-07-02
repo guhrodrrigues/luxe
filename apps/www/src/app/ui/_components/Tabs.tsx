@@ -1,21 +1,27 @@
 "use client";
 
-import * as React from "react";
-import * as TabsPrimitive from "@radix-ui/react-tabs";
+import {
+  createContext,
+  forwardRef,
+  useEffect,
+  useId,
+  useRef,
+  useState,
+} from "react";
 
-import { AnimatePresence, motion } from "motion/react";
+import * as TabsPrimitive from "@radix-ui/react-tabs";
 
 import { cn } from "@/utils/cn";
 
-const Tabs = TabsPrimitive.Root;
+export const Tabs = TabsPrimitive.Root;
 
-const TabsContext = React.createContext<string>("");
+export const TabsContext = createContext<string>("");
 
-const TabsRoot = React.forwardRef<
+export const TabsRoot = forwardRef<
   React.ElementRef<typeof TabsPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root>
 >(({ ...props }, ref) => {
-  const uniqueId = React.useId();
+  const uniqueId = useId();
 
   return (
     <TabsContext.Provider value={uniqueId}>
@@ -24,14 +30,14 @@ const TabsRoot = React.forwardRef<
   );
 });
 
-const TabsList = React.forwardRef<
+export const TabsList = forwardRef<
   React.ElementRef<typeof TabsPrimitive.List>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>
 >(({ className, ...props }, ref) => (
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "inline-flex h-[44px] gap-5 w-full items-center justify-start rounded-t-lg bg-background pl-3",
+      "inline-flex h-[44px] gap-4 w-full items-center justify-start rounded-t-lg bg-background pl-3",
       className,
     )}
     {...props}
@@ -39,78 +45,67 @@ const TabsList = React.forwardRef<
 ));
 TabsList.displayName = TabsPrimitive.List.displayName;
 
-const TabsTrigger = React.forwardRef<
+export const TabsTrigger = forwardRef<
   React.ElementRef<typeof TabsPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Trigger> & {
     classNameIndicator?: string;
+    isIndicator?: boolean;
   }
->(({ className, children, classNameIndicator, ...props }, ref) => {
-  const triggerRef = React.useRef<HTMLButtonElement>(null);
-  const [isActive, setIsActive] = React.useState(false);
-  const tabsId = React.useContext(TabsContext);
+>(
+  (
+    { className, children, classNameIndicator, isIndicator = false, ...props },
+    ref,
+  ) => {
+    const triggerRef = useRef<HTMLButtonElement>(null);
+    const [isActive, setIsActive] = useState(false);
 
-  React.useEffect(() => {
-    const element = triggerRef.current;
+    useEffect(() => {
+      const element = triggerRef.current;
 
-    if (element) {
-      setIsActive(element.dataset.state === "active");
-
-      const observer = new MutationObserver(() => {
+      if (element) {
         setIsActive(element.dataset.state === "active");
-      });
 
-      observer.observe(element, { attributes: true });
+        const observer = new MutationObserver(() => {
+          setIsActive(element.dataset.state === "active");
+        });
 
-      return () => observer.disconnect();
-    }
-  }, []);
+        observer.observe(element, { attributes: true });
 
-  return (
-    <TabsPrimitive.Trigger
-      ref={triggerRef}
-      className={cn(
-        "group relative inline-flex h-10 items-center justify-center rounded-none bg-transparent py-1 pt-2 pb-2 text-sm font-medium whitespace-nowrap transition-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden disabled:pointer-events-none disabled:opacity-50 text-neutral-500 data-[state=active]:text-primary",
-        className,
-      )}
-      {...props}
-    >
-      <AnimatePresence initial={false}>
-        {isActive && (
-          <motion.div
-            layoutId={`underline-${tabsId}`}
-            className={cn(
-              "absolute -bottom-[3.5px] flex h-0.5 w-full justify-center",
-              classNameIndicator,
-            )}
-            transition={{
-              type: "spring",
-              duration: 0.3,
-              bounce: 0,
-            }}
-          >
-            <div className="h-0.5 w-full rounded-full bg-primary/90" />
-          </motion.div>
+        return () => observer.disconnect();
+      }
+    }, []);
+
+    return (
+      <TabsPrimitive.Trigger
+        ref={triggerRef}
+        className={cn(
+          "group relative inline-flex -mx-2 px-2 items-center justify-center rounded-none bg-transparent py-2 text-sm font-medium whitespace-nowrap transition-none focus-visible:outline-none disabled:pointer-events-none disabled:opacity-50 text-neutral-500 data-[state=active]:text-primary",
+          isIndicator && "border border-transparent py-[3px]",
+          isIndicator &&
+            isActive &&
+            "bg-main-foreground dark:bg-main-secondary border-border rounded-lg",
+          className,
         )}
-      </AnimatePresence>
-      {children}
-    </TabsPrimitive.Trigger>
-  );
-});
+        {...props}
+      >
+        {children}
+      </TabsPrimitive.Trigger>
+    );
+  },
+);
 TabsTrigger.displayName = TabsPrimitive.Trigger.displayName;
 
-const TabsContent = React.forwardRef<
+export const TabsContent = forwardRef<
   React.ElementRef<typeof TabsPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>
 >(({ className, ...props }, ref) => (
   <TabsPrimitive.Content
     ref={ref}
     className={cn(
-      "pt-4 relative rounded-md ring-offset-blue-50 focus-visible:outline-none",
+      "pt-1 relative rounded-md focus-visible:outline-none",
       className,
     )}
     {...props}
   />
 ));
 TabsContent.displayName = TabsPrimitive.Content.displayName;
-
-export { TabsRoot as Tabs, TabsList, TabsTrigger, TabsContent };

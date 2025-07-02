@@ -54,7 +54,8 @@ export function CommandBlock({
               <TabsTrigger
                 key={key}
                 value={key}
-                classNameIndicator="-bottom-[1.5px]"
+                className="font-mono"
+                isIndicator
               >
                 {key}
               </TabsTrigger>
@@ -64,7 +65,7 @@ export function CommandBlock({
         </div>
         <div className="relative overflow-x-auto">
           {Object.entries(tabs).map(([key, value]) => (
-            <TabsContent key={key} value={key}>
+            <TabsContent key={key} value={key} className="pt-4">
               <pre className="px-4 pb-4">
                 <code
                   className="relative font-mono text-sm leading-none !text-primary"

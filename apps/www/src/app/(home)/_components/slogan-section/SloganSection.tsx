@@ -16,7 +16,7 @@ export function SloganSection() {
           className="flex flex-wrap items-center justify-center gap-4"
           delay={0.2}
         >
-          <GetStartedButton />
+          <GetStartedButton href="/ui/installation" />
           <GalleryButton />
         </AnimateEnter>
         <GridBackground />
