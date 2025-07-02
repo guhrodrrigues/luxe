@@ -83,7 +83,7 @@ export default async function InstallationSlugPage({
           currentPage={title}
         />
         <div className="space-y-3.5">
-          <h1 className="text-3xl font-bold -tracking-wide text-primary">
+          <h1 className="text-3xl font-semibold tracking-tight text-primary">
             {title}
           </h1>
           <p className="font-normal text-black/80 dark:text-white/90">

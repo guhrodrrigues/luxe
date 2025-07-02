@@ -88,7 +88,7 @@ export default async function ComponentPage({
       <div className="space-y-20">
         <div className="space-y-4">
           <Breadcrumbs groupName="Components" currentPage={title} />
-          <h1 className="text-3xl font-bold -tracking-wide text-primary">
+          <h1 className="text-3xl font-semibold tracking-tight text-primary">
             {title}
           </h1>
           <p className="text-[16px] font-normal leading-relaxed text-black/80 dark:text-white/90">

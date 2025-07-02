@@ -61,7 +61,7 @@
   }
 
   .bottom-dotted {
-    @apply [background-image:linear-gradient(90deg,var(--dotted)_25%,transparent_25%)] [background-repeat:repeat-x] [background-size:4px_1px] [background-position:bottom];
+    @apply [@media(min-width:663px)]:[background-image:linear-gradient(90deg,var(--dotted)_25%,transparent_25%)] [@media(min-width:663px)]:[background-repeat:repeat-x] [@media(min-width:663px)]:[background-size:4px_1px] [@media(min-width:663px)]:[background-position:bottom];
   }
 
   .horizontal-dotted {
@@ -77,10 +77,6 @@
 
   button {
     @apply cursor-pointer;
-  }
-
-  .no-scrollbar {
-    @apply [scrollbar-width:none] [&::-webkit-scrollbar]:hidden;
   }
 }
 
@@ -101,6 +97,15 @@
     [data-line] {
       margin-top: 0 !important;
     }
+  }
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
