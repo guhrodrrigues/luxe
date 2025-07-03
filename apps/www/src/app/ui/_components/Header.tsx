@@ -155,9 +155,11 @@ export function Header() {
           </div>
         </nav>
       </header>
-      <AnimatePresence mode="wait">
-        {isOpen && <MobileMenu handleClose={() => setIsOpen(false)} />}
-      </AnimatePresence>
+      {isMobile && (
+        <AnimatePresence mode="wait">
+          {isOpen && <MobileMenu handleClose={() => setIsOpen(false)} />}
+        </AnimatePresence>
+      )}
     </>
   );
 }
