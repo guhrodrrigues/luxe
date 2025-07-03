@@ -66,13 +66,12 @@ export function Header() {
     <>
       <header
         className={cn(
-          "top-0 z-50 h-17 w-full transition-colors duration-300 ease-out border-b-[.75px] border-transparent",
+          "top-0 z-50 h-17 w-full transition-colors duration-300 ease-out border-b-[.75px] border-transparent [@media(max-width:662px)]:bg-background",
           isDocsPage ? "sticky bg-background bottom-dotted" : "fixed",
           !isDocsPage &&
             isScrolled &&
             !isMobile &&
             "bg-background dark:bg-background/40 backdrop-blur-md border-border dark:border-[#262626]/50",
-          isMobile && "bg-background",
         )}
       >
         <nav
@@ -140,13 +139,13 @@ export function Header() {
               <div className="relative size-5">
                 <span
                   className={cn(
-                    "bg-primary/60 absolute right-0 block h-0.5 w-5 transition-all duration-300 top-1",
+                    "bg-primary-muted absolute right-0 block h-0.5 w-5 transition-all duration-300 top-1",
                     isOpen && "top-[0.6rem] -rotate-45",
                   )}
                 />
                 <span
                   className={cn(
-                    "bg-primary/60 absolute right-0 block h-0.5 w-5 transition-all duration-300 top-3.5",
+                    "bg-primary-muted absolute right-0 block h-0.5 w-5 transition-all duration-300 top-3.5",
                     isOpen && "top-[0.6rem] rotate-45",
                   )}
                 />

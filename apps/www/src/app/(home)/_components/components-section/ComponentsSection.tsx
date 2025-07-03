@@ -9,9 +9,9 @@ import { cn } from "@/utils/cn";
 
 export function ComponentsSection() {
   return (
-    <section className="mt-14 flex flex-col items-center justify-center gap-20">
-      <AnimateEnter className="space-y-5 text-center">
-        <div className="space-y-1">
+    <section className="mt-14 flex flex-col items-center justify-center gap-12 sm:gap-20">
+      <AnimateEnter className="space-y-4 sm:space-y-5 text-center">
+        <div className="space-y-2">
           <Link
             href="/ui/accordion"
             className="group w-fit mx-auto flex items-center justify-center gap-1.5 text-[15px] font-semibold text-gradient duration-300"
@@ -19,11 +19,11 @@ export function ComponentsSection() {
             <span>See more</span>
             <ChevronIconGlitch className="text-gradient" />
           </Link>
-          <h1 className="text-gradient mx-auto text-5xl font-medium leading-tight tracking-tight md:text-6xl">
+          <h1 className="text-gradient mx-auto text-5xl font-medium leading-none tracking-tight">
             Refined user <br className="md:hidden" /> interfaces
           </h1>
         </div>
-        <p className="mx-auto text-base md:text-lg max-w-lg text-foreground">
+        <p className="mx-auto max-sm:px-8 text-base md:text-lg max-w-lg text-foreground">
           Choose a component, copy the code, and instantly elevate your
           interface. With just a few clicks, watch your app shine.
         </p>

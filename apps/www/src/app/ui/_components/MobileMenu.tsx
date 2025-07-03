@@ -133,43 +133,41 @@ export function MobileMenu({ handleClose }: MobileMenuProps) {
       exit={{ opacity: 0 }}
       transition={{ type: "spring", bounce: 0, duration: 0.3 }}
     >
-      <div className="relative flex h-full w-full grow flex-col px-3 pt-17">
-        <div className="flex h-full flex-col gap-12 overflow-y-auto px-3 pt-6 pb-10 no-scrollbar">
-          {MENU.map(({ category, items }, index) => (
-            <div key={index} className="flex flex-col gap-4">
-              <AnimateEnter delay={index * 0.05} isWhileInView={false}>
-                <span className="font-medium text-foreground text-sm">
-                  {category}
-                </span>
-              </AnimateEnter>
-              {items.map(({ name, slug, isBeta, isNew }, idx) => (
-                <AnimateEnter
-                  delay={index * 0.05 + idx * 0.05}
-                  isWhileInView={false}
+      <div className="relative flex h-full flex-col gap-12 overflow-y-auto px-6 pt-[5.6rem] pb-10 no-scrollbar">
+        {MENU.map(({ category, items }, index) => (
+          <div key={index} className="flex flex-col gap-4">
+            <AnimateEnter delay={index * 0.05} isWhileInView={false}>
+              <span className="font-medium text-foreground text-sm">
+                {category}
+              </span>
+            </AnimateEnter>
+            {items.map(({ name, slug, isBeta, isNew }, idx) => (
+              <AnimateEnter
+                delay={index * 0.05 + idx * 0.05}
+                isWhileInView={false}
+              >
+                <Link
+                  key={slug}
+                  href={slug}
+                  className="flex items-center gap-1.5 text-3xl font-medium tracking-tight text-primary"
+                  onClick={handleClose}
                 >
-                  <Link
-                    key={slug}
-                    href={slug}
-                    className="flex items-center gap-1.5 text-3xl font-medium tracking-tight text-primary"
-                    onClick={handleClose}
-                  >
-                    {name}
-                    {isBeta && (
-                      <span className="text-xs -mb-[0.74rem] text-amber-600 dark:text-amber-500">
-                        Beta
-                      </span>
-                    )}
-                    {isNew && (
-                      <span className="text-xs -mb-[0.74rem] text-yellow-500 dark:text-[#eaec8a]">
-                        New
-                      </span>
-                    )}
-                  </Link>
-                </AnimateEnter>
-              ))}
-            </div>
-          ))}
-        </div>
+                  {name}
+                  {isBeta && (
+                    <span className="text-xs -mb-[0.74rem] text-amber-600 dark:text-amber-500">
+                      Beta
+                    </span>
+                  )}
+                  {isNew && (
+                    <span className="text-xs -mb-[0.74rem] text-yellow-500 dark:text-[#eaec8a]">
+                      New
+                    </span>
+                  )}
+                </Link>
+              </AnimateEnter>
+            ))}
+          </div>
+        ))}
       </div>
     </motion.div>
   );
