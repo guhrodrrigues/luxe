@@ -1,0 +1,11 @@
+{
+  "name": "avatar",
+  "externalDependencies": [
+    "@radix-ui/react-avatar"
+  ],
+  "internalDependencies": [],
+  "file": {
+    "name": "avatar.tsx",
+    "content": "import * as RadixAvatar from '@radix-ui/react-avatar'\r\n\r\nimport { cn } from '<%= it.aliases.utils %>/cn'\r\n\r\ntype AvatarProps = {\r\n  hasBorder?: boolean\r\n} & React.ComponentProps<typeof RadixAvatar.Root>\r\n\r\nexport function Avatar({\r\n  className,\r\n  hasBorder,\r\n  ...props\r\n}: AvatarProps) {\r\n  return (\r\n    <RadixAvatar.Root\r\n      data-has-border={hasBorder}\r\n\t\t\tdata-slot=\"avatar\"\r\n      className={cn(\r\n        'group inline-flex size-10 overflow-hidden rounded-full outline-2 outline-transparent',\r\n        hasBorder && 'data-[has-border=true]:outline-border',\r\n        className,\r\n      )}\r\n      {...props}\r\n    />\r\n  )\r\n}\r\n\r\ntype AvatarImageProps = React.ComponentProps<typeof RadixAvatar.Image>\r\n\r\nexport function AvatarImage({ className, ...props }: AvatarImageProps) {\r\n  return (\r\n    <RadixAvatar.Image\r\n      data-slot=\"avatar-image\"\r\n      className={cn('size-full object-cover', className)}\r\n      {...props}\r\n    />\r\n  )\r\n}\r\n\r\ntype AvatarFallbackProps = React.ComponentProps<\r\n  typeof RadixAvatar.Fallback\r\n>\r\n\r\nexport function AvatarFallback({ className, ...props }: AvatarFallbackProps) {\r\n  return (\r\n    <RadixAvatar.Fallback\r\n      data-slot=\"avatar-fallback\"\r\n      className={cn(\r\n        'pointer flex size-full select-none items-center justify-center bg-main-foreground text-primary-muted',\r\n        'group-data-[has-border=true]:bg-main-background',\r\n        className,\r\n      )}\r\n      {...props}\r\n    />\r\n  )\r\n}\r\n"
+  }
+}

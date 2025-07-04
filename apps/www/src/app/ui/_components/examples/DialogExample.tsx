@@ -19,15 +19,15 @@ export function DialogExample() {
       </DialogTrigger>
       <DialogContent>
         <DialogTitle asChild>
-          <span className="block px-6 pt-5">Change Username</span>
+          <span className="block">Change Username</span>
         </DialogTitle>
-        <DialogDescription className="px-6 py-1">
+        <DialogDescription>
           Make changes to your username here.
         </DialogDescription>
-        <fieldset className="mb-[15px] flex items-center gap-4 px-6 py-4">
-          <Input id="name" placeholder="@guhrodrrigues" className="w-full" />
-        </fieldset>
-        <DialogFooter className="flex justify-between gap-4 px-6 py-3">
+        <div className="mb-[15px] flex items-center gap-4 px-6 py-4">
+          <Input placeholder="@guhrodrrigues" className="w-full" />
+        </div>
+        <DialogFooter>
           <DialogClose asChild>
             <Button variant="outline">Cancel</Button>
           </DialogClose>
