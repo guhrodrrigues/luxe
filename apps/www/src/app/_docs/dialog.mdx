@@ -352,7 +352,10 @@ export function DialogDescription({
 }: DialogDescriptionProps) {
   return (
     <RadixDialog.Description
-      className={cn('px-6 text-primary-muted text-sm leading-tight', className)}
+      className={cn(
+        'px-6 pt-2 text-primary-muted text-sm leading-tight',
+        className,
+      )}
       {...props}
     >
       {children}
