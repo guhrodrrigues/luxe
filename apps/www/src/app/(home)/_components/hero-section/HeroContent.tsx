@@ -5,7 +5,7 @@ import { Techs } from "../techs-section/Techs";
 import { GetStartedButton } from "../slogan-section/GetStartedButton";
 import { AnimatedBadge } from "./AnimatedBadge";
 
-export async function HeroContent() {
+export function HeroContent() {
   return (
     <div className="z-[3] flex flex-col items-center gap-16 sm:gap-28 text-center">
       <div className="space-y-8">
@@ -26,19 +26,19 @@ export async function HeroContent() {
           </p>
         </AnimateEnter>
         <AnimateEnter
-          className="flex items-center justify-center gap-4 max-sm:flex-col sm:gap-3"
+          className="flex items-center justify-center gap-3"
           delay={0.7}
           duration={2}
         >
           <ButtonGlitchBrightness
             href="/ui/accordion"
             text="Explore components"
-            className="py-5 sm:py-4 px-4 h-11 text-base max-sm:w-full max-sm:rounded-2xl"
+            className="p-4 h-10 sm:h-11 text-sm sm:text-base"
             shine={false}
           />
           <GetStartedButton
             href="/ui/installation"
-            className="max-sm:py-3 max-sm:rounded-2xl max-sm:w-full"
+            className="max-sm:text-sm"
           />
         </AnimateEnter>
       </div>

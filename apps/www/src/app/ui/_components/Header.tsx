@@ -119,18 +119,16 @@ export function Header() {
               </a>
             </div>
           </div>
-          <div className="flex items-center gap-3.5 [@media(min-width:663px)]:hidden">
-            <div className="flex items-center gap-3">
-              <a
-                href="https://github.com/guhrodrrigues/luxe"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group rounded-md p-0.5 outline-none focus-visible:ring-1 focus-visible:ring-neutral-300/80 dark:focus-visible:ring-neutral-800"
-              >
-                <Icons.github className="size-4 text-neutral-400 duration-150 group-hover:text-neutral-500 dark:group-hover:text-neutral-300 dark:text-neutral-600" />
-              </a>
-              <ToggleTheme />
-            </div>
+          <div className="flex items-center gap-3 [@media(min-width:663px)]:hidden">
+            <a
+              href="https://github.com/guhrodrrigues/luxe"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-md p-0.5 outline-none focus-visible:ring-1 focus-visible:ring-neutral-300/80 dark:focus-visible:ring-neutral-800"
+            >
+              <Icons.github className="size-4 text-neutral-400 duration-150 group-hover:text-neutral-500 dark:group-hover:text-neutral-300 dark:text-neutral-600" />
+            </a>
+            <ToggleTheme />
             <Divider />
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -139,13 +137,13 @@ export function Header() {
               <div className="relative size-5">
                 <span
                   className={cn(
-                    "bg-primary-muted absolute right-0 block h-0.5 w-5 transition-all duration-300 top-1",
+                    "bg-primary-muted absolute right-0 block h-0.5 w-4 transition-all duration-300 top-1",
                     isOpen && "top-[0.6rem] -rotate-45",
                   )}
                 />
                 <span
                   className={cn(
-                    "bg-primary-muted absolute right-0 block h-0.5 w-5 transition-all duration-300 top-3.5",
+                    "bg-primary-muted absolute right-0 block h-0.5 w-4 transition-all duration-300 top-3",
                     isOpen && "top-[0.6rem] rotate-45",
                   )}
                 />

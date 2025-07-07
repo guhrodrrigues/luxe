@@ -136,14 +136,19 @@ export function MobileMenu({ handleClose }: MobileMenuProps) {
       <div className="relative flex h-full flex-col gap-12 overflow-y-auto px-6 pt-[5.6rem] pb-10 no-scrollbar">
         {MENU.map(({ category, items }, index) => (
           <div key={index} className="flex flex-col gap-4">
-            <AnimateEnter delay={index * 0.05} isWhileInView={false}>
+            <AnimateEnter
+              delay={(index + 1) * 0.05}
+              duration={0.3}
+              isWhileInView={false}
+            >
               <span className="font-medium text-foreground text-sm">
                 {category}
               </span>
             </AnimateEnter>
             {items.map(({ name, slug, isBeta, isNew }, idx) => (
               <AnimateEnter
-                delay={index * 0.05 + idx * 0.05}
+                delay={(index + 1) * 0.05 + (idx + 1) * 0.05}
+                duration={0.3}
                 isWhileInView={false}
               >
                 <Link

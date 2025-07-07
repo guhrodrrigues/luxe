@@ -19,7 +19,7 @@ export function GetStartedButton({
         className,
       )}
     >
-      <span>Get Started</span>
+      Get Started
       <ChevronIconGlitch />
     </Link>
   );
