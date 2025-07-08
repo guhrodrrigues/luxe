@@ -33,7 +33,7 @@ packages
 | -------------------------- | ---------------------------------------- |
 | `apps/www/app`             | The Next.js application for the website. |
 | `apps/www/app/_components` | The React components for the website.    |
-| `packages/cli`             | The `@luxeui/ui` package.                |
+| `packages/cli`             | The `luxe` package.                      |
 
 ## Pull requests
 
@@ -56,7 +56,7 @@ GitHub issues are used to track public bugs. Report a bug by [opening a new issu
 
 ## CLI
 
-The `@luxeui/ui` package is a CLI for adding components to your project. You can find the [docs](https://luxeui.com/ui/cli).
+The `luxe` package is a CLI for adding components to your project. You can find the [docs](https://luxeui.com/ui/cli).
 
 Any changes to the CLI should be made in the packages/cli directory.
 

@@ -53,25 +53,17 @@ export function SidebarButton({
           </div>
         </div>
       )}
-      {isBeta && (
+      {(isBeta || isUpdated) && (
         <div className="relative z-[1] flex items-center gap-1.5">
           <span className="relative z-[1] block text-sm">{name}</span>
           <div
             className={cn(
-              "w-[30px] h-4 font-medium bg-amber-600/20 dark:bg-amber-800/35 rounded-full text-[10px]",
-              "leading-[150%] text-center mr-2.5 text-amber-600 dark:text-amber-500 [text-shadow:0_1px_1.5px_rgb(0,0,0,0.16)]",
+              "h-4 font-medium bg-amber-600/20 dark:bg-amber-800/35 rounded-full text-[10px]",
+              "leading-[150%] text-center px-1 text-amber-600 dark:text-amber-500 [text-shadow:0_1px_1.5px_rgb(0,0,0,0.16)]",
             )}
           >
-            Beta
+            {isBeta ? "Beta" : "Updated"}
           </div>
-        </div>
-      )}
-      {isUpdated && (
-        <div className="relative z-[1] flex items-center gap-2">
-          <span className="relative z-[1] block text-sm">{name}</span>
-          <span className="rounded-md bg-gradient-to-b from-amber-300 to-amber-500 px-1.5 py-[0.5px] text-[10px] font-semibold leading-4 text-black [text-shadow:0_0.5px_0_rgb(255,255,255,.48)]">
-            Updated
-          </span>
         </div>
       )}
       {!isUpdated && !isNew && !isBeta && (

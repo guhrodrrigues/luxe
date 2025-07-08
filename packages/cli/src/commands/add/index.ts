@@ -18,7 +18,7 @@ export const add = new Command()
 
     if (errorsFound[AddCommandErrors.MANIFEST_FILE_NOT_FOUND]) {
       logger.error(
-        `Project not initialized. Run ${chalk.yellow('@luxeui/ui init')} first`,
+        `Project not initialized. Run ${chalk.yellow('luxe init')} first`,
       )
     }
 
