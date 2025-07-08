@@ -18,7 +18,7 @@ export function Sidebar() {
                 key={component.slug}
                 name={component.name}
                 slug={component.slug}
-                isBeta={component.isBeta}
+                isUpdated={component.isUpdated}
               />
             ))}
           </div>

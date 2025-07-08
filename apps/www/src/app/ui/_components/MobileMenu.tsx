@@ -8,7 +8,7 @@ type MenuItem = {
   items: {
     name: string;
     slug: string;
-    isBeta?: boolean;
+    isUpdated?: boolean;
     isNew?: boolean;
   }[];
 };
@@ -37,7 +37,7 @@ const MENU: MenuItem[] = [
       {
         name: "CLI",
         slug: "/ui/cli",
-        isBeta: true,
+        isUpdated: true,
       },
     ],
   },
@@ -145,7 +145,7 @@ export function MobileMenu({ handleClose }: MobileMenuProps) {
                 {category}
               </span>
             </AnimateEnter>
-            {items.map(({ name, slug, isBeta, isNew }, idx) => (
+            {items.map(({ name, slug, isUpdated, isNew }, idx) => (
               <AnimateEnter
                 delay={(index + 1) * 0.05 + (idx + 1) * 0.05}
                 duration={0.3}
@@ -158,9 +158,9 @@ export function MobileMenu({ handleClose }: MobileMenuProps) {
                   onClick={handleClose}
                 >
                   {name}
-                  {isBeta && (
+                  {isUpdated && (
                     <span className="text-xs -mb-[0.74rem] text-amber-600 dark:text-amber-500">
-                      Beta
+                      Updated
                     </span>
                   )}
                   {isNew && (
