@@ -38,7 +38,7 @@ export function HeroContent() {
           />
           <GetStartedButton
             href="/ui/installation"
-            className="max-sm:text-sm"
+            className="max-sm:text-sm py-4 h-[41px] sm:h-12"
           />
         </AnimateEnter>
       </div>
