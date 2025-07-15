@@ -1,8 +1,8 @@
 'use client' // @NOTE: Add in case you are using Next.js
 
-import { useState, createContext, useContext } from 'react'
+import { createContext, useContext, useState } from 'react'
 
-import { motion, type Variants } from 'motion/react'
+import { type Variants, motion } from 'motion/react'
 
 import { cn } from '@/utils/cn'
 
@@ -60,7 +60,7 @@ type DropdownMenuTriggerProps = {
   asChild?: boolean
 } & React.ComponentProps<'button'>
 
-export function DrodpownMenuTrigger({
+export function DropdownMenuTrigger({
   asChild = false,
   children,
   className,
@@ -73,9 +73,9 @@ export function DrodpownMenuTrigger({
   return (
     <Comp
       className={cn(
-        'flex w-full max-w-[300px] items-center justify-between rounded-xl border border-border bg-main-secondary px-3.5 py-2.5 ease-out active:scale-[0.97]',
-        'focus-visible:border-border focus-visible:outline-none',
-				className
+        'flex w-full max-w-[300px] items-center justify-between rounded-xl border border-border bg-main-secondary px-3.5 py-2.5 ease-out',
+        'duration-200 focus-visible:border-border focus-visible:outline-none active:scale-[0.97]',
+        className,
       )}
       onClick={() => setIsOpen(prev => !prev)}
       {...props}
