@@ -6,7 +6,8 @@ import { AnimatePresence, type Variants, motion } from 'motion/react'
 
 import { cn } from '@/utils/cn'
 
-export type InputProps = React.ComponentPropsWithRef<'input'>
+type InputProps = React.ComponentPropsWithRef<'input'>
+
 type FieldState = 'idle' | 'filled'
 
 export function Input({
@@ -33,7 +34,7 @@ export function Input({
   return (
     <div
       className={cn(
-        'relative inline-flex h-11 w-64 items-center overflow-hidden rounded-xl border border-border bg-main-secondary shadow-xs transition-colors ease-out focus-within:border-primary data-[filled=true]:border-border',
+        'relative inline-flex h-11 w-64 items-center overflow-hidden rounded-xl border border-border bg-main-secondary shadow-xs transition-colors ease-out focus-within:border-primary/20 data-[filled=true]:border-border',
         'has-disabled:opacity-80 has-disabled:*:cursor-not-allowed',
         className,
       )}
@@ -51,7 +52,6 @@ export function Input({
           onChange?.(event)
         }}
       />
-
       <AnimatePresence mode="popLayout" initial={false}>
         {fieldState !== 'filled' && (
           <motion.span
