@@ -1,46 +1,46 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import Image from "next/image";
+import Link from "next/link";
 
-import type { MDXComponents } from 'mdx/types'
-import { MDXRemote, type MDXRemoteProps } from 'next-mdx-remote/rsc'
-import rehypePrettyCode from 'rehype-pretty-code'
-import rehypeSlug from 'rehype-slug'
-import remarkGfm from 'remark-gfm'
-import type { PluggableList } from 'unified'
+import type { MDXComponents } from "mdx/types";
+import { MDXRemote, type MDXRemoteProps } from "next-mdx-remote/rsc";
+import rehypePrettyCode from "rehype-pretty-code";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
+import type { PluggableList } from "unified";
 
-import { cn } from '@/utils/cn'
+import { cn } from "@/utils/cn";
 
-import { AnimatedTabs } from '@/app/_components/ui/animated-tabs'
-import { Badge } from '@/app/_components/ui/badge'
-import { Button } from '@/app/_components/ui/button'
-import { Card } from '@/app/_components/ui/card'
-import { Spinner } from '@/app/_components/ui/spinner'
-import { Text } from '@/app/_components/ui/text'
+import { AnimatedTabs } from "@/app/_components/ui/animated-tabs";
+import { Badge } from "@/app/_components/ui/badge";
+import { Button } from "@/app/_components/ui/button";
+import { Card } from "@/app/_components/ui/card";
+import { Spinner } from "@/app/_components/ui/spinner";
+import { Text } from "@/app/_components/ui/text";
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from '@/app/ui/_components/Tabs'
-import { NavigationMenuExample } from '@/app/ui/_components/examples/NavigationMenuExample'
-import { InputOTPDisabledExample } from '@/app/ui/_components/examples/input-otp/InputOTPDisabledExample'
-import { InputOTPExample } from '@/app/ui/_components/examples/input-otp/InputOTPExample'
-import { InputOTPFormExample } from '@/app/ui/_components/examples/input-otp/InputOTPFormExample'
-import { InputOTPPatternExample } from '@/app/ui/_components/examples/input-otp/InputOTPPatternExample'
-import { CodeBlock } from '../../ui/_components/CodeBlock'
-import { CommandBlock } from '../../ui/_components/CommandBlock'
-import { ComponentView } from '../../ui/_components/ComponentView'
-import { CopyCode } from '../../ui/_components/CopyCode'
-import { AccordionExample } from '../../ui/_components/examples/AccordionExample'
-import { CheckboxExample } from '../../ui/_components/examples/CheckboxExample'
-import { DialogExample } from '../../ui/_components/examples/DialogExample'
-import { DropdownMenuExample } from '../../ui/_components/examples/DropdownMenuExample'
-import { MultiStepModalExample } from '../../ui/_components/examples/MultiStepModalExample'
-import { SwitchExample } from '../../ui/_components/examples/SwitchExample'
-import { TooltipExample } from '../../ui/_components/examples/TooltipExample'
-import { BlurImage } from '../BlurImage'
-import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar'
-import { Input } from '../ui/input'
+} from "@/app/ui/_components/Tabs";
+import { NavigationMenuExample } from "@/app/ui/_components/examples/NavigationMenuExample";
+import { InputOTPDisabledExample } from "@/app/ui/_components/examples/input-otp/InputOTPDisabledExample";
+import { InputOTPExample } from "@/app/ui/_components/examples/input-otp/InputOTPExample";
+import { InputOTPFormExample } from "@/app/ui/_components/examples/input-otp/InputOTPFormExample";
+import { InputOTPPatternExample } from "@/app/ui/_components/examples/input-otp/InputOTPPatternExample";
+import { CodeBlock } from "../../ui/_components/CodeBlock";
+import { CommandBlock } from "../../ui/_components/CommandBlock";
+import { ComponentView } from "../../ui/_components/ComponentView";
+import { CopyCode } from "../../ui/_components/CopyCode";
+import { AccordionExample } from "../../ui/_components/examples/AccordionExample";
+import { CheckboxExample } from "../../ui/_components/examples/CheckboxExample";
+import { DialogExample } from "../../ui/_components/examples/DialogExample";
+import { DropdownMenuExample } from "../../ui/_components/examples/DropdownMenuExample";
+import { MultiStepModalExample } from "../../ui/_components/examples/MultiStepModalExample";
+import { SwitchExample } from "../../ui/_components/examples/SwitchExample";
+import { TooltipExample } from "../../ui/_components/examples/TooltipExample";
+import { BlurImage } from "../BlurImage";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Input } from "../ui/input";
 
 const components: MDXComponents = {
   ComponentView: ({ children, isReloadAnimation, ...props }) => (
@@ -130,26 +130,26 @@ const components: MDXComponents = {
           target="_blank"
           rel="noopener noreferrer"
           className={cn(
-            'underline decoration-neutral-300 underline-offset-[2.5px] duration-200 hover:text-black hover:decoration-neutral-500 dark:decoration-neutral-500 dark:hover:text-white dark:hover:decoration-neutral-300',
+            "underline decoration-neutral-300 underline-offset-[2.5px] duration-200 hover:text-black hover:decoration-neutral-500 dark:decoration-neutral-500 dark:hover:text-white dark:hover:decoration-neutral-300",
             props.className,
           )}
         >
           {children}
         </a>
-      )
+      );
     }
 
     return (
       <Link
         {...props}
         className={cn(
-          'underline decoration-neutral-300 underline-offset-[2.5px] duration-200 hover:text-black hover:decoration-neutral-500 dark:decoration-neutral-500 dark:hover:text-white dark:hover:decoration-neutral-300',
+          "underline decoration-neutral-300 underline-offset-[2.5px] duration-200 hover:text-black hover:decoration-neutral-500 dark:decoration-neutral-500 dark:hover:text-white dark:hover:decoration-neutral-300",
           props.className,
         )}
       >
         {children}
       </Link>
-    )
+    );
   },
   CodeHighlight: ({ children, ...props }) => (
     <span
@@ -166,7 +166,7 @@ const components: MDXComponents = {
     <Image src={src} alt={alt} width={1280} height={960} {...props} />
   ),
   Tabs: ({ ...props }) => (
-    <Tabs className={cn('relative w-full', props.className)} {...props} />
+    <Tabs className={cn("relative w-full", props.className)} {...props} />
   ),
   TabsList: ({ ...props }) => (
     <TabsList className={cn(props.className)} {...props} />
@@ -181,7 +181,7 @@ const components: MDXComponents = {
     <CopyCode mode={mode} code={code} example={example} {...props} />
   ),
   AnimatedTabs: () => (
-    <AnimatedTabs tabs={['All Posts', 'Interactions', 'Resources', 'Docs']} />
+    <AnimatedTabs tabs={["All Posts", "Interactions", "Resources", "Docs"]} />
   ),
   Button: ({ children, variant, ...props }) => (
     <Button variant={variant} className={cn(props.className)} {...props}>
@@ -222,12 +222,12 @@ const components: MDXComponents = {
   InputOTPDisabledExample: () => <InputOTPDisabledExample />,
   InputOTPPatternExample: () => <InputOTPPatternExample />,
   InputOTPFormExample: () => <InputOTPFormExample />,
-}
+};
 
 export function useMDXComponents(components: MDXComponents) {
   return {
     ...components,
-  }
+  };
 }
 
 export function MDX(props: JSX.IntrinsicAttributes & MDXRemoteProps) {
@@ -243,11 +243,11 @@ export function MDX(props: JSX.IntrinsicAttributes & MDXRemoteProps) {
               rehypePrettyCode,
               {
                 theme: {
-                  dark: 'github-dark',
-                  light: 'github-light',
+                  dark: "github-dark",
+                  light: "github-light",
                 },
                 keepBackground: false,
-                defaultLang: 'tsx',
+                defaultLang: "tsx",
               },
             ],
           ] as PluggableList,
@@ -255,5 +255,5 @@ export function MDX(props: JSX.IntrinsicAttributes & MDXRemoteProps) {
       }}
       {...props}
     />
-  )
+  );
 }
