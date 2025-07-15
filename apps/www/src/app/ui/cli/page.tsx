@@ -60,12 +60,14 @@ export default async function CLIPage() {
       <div className="space-y-4">
         <Breadcrumbs groupName="Get Started" currentPage="CLI" />
         <div className="space-y-4">
-          <h1 className="text-3xl font-semibold tracking-tight text-primary">
-            {title}
-          </h1>
-          <p className="max-w-xl text-[16px] font-normal leading-relaxed text-black/80 dark:text-white/90">
-            {description}
-          </p>
+          <div className="space-y-3.5">
+            <h1 className="text-3xl font-semibold tracking-tight text-primary">
+              {title}
+            </h1>
+            <p className="max-w-xl text-[16px] font-normal leading-relaxed text-black/80 dark:text-white/90">
+              {description}
+            </p>
+          </div>
           <a
             href="https://npmjs.com/package/luxe"
             target="_blank"
