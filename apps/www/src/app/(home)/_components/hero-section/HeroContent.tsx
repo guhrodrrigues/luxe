@@ -8,13 +8,13 @@ import { AnimatedBadge } from "./AnimatedBadge";
 export function HeroContent() {
   return (
     <div className="z-[3] flex flex-col items-center gap-16 sm:gap-28 text-center">
-      <div className="space-y-8">
-        <div className="space-y-6">
+      <div className="space-y-6 sm:space-y-8">
+        <div className="space-y-4 sm:space-y-6">
           <AnimateEnter delay={0.1} duration={2} className="w-fit mx-auto">
             <AnimatedBadge />
           </AnimateEnter>
           <AnimateEnter delay={0.3} duration={2}>
-            <h1 className="mx-auto max-w-3xl max-sm:max-w-xs font-medium text-6xl text-gradient tracking-tight md:text-7xl">
+            <h1 className="mx-auto max-w-3xl max-sm:leading-none max-sm:max-w-xs font-medium text-6xl text-gradient tracking-tight md:text-7xl">
               Illuminate your apps
             </h1>
           </AnimateEnter>
