@@ -8,8 +8,8 @@ import { AnimatedBadge } from "./AnimatedBadge";
 export function HeroContent() {
   return (
     <div className="z-[3] flex flex-col items-center gap-16 sm:gap-28 text-center">
-      <div className="space-y-6 sm:space-y-8">
-        <div className="space-y-4 sm:space-y-6">
+      <div>
+        <div className="mb-5 sm:mb-8 space-y-4 sm:space-y-6">
           <AnimateEnter delay={0.1} duration={2} className="w-fit mx-auto">
             <AnimatedBadge />
           </AnimateEnter>
@@ -19,7 +19,7 @@ export function HeroContent() {
             </h1>
           </AnimateEnter>
         </div>
-        <AnimateEnter delay={0.5} duration={2}>
+        <AnimateEnter delay={0.5} duration={2} className="mb-6 sm:mb-8">
           <p className="mx-auto max-w-lg text-[17px] sm:text-xl text-foreground">
             Library of copy and paste components to illuminate your applications
             with elegance and sophistication.

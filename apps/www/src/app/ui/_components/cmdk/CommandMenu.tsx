@@ -1,6 +1,6 @@
 import { usePathname, useRouter } from "next/navigation";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useLayoutEffect } from "react";
 
 import Lottie from "lottie-react";
 
@@ -56,6 +56,7 @@ type CommandMenuItemProps = {
   ref: React.MutableRefObject<any>;
   children?: React.ReactNode;
   className?: string;
+  searchValue?: string;
 } & React.ComponentProps<typeof CommandItem>;
 
 function CommandMenuItem({
@@ -66,9 +67,18 @@ function CommandMenuItem({
   setIsOpen,
   ref,
   onAction,
+  searchValue,
   ...props
 }: CommandMenuItemProps) {
-  const itemRef = useRef<HTMLDivElement>(null);
+  const itemRef = useRef<any>(null);
+
+  function setItemRef(node: HTMLDivElement | null) {
+    itemRef.current = node;
+
+    if (node && node.getAttribute("aria-selected") === "true") {
+      ref.current?.goToAndPlay(0, true);
+    }
+  }
 
   useEffect(() => {
     if (!itemRef.current) return;
@@ -77,10 +87,10 @@ function CommandMenuItem({
       mutations.forEach((mutation) => {
         if (
           mutation.type === "attributes" &&
-          mutation.attributeName === "data-selected"
+          mutation.attributeName === "aria-selected"
         ) {
           const isSelected =
-            itemRef.current?.getAttribute("data-selected") === "true";
+            itemRef.current?.getAttribute("aria-selected") === "true";
           if (isSelected) {
             ref.current?.goToAndPlay(0, true);
           }
@@ -90,11 +100,17 @@ function CommandMenuItem({
 
     observer.observe(itemRef.current, {
       attributes: true,
-      attributeFilter: ["data-selected"],
+      attributeFilter: ["aria-selected"],
     });
 
     return () => observer.disconnect();
   }, []);
+
+  useLayoutEffect(() => {
+    if (itemRef.current?.getAttribute("aria-selected") === "true") {
+      ref.current?.goToAndPlay(0, true);
+    }
+  });
 
   useEffect(() => {
     if (!shortcut) return;
@@ -115,7 +131,7 @@ function CommandMenuItem({
   return (
     <CommandItem
       {...props}
-      ref={itemRef}
+      ref={setItemRef}
       onMouseEnter={() => ref.current?.goToAndPlay(0, true)}
       className={cn("cursor-pointer", className)}
     >
