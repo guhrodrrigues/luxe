@@ -9,7 +9,7 @@ import { cn } from "@/utils/cn";
 
 export function ComponentsSection() {
   return (
-    <section className="mt-14 flex flex-col items-center justify-center gap-12 sm:gap-20">
+    <section className="mt-14 flex flex-col items-center justify-center gap-12 sm:gap-16">
       <AnimateEnter className="space-y-4 text-center">
         <div className="space-y-2">
           <Link
