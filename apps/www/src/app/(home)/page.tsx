@@ -17,7 +17,8 @@ export default function Home() {
         </div>
         <Footer />
       </div>
-      <BlurBackground />
+      <BlurBackground position="top" />
+      <BlurBackground position="bottom" />
     </main>
   );
 }

@@ -66,12 +66,12 @@ export function Header() {
     <>
       <header
         className={cn(
-          "top-0 z-50 h-17 w-full transition-colors duration-300 ease-out border-b-[.75px] border-transparent [@media(max-width:662px)]:bg-background",
+          "top-0 z-50 h-17 w-full transition-colors duration-300 ease-out border-b-[.75px] border-transparent",
           isDocsPage ? "sticky bg-background bottom-dotted" : "fixed",
           !isDocsPage &&
             isScrolled &&
-            !isMobile &&
             "bg-background dark:bg-background/40 backdrop-blur-md border-border dark:border-[#262626]/50",
+          isMobile && isOpen && "!border-transparent",
         )}
       >
         <nav
