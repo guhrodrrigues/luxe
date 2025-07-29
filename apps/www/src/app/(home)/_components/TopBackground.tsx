@@ -3,17 +3,12 @@
 import { cn } from "@/utils/cn";
 import { motion } from "motion/react";
 
-type BlurBackgroundProps = {
-	position?: "top" | "bottom";
-}
-
-export function BlurBackground({ position = "bottom" }: BlurBackgroundProps) {
+export function TopBackground() {
   return (
     <motion.svg
       className={cn(
         "pointer-events-none absolute -z-[1] mx-auto hidden w-full dark:block",
-        position === "top" && "-top-[380px] rotate-180 md:hidden",
-        position === "bottom" && "-bottom-[420px] md:-bottom-96",
+        "-top-[380px] rotate-180 dark:md:hidden",
       )}
       width="944"
       height="1033"

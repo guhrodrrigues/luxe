@@ -1,9 +1,10 @@
-import { BlurBackground } from "./_components/BlurBackground";
 import { ComponentsSection } from "./_components/components-section";
 import { FeedbacksSection } from "./_components/feedbacks-section/FeedbacksSection";
 import { HeroSection } from "./_components/hero-section";
 import { SloganSection } from "./_components/slogan-section";
 import { Footer } from "../_components/Footer";
+import { TopBackground } from "./_components/TopBackground";
+import { BottomBackground } from "./_components/BottomBackground";
 
 export default function Home() {
   return (
@@ -17,8 +18,8 @@ export default function Home() {
         </div>
         <Footer />
       </div>
-      <BlurBackground position="top" />
-      <BlurBackground position="bottom" />
+      <BottomBackground />
+      <TopBackground />
     </main>
   );
 }
