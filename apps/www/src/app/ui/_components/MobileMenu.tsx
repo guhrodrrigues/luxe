@@ -37,7 +37,6 @@ const MENU: MenuItem[] = [
       {
         name: "CLI",
         slug: "/ui/cli",
-        isUpdated: true,
       },
     ],
   },
@@ -127,7 +126,7 @@ export function MobileMenu({ handleClose }: MobileMenuProps) {
   return (
     <motion.div
       key="mobile-menu"
-      className="fixed h-screen w-full bg-background z-[49] inset-0"
+      className="fixed h-[100dvh] w-full bg-background z-[49] inset-0"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

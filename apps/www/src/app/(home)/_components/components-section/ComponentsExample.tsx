@@ -10,15 +10,11 @@ import { AccordionExample } from "@/app/ui/_components/examples/AccordionExample
 import { Button } from "@/app/_components/ui/button";
 import { Text } from "@/app/_components/ui/text";
 import { DropdownMenuExample } from "@/app/ui/_components/examples/DropdownMenuExample";
+import { InputOTPExample } from "@/app/ui/_components/examples/input-otp/InputOTPExample";
 
 const COMPONENTS_EXAMPLE = [
-  {
-    component: (
-      <Text variant="generate-effect">This is a text generation effect.</Text>
-    ),
-    isReloadAnimation: true,
-  },
   { component: <Button variant="shine">Button</Button> },
+  { component: <InputOTPExample /> },
   { component: <TooltipExample /> },
   {
     component: <DropdownMenuExample />,
@@ -56,22 +52,18 @@ export function ComponentsExample() {
   return (
     <div className="grid gap-5 md:grid-cols-3 w-full">
       {COMPONENTS_EXAMPLE.map(
-        (
-          { isReloadAnimation, component, className, componentViewClassName },
-          idx,
-        ) => (
+        ({ component, className, componentViewClassName }, idx) => (
           <AnimateEnter key={idx} delay={idx * 0.03} className={className}>
             <ComponentView
-              isReloadAnimation={isReloadAnimation}
               className={cn(
                 "flex min-h-[250px] items-center justify-center",
-                componentViewClassName,
+                componentViewClassName
               )}
             >
               {component}
             </ComponentView>
           </AnimateEnter>
-        ),
+        )
       )}
     </div>
   );

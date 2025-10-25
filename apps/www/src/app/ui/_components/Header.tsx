@@ -66,18 +66,18 @@ export function Header() {
     <>
       <header
         className={cn(
-          "top-0 z-50 h-17 w-full transition-colors duration-300 ease-out border-b-[.75px] border-transparent",
+          "top-0 z-50 h-17 w-full transition-colors duration-200 ease-out border-b-[.75px] border-transparent",
           isDocsPage ? "sticky bg-background bottom-dotted" : "fixed",
           !isDocsPage &&
             isScrolled &&
             "bg-background dark:bg-background/40 backdrop-blur-md border-border dark:border-[#262626]/50",
-          isMobile && isOpen && "!bg-background !border-transparent",
+          isMobile && isOpen && "!border-transparent"
         )}
       >
         <nav
           className={cn(
             "flex h-full items-center justify-between gap-6 px-6 max-w-7xl mx-auto",
-            isDocsPage && "horizontal-dotted",
+            isDocsPage && "horizontal-dotted"
           )}
         >
           <Link
@@ -96,7 +96,7 @@ export function Header() {
                     "text-sm p-1 rounded font-[460] leading-none outline-none focus-visible:ring-1 focus-visible:ring-neutral-300/80 dark:focus-visible:ring-neutral-800",
                     pathname === slug
                       ? "text-primary"
-                      : "duration-200 text-foreground hover:text-primary",
+                      : "duration-200 text-foreground hover:text-primary"
                   )}
                 >
                   {name}
@@ -130,23 +130,22 @@ export function Header() {
             </a>
             <ToggleTheme />
             <Divider />
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="relative flex h-8 w-5 items-center justify-center"
-            >
-              <div className="relative size-5">
-                <span
-                  className={cn(
-                    "bg-primary-muted absolute right-0 block h-0.5 w-4 transition-all duration-300 top-1",
-                    isOpen && "top-[0.6rem] -rotate-45",
-                  )}
-                />
-                <span
-                  className={cn(
-                    "bg-primary-muted absolute right-0 block h-0.5 w-4 transition-all duration-300 top-3",
-                    isOpen && "top-[0.6rem] rotate-45",
-                  )}
-                />
+            <button onClick={() => setIsOpen(!isOpen)}>
+              <div className="relative mt-0.5 flex h-8 w-4 items-center justify-center">
+                <div className="relative size-4">
+                  <span
+                    className={cn(
+                      "absolute left-0 block h-px w-5 transition-all duration-250 bg-primary-muted",
+                      isOpen ? "top-[0.4rem] -rotate-45" : "top-0.5"
+                    )}
+                  />
+                  <span
+                    className={cn(
+                      "absolute left-0 block h-px w-5 transition-all duration-250 bg-primary-muted",
+                      isOpen ? "top-[0.4rem] rotate-45" : "top-2.5"
+                    )}
+                  />
+                </div>
               </div>
             </button>
           </div>
