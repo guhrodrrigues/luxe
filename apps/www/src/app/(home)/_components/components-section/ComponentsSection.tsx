@@ -29,27 +29,7 @@ export function ComponentsSection() {
         </p>
       </AnimateEnter>
       <ComponentsExample />
-      <AnimateEnter delay={0.3}>
-        <Button />
-      </AnimateEnter>
     </section>
-  );
-}
-
-function Button() {
-  return (
-    <Link
-      href="/ui/accordion"
-      className="group relative inline-flex items-center gap-1 overflow-hidden rounded-xl bg-black/80 px-4 py-2.5 text-sm font-semibold text-white duration-300 hover:bg-black dark:bg-white/80 dark:text-black dark:hover:bg-white"
-    >
-      <span className="[text-shadow:0_0.5px_0_rgb(255,255,255,.48)]">
-        Explore All Components
-      </span>
-      <ChevronIconGlitch />
-      <div className="absolute inset-0 flex h-full w-full animate-brightness justify-center">
-        <div className="relative h-full w-8 bg-white/20 blur dark:bg-white/40" />
-      </div>
-    </Link>
   );
 }
 
@@ -62,7 +42,7 @@ function ChevronIconGlitch({ className }: { className?: string }) {
       <span
         className={cn(
           "absolute left-0 top-0 text-white transition-transform duration-300 ease-in-out hover:duration-150 group-hover:translate-x-full dark:text-black",
-          className,
+          className
         )}
       >
         <ChevronRightIcon size={14} />
@@ -70,7 +50,7 @@ function ChevronIconGlitch({ className }: { className?: string }) {
       <span
         className={cn(
           "absolute left-0 top-0 -translate-x-full text-white transition-transform duration-300 ease-in-out hover:duration-150 group-hover:translate-x-0 dark:text-black",
-          className,
+          className
         )}
       >
         <ChevronRightIcon size={14} />

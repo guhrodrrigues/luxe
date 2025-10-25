@@ -3,8 +3,8 @@ import { FeedbacksCard } from "./FeedbacksCard";
 
 export function FeedbacksSection() {
   return (
-    <section className="relative z-[4] mt-48 bg-background">
-      <div className="relative overflow-hidden rounded-t-3xl border-t border-border pt-16">
+    <section className="relative z-[4] mt-48 sm:mt-60 bg-background">
+      <div className="relative overflow-hidden rounded-t-3xl border-t border-border pt-16 sm:[mask-image:linear-gradient(to_right,transparent,black_30%,black_70%,transparent)]">
         <Line />
         <Blur />
         <AnimateEnter

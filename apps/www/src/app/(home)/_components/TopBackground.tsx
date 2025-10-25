@@ -8,7 +8,7 @@ export function TopBackground() {
     <motion.svg
       className={cn(
         "pointer-events-none absolute -z-[1] mx-auto hidden w-full dark:block",
-        "-top-[380px] rotate-180 dark:md:hidden",
+        "-top-[360px] rotate-180 dark:md:hidden"
       )}
       width="944"
       height="1033"

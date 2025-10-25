@@ -1,4 +1,3 @@
-import { cn } from "@/utils/cn";
 import { SidebarButton } from "./SidebarButton";
 
 import { GET_STARTED } from "@/data/get-started";
@@ -18,7 +17,6 @@ export function Sidebar() {
                 key={component.slug}
                 name={component.name}
                 slug={component.slug}
-                isUpdated={component.isUpdated}
               />
             ))}
           </div>
