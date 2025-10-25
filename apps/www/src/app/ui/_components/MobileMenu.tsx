@@ -146,6 +146,7 @@ export function MobileMenu({ handleClose }: MobileMenuProps) {
             </AnimateEnter>
             {items.map(({ name, slug, isUpdated, isNew }, idx) => (
               <AnimateEnter
+                key={slug}
                 delay={(index + 1) * 0.05 + (idx + 1) * 0.05}
                 duration={0.3}
                 isWhileInView={false}

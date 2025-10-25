@@ -71,7 +71,7 @@ export function Header() {
           !isDocsPage &&
             isScrolled &&
             "bg-background dark:bg-background/40 backdrop-blur-md border-border dark:border-[#262626]/50",
-          isMobile && isOpen && "!border-transparent"
+          isMobile && isOpen && "!bg-background !border-transparent"
         )}
       >
         <nav
