@@ -1,7 +1,7 @@
 {
   "name": "luxe",
   "description": "Add components to your app instantly with Luxe CLI.",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "type": "module",
   "keywords": [
     "components",
