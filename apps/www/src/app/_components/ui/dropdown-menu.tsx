@@ -73,7 +73,7 @@ export function DropdownMenuTrigger({
   return (
     <Comp
       className={cn(
-        'flex w-full max-w-[300px] items-center justify-between rounded-xl border border-border bg-main-secondary p-1 ease-out',
+        'flex w-full max-w-[300px] items-center justify-between rounded-xl border border-border bg-main-secondary px-3.5 py-2.5 ease-out',
         'duration-200 focus-visible:border-border focus-visible:outline-none active:scale-[0.97]',
         className,
       )}
@@ -118,7 +118,7 @@ export function DropdownMenuContent({
   return (
     <motion.ul
       className={cn(
-        'z-[1] mx-auto flex w-full max-w-[200px] flex-col gap-1.5 rounded-xl px-1.5 py-2.5',
+        'z-[1] mx-auto flex w-full max-w-[200px] flex-col gap-1.5 rounded-xl p-1',
         'border border-border bg-main-secondary',
         isOpen ? 'pointer-events-auto' : 'pointer-events-none',
         floating ? 'absolute' : 'relative',
