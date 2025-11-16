@@ -73,7 +73,7 @@ export function DropdownMenuTrigger({
   return (
     <Comp
       className={cn(
-        'flex w-full max-w-[300px] items-center justify-between rounded-xl border border-border bg-main-secondary px-3.5 py-2.5 ease-out',
+        'flex w-full max-w-[300px] items-center justify-between rounded-xl border border-border bg-main-secondary px-3 py-2 ease-out',
         'duration-200 focus-visible:border-border focus-visible:outline-none active:scale-[0.97]',
         className,
       )}
