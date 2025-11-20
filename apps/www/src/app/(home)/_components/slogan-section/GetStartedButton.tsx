@@ -15,7 +15,7 @@ export function GetStartedButton({
       {...props}
       href={href}
       className={cn(
-        "group flex items-center justify-center gap-1.5 rounded-xl bg-background px-4 py-[11px] text-[15px] font-semibold text-neutral-600 duration-300 hover:bg-neutral-200 dark:border-transparent dark:bg-transparent dark:text-foreground dark:hover:bg-neutral-900 dark:hover:text-primary",
+        "group flex items-center justify-center gap-1.5 rounded-xl bg-background px-4 py-[11px] text-[15px] font-semibold text-neutral-600 duration-300 hover:bg-neutral-200 dark:border-transparent dark:bg-transparent dark:text-foreground dark:hover:bg-neutral-800 dark:hover:text-primary",
         className,
       )}
     >
