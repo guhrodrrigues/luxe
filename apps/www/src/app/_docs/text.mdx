@@ -20,14 +20,14 @@ slug: "text"
 
 <Tabs defaultValue="preview">
 
-<div className="flex items-center justify-between pr-3">
+<div className="flex items-center justify-between">
 
 <TabsList>
 	<TabsTrigger value="preview">Preview</TabsTrigger>
 	<TabsTrigger value="code">Code</TabsTrigger>
 </TabsList>
 
-<CopyCode 
+<CopyCode
 	code={`import { Text } from "@/components/ui/text"
 
 export function TextShineExample() {
@@ -82,14 +82,14 @@ export function TextShineExample() {
 
 <Tabs defaultValue="preview">
 
-<div className="flex items-center justify-between pr-3">
+<div className="flex items-center justify-between">
 
 <TabsList>
 	<TabsTrigger value="preview">Preview</TabsTrigger>
 	<TabsTrigger value="code">Code</TabsTrigger>
 </TabsList>
 
-<CopyCode 
+<CopyCode
 	code={`import { Text } from "@/components/ui/text"
 
 export function TextGenerateEffectExample() {
@@ -144,14 +144,14 @@ export function TextGenerateEffectExample() {
 
 <Tabs defaultValue="preview">
 
-<div className="flex items-center justify-between pr-3">
+<div className="flex items-center justify-between">
 
 <TabsList>
 	<TabsTrigger value="preview">Preview</TabsTrigger>
 	<TabsTrigger value="code">Code</TabsTrigger>
 </TabsList>
 
-<CopyCode 
+<CopyCode
 	code={`import { Text } from "@/components/ui/text"
 
 export function TextGlitchExample() {
@@ -206,14 +206,14 @@ export function TextGlitchExample() {
 
 <Tabs defaultValue="preview">
 
-<div className="flex items-center justify-between pr-3">
+<div className="flex items-center justify-between">
 
 <TabsList>
 	<TabsTrigger value="preview">Preview</TabsTrigger>
 	<TabsTrigger value="code">Code</TabsTrigger>
 </TabsList>
 
-<CopyCode 
+<CopyCode
 	code={`import { Text } from "@/components/ui/text"
 
 export function TextHoverEnterExample() {
@@ -268,14 +268,14 @@ export function TextHoverEnterExample() {
 
 <Tabs defaultValue="preview">
 
-<div className="flex items-center justify-between pr-3">
+<div className="flex items-center justify-between">
 
 <TabsList>
 	<TabsTrigger value="preview">Preview</TabsTrigger>
 	<TabsTrigger value="code">Code</TabsTrigger>
 </TabsList>
 
-<CopyCode 
+<CopyCode
 	code={`import { Text } from "@/components/ui/text"
 
 export function TextShakeExample() {
@@ -330,14 +330,14 @@ export function TextShakeExample() {
 
 <Tabs defaultValue="preview">
 
-<div className="flex items-center justify-between pr-3">
+<div className="flex items-center justify-between">
 
 <TabsList>
 	<TabsTrigger value="preview">Preview</TabsTrigger>
 	<TabsTrigger value="code">Code</TabsTrigger>
 </TabsList>
 
-<CopyCode 
+<CopyCode
 	code={`import { Text } from "@/components/ui/text"
 
 export function TextHoverDecorationExample() {
@@ -420,7 +420,7 @@ import { Text } from "@/components/ui/text"
 
 <Tabs defaultValue="cli">
 
-<div className="flex items-center justify-between pr-3">
+<div className="flex items-center justify-between">
 
 <TabsList className="pl-0">
 	<TabsTrigger value="cli">CLI</TabsTrigger>
@@ -431,11 +431,11 @@ import { Text } from "@/components/ui/text"
 
 <TabsContent value="cli">
 
-<CommandBlock 
-	npmCommand="npx luxe add text" 
-	pnpmCommand="pnpm dlx luxe add text" 
-	yarnCommand="npx luxe add text" 
-	bunCommand="bunx --bun luxe add text" 
+<CommandBlock
+	npmCommand="npx luxe add text"
+	pnpmCommand="pnpm dlx luxe add text"
+	yarnCommand="npx luxe add text"
+	bunCommand="bunx --bun luxe add text"
 />
 
 </TabsContent>
@@ -451,7 +451,7 @@ import { Text } from "@/components/ui/text"
 </div>
 
 <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
-	
+
 <div className="space-y-4 pb-10 pl-8 pt-1">
 
 <h2 className="font-medium text-primary">
@@ -460,11 +460,11 @@ Install the packages
 
 </h2>
 
-<CommandBlock 
-	npmCommand="npm i motion @radix-ui/react-slot clsx tailwind-merge" 
-	pnpmCommand="pnpm add motion @radix-ui/react-slot clsx tailwind-merge" 
-	yarnCommand="yarn add motion @radix-ui/react-slot clsx tailwind-merge" 
-	bunCommand="bun add motion @radix-ui/react-slot clsx tailwind-merge" 
+<CommandBlock
+	npmCommand="npm i motion @radix-ui/react-slot clsx tailwind-merge"
+	pnpmCommand="pnpm add motion @radix-ui/react-slot clsx tailwind-merge"
+	yarnCommand="yarn add motion @radix-ui/react-slot clsx tailwind-merge"
+	bunCommand="bun add motion @radix-ui/react-slot clsx tailwind-merge"
 />
 
 </div>
@@ -478,7 +478,7 @@ Install the packages
 </div>
 
 <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
-	
+
 <div className="space-y-4 pb-10 pl-8 pt-1">
 
 <h2 className="font-medium text-primary">
@@ -678,10 +678,10 @@ const variants = [
           'after:scale-x-0 after:bg-primary-muted after:transition-transform after:duration-300 after:ease-in-out hover:after:origin-bottom-left hover:after:scale-x-100'
         )}
       >
-        <span 
-          {...props} 
+        <span
+          {...props}
           className={cn(
-            'text-primary-muted', 
+            'text-primary-muted',
             className
           )}
         >
@@ -725,7 +725,7 @@ export function Text({ variant = 'shine', className, ...props }: TextProps) {
 </div>
 
 <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
-	
+
 <div className="space-y-4 pb-10 pl-8 pt-1">
 
 <h2 className="font-medium text-primary">
@@ -756,7 +756,7 @@ export function cn(...inputs: ClassValue[]) {
 </div>
 
 <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
-	
+
 <div className="space-y-4 pb-10 pl-8 pt-1">
 
 <h2 className="font-medium text-primary">
@@ -844,7 +844,7 @@ Add the animations and variable colors in your CSS File
 <div className="relative">
 
 <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
-	
+
 <span className="font-semibold text-primary">5</span>
 
 </div>

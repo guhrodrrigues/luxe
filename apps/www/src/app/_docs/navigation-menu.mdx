@@ -9,14 +9,14 @@ isNew: true
 
 <Tabs defaultValue="preview">
 
-<div className="flex items-center justify-between pr-3">
+<div className="flex items-center justify-between">
 
 <TabsList>
 	<TabsTrigger value="preview">Preview</TabsTrigger>
 	<TabsTrigger value="code">Code</TabsTrigger>
 </TabsList>
 
-<CopyCode 
+<CopyCode
 	code={`import {
   NavigationMenu,
   NavigationMenuContent,
@@ -303,7 +303,7 @@ import {
 
 <Tabs defaultValue="cli">
 
-<div className="flex items-center justify-between pr-3">
+<div className="flex items-center justify-between">
 
 <TabsList className="pl-0">
 	<TabsTrigger value="cli">CLI</TabsTrigger>
@@ -314,11 +314,11 @@ import {
 
 <TabsContent value="cli">
 
-<CommandBlock 
-	npmCommand="npx luxe add navigation-menu" 
-	pnpmCommand="pnpm dlx luxe add navigation-menu" 
-	yarnCommand="npx luxe add navigation-menu" 
-	bunCommand="bunx --bun luxe add navigation-menu" 
+<CommandBlock
+	npmCommand="npx luxe add navigation-menu"
+	pnpmCommand="pnpm dlx luxe add navigation-menu"
+	yarnCommand="npx luxe add navigation-menu"
+	bunCommand="bunx --bun luxe add navigation-menu"
 />
 
 </TabsContent>
@@ -334,7 +334,7 @@ import {
 </div>
 
 <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
-	
+
 <div className="space-y-4 pb-10 pl-8 pt-1">
 
 <h2 className="font-medium text-primary">
@@ -343,11 +343,11 @@ Install the packages
 
 </h2>
 
-<CommandBlock 
-	npmCommand="npm i @radix-ui/react-navigation-menu motion clsx tailwind-merge tw-animate-css" 
-	pnpmCommand="pnpm add @radix-ui/react-navigation-menu motion clsx tailwind-merge tw-animate-css" 
-	yarnCommand="yarn add @radix-ui/react-navigation-menu motion clsx tailwind-merge tw-animate-css" 
-	bunCommand="bun add @radix-ui/react-navigation-menu motion clsx tailwind-merge tw-animate-css" 
+<CommandBlock
+	npmCommand="npm i @radix-ui/react-navigation-menu motion clsx tailwind-merge tw-animate-css"
+	pnpmCommand="pnpm add @radix-ui/react-navigation-menu motion clsx tailwind-merge tw-animate-css"
+	yarnCommand="yarn add @radix-ui/react-navigation-menu motion clsx tailwind-merge tw-animate-css"
+	bunCommand="bun add @radix-ui/react-navigation-menu motion clsx tailwind-merge tw-animate-css"
 />
 
 </div>
@@ -361,7 +361,7 @@ Install the packages
 </div>
 
 <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
-	
+
 <div className="space-y-4 pb-10 pl-8 pt-1">
 
 <h2 className="font-medium text-primary">
@@ -598,7 +598,7 @@ export function NavigationMenuLink({
 </div>
 
 <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
-	
+
 <div className="space-y-4 pb-10 pl-8 pt-1">
 
 <h2 className="font-medium text-primary">
@@ -629,7 +629,7 @@ export function cn(...inputs: ClassValue[]) {
 </div>
 
 <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
-	
+
 <div className="space-y-4 pb-10 pl-8 pt-1">
 
 <h2 className="font-medium text-primary">
@@ -719,7 +719,7 @@ Add the animations and variable colors in your CSS File
 <div className="relative">
 
 <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
-  
+
 <span className="font-semibold text-primary">5</span>
 
 </div>

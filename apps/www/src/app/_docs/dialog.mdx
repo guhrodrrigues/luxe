@@ -10,14 +10,14 @@ externalApi: "https://radix-ui.com/primitives/docs/components/dialog#api-referen
 
 <Tabs defaultValue="preview">
 
-<div className="flex items-center justify-between pr-3">
+<div className="flex items-center justify-between">
 
 <TabsList>
 	<TabsTrigger value="preview">Preview</TabsTrigger>
 	<TabsTrigger value="code">Code</TabsTrigger>
 </TabsList>
 
-<CopyCode 
+<CopyCode
 	code={`import {
   Dialog,
   DialogTrigger,
@@ -189,7 +189,7 @@ import {
 
 <Tabs defaultValue="cli">
 
-<div className="flex items-center justify-between pr-3">
+<div className="flex items-center justify-between">
 
 <TabsList className="pl-0">
 	<TabsTrigger value="cli">CLI</TabsTrigger>
@@ -200,11 +200,11 @@ import {
 
 <TabsContent value="cli">
 
-<CommandBlock 
-	npmCommand="npx luxe add dialog" 
-	pnpmCommand="pnpm dlx luxe add dialog" 
-	yarnCommand="npx luxe add dialog" 
-	bunCommand="bunx --bun luxe add dialog" 
+<CommandBlock
+	npmCommand="npx luxe add dialog"
+	pnpmCommand="pnpm dlx luxe add dialog"
+	yarnCommand="npx luxe add dialog"
+	bunCommand="bunx --bun luxe add dialog"
 />
 
 </TabsContent>
@@ -220,7 +220,7 @@ import {
 </div>
 
 <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
-	
+
 <div className="space-y-4 pb-10 pl-8 pt-1">
 
 <h2 className="font-medium text-primary">
@@ -229,11 +229,11 @@ Install the packages
 
 </h2>
 
-<CommandBlock 
-	npmCommand="npm i @radix-ui/react-dialog clsx tailwind-merge tw-animate-css" 
-	pnpmCommand="pnpm add @radix-ui/react-dialog clsx tailwind-merge tw-animate-css" 
-	yarnCommand="yarn add @radix-ui/react-dialog clsx tailwind-merge tw-animate-css" 
-	bunCommand="bun add @radix-ui/react-dialog clsx tailwind-merge tw-animate-css" 
+<CommandBlock
+	npmCommand="npm i @radix-ui/react-dialog clsx tailwind-merge tw-animate-css"
+	pnpmCommand="pnpm add @radix-ui/react-dialog clsx tailwind-merge tw-animate-css"
+	yarnCommand="yarn add @radix-ui/react-dialog clsx tailwind-merge tw-animate-css"
+	bunCommand="bun add @radix-ui/react-dialog clsx tailwind-merge tw-animate-css"
 />
 
 </div>
@@ -247,7 +247,7 @@ Install the packages
 </div>
 
 <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
-	
+
 <div className="space-y-4 pb-10 pl-8 pt-1">
 
 <h2 className="font-medium text-primary">
@@ -395,7 +395,7 @@ export function DialogFooter({
 </div>
 
 <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
-	
+
 <div className="space-y-4 pb-10 pl-8 pt-1">
 
 <h2 className="font-medium text-primary">
@@ -426,7 +426,7 @@ export function cn(...inputs: ClassValue[]) {
 </div>
 
 <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
-	
+
 <div className="space-y-4 pb-10 pl-8 pt-1">
 
 <h2 className="font-medium text-primary">
@@ -463,7 +463,7 @@ Add <CodeHighlight>tw-animate-css</CodeHighlight> and variable colors in your CS
 
   --color-primary: var(--primary);
   --color-primary-muted: var(--primary-muted);
-  
+
   --color-border: var(--border);
 }`}>
 ```css
@@ -495,7 +495,7 @@ Add <CodeHighlight>tw-animate-css</CodeHighlight> and variable colors in your CS
 
   --color-primary: var(--primary);
   --color-primary-muted: var(--primary-muted);
-  
+
   --color-border: var(--border);
 }
 ```
@@ -508,7 +508,7 @@ Add <CodeHighlight>tw-animate-css</CodeHighlight> and variable colors in your CS
 <div className="relative">
 
 <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
-	
+
 <span className="font-semibold text-primary">5</span>
 
 </div>

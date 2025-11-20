@@ -37,7 +37,7 @@ export const TabsList = forwardRef<
   <TabsPrimitive.List
     ref={ref}
     className={cn(
-      "inline-flex h-[44px] gap-4 w-full items-center justify-start rounded-t-lg bg-background pl-3",
+      "inline-flex h-[44px] gap-4 w-full items-center justify-start rounded-t-lg bg-background",
       className,
     )}
     {...props}

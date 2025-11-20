@@ -8,14 +8,14 @@ slug: "multi-step-modal"
 
 <Tabs defaultValue="preview">
 
-<div className="flex items-center justify-between pr-3">
+<div className="flex items-center justify-between">
 
 <TabsList>
 	<TabsTrigger value="preview">Preview</TabsTrigger>
 	<TabsTrigger value="code">Code</TabsTrigger>
 </TabsList>
 
-<CopyCode 
+<CopyCode
 	code={`import {
   MultiStepModal,
   MultiStepModalContent,
@@ -179,7 +179,7 @@ const steps = [
 
 <Tabs defaultValue="cli">
 
-<div className="flex items-center justify-between pr-3">
+<div className="flex items-center justify-between">
 
 <TabsList className="pl-0">
 	<TabsTrigger value="cli">CLI</TabsTrigger>
@@ -190,11 +190,11 @@ const steps = [
 
 <TabsContent value="cli">
 
-<CommandBlock 
-	npmCommand="npx luxe add multi-step-modal" 
-	pnpmCommand="pnpm dlx luxe add multi-step-modal" 
-	yarnCommand="npx luxe add multi-step-modal" 
-	bunCommand="bunx --bun luxe add multi-step-modal" 
+<CommandBlock
+	npmCommand="npx luxe add multi-step-modal"
+	pnpmCommand="pnpm dlx luxe add multi-step-modal"
+	yarnCommand="npx luxe add multi-step-modal"
+	bunCommand="bunx --bun luxe add multi-step-modal"
 />
 
 </TabsContent>
@@ -210,7 +210,7 @@ const steps = [
 </div>
 
 <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
-	
+
 <div className="space-y-4 pb-10 pl-8 pt-1">
 
 <h2 className="font-medium text-primary">
@@ -219,11 +219,11 @@ Install the packages
 
 </h2>
 
-<CommandBlock 
-	npmCommand="npm i motion @radix-ui/react-dialog motion react-use-measure clsx tailwind-merge tw-animate-css" 
-	pnpmCommand="pnpm add motion @radix-ui/react-dialog motion react-use-measure clsx tailwind-merge tw-animate-css" 
-	yarnCommand="yarn add motion @radix-ui/react-dialog motion react-use-measure clsx tailwind-merge tw-animate-css" 
-	bunCommand="bun add motion @radix-ui/react-dialog motion react-use-measure clsx tailwind-merge tw-animate-css" 
+<CommandBlock
+	npmCommand="npm i motion @radix-ui/react-dialog motion react-use-measure clsx tailwind-merge tw-animate-css"
+	pnpmCommand="pnpm add motion @radix-ui/react-dialog motion react-use-measure clsx tailwind-merge tw-animate-css"
+	yarnCommand="yarn add motion @radix-ui/react-dialog motion react-use-measure clsx tailwind-merge tw-animate-css"
+	bunCommand="bun add motion @radix-ui/react-dialog motion react-use-measure clsx tailwind-merge tw-animate-css"
 />
 
 </div>
@@ -237,7 +237,7 @@ Install the packages
 </div>
 
 <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
-	
+
 <div className="space-y-4 pb-10 pl-8 pt-1">
 
 <h2 className="font-medium text-primary">
@@ -410,7 +410,7 @@ export function MultiStepModalContent({
 </div>
 
 <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
-	
+
 <div className="space-y-4 pb-10 pl-8 pt-1">
 
 <h2 className="font-medium text-primary">
@@ -441,7 +441,7 @@ export function cn(...inputs: ClassValue[]) {
 </div>
 
 <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
-	
+
 <div className="space-y-4 pb-10 pl-8 pt-1">
 
 <h2 className="font-medium text-primary">
@@ -484,7 +484,7 @@ Add <CodeHighlight>tw-animate-css</CodeHighlight> and variable colors in your CS
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary-muted: var(--primary-muted);
-  
+
   --color-border: var(--border);
 }`}>
 ```css
@@ -522,7 +522,7 @@ Add <CodeHighlight>tw-animate-css</CodeHighlight> and variable colors in your CS
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary-muted: var(--primary-muted);
-  
+
   --color-border: var(--border);
 }
 ```
@@ -535,7 +535,7 @@ Add <CodeHighlight>tw-animate-css</CodeHighlight> and variable colors in your CS
 <div className="relative">
 
 <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
-	
+
 <span className="font-semibold text-primary">5</span>
 
 </div>

@@ -6,19 +6,19 @@ slug: "input"
 
 <Tabs defaultValue="preview">
 
-<div className="flex items-center justify-between pr-3">
+<div className="flex items-center justify-between">
 
 <TabsList>
 	<TabsTrigger value="preview">Preview</TabsTrigger>
 	<TabsTrigger value="code">Code</TabsTrigger>
 </TabsList>
 
-<CopyCode 
+<CopyCode
 	code={`import { Input } from "@/components/ui/input";
 
 export function InputExample() {
   return (
-    <Input 
+    <Input
       placeholder="Placeholder"
     />
   );
@@ -47,7 +47,7 @@ import { Input } from "@/components/ui/input";
 
 export function InputExample() {
   return (
-    <Input 
+    <Input
       placeholder="Placeholder"
     />
   );
@@ -94,7 +94,7 @@ import { Input } from "@/components/ui/input"
 
 <Tabs defaultValue="cli">
 
-<div className="flex items-center justify-between pr-3">
+<div className="flex items-center justify-between">
 
 <TabsList className="pl-0">
 	<TabsTrigger value="cli">CLI</TabsTrigger>
@@ -105,11 +105,11 @@ import { Input } from "@/components/ui/input"
 
 <TabsContent value="cli">
 
-<CommandBlock 
-	npmCommand="npx luxe add input" 
-	pnpmCommand="pnpm dlx luxe add input" 
-	yarnCommand="npx luxe add input" 
-	bunCommand="bunx --bun luxe add input" 
+<CommandBlock
+	npmCommand="npx luxe add input"
+	pnpmCommand="pnpm dlx luxe add input"
+	yarnCommand="npx luxe add input"
+	bunCommand="bunx --bun luxe add input"
 />
 
 </TabsContent>
@@ -125,7 +125,7 @@ import { Input } from "@/components/ui/input"
 </div>
 
 <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
-	
+
 <div className="space-y-4 pb-10 pl-8 pt-1">
 
 <h2 className="font-medium text-primary">
@@ -134,11 +134,11 @@ Install the packages
 
 </h2>
 
-<CommandBlock 
-	npmCommand="npm i motion clsx tailwind-merge" 
-	pnpmCommand="pnpm add motion clsx tailwind-merge" 
-	yarnCommand="yarn add motion clsx tailwind-merge" 
-	bunCommand="bun add motion clsx tailwind-merge" 
+<CommandBlock
+	npmCommand="npm i motion clsx tailwind-merge"
+	pnpmCommand="pnpm add motion clsx tailwind-merge"
+	yarnCommand="yarn add motion clsx tailwind-merge"
+	bunCommand="bun add motion clsx tailwind-merge"
 />
 
 </div>
@@ -152,7 +152,7 @@ Install the packages
 </div>
 
 <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
-	
+
 <div className="space-y-4 pb-10 pl-8 pt-1">
 
 <h2 className="font-medium text-primary">
@@ -255,7 +255,7 @@ export function Input({
 </div>
 
 <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
-	
+
 <div className="space-y-4 pb-10 pl-8 pt-1">
 
 <h2 className="font-medium text-primary">
@@ -286,7 +286,7 @@ export function cn(...inputs: ClassValue[]) {
 </div>
 
 <div className="ml-[1.1rem] border-l border-neutral-200 dark:border-neutral-900">
-	
+
 <div className="space-y-4 pb-10 pl-8 pt-1">
 
 <h2 className="font-medium text-primary">
@@ -321,7 +321,7 @@ Add the variable colors in your CSS File
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary-muted: var(--primary-muted);
-  
+
   --color-border: var(--border);
 }`}>
 ```css
@@ -351,7 +351,7 @@ Add the variable colors in your CSS File
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary-muted: var(--primary-muted);
-  
+
   --color-border: var(--border);
 }
 ```
@@ -364,7 +364,7 @@ Add the variable colors in your CSS File
 <div className="relative">
 
 <div className="absolute flex h-9 w-9 select-none items-center justify-center rounded-full border-[3px] border-background bg-neutral-300 dark:bg-neutral-800">
-	
+
 <span className="font-semibold text-primary">5</span>
 
 </div>
