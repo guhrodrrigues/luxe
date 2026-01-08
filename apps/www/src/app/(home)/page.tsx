@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <main className="relative overflow-hidden">
       <div className="mt-20 relative">
-        <div className="mx-auto w-full max-w-7xl px-4">
+        <div className="mx-auto w-full max-w-7xl px-6">
           <HeroSection />
           <ComponentsSection />
           <FeedbacksSection />
