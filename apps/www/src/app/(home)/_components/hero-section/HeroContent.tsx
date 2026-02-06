@@ -9,7 +9,7 @@ export function HeroContent() {
   return (
     <div className="z-[3] flex flex-col items-center gap-16 sm:gap-28 text-center">
       <div>
-        <div className="mb-5 sm:mb-8 space-y-4 sm:space-y-6">
+        <div className="mb-6 space-y-4 sm:space-y-6">
           <AnimateEnter delay={0.1} duration={2} className="w-fit mx-auto">
             <AnimatedBadge />
           </AnimateEnter>
