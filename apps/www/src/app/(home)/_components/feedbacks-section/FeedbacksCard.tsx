@@ -17,14 +17,9 @@ export function FeedbacksCard() {
           className="rounded-full object-cover"
         />
         <div className="flex flex-col">
-          <a
-            href="https://x.com/guilherme_rodz"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-base font-medium leading-none text-neutral-600 duration-300 dark:text-neutral-300"
-          >
+          <h3 className="font-medium leading-none text-neutral-600 duration-300 dark:text-neutral-300">
             Guilherme Rodz
-          </a>
+          </h3>
           <span className="text-neutral-500 dark:text-neutral-400">
             Creator of input-otp
           </span>

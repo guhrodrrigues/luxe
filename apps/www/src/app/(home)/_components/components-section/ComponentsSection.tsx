@@ -11,10 +11,10 @@ export function ComponentsSection() {
   return (
     <section className="mt-14 flex flex-col items-center justify-center gap-12 sm:gap-16">
       <AnimateEnter className="space-y-4 text-center">
-        <div className="space-y-2">
+        <div className="space-y-1.5">
           <Link
             href="/ui/accordion"
-            className="group w-fit mx-auto flex items-center justify-center gap-1.5 text-[15px] font-semibold text-gradient duration-300"
+            className="group w-fit mx-auto flex items-center justify-center gap-1.5 text-[15px] font-semibold text-gradient duration-300 p-0.5 rounded outline-none focus-visible:ring-1 focus-visible:ring-neutral-300/80 dark:focus-visible:ring-neutral-800"
           >
             <span>See more</span>
             <ChevronIconGlitch className="text-gradient" />
