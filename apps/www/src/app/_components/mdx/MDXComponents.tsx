@@ -111,6 +111,7 @@ const components: MDXComponents = {
     contentClassName,
     copyCode = true,
     customFilePath,
+    simpleCode,
     ...props
   }) => (
     <CodeBlock
@@ -119,6 +120,7 @@ const components: MDXComponents = {
       className={cn(props.className)}
       contentClassName={contentClassName}
       customFilePath={customFilePath}
+      simpleCode={simpleCode}
       {...props}
     />
   ),
