@@ -61,7 +61,7 @@ export const metadata: Metadata = {
       },
     ],
     locale: "en",
-    siteName: "Gustavo Rodrigues",
+    siteName: "Luxe",
     title: "Luxe",
     description:
       "Copy and paste components ready to use. Practical. Customizable.",

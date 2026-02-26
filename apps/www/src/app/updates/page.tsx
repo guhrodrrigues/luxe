@@ -20,7 +20,7 @@ export const metadata: Metadata = {
       },
     ],
     locale: "en",
-    siteName: "Gustavo Rodrigues",
+    siteName: "Luxe",
     title: "Luxe: Updates",
     description: "Discover the latest updates from Luxe.",
     type: "website",

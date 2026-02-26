@@ -20,7 +20,7 @@ export const metadata: Metadata = {
       },
     ],
     locale: "en",
-    siteName: "Gustavo Rodrigues",
+    siteName: "Luxe",
     title: "Luxe: Browse Components",
     description:
       "Navigate to all the components that will make your application sophisticated and luxurious.",

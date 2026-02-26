@@ -18,7 +18,7 @@ export const metadata: Metadata = {
       },
     ],
     locale: "en",
-    siteName: "Gustavo Rodrigues",
+    siteName: "Luxe",
     title: "Luxe: Installation",
     description: "How to install dependencies and structure your application",
     type: "website",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     title: "Luxe: Installation",
     description: "How to install dependencies and structure your application",
     site: "@guhrodrrigues",
-    creator: "Gustavo Rodrigues",
+    creator: "Luxe",
   },
 };
 

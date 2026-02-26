@@ -23,7 +23,7 @@ export const metadata: Metadata = {
       },
     ],
     locale: "en",
-    siteName: "Gustavo Rodrigues",
+    siteName: "Luxe",
     title: "Luxe: CLI",
     description: "Add components to your app instantly with Luxe CLI.",
     type: "website",

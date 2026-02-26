@@ -1,8 +1,8 @@
-import { ButtonGlitchBrightness } from "@/app/_components/ButtonGlitchBrightness";
+import { ButtonGlitch } from "@/app/_components/ButtonGlitch";
 import { AnimateEnter } from "../AnimateEnter";
 import { GridBackground } from "../GridBackground";
 import { Techs } from "../techs-section/Techs";
-import { GetStartedButton } from "../slogan-section/GetStartedButton";
+import { GetStartedButton } from "@/app/_components/GetStartedButton";
 import { AnimatedBadge } from "./AnimatedBadge";
 
 export function HeroContent() {
@@ -26,20 +26,16 @@ export function HeroContent() {
           </p>
         </AnimateEnter>
         <AnimateEnter
-          className="flex items-center justify-center gap-3"
+          className="flex flex-wrap items-center justify-center gap-3"
           delay={0.7}
           duration={2}
         >
-          <ButtonGlitchBrightness
+          <ButtonGlitch
             href="/ui/accordion"
-            text="Explore components"
-            className="p-4 h-10 sm:h-11 text-sm sm:text-base"
-            shine={false}
-          />
-          <GetStartedButton
-            href="/ui/installation"
-            className="max-sm:text-sm py-4 h-[41px] sm:h-12"
-          />
+          >
+						Explore components
+					</ButtonGlitch>
+          <GetStartedButton href="/ui/installation"/>
         </AnimateEnter>
       </div>
       <AnimateEnter delay={0.9} duration={2} className="space-y-4">
