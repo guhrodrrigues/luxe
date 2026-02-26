@@ -237,6 +237,7 @@ export function MDX(props: JSX.IntrinsicAttributes & MDXRemoteProps) {
     <MDXRemote
       components={components}
       options={{
+        blockJS: false,
         mdxOptions: {
           remarkPlugins: [remarkGfm],
           rehypePlugins: [
